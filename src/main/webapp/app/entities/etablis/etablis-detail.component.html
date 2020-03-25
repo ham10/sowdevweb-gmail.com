@@ -1,0 +1,84 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="etablis">
+            <h2><span jhiTranslate="hpdApp.etablis.detail.title">Etablis</span> {{ etablis.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.etablis.codeEtabl">Code Etabl</span></dt>
+                <dd>
+                    <span>{{ etablis.codeEtabl }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.etablis.raisonSocialeEtabl">Raison Sociale Etabl</span></dt>
+                <dd>
+                    <span>{{ etablis.raisonSocialeEtabl }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.etablis.adresseEtabl">Adresse Etabl</span></dt>
+                <dd>
+                    <span>{{ etablis.adresseEtabl }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.etablis.telephoneEtabl">Telephone Etabl</span></dt>
+                <dd>
+                    <span>{{ etablis.telephoneEtabl }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.etablis.nineaEtabl">Ninea Etabl</span></dt>
+                <dd>
+                    <span>{{ etablis.nineaEtabl }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.etablis.rcEtabl">Rc Etabl</span></dt>
+                <dd>
+                    <span>{{ etablis.rcEtabl }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.etablis.emailEtabl">Email Etabl</span></dt>
+                <dd>
+                    <span>{{ etablis.emailEtabl }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.etablis.description">Description</span></dt>
+                <dd>
+                    <span>{{ etablis.description }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.etablis.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ etablis.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.etablis.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ etablis.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.etablis.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ etablis.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.etablis.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ etablis.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.etablis.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ etablis.userDeleted }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.etablis.departement">Departement</span></dt>
+                <dd>
+                    <div *ngIf="etablis.departement">
+                        <a [routerLink]="['/departement', etablis.departement?.id, 'view']">{{ etablis.departement?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/etablis', etablis.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

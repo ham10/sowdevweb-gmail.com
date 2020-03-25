@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="mouvement">
+            <h2><span jhiTranslate="hpdApp.mouvement.detail.title">Mouvement</span> {{ mouvement.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.mouvement.codeMvt">Code Mvt</span></dt>
+                <dd>
+                    <span>{{ mouvement.codeMvt }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.mouvement.libelleMvt">Libelle Mvt</span></dt>
+                <dd>
+                    <span>{{ mouvement.libelleMvt }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.mouvement.stockEntrant">Stock Entrant</span></dt>
+                <dd>
+                    <span>{{ mouvement.stockEntrant }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.mouvement.stockSortant">Stock Sortant</span></dt>
+                <dd>
+                    <span>{{ mouvement.stockSortant }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.mouvement.produit">Produit</span></dt>
+                <dd>
+                    <div *ngIf="mouvement.produit">
+                        <a [routerLink]="['/produit', mouvement.produit?.id, 'view']">{{ mouvement.produit?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.mouvement.typeMvtStock">Type Mvt Stock</span></dt>
+                <dd>
+                    <div *ngIf="mouvement.typeMvtStock">
+                        <a [routerLink]="['/type-mvt-stock', mouvement.typeMvtStock?.id, 'view']">{{ mouvement.typeMvtStock?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/mouvement', mouvement.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

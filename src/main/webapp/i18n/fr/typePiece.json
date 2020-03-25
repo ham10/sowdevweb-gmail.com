@@ -1,0 +1,29 @@
+{
+  "hpdApp": {
+    "typePiece": {
+      "home": {
+        "title": "TypePieces",
+        "createLabel": "Créer un nouveau Type Piece",
+        "createOrEditLabel": "Créer ou éditer un Type Piece",
+        "notFound": "Aucun Type Piece trouvé"
+      },
+      "created": "Un nouveau Type Piece a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Type Piece avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Type Piece avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Type Piece {{ id }} ?"
+      },
+      "detail": {
+        "title": "Type Piece"
+      },
+      "codeTypePiece": "Code Type Piece",
+      "libelleTypePiece": "Libelle Type Piece",
+      "descriptionTypePiece": "Description Type Piece",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted"
+    }
+  }
+}

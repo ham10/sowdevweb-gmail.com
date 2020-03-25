@@ -1,0 +1,196 @@
+<div class="row justify-content-center">
+
+    <div class="col-8">
+<!--        <div class="row">-->
+<!--            <form (ngSubmit)="" [formGroup]="searchForm">-->
+<!--                <div class="row">-->
+<!--                    <div class="col-7">-->
+<!--                        <div class="form-group">-->
+<!--                            <input type="text" placeholder="Rechercher" class="form-control" formControlName="nameSearch">-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="col-5">-->
+<!--                        <button type="submit" [disabled]="searchForm.invalid" class="btn btn-primary"><fa-icon icon="search"></fa-icon> search</button>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </form>-->
+<!--        </div>-->
+        <div class="row">
+            <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+<!--                <h2 id="jhi-rdv-heading" jhiTranslate="hpdApp.rDV.home.createOrEditLabel">Create or edit a RDV</h2>-->
+
+                <div>
+                    <jhi-alert-error></jhi-alert-error>
+
+                    <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                        <label for="id" jhiTranslate="global.field.id">ID</label>
+                        <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                    </div>
+
+                    <!--                <div class="form-group">-->
+                    <!--                    <label class="form-control-label" jhiTranslate="hpdApp.rDV.numRdv" for="field_numRdv">Num Rdv</label>-->
+                    <!--                    <input type="text" class="form-control" name="numRdv" id="field_numRdv"-->
+                    <!--                           formControlName="numRdv"/>-->
+                    <!--                </div>-->
+
+                    <div class="form-group">
+                        <label class="form-control-label" jhiTranslate="hpdApp.rDV.dateRdv" for="field_dateRdv">Date Rdv</label>
+                        <div class="input-group">
+                            <input id="field_dateRdv" type="text" class="form-control" name="dateRdv" ngbDatepicker #dateRdvDp="ngbDatepicker" formControlName="dateRdv"/>
+                            <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateRdvDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-control-label" jhiTranslate="hpdApp.rDV.heureRdv" for="field_heureRdv">Heure Rdv</label>
+                        <div class="d-flex">
+                            <input id="field_heureRdv" type="datetime-local" class="form-control" name="heureRdv" formControlName="heureRdv" placeholder="YYYY-MM-DD HH:mm"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-control-label" jhiTranslate="hpdApp.rDV.patient" for="field_patient">Patient</label>
+                        <select class="form-control" id="field_patient" name="patient" formControlName="patient">
+                            <option [ngValue]="null"></option>
+                            <option [ngValue]="patientOption.id === editForm.get('patient')!.value?.id ? editForm.get('patient')!.value : patientOption" *ngFor="let patientOption of patients; trackBy: trackById">{{ patientOption.id }}</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-control-label" jhiTranslate="hpdApp.rDV.planning" for="field_planning">Planning</label>
+                        <select class="form-control" id="field_planning" name="planning" formControlName="planning">
+                            <option [ngValue]="null"></option>
+                            <option [ngValue]="planningOption.id === editForm.get('planning')!.value?.id ? editForm.get('planning')!.value : planningOption" *ngFor="let planningOption of plannings; trackBy: trackById">{{ planningOption.id }}</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-control-label" jhiTranslate="hpdApp.rDV.etatRDV" for="field_etatRDV">Etat RDV</label>
+                        <select class="form-control" id="field_etatRDV" name="etatRDV" formControlName="etatRDV">
+                            <option [ngValue]="null"></option>
+                            <option [ngValue]="etatRdvOption.id === editForm.get('etatRDV')!.value?.id ? editForm.get('etatRDV')!.value : etatRdvOption" *ngFor="let etatRdvOption of etatrdvs; trackBy: trackById">{{ etatRdvOption.id }}</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                        <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                    </button>
+
+                    <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                        <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="col-4 card">
+        <div class="card-header">Info patient</div>
+        <div class="card-body">
+            <div *ngIf="patient == null" class="alert alert-warning">
+                Veuillez rechercher un patient
+            </div>
+            <div *ngIf="patient != null">
+                <dl class="row-md jh-entity-details">
+                    <dt><span jhiTranslate="hpdApp.patient.codePatient">Code Patient</span></dt>
+                    <dd>
+                        <span>{{ patient.codePatient }}</span>
+                    </dd>
+                    <dt><span jhiTranslate="hpdApp.patient.nomPatient">Nom Patient</span></dt>
+                    <dd>
+                        <span>{{ patient.nomPatient }}</span>
+                    </dd>
+                    <dt><span jhiTranslate="hpdApp.patient.prenom">Prenom</span></dt>
+                    <dd>
+                        <span>{{ patient.prenom }}</span>
+                    </dd>
+                    <dt><span jhiTranslate="hpdApp.patient.adresse">Adresse</span></dt>
+                    <dd>
+                        <span>{{ patient.adresse }}</span>
+                    </dd>
+                    <dt><span jhiTranslate="hpdApp.patient.email">Email</span></dt>
+                    <dd>
+                        <span>{{ patient.email }}</span>
+                    </dd>
+                    <dt><span jhiTranslate="hpdApp.patient.dateNaissance">Date Naissance</span></dt>
+                    <dd>
+                        <span>{{ patient.dateNaissance }}</span>
+                    </dd>
+                    <dt><span jhiTranslate="hpdApp.patient.genre">Genre</span></dt>
+                    <dd>
+                        <span>{{ patient.genre }}</span>
+                    </dd>
+
+
+                    <dt><span jhiTranslate="hpdApp.patient.telephone">Telephone</span></dt>
+                    <dd>
+                        <span>{{ patient.telephone }}</span>
+                    </dd>
+                    <dt><span jhiTranslate="hpdApp.patient.numeroPiece">Numero Piece</span></dt>
+                    <dd>
+                        <span>{{ patient.numeroPiece }}</span>
+                    </dd>
+                    <dt><span jhiTranslate="hpdApp.patient.codeBarre">Code Barre</span></dt>
+                    <dd>
+                        <span>{{ patient.codeBarre }}</span>
+                    </dd>
+                    <dt><span jhiTranslate="hpdApp.patient.entreprise">Entreprise</span></dt>
+                    <dd>
+                        <span>{{ patient.entreprise }}</span>
+                    </dd>
+                    <dt><span jhiTranslate="hpdApp.patient.ville">Ville</span></dt>
+                    <dd>
+                        <span>{{ patient.ville }}</span>
+                    </dd>
+                    <dt><span jhiTranslate="hpdApp.patient.quartier">Quartier</span></dt>
+                    <dd>
+                        <span>{{ patient.quartier }}</span>
+                    </dd>
+
+                    <dt><span jhiTranslate="hpdApp.patient.lieuNaissance">Lieu Naissance</span></dt>
+                    <dd>
+                        <span>{{ patient.lieuNaissance }}</span>
+                    </dd>
+                    <dt><span jhiTranslate="hpdApp.patient.fonctionPatient">Fonction Patient</span></dt>
+                    <dd>
+                        <span>{{ patient.fonctionPatient }}</span>
+                    </dd>
+                    <dt><span jhiTranslate="hpdApp.patient.situationSociale">Situation Sociale</span></dt>
+                    <dd>
+                        <span>{{ patient.situationSociale }}</span>
+                    </dd>
+                    <dt><span jhiTranslate="hpdApp.patient.solde">Solde</span></dt>
+                    <dd>
+                        <span>{{ patient.solde }}</span>
+                    </dd>
+                    <dt><span jhiTranslate="hpdApp.patient.cartePatient">Carte Patient</span></dt>
+                    <dd>
+                        <span>{{ patient.cartePatient }}</span>
+                    </dd>
+                    <dt><span jhiTranslate="hpdApp.patient.bloque">Bloque</span></dt>
+                    <dd>
+                        <span>{{ patient.bloque }}</span>
+                    </dd>
+                    <dt><span jhiTranslate="hpdApp.patient.dateValidite">Date Validite</span></dt>
+                    <dd>
+                        <span>{{ patient.dateValidite }}</span>
+                    </dd>
+
+
+                    <dt><span jhiTranslate="hpdApp.patient.nomMerePatient">Nom Mere Patient</span></dt>
+                    <dd>
+                        <span>{{ patient.nomMerePatient }}</span>
+                    </dd>
+                    <dt><span jhiTranslate="hpdApp.patient.prenomMerePatient">Prenom Mere Patient</span></dt>
+                    <dd>
+                        <span>{{ patient.prenomMerePatient }}</span>
+                    </dd>
+
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>

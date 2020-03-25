@@ -1,0 +1,58 @@
+{
+    "name": "Chambre",
+    "fields": [
+        {
+            "fieldName": "numeroChambre",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "postTelChambre",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "dateCreated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateUpdated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "userCreated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userUpdated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userDeleted",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "boxe",
+            "otherEntityRelationshipName": "chambre",
+            "relationshipName": "boxe"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "catChambre",
+            "otherEntityRelationshipName": "chambre",
+            "relationshipName": "categorieChambre",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200325182200",
+    "entityTableName": "chambre",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

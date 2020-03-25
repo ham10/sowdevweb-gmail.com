@@ -1,0 +1,136 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-param-divers-heading" jhiTranslate="hpdApp.paramDivers.home.createOrEditLabel">Create or edit a Param Divers</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.paramDivers.codeParamDivers" for="field_codeParamDivers">Code Param Divers</label>
+                    <input type="text" class="form-control" name="codeParamDivers" id="field_codeParamDivers"
+                           formControlName="codeParamDivers"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.paramDivers.libelleParamDivers" for="field_libelleParamDivers">Libelle Param Divers</label>
+                    <input type="text" class="form-control" name="libelleParamDivers" id="field_libelleParamDivers"
+                           formControlName="libelleParamDivers"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.paramDivers.descriptionParamDivers" for="field_descriptionParamDivers">Description Param Divers</label>
+                    <input type="text" class="form-control" name="descriptionParamDivers" id="field_descriptionParamDivers"
+                           formControlName="descriptionParamDivers"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.paramDivers.valeurNum1" for="field_valeurNum1">Valeur Num 1</label>
+                    <input type="number" class="form-control" name="valeurNum1" id="field_valeurNum1"
+                           formControlName="valeurNum1"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.paramDivers.valeurNum2" for="field_valeurNum2">Valeur Num 2</label>
+                    <input type="number" class="form-control" name="valeurNum2" id="field_valeurNum2"
+                           formControlName="valeurNum2"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.paramDivers.valeurNum3" for="field_valeurNum3">Valeur Num 3</label>
+                    <input type="number" class="form-control" name="valeurNum3" id="field_valeurNum3"
+                           formControlName="valeurNum3"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.paramDivers.valeurText1" for="field_valeurText1">Valeur Text 1</label>
+                    <input type="text" class="form-control" name="valeurText1" id="field_valeurText1"
+                           formControlName="valeurText1"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.paramDivers.valeurText2" for="field_valeurText2">Valeur Text 2</label>
+                    <input type="text" class="form-control" name="valeurText2" id="field_valeurText2"
+                           formControlName="valeurText2"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.paramDivers.valeurText3" for="field_valeurText3">Valeur Text 3</label>
+                    <input type="text" class="form-control" name="valeurText3" id="field_valeurText3"
+                           formControlName="valeurText3"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.paramDivers.valeurBoolean1" for="field_valeurBoolean1">Valeur Boolean 1</label>
+                    <input type="checkbox" class="form-control" name="valeurBoolean1" id="field_valeurBoolean1"
+                           formControlName="valeurBoolean1"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.paramDivers.valeurBoolean2" for="field_valeurBoolean2">Valeur Boolean 2</label>
+                    <input type="checkbox" class="form-control" name="valeurBoolean2" id="field_valeurBoolean2"
+                           formControlName="valeurBoolean2"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.paramDivers.valeurBoolean3" for="field_valeurBoolean3">Valeur Boolean 3</label>
+                    <input type="checkbox" class="form-control" name="valeurBoolean3" id="field_valeurBoolean3"
+                           formControlName="valeurBoolean3"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.paramDivers.dateCreated" for="field_dateCreated">Date Created</label>
+                    <div class="input-group">
+                        <input id="field_dateCreated" type="text" class="form-control" name="dateCreated" ngbDatepicker #dateCreatedDp="ngbDatepicker" formControlName="dateCreated"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateCreatedDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.paramDivers.dateUpdated" for="field_dateUpdated">Date Updated</label>
+                    <div class="input-group">
+                        <input id="field_dateUpdated" type="text" class="form-control" name="dateUpdated" ngbDatepicker #dateUpdatedDp="ngbDatepicker" formControlName="dateUpdated"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateUpdatedDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.paramDivers.userCreated" for="field_userCreated">User Created</label>
+                    <input type="number" class="form-control" name="userCreated" id="field_userCreated"
+                           formControlName="userCreated"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.paramDivers.userUpdated" for="field_userUpdated">User Updated</label>
+                    <input type="number" class="form-control" name="userUpdated" id="field_userUpdated"
+                           formControlName="userUpdated"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.paramDivers.userDeleted" for="field_userDeleted">User Deleted</label>
+                    <input type="number" class="form-control" name="userDeleted" id="field_userDeleted"
+                           formControlName="userDeleted"/>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

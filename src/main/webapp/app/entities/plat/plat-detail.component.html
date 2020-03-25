@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="plat">
+            <h2><span jhiTranslate="hpdApp.plat.detail.title">Plat</span> {{ plat.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.plat.quantite">Quantite</span></dt>
+                <dd>
+                    <span>{{ plat.quantite }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.plat.typeRepas">Type Repas</span></dt>
+                <dd>
+                    <span>{{ plat.typeRepas }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.plat.date">Date</span></dt>
+                <dd>
+                    <span>{{ plat.date }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.plat.typePlat">Type Plat</span></dt>
+                <dd>
+                    <div *ngIf="plat.typePlat">
+                        <a [routerLink]="['/type-plat', plat.typePlat?.id, 'view']">{{ plat.typePlat?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.plat.serv">Serv</span></dt>
+                <dd>
+                    <div *ngIf="plat.serv">
+                        <a [routerLink]="['/services', plat.serv?.id, 'view']">{{ plat.serv?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/plat', plat.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

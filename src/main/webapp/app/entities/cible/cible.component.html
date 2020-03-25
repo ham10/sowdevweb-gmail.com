@@ -1,0 +1,75 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hpdApp.cible.home.title">Cibles</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-cible" [routerLink]="['/cible/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hpdApp.cible.home.createLabel">
+            Create a new Cible
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="cibles?.length === 0">
+        <span jhiTranslate="hpdApp.cible.home.notFound">No cibles found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="cibles?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="libelleCible"><span jhiTranslate="hpdApp.cible.libelleCible">Libelle Cible</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="idUser"><span jhiTranslate="hpdApp.cible.idUser">Id User</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateDeleted"><span jhiTranslate="hpdApp.cible.dateDeleted">Date Deleted</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateCreated"><span jhiTranslate="hpdApp.cible.dateCreated">Date Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateUpdated"><span jhiTranslate="hpdApp.cible.dateUpdated">Date Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userCreated"><span jhiTranslate="hpdApp.cible.userCreated">User Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userUpdate"><span jhiTranslate="hpdApp.cible.userUpdate">User Update</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userDelete"><span jhiTranslate="hpdApp.cible.userDelete">User Delete</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let cible of cibles ;trackBy: trackId">
+                    <td><a [routerLink]="['/cible', cible.id, 'view']">{{ cible.id }}</a></td>
+                    <td>{{ cible.libelleCible }}</td>
+                    <td>{{ cible.idUser }}</td>
+                    <td>{{ cible.dateDeleted | date:'medium' }}</td>
+                    <td>{{ cible.dateCreated | date:'medium' }}</td>
+                    <td>{{ cible.dateUpdated | date:'medium' }}</td>
+                    <td>{{ cible.userCreated }}</td>
+                    <td>{{ cible.userUpdate }}</td>
+                    <td>{{ cible.userDelete }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/cible', cible.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/cible', cible.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(cible)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

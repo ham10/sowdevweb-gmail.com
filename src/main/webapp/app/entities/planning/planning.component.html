@@ -1,0 +1,77 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hpdApp.planning.home.title">Plannings</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-planning" [routerLink]="['/planning/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hpdApp.planning.home.createLabel">
+            Create a new Planning
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="plannings?.length === 0">
+        <span jhiTranslate="hpdApp.planning.home.notFound">No plannings found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="plannings?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="num"><span jhiTranslate="hpdApp.planning.num">Num</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="libelle"><span jhiTranslate="hpdApp.planning.libelle">Libelle</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateCreated"><span jhiTranslate="hpdApp.planning.dateCreated">Date Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="medecin.id"><span jhiTranslate="hpdApp.planning.medecin">Medecin</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="typePlanning.id"><span jhiTranslate="hpdApp.planning.typePlanning">Type Planning</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let planning of plannings ;trackBy: trackId">
+                    <td><a [routerLink]="['/planning', planning.id, 'view']">{{ planning.id }}</a></td>
+                    <td>{{ planning.num }}</td>
+                    <td>{{ planning.libelle }}</td>
+                    <td>{{ planning.dateCreated | date:'mediumDate' }}</td>
+                    <td>
+                        <div *ngIf="planning.medecin">
+                            <a [routerLink]="['/medecin', planning.medecin?.id, 'view']" >{{ planning.medecin?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="planning.typePlanning">
+                            <a [routerLink]="['/type-planning', planning.typePlanning?.id, 'view']" >{{ planning.typePlanning?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/planning', planning.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/planning', planning.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(planning)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

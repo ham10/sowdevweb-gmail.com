@@ -1,0 +1,28 @@
+{
+  "hpdApp": {
+    "tauxDevise": {
+      "home": {
+        "title": "Taux Devises",
+        "createLabel": "Create a new Taux Devise",
+        "createOrEditLabel": "Create or edit a Taux Devise",
+        "notFound": "No Taux Devises found"
+      },
+      "created": "A new Taux Devise is created with identifier {{ param }}",
+      "updated": "A Taux Devise is updated with identifier {{ param }}",
+      "deleted": "A Taux Devise is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Taux Devise {{ id }}?"
+      },
+      "detail": {
+        "title": "Taux Devise"
+      },
+      "sensTauxDevise": "Sens Taux Devise",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted",
+      "devise": "Devise"
+    }
+  }
+}

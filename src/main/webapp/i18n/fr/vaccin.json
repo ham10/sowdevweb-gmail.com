@@ -1,0 +1,30 @@
+{
+  "hpdApp": {
+    "vaccin": {
+      "home": {
+        "title": "Vaccins",
+        "createLabel": "Créer un nouveau Vaccin",
+        "createOrEditLabel": "Créer ou éditer un Vaccin",
+        "notFound": "Aucun Vaccin trouvé"
+      },
+      "created": "Un nouveau Vaccin a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Vaccin avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Vaccin avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Vaccin {{ id }} ?"
+      },
+      "detail": {
+        "title": "Vaccin"
+      },
+      "description": "Description",
+      "date": "Date",
+      "dateRenouv": "Date Renouv",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted",
+      "ficheMedical": "Fiche Medical"
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+    "name": "Lit",
+    "fields": [
+        {
+            "fieldName": "numeroLit",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "descriptionLit",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dateCreated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateUpdated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "userCreated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userUpdated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userDeleted",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "typeLit",
+            "otherEntityRelationshipName": "lit",
+            "relationshipName": "typeLit",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "boxe",
+            "otherEntityRelationshipName": "lit",
+            "relationshipName": "box",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200325182400",
+    "entityTableName": "lit",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

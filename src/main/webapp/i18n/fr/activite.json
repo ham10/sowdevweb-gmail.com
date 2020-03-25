@@ -1,0 +1,29 @@
+{
+  "hpdApp": {
+    "activite": {
+      "home": {
+        "title": "Activites",
+        "createLabel": "Créer un nouveau Activite",
+        "createOrEditLabel": "Créer ou éditer un Activite",
+        "notFound": "Aucun Activite trouvé"
+      },
+      "created": "Un nouveau Activite a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Activite avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Activite avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Activite {{ id }} ?"
+      },
+      "detail": {
+        "title": "Activite"
+      },
+      "dateActivite": "Date Activite",
+      "heureConnexionActivite": "Heure Connexion Activite",
+      "heureDeConnexionActivite": "Heure De Connexion Activite",
+      "adresseIpActivite": "Adresse Ip Activite",
+      "dateCreated": "Date Created",
+      "userCreated": "User Created",
+      "adresseMac": "Adresse Mac",
+      "evenement": "Evenement"
+    }
+  }
+}

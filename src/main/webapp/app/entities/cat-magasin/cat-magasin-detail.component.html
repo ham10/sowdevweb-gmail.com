@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="catMagasin">
+            <h2><span jhiTranslate="hpdApp.catMagasin.detail.title">Cat Magasin</span> {{ catMagasin.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.catMagasin.codeCatMagasin">Code Cat Magasin</span></dt>
+                <dd>
+                    <span>{{ catMagasin.codeCatMagasin }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.catMagasin.libelleCatMagasin">Libelle Cat Magasin</span></dt>
+                <dd>
+                    <span>{{ catMagasin.libelleCatMagasin }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.catMagasin.descriptionCatMagasin">Description Cat Magasin</span></dt>
+                <dd>
+                    <span>{{ catMagasin.descriptionCatMagasin }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.catMagasin.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ catMagasin.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.catMagasin.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ catMagasin.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.catMagasin.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ catMagasin.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.catMagasin.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ catMagasin.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.catMagasin.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ catMagasin.userDeleted }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/cat-magasin', catMagasin.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

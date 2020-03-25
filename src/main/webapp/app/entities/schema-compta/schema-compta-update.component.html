@@ -1,0 +1,108 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-schema-compta-heading" jhiTranslate="hpdApp.schemaCompta.home.createOrEditLabel">Create or edit a Schema Compta</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.schemaCompta.code" for="field_code">Code</label>
+                    <input type="number" class="form-control" name="code" id="field_code"
+                           formControlName="code"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.schemaCompta.libelle" for="field_libelle">Libelle</label>
+                    <input type="text" class="form-control" name="libelle" id="field_libelle"
+                           formControlName="libelle"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.schemaCompta.sens" for="field_sens">Sens</label>
+                    <input type="text" class="form-control" name="sens" id="field_sens"
+                           formControlName="sens"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.schemaCompta.dateCreated" for="field_dateCreated">Date Created</label>
+                    <div class="input-group">
+                        <input id="field_dateCreated" type="text" class="form-control" name="dateCreated" ngbDatepicker #dateCreatedDp="ngbDatepicker" formControlName="dateCreated"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateCreatedDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.schemaCompta.dateUpdated" for="field_dateUpdated">Date Updated</label>
+                    <div class="input-group">
+                        <input id="field_dateUpdated" type="text" class="form-control" name="dateUpdated" ngbDatepicker #dateUpdatedDp="ngbDatepicker" formControlName="dateUpdated"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateUpdatedDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.schemaCompta.dateDeleted" for="field_dateDeleted">Date Deleted</label>
+                    <div class="input-group">
+                        <input id="field_dateDeleted" type="text" class="form-control" name="dateDeleted" ngbDatepicker #dateDeletedDp="ngbDatepicker" formControlName="dateDeleted"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateDeletedDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.schemaCompta.userCreated" for="field_userCreated">User Created</label>
+                    <input type="number" class="form-control" name="userCreated" id="field_userCreated"
+                           formControlName="userCreated"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.schemaCompta.userUpdated" for="field_userUpdated">User Updated</label>
+                    <input type="number" class="form-control" name="userUpdated" id="field_userUpdated"
+                           formControlName="userUpdated"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.schemaCompta.userDeleted" for="field_userDeleted">User Deleted</label>
+                    <input type="number" class="form-control" name="userDeleted" id="field_userDeleted"
+                           formControlName="userDeleted"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.schemaCompta.operation" for="field_operation">Operation</label>
+                    <select class="form-control" id="field_operation" name="operation" formControlName="operation">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="operationOption.id === editForm.get('operation')!.value?.id ? editForm.get('operation')!.value : operationOption" *ngFor="let operationOption of operations; trackBy: trackById">{{ operationOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.schemaCompta.natureOperation" for="field_natureOperation">Nature Operation</label>
+                    <select class="form-control" id="field_natureOperation" name="natureOperation" formControlName="natureOperation">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="natureOpOption.id === editForm.get('natureOperation')!.value?.id ? editForm.get('natureOperation')!.value : natureOpOption" *ngFor="let natureOpOption of natureops; trackBy: trackById">{{ natureOpOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

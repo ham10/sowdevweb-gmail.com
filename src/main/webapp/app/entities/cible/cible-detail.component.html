@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="cible">
+            <h2><span jhiTranslate="hpdApp.cible.detail.title">Cible</span> {{ cible.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.cible.libelleCible">Libelle Cible</span></dt>
+                <dd>
+                    <span>{{ cible.libelleCible }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.cible.idUser">Id User</span></dt>
+                <dd>
+                    <span>{{ cible.idUser }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.cible.dateDeleted">Date Deleted</span></dt>
+                <dd>
+                    <span>{{ cible.dateDeleted }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.cible.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ cible.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.cible.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ cible.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.cible.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ cible.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.cible.userUpdate">User Update</span></dt>
+                <dd>
+                    <span>{{ cible.userUpdate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.cible.userDelete">User Delete</span></dt>
+                <dd>
+                    <span>{{ cible.userDelete }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/cible', cible.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

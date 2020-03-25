@@ -1,0 +1,88 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="echeancier">
+            <h2><span jhiTranslate="hpdApp.echeancier.detail.title">Echeancier</span> {{ echeancier.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.echeancier.code">Code</span></dt>
+                <dd>
+                    <span>{{ echeancier.code }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.echeancier.numero">Numero</span></dt>
+                <dd>
+                    <span>{{ echeancier.numero }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.echeancier.date">Date</span></dt>
+                <dd>
+                    <span>{{ echeancier.date }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.echeancier.datePaiement">Date Paiement</span></dt>
+                <dd>
+                    <span>{{ echeancier.datePaiement }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.echeancier.montant">Montant</span></dt>
+                <dd>
+                    <span>{{ echeancier.montant }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.echeancier.montantPaye">Montant Paye</span></dt>
+                <dd>
+                    <span>{{ echeancier.montantPaye }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.echeancier.capital">Capital</span></dt>
+                <dd>
+                    <span>{{ echeancier.capital }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.echeancier.frais">Frais</span></dt>
+                <dd>
+                    <span>{{ echeancier.frais }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.echeancier.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ echeancier.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.echeancier.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ echeancier.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.echeancier.dateDeleted">Date Deleted</span></dt>
+                <dd>
+                    <span>{{ echeancier.dateDeleted }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.echeancier.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ echeancier.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.echeancier.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ echeancier.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.echeancier.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ echeancier.userDeleted }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.echeancier.facture">Facture</span></dt>
+                <dd>
+                    <div *ngIf="echeancier.facture">
+                        <a [routerLink]="['/facture', echeancier.facture?.id, 'view']">{{ echeancier.facture?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/echeancier', echeancier.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

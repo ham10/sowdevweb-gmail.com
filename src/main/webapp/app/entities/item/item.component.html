@@ -1,0 +1,79 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hpdApp.item.home.title">Items</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-item" [routerLink]="['/item/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hpdApp.item.home.createLabel">
+            Create a new Item
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="items?.length === 0">
+        <span jhiTranslate="hpdApp.item.home.notFound">No items found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="items?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="libelleItem"><span jhiTranslate="hpdApp.item.libelleItem">Libelle Item</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="descriptionItem"><span jhiTranslate="hpdApp.item.descriptionItem">Description Item</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateCreated"><span jhiTranslate="hpdApp.item.dateCreated">Date Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateUpdated"><span jhiTranslate="hpdApp.item.dateUpdated">Date Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userCreated"><span jhiTranslate="hpdApp.item.userCreated">User Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userUpdated"><span jhiTranslate="hpdApp.item.userUpdated">User Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userDeleted"><span jhiTranslate="hpdApp.item.userDeleted">User Deleted</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="module.id"><span jhiTranslate="hpdApp.item.module">Module</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let item of items ;trackBy: trackId">
+                    <td><a [routerLink]="['/item', item.id, 'view']">{{ item.id }}</a></td>
+                    <td>{{ item.libelleItem }}</td>
+                    <td>{{ item.descriptionItem }}</td>
+                    <td>{{ item.dateCreated | date:'mediumDate' }}</td>
+                    <td>{{ item.dateUpdated | date:'mediumDate' }}</td>
+                    <td>{{ item.userCreated }}</td>
+                    <td>{{ item.userUpdated }}</td>
+                    <td>{{ item.userDeleted }}</td>
+                    <td>
+                        <div *ngIf="item.module">
+                            <a [routerLink]="['/module', item.module?.id, 'view']" >{{ item.module?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/item', item.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/item', item.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(item)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

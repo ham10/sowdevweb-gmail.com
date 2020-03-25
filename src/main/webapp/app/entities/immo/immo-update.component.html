@@ -1,0 +1,144 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-immo-heading" jhiTranslate="hpdApp.immo.home.createOrEditLabel">Create or edit a Immo</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.immo.libelle" for="field_libelle">Libelle</label>
+                    <input type="text" class="form-control" name="libelle" id="field_libelle"
+                           formControlName="libelle"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.immo.valeurAquisition" for="field_valeurAquisition">Valeur Aquisition</label>
+                    <input type="number" class="form-control" name="valeurAquisition" id="field_valeurAquisition"
+                           formControlName="valeurAquisition"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.immo.dateAquisition" for="field_dateAquisition">Date Aquisition</label>
+                    <div class="input-group">
+                        <input id="field_dateAquisition" type="text" class="form-control" name="dateAquisition" ngbDatepicker #dateAquisitionDp="ngbDatepicker" formControlName="dateAquisition"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateAquisitionDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.immo.valeurNetComptable" for="field_valeurNetComptable">Valeur Net Comptable</label>
+                    <input type="number" class="form-control" name="valeurNetComptable" id="field_valeurNetComptable"
+                           formControlName="valeurNetComptable"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.immo.montant" for="field_montant">Montant</label>
+                    <input type="number" class="form-control" name="montant" id="field_montant"
+                           formControlName="montant"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.immo.duree" for="field_duree">Duree</label>
+                    <input type="number" class="form-control" name="duree" id="field_duree"
+                           formControlName="duree"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.immo.nbreEcheance" for="field_nbreEcheance">Nbre Echeance</label>
+                    <input type="number" class="form-control" name="nbreEcheance" id="field_nbreEcheance"
+                           formControlName="nbreEcheance"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.immo.dateCreated" for="field_dateCreated">Date Created</label>
+                    <div class="input-group">
+                        <input id="field_dateCreated" type="text" class="form-control" name="dateCreated" ngbDatepicker #dateCreatedDp="ngbDatepicker" formControlName="dateCreated"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateCreatedDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.immo.dateUpdated" for="field_dateUpdated">Date Updated</label>
+                    <div class="input-group">
+                        <input id="field_dateUpdated" type="text" class="form-control" name="dateUpdated" ngbDatepicker #dateUpdatedDp="ngbDatepicker" formControlName="dateUpdated"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateUpdatedDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.immo.dateDeleted" for="field_dateDeleted">Date Deleted</label>
+                    <div class="input-group">
+                        <input id="field_dateDeleted" type="text" class="form-control" name="dateDeleted" ngbDatepicker #dateDeletedDp="ngbDatepicker" formControlName="dateDeleted"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateDeletedDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.immo.userCreated" for="field_userCreated">User Created</label>
+                    <input type="number" class="form-control" name="userCreated" id="field_userCreated"
+                           formControlName="userCreated"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.immo.userUpdated" for="field_userUpdated">User Updated</label>
+                    <input type="number" class="form-control" name="userUpdated" id="field_userUpdated"
+                           formControlName="userUpdated"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.immo.userDeleted" for="field_userDeleted">User Deleted</label>
+                    <input type="number" class="form-control" name="userDeleted" id="field_userDeleted"
+                           formControlName="userDeleted"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.immo.operation" for="field_operation">Operation</label>
+                    <select class="form-control" id="field_operation" name="operation" formControlName="operation">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="operationOption.id === editForm.get('operation')!.value?.id ? editForm.get('operation')!.value : operationOption" *ngFor="let operationOption of operations; trackBy: trackById">{{ operationOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.immo.typeImmo" for="field_typeImmo">Type Immo</label>
+                    <select class="form-control" id="field_typeImmo" name="typeImmo" formControlName="typeImmo">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="typeImmoOption.id === editForm.get('typeImmo')!.value?.id ? editForm.get('typeImmo')!.value : typeImmoOption" *ngFor="let typeImmoOption of typeimmos; trackBy: trackById">{{ typeImmoOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.immo.tableauAmortissement" for="field_tableauAmortissement">Tableau Amortissement</label>
+                    <select class="form-control" id="field_tableauAmortissement" name="tableauAmortissement" formControlName="tableauAmortissement">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="tabAmortisOption.id === editForm.get('tableauAmortissement')!.value?.id ? editForm.get('tableauAmortissement')!.value : tabAmortisOption" *ngFor="let tabAmortisOption of tabamortis; trackBy: trackById">{{ tabAmortisOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

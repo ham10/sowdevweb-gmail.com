@@ -1,0 +1,23 @@
+{
+  "hpdApp": {
+    "etatRdv": {
+      "home": {
+        "title": "EtatRdvs",
+        "createLabel": "Créer un nouveau Etat Rdv",
+        "createOrEditLabel": "Créer ou éditer un Etat Rdv",
+        "notFound": "Aucun Etat Rdv trouvé"
+      },
+      "created": "Un nouveau Etat Rdv a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Etat Rdv avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Etat Rdv avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Etat Rdv {{ id }} ?"
+      },
+      "detail": {
+        "title": "Etat Rdv"
+      },
+      "code": "Code",
+      "libelle": "Libelle"
+    }
+  }
+}

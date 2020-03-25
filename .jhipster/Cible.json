@@ -1,0 +1,48 @@
+{
+    "name": "Cible",
+    "fields": [
+        {
+            "fieldName": "libelleCible",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "idUser",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "dateDeleted",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "dateCreated",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "dateUpdated",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "userCreated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userUpdate",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userDelete",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20200325200300",
+    "entityTableName": "cible",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

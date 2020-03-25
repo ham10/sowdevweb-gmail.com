@@ -1,0 +1,85 @@
+{
+    "name": "Compte",
+    "fields": [
+        {
+            "fieldName": "numeroCompte",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "libelleCompte",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "soldeCompte",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "sensCompte",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "cumulMouvDebit",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "cumulMouvCredit",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "dateCreated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateUpdated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateDeleted",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "userCreated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userUpdated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userDeleted",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "ecriture",
+            "otherEntityRelationshipName": "compte",
+            "relationshipName": "ecriture"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "compteGene",
+            "otherEntityRelationshipName": "compte",
+            "relationshipName": "compteGeneral",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "patient",
+            "otherEntityRelationshipName": "compte",
+            "relationshipName": "patient",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200325192900",
+    "entityTableName": "compte",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

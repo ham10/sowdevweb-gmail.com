@@ -1,0 +1,55 @@
+{
+    "name": "EtatOperation",
+    "fields": [
+        {
+            "fieldName": "code",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "libelle",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dateCreated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateUpdated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateDeleted",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "userCreated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userUpdated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userDeleted",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "operation",
+            "otherEntityRelationshipName": "etatOperation",
+            "relationshipName": "operation"
+        }
+    ],
+    "changelogDate": "20200325193300",
+    "entityTableName": "etat_operation",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

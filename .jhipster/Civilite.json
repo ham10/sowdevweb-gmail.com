@@ -1,0 +1,24 @@
+{
+    "name": "Civilite",
+    "fields": [
+        {
+            "fieldName": "libelleCivilite",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "intituleCivilite",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20200325185700",
+    "entityTableName": "civilite",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

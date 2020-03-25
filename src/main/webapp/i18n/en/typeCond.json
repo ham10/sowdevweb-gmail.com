@@ -1,0 +1,24 @@
+{
+  "hpdApp": {
+    "typeCond": {
+      "home": {
+        "title": "Type Conds",
+        "createLabel": "Create a new Type Cond",
+        "createOrEditLabel": "Create or edit a Type Cond",
+        "notFound": "No Type Conds found"
+      },
+      "created": "A new Type Cond is created with identifier {{ param }}",
+      "updated": "A Type Cond is updated with identifier {{ param }}",
+      "deleted": "A Type Cond is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Type Cond {{ id }}?"
+      },
+      "detail": {
+        "title": "Type Cond"
+      },
+      "code": "Code",
+      "libelle": "Libelle",
+      "produit": "Produit"
+    }
+  }
+}

@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="classeProd">
+            <h2><span jhiTranslate="hpdApp.classeProd.detail.title">Classe Prod</span> {{ classeProd.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.classeProd.codeClasseProd">Code Classe Prod</span></dt>
+                <dd>
+                    <span>{{ classeProd.codeClasseProd }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.classeProd.libelleClasseProd">Libelle Classe Prod</span></dt>
+                <dd>
+                    <span>{{ classeProd.libelleClasseProd }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.classeProd.descriptionClasseProd">Description Classe Prod</span></dt>
+                <dd>
+                    <span>{{ classeProd.descriptionClasseProd }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.classeProd.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ classeProd.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.classeProd.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ classeProd.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.classeProd.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ classeProd.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.classeProd.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ classeProd.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.classeProd.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ classeProd.userDeleted }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/classe-prod', classeProd.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

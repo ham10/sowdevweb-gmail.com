@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity HoraireCon.
+    -->
+    <changeSet id="20200325182800-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="jour_id"
+                                 baseTableName="horaire_con"
+                                 constraintName="fk_horaire_con_jour_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jour"/>
+
+    </changeSet>
+</databaseChangeLog>

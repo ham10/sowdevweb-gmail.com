@@ -1,0 +1,64 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="inventaire">
+            <h2><span jhiTranslate="hpdApp.inventaire.detail.title">Inventaire</span> {{ inventaire.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.inventaire.code">Code</span></dt>
+                <dd>
+                    <span>{{ inventaire.code }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.inventaire.date">Date</span></dt>
+                <dd>
+                    <span>{{ inventaire.date }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.inventaire.quantiteEntrant">Quantite Entrant</span></dt>
+                <dd>
+                    <span>{{ inventaire.quantiteEntrant }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.inventaire.quantiteInitiale">Quantite Initiale</span></dt>
+                <dd>
+                    <span>{{ inventaire.quantiteInitiale }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.inventaire.quantiteSortant">Quantite Sortant</span></dt>
+                <dd>
+                    <span>{{ inventaire.quantiteSortant }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.inventaire.nombreSortant">Nombre Sortant</span></dt>
+                <dd>
+                    <span>{{ inventaire.nombreSortant }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.inventaire.nombreLivraison">Nombre Livraison</span></dt>
+                <dd>
+                    <span>{{ inventaire.nombreLivraison }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.inventaire.nombreRetour">Nombre Retour</span></dt>
+                <dd>
+                    <span>{{ inventaire.nombreRetour }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.inventaire.produit">Produit</span></dt>
+                <dd>
+                    <div *ngIf="inventaire.produit">
+                        <a [routerLink]="['/produit', inventaire.produit?.id, 'view']">{{ inventaire.produit?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/inventaire', inventaire.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+{
+  "hpdApp": {
+    "sitMat": {
+      "home": {
+        "title": "SitMats",
+        "createLabel": "Créer un nouveau Sit Mat",
+        "createOrEditLabel": "Créer ou éditer un Sit Mat",
+        "notFound": "Aucun Sit Mat trouvé"
+      },
+      "created": "Un nouveau Sit Mat a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Sit Mat avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Sit Mat avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Sit Mat {{ id }} ?"
+      },
+      "detail": {
+        "title": "Sit Mat"
+      },
+      "codeSitMat": "Code Sit Mat",
+      "libelleSitMat": "Libelle Sit Mat"
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "hpdApp": {
+    "question": {
+      "home": {
+        "title": "Questions",
+        "createLabel": "Créer un nouveau Question",
+        "createOrEditLabel": "Créer ou éditer un Question",
+        "notFound": "Aucun Question trouvé"
+      },
+      "created": "Un nouveau Question a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Question avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Question avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Question {{ id }} ?"
+      },
+      "detail": {
+        "title": "Question"
+      },
+      "code": "Code",
+      "libelle": "Libelle",
+      "description": "Description",
+      "obligatoire": "Obligatoire",
+      "dateDeleted": "Date Deleted",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "userCreated": "User Created",
+      "userUpdate": "User Update",
+      "userDelete": "User Delete",
+      "questionnaire": "Questionnaire",
+      "typeQuestion": "Type Question"
+    }
+  }
+}

@@ -1,0 +1,82 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="fournisseur">
+            <h2><span jhiTranslate="hpdApp.fournisseur.detail.title">Fournisseur</span> {{ fournisseur.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.fournisseur.nom">Nom</span></dt>
+                <dd>
+                    <span>{{ fournisseur.nom }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.fournisseur.statut">Statut</span></dt>
+                <dd>
+                    <span>{{ fournisseur.statut }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.fournisseur.raisonSociale">Raison Sociale</span></dt>
+                <dd>
+                    <span>{{ fournisseur.raisonSociale }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.fournisseur.adresse">Adresse</span></dt>
+                <dd>
+                    <span>{{ fournisseur.adresse }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.fournisseur.telephone">Telephone</span></dt>
+                <dd>
+                    <span>{{ fournisseur.telephone }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.fournisseur.ninea">Ninea</span></dt>
+                <dd>
+                    <span>{{ fournisseur.ninea }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.fournisseur.rc">Rc</span></dt>
+                <dd>
+                    <span>{{ fournisseur.rc }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.fournisseur.ville">Ville</span></dt>
+                <dd>
+                    <span>{{ fournisseur.ville }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.fournisseur.email">Email</span></dt>
+                <dd>
+                    <span>{{ fournisseur.email }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.fournisseur.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ fournisseur.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.fournisseur.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ fournisseur.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.fournisseur.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ fournisseur.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.fournisseur.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ fournisseur.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.fournisseur.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ fournisseur.userDeleted }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/fournisseur', fournisseur.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

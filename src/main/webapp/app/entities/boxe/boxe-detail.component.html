@@ -1,0 +1,56 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="boxe">
+            <h2><span jhiTranslate="hpdApp.boxe.detail.title">Boxe</span> {{ boxe.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.boxe.numeroBoxe">Numero Boxe</span></dt>
+                <dd>
+                    <span>{{ boxe.numeroBoxe }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.boxe.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ boxe.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.boxe.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ boxe.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.boxe.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ boxe.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.boxe.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ boxe.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.boxe.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ boxe.userDeleted }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.boxe.chambre">Chambre</span></dt>
+                <dd>
+                    <div *ngIf="boxe.chambre">
+                        <a [routerLink]="['/chambre', boxe.chambre?.id, 'view']">{{ boxe.chambre?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/boxe', boxe.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

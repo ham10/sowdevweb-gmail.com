@@ -1,0 +1,51 @@
+{
+    "name": "TypePrCharge",
+    "fields": [
+        {
+            "fieldName": "codeTypePrCharge",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "libelleTypePrCharge",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dateCreated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateUpdated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "userCreated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userUpdated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userDeleted",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "ayantDroit",
+            "otherEntityRelationshipName": "typePrCharge",
+            "relationshipName": "ayantDroit"
+        }
+    ],
+    "changelogDate": "20200325183300",
+    "entityTableName": "type_pr_charge",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

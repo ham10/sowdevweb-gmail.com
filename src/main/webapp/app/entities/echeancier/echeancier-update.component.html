@@ -1,0 +1,138 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-echeancier-heading" jhiTranslate="hpdApp.echeancier.home.createOrEditLabel">Create or edit a Echeancier</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.echeancier.code" for="field_code">Code</label>
+                    <input type="text" class="form-control" name="code" id="field_code"
+                           formControlName="code"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.echeancier.numero" for="field_numero">Numero</label>
+                    <input type="text" class="form-control" name="numero" id="field_numero"
+                           formControlName="numero"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.echeancier.date" for="field_date">Date</label>
+                    <div class="input-group">
+                        <input id="field_date" type="text" class="form-control" name="date" ngbDatepicker #dateDp="ngbDatepicker" formControlName="date"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.echeancier.datePaiement" for="field_datePaiement">Date Paiement</label>
+                    <div class="input-group">
+                        <input id="field_datePaiement" type="text" class="form-control" name="datePaiement" ngbDatepicker #datePaiementDp="ngbDatepicker" formControlName="datePaiement"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="datePaiementDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.echeancier.montant" for="field_montant">Montant</label>
+                    <input type="number" class="form-control" name="montant" id="field_montant"
+                           formControlName="montant"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.echeancier.montantPaye" for="field_montantPaye">Montant Paye</label>
+                    <input type="number" class="form-control" name="montantPaye" id="field_montantPaye"
+                           formControlName="montantPaye"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.echeancier.capital" for="field_capital">Capital</label>
+                    <input type="number" class="form-control" name="capital" id="field_capital"
+                           formControlName="capital"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.echeancier.frais" for="field_frais">Frais</label>
+                    <input type="number" class="form-control" name="frais" id="field_frais"
+                           formControlName="frais"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.echeancier.dateCreated" for="field_dateCreated">Date Created</label>
+                    <div class="input-group">
+                        <input id="field_dateCreated" type="text" class="form-control" name="dateCreated" ngbDatepicker #dateCreatedDp="ngbDatepicker" formControlName="dateCreated"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateCreatedDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.echeancier.dateUpdated" for="field_dateUpdated">Date Updated</label>
+                    <div class="input-group">
+                        <input id="field_dateUpdated" type="text" class="form-control" name="dateUpdated" ngbDatepicker #dateUpdatedDp="ngbDatepicker" formControlName="dateUpdated"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateUpdatedDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.echeancier.dateDeleted" for="field_dateDeleted">Date Deleted</label>
+                    <div class="input-group">
+                        <input id="field_dateDeleted" type="text" class="form-control" name="dateDeleted" ngbDatepicker #dateDeletedDp="ngbDatepicker" formControlName="dateDeleted"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateDeletedDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.echeancier.userCreated" for="field_userCreated">User Created</label>
+                    <input type="number" class="form-control" name="userCreated" id="field_userCreated"
+                           formControlName="userCreated"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.echeancier.userUpdated" for="field_userUpdated">User Updated</label>
+                    <input type="number" class="form-control" name="userUpdated" id="field_userUpdated"
+                           formControlName="userUpdated"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.echeancier.userDeleted" for="field_userDeleted">User Deleted</label>
+                    <input type="number" class="form-control" name="userDeleted" id="field_userDeleted"
+                           formControlName="userDeleted"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.echeancier.facture" for="field_facture">Facture</label>
+                    <select class="form-control" id="field_facture" name="facture" formControlName="facture">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="factureOption.id === editForm.get('facture')!.value?.id ? editForm.get('facture')!.value : factureOption" *ngFor="let factureOption of factures; trackBy: trackById">{{ factureOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

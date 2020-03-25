@@ -1,0 +1,52 @@
+{
+    "name": "Plateau",
+    "fields": [
+        {
+            "fieldName": "libellePlateau",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "descriptionPlateau",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dateCreated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateUpdated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "userCreated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userUpdated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userDeleted",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "typePlateau",
+            "otherEntityRelationshipName": "plateau",
+            "relationshipName": "typePlateau",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200325181400",
+    "entityTableName": "plateau",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,101 @@
+{
+    "name": "Services",
+    "fields": [
+        {
+            "fieldName": "code",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "libelle",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateCreated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateUpdated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "userCreated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userUpdated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userDeleted",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "catChambre",
+            "otherEntityRelationshipName": "serv",
+            "relationshipName": "catChambre"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "dosMedical",
+            "otherEntityRelationshipName": "serv",
+            "relationshipName": "dosMedical"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "bonDeCommande",
+            "otherEntityRelationshipName": "serv",
+            "relationshipName": "bonDeCommande"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "plat",
+            "otherEntityRelationshipName": "serv",
+            "relationshipName": "plat"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "typeServices",
+            "otherEntityRelationshipName": "services",
+            "relationshipName": "typeServices",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "deptServices",
+            "otherEntityRelationshipName": "services",
+            "relationshipName": "deptServices",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "specialite",
+            "otherEntityRelationshipName": "services",
+            "relationshipName": "specialite",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "compteGene",
+            "otherEntityRelationshipName": "services",
+            "relationshipName": "compteGeneral",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200325192000",
+    "entityTableName": "services",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

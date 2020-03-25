@@ -1,0 +1,29 @@
+{
+  "hpdApp": {
+    "typeBonCom": {
+      "home": {
+        "title": "Type Bon Coms",
+        "createLabel": "Create a new Type Bon Com",
+        "createOrEditLabel": "Create or edit a Type Bon Com",
+        "notFound": "No Type Bon Coms found"
+      },
+      "created": "A new Type Bon Com is created with identifier {{ param }}",
+      "updated": "A Type Bon Com is updated with identifier {{ param }}",
+      "deleted": "A Type Bon Com is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Type Bon Com {{ id }}?"
+      },
+      "detail": {
+        "title": "Type Bon Com"
+      },
+      "libelleTypeBonCom": "Libelle Type Bon Com",
+      "codeTypeBonCom": "Code Type Bon Com",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted",
+      "bonDeCommande": "Bon De Commande"
+    }
+  }
+}

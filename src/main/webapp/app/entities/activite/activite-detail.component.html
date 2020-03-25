@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="activite">
+            <h2><span jhiTranslate="hpdApp.activite.detail.title">Activite</span> {{ activite.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.activite.dateActivite">Date Activite</span></dt>
+                <dd>
+                    <span>{{ activite.dateActivite }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.activite.heureConnexionActivite">Heure Connexion Activite</span></dt>
+                <dd>
+                    <span>{{ activite.heureConnexionActivite }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.activite.heureDeConnexionActivite">Heure De Connexion Activite</span></dt>
+                <dd>
+                    <span>{{ activite.heureDeConnexionActivite }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.activite.adresseIpActivite">Adresse Ip Activite</span></dt>
+                <dd>
+                    <span>{{ activite.adresseIpActivite }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.activite.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ activite.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.activite.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ activite.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.activite.adresseMac">Adresse Mac</span></dt>
+                <dd>
+                    <span>{{ activite.adresseMac }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/activite', activite.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

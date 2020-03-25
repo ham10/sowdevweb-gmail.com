@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="typePatient">
+            <h2><span jhiTranslate="hpdApp.typePatient.detail.title">Type Patient</span> {{ typePatient.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.typePatient.codeTypePatient">Code Type Patient</span></dt>
+                <dd>
+                    <span>{{ typePatient.codeTypePatient }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typePatient.libelleTypePatient">Libelle Type Patient</span></dt>
+                <dd>
+                    <span>{{ typePatient.libelleTypePatient }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typePatient.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ typePatient.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typePatient.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ typePatient.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typePatient.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ typePatient.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typePatient.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ typePatient.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typePatient.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ typePatient.userDeleted }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/type-patient', typePatient.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

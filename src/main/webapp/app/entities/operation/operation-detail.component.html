@@ -1,0 +1,84 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="operation">
+            <h2><span jhiTranslate="hpdApp.operation.detail.title">Operation</span> {{ operation.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.operation.libelle">Libelle</span></dt>
+                <dd>
+                    <span>{{ operation.libelle }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.operation.date">Date</span></dt>
+                <dd>
+                    <span>{{ operation.date }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.operation.montant">Montant</span></dt>
+                <dd>
+                    <span>{{ operation.montant }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.operation.taxe">Taxe</span></dt>
+                <dd>
+                    <span>{{ operation.taxe }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.operation.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ operation.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.operation.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ operation.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.operation.dateDeleted">Date Deleted</span></dt>
+                <dd>
+                    <span>{{ operation.dateDeleted }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.operation.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ operation.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.operation.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ operation.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.operation.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ operation.userDeleted }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.operation.etatOperation">Etat Operation</span></dt>
+                <dd>
+                    <div *ngIf="operation.etatOperation">
+                        <a [routerLink]="['/etat-operation', operation.etatOperation?.id, 'view']">{{ operation.etatOperation?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.operation.caisse">Caisse</span></dt>
+                <dd>
+                    <div *ngIf="operation.caisse">
+                        <a [routerLink]="['/caisse', operation.caisse?.id, 'view']">{{ operation.caisse?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.operation.operation">Operation</span></dt>
+                <dd>
+                    <div *ngIf="operation.operation">
+                        <a [routerLink]="['/facture', operation.operation?.id, 'view']">{{ operation.operation?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/operation', operation.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

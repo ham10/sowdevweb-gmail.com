@@ -1,0 +1,35 @@
+{
+  "hpdApp": {
+    "produit": {
+      "home": {
+        "title": "Produits",
+        "createLabel": "Create a new Produit",
+        "createOrEditLabel": "Create or edit a Produit",
+        "notFound": "No Produits found"
+      },
+      "created": "A new Produit is created with identifier {{ param }}",
+      "updated": "A Produit is updated with identifier {{ param }}",
+      "deleted": "A Produit is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Produit {{ id }}?"
+      },
+      "detail": {
+        "title": "Produit"
+      },
+      "code": "Code",
+      "libelle": "Libelle",
+      "quantiteStock": "Quantite Stock",
+      "stockProvisoire": "Stock Provisoire",
+      "tva": "Tva",
+      "prixVenteUnitaire": "Prix Vente Unitaire",
+      "codeBarre": "Code Barre",
+      "seuil": "Seuil",
+      "typeCond": "Type Cond",
+      "mouvement": "Mouvement",
+      "inventaire": "Inventaire",
+      "prodFournis": "Prod Fournis",
+      "etagere": "Etagere",
+      "typeproduit": "Typeproduit"
+    }
+  }
+}

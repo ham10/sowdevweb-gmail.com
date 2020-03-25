@@ -1,0 +1,40 @@
+{
+  "hpdApp": {
+    "ficheMedical": {
+      "home": {
+        "title": "Fiche Medicals",
+        "createLabel": "Create a new Fiche Medical",
+        "createOrEditLabel": "Create or edit a Fiche Medical",
+        "notFound": "No Fiche Medicals found"
+      },
+      "created": "A new Fiche Medical is created with identifier {{ param }}",
+      "updated": "A Fiche Medical is updated with identifier {{ param }}",
+      "deleted": "A Fiche Medical is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Fiche Medical {{ id }}?"
+      },
+      "detail": {
+        "title": "Fiche Medical"
+      },
+      "numeroFicheMedical": "Numero Fiche Medical",
+      "dateConsultation": "Date Consultation",
+      "facteurRisque": "Facteur Risque",
+      "regimeAlimentaire": "Regime Alimentaire",
+      "diagnostic": "Diagnostic",
+      "recommandations": "Recommandations",
+      "commentaires": "Commentaires",
+      "dateProchainRV": "Date Prochain RV",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted",
+      "dossierMedical": "Dossier Medical",
+      "resultatActe": "Resultat Acte",
+      "ordonnance": "Ordonnance",
+      "vaccin": "Vaccin",
+      "medecin": "Medecin",
+      "typeConstante": "Type Constante"
+    }
+  }
+}

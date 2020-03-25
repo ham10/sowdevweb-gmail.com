@@ -1,0 +1,62 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="fichier">
+            <h2><span jhiTranslate="hpdApp.fichier.detail.title">Fichier</span> {{ fichier.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.fichier.cheminFichier">Chemin Fichier</span></dt>
+                <dd>
+                    <span>{{ fichier.cheminFichier }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.fichier.formatFichier">Format Fichier</span></dt>
+                <dd>
+                    <span>{{ fichier.formatFichier }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.fichier.separateurFichier">Separateur Fichier</span></dt>
+                <dd>
+                    <span>{{ fichier.separateurFichier }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.fichier.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ fichier.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.fichier.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ fichier.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.fichier.dateDeleted">Date Deleted</span></dt>
+                <dd>
+                    <span>{{ fichier.dateDeleted }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.fichier.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ fichier.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.fichier.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ fichier.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.fichier.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ fichier.userDeleted }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/fichier', fichier.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

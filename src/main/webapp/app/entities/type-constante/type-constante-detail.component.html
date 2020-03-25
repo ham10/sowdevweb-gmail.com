@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="typeConstante">
+            <h2><span jhiTranslate="hpdApp.typeConstante.detail.title">Type Constante</span> {{ typeConstante.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.typeConstante.codeTypeConstante">Code Type Constante</span></dt>
+                <dd>
+                    <span>{{ typeConstante.codeTypeConstante }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeConstante.libelleTypeConstante">Libelle Type Constante</span></dt>
+                <dd>
+                    <span>{{ typeConstante.libelleTypeConstante }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeConstante.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ typeConstante.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeConstante.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ typeConstante.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeConstante.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ typeConstante.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeConstante.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ typeConstante.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeConstante.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ typeConstante.userDeleted }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/type-constante', typeConstante.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

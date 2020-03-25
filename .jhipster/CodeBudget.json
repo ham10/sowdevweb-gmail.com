@@ -1,0 +1,56 @@
+{
+    "name": "CodeBudget",
+    "fields": [
+        {
+            "fieldName": "codeCodeBudget",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "libelleCodeBudget",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dateCreated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateUpdated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateDeleted",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "userCreated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userUpdated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userDeleted",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "compteGene",
+            "otherEntityRelationshipName": "codeBudget",
+            "relationshipName": "compteGeneral",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200325182900",
+    "entityTableName": "code_budget",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

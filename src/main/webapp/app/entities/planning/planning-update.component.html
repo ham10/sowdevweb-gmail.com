@@ -1,0 +1,278 @@
+
+
+<div class="row text-center">
+    <div class="col-md-4">
+        <div class="btn-group">
+            <div
+                class="btn btn-primary"
+                mwlCalendarPreviousView
+                [view]="view"
+                [(viewDate)]="viewDate"
+                (viewDateChange)="closeOpenMonthViewDay()"
+            >
+                Previous
+            </div>
+            <div
+                class="btn btn-outline-secondary"
+                mwlCalendarToday
+                [(viewDate)]="viewDate"
+            >
+                Today
+            </div>
+            <div
+                class="btn btn-primary"
+                mwlCalendarNextView
+                [view]="view"
+                [(viewDate)]="viewDate"
+                (viewDateChange)="closeOpenMonthViewDay()"
+            >
+                Next
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h3>
+    </div>
+    <div class="col-md-4">
+        <div class="btn-group">
+            <div
+                class="btn btn-primary"
+                (click)="setView(CalendarView.Month)"
+                [class.active]="view === CalendarView.Month"
+            >
+                Month
+            </div>
+            <div
+                class="btn btn-primary"
+                (click)="setView(CalendarView.Week)"
+                [class.active]="view === CalendarView.Week"
+            >
+                Week
+            </div>
+            <div
+                class="btn btn-primary"
+                (click)="setView(CalendarView.Day)"
+                [class.active]="view === CalendarView.Day"
+            >
+                Day
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<div [ngSwitch]="view">
+    <mwl-calendar-month-view
+        *ngSwitchCase="CalendarView.Month"
+        [viewDate]="viewDate"
+        [events]="events"
+        [refresh]="refresh"
+        [activeDayIsOpen]="activeDayIsOpen"
+        (dayClicked)="dayClicked($event.day)"
+        (eventClicked)="handleEvent('Clicked', $event.event)"
+        (eventTimesChanged)="eventTimesChanged($event)"
+    >
+    </mwl-calendar-month-view>
+    <mwl-calendar-week-view
+        *ngSwitchCase="CalendarView.Week"
+        [viewDate]="viewDate"
+        [events]="events"
+        [refresh]="refresh"
+        (eventClicked)="handleEvent('Clicked', $event.event)"
+        (eventTimesChanged)="eventTimesChanged($event)"
+    >
+    </mwl-calendar-week-view>
+    <mwl-calendar-day-view
+        *ngSwitchCase="CalendarView.Day"
+        [viewDate]="viewDate"
+        [events]="events"
+        [refresh]="refresh"
+        (eventClicked)="handleEvent('Clicked', $event.event)"
+        (eventTimesChanged)="eventTimesChanged($event)"
+    >
+    </mwl-calendar-day-view>
+</div>
+
+<!-- Everything you see below is just for the demo, you don't need to include it in your app -->
+
+<br /><br /><br />
+
+<h3>
+    Edit events
+    <button class="btn btn-primary float-right" (click)="addEvent()">
+        Add new
+    </button>
+    <div class="clearfix"></div>
+</h3>
+
+<div class="table-responsive">
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Title</th>
+            <th>Primary color</th>
+            <th>Secondary color</th>
+            <th>Starts at</th>
+            <th>Ends at</th>
+            <th>Etat Planning</th>
+            <th>Remove</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr *ngFor="let event of events">
+            <td>
+                <input
+                    type="text"
+                    class="form-control"
+                    [(ngModel)]="event.title"
+                    (keyup)="refresh.next()"
+                />
+            </td>
+            <td>
+                <input
+                    type="color"
+                    [(ngModel)]="event.color.primary"
+                    (change)="refresh.next()"
+                />
+            </td>
+            <td>
+                <input
+                    type="color"
+                    [(ngModel)]="event.color.secondary"
+                    (change)="refresh.next()"
+                />
+            </td>
+            <td>
+                <input
+                    class="form-control"
+                    type="date"
+                    mwlFlatpickr
+                    [(ngModel)]="event.start"
+                    (ngModelChange)="refresh.next()"
+                    [altInput]="true"
+                    [convertModelValue]="true"
+                    [enableTime]="true"
+                    dateFormat="Y-m-dTH:i"
+                    altFormat="F j, Y H:i"
+                    placeholder="Not set"
+                />
+            </td>
+            <td>
+                <input
+                    class="form-control light-gray"
+                    type="text"
+                    mwlFlatpickr
+                    [(ngModel)]="event.end"
+                    (ngModelChange)="refresh.next()"
+                    [altInput]="true"
+                    [convertModelValue]="true"
+                    [enableTime]="true"
+                    dateFormat="Y-m-dTH:i"
+                    altFormat="F j, Y H:i"
+                    placeholder="Not set"
+                />
+            </td>
+            <td>
+
+                <select class="form-control light-gray"
+                        [(ngModel)]="event.meta"
+                        (ngModelChange)="refresh.next()"
+                        >
+                    <option [ngValue]="null"></option>
+                    <option [ngValue]="etatPlanningOption" *ngFor="let etatPlanningOption of etatPlannings; trackBy: trackById">{{ etatPlanningOption.libelle }}</option>
+                </select>
+
+            </td>
+            <td>
+                <button class="btn btn-danger" (click)="deleteEvent(event)">
+                    Delete
+                </button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<ng-template #modalContent let-close="close">
+    <div class="modal-header">
+        <h5 class="modal-title">Event action occurred</h5>
+        <button type="button" class="close" (click)="close()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div>
+            Action:
+            <pre>{{ modalData?.action }}</pre>
+        </div>
+        <div>
+            Event:
+            <pre>{{ modalData?.event | json }}</pre>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" (click)="close()">
+            OK
+        </button>
+    </div>
+</ng-template>
+
+<div class="row">
+    <form (ngSubmit)="save()" [formGroup]="editForm">
+<!--        <h2 id="jhi-planning-heading" jhiTranslate="hpdApp.planning.home.createOrEditLabel">Create or edit a Planning</h2>-->
+
+
+
+            <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                <label for="id" jhiTranslate="global.field.id">ID</label>
+                <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+            </div>
+
+<!--            <div class="form-group">-->
+<!--                <label class="form-control-label" jhiTranslate="hpdApp.planning.num" for="field_num">Num</label>-->
+<!--                <input type="text" class="form-control" name="num" id="field_num"-->
+<!--                       formControlName="num"/>-->
+<!--            </div>-->
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="hpdApp.planning.libelle" for="field_libelle">Libelle</label>
+            <input type="text" class="form-control" name="libelle" id="field_libelle"
+                   formControlName="libelle"/>
+        </div>
+
+<!--            <div class="form-group">-->
+<!--                <label class="form-control-label" jhiTranslate="hpdApp.planning.dateCreated" for="field_dateCreated">Date Created</label>-->
+<!--                <div class="input-group">-->
+<!--                    <input id="field_dateCreated" type="text" class="form-control" name="dateCreated" ngbDatepicker #dateCreatedDp="ngbDatepicker" formControlName="dateCreated"/>-->
+<!--                    <span class="input-group-append">-->
+<!--                            <button type="button" class="btn btn-secondary" (click)="dateCreatedDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>-->
+<!--                        </span>-->
+<!--                </div>-->
+<!--            </div>-->
+        <div class="form-group ">
+            <label class="form-control-label" jhiTranslate="hpdApp.planning.medecin" for="field_medecin">Medecin</label>
+            <select class="form-control" id="field_medecin" name="medecin" formControlName="medecin">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="medecinOption.id === editForm.get('medecin')!.value?.id ? editForm.get('medecin')!.value : medecinOption" *ngFor="let medecinOption of medecins; trackBy: trackById">{{ medecinOption.prenom }}</option>
+            </select>
+        </div>
+        <div class="form-group ">
+                <label class="form-control-label" jhiTranslate="hpdApp.planning.typePlanning" for="field_typePlanning">Type Planning</label>
+                <select class="form-control" id="field_typePlanning" name="typePlanning" formControlName="typePlanning">
+                    <option [ngValue]="null"></option>
+                    <option [ngValue]="typePlanningOption.id === editForm.get('typePlanning')!.value?.id ? editForm.get('typePlanning')!.value : typePlanningOption" *ngFor="let typePlanningOption of typeplannings; trackBy: trackById">{{ typePlanningOption.libelle }}</option>
+                </select>
+            </div>
+
+
+        <div>
+            <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+            </button>
+
+            <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+            </button>
+        </div>
+    </form>
+</div>
+

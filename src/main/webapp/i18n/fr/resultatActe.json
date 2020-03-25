@@ -1,0 +1,32 @@
+{
+  "hpdApp": {
+    "resultatActe": {
+      "home": {
+        "title": "ResultatActes",
+        "createLabel": "Créer un nouveau Resultat Acte",
+        "createOrEditLabel": "Créer ou éditer un Resultat Acte",
+        "notFound": "Aucun Resultat Acte trouvé"
+      },
+      "created": "Un nouveau Resultat Acte a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Resultat Acte avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Resultat Acte avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Resultat Acte {{ id }} ?"
+      },
+      "detail": {
+        "title": "Resultat Acte"
+      },
+      "numero": "Numero",
+      "resultat": "Resultat",
+      "date": "Date",
+      "description": "Description",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted",
+      "acteMedical": "Acte Medical",
+      "ficheMedical": "Fiche Medical"
+    }
+  }
+}

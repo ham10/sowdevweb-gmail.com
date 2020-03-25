@@ -1,0 +1,94 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="paramDivers">
+            <h2><span jhiTranslate="hpdApp.paramDivers.detail.title">Param Divers</span> {{ paramDivers.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.paramDivers.codeParamDivers">Code Param Divers</span></dt>
+                <dd>
+                    <span>{{ paramDivers.codeParamDivers }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.paramDivers.libelleParamDivers">Libelle Param Divers</span></dt>
+                <dd>
+                    <span>{{ paramDivers.libelleParamDivers }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.paramDivers.descriptionParamDivers">Description Param Divers</span></dt>
+                <dd>
+                    <span>{{ paramDivers.descriptionParamDivers }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.paramDivers.valeurNum1">Valeur Num 1</span></dt>
+                <dd>
+                    <span>{{ paramDivers.valeurNum1 }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.paramDivers.valeurNum2">Valeur Num 2</span></dt>
+                <dd>
+                    <span>{{ paramDivers.valeurNum2 }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.paramDivers.valeurNum3">Valeur Num 3</span></dt>
+                <dd>
+                    <span>{{ paramDivers.valeurNum3 }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.paramDivers.valeurText1">Valeur Text 1</span></dt>
+                <dd>
+                    <span>{{ paramDivers.valeurText1 }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.paramDivers.valeurText2">Valeur Text 2</span></dt>
+                <dd>
+                    <span>{{ paramDivers.valeurText2 }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.paramDivers.valeurText3">Valeur Text 3</span></dt>
+                <dd>
+                    <span>{{ paramDivers.valeurText3 }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.paramDivers.valeurBoolean1">Valeur Boolean 1</span></dt>
+                <dd>
+                    <span>{{ paramDivers.valeurBoolean1 }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.paramDivers.valeurBoolean2">Valeur Boolean 2</span></dt>
+                <dd>
+                    <span>{{ paramDivers.valeurBoolean2 }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.paramDivers.valeurBoolean3">Valeur Boolean 3</span></dt>
+                <dd>
+                    <span>{{ paramDivers.valeurBoolean3 }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.paramDivers.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ paramDivers.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.paramDivers.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ paramDivers.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.paramDivers.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ paramDivers.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.paramDivers.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ paramDivers.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.paramDivers.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ paramDivers.userDeleted }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/param-divers', paramDivers.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

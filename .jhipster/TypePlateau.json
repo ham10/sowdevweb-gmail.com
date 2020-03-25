@@ -1,0 +1,51 @@
+{
+    "name": "TypePlateau",
+    "fields": [
+        {
+            "fieldName": "codeTypePlateau",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "libelleTypePlateau",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dateCreated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateUpdated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "userCreated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userUpdated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userDeleted",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "plateau",
+            "otherEntityRelationshipName": "typePlateau",
+            "relationshipName": "plateau"
+        }
+    ],
+    "changelogDate": "20200325181800",
+    "entityTableName": "type_plateau",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

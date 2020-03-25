@@ -1,0 +1,81 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hpdApp.calendrier.home.title">Calendriers</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-calendrier" [routerLink]="['/calendrier/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hpdApp.calendrier.home.createLabel">
+            Create a new Calendrier
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="calendriers?.length === 0">
+        <span jhiTranslate="hpdApp.calendrier.home.notFound">No calendriers found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="calendriers?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="libelleCalendrier"><span jhiTranslate="hpdApp.calendrier.libelleCalendrier">Libelle Calendrier</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="heureDebut"><span jhiTranslate="hpdApp.calendrier.heureDebut">Heure Debut</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="heureFin"><span jhiTranslate="hpdApp.calendrier.heureFin">Heure Fin</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateDebut"><span jhiTranslate="hpdApp.calendrier.dateDebut">Date Debut</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateFin"><span jhiTranslate="hpdApp.calendrier.dateFin">Date Fin</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateCreated"><span jhiTranslate="hpdApp.calendrier.dateCreated">Date Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateUpdated"><span jhiTranslate="hpdApp.calendrier.dateUpdated">Date Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateDeleted"><span jhiTranslate="hpdApp.calendrier.dateDeleted">Date Deleted</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userCreated"><span jhiTranslate="hpdApp.calendrier.userCreated">User Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userUpdated"><span jhiTranslate="hpdApp.calendrier.userUpdated">User Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userDeleted"><span jhiTranslate="hpdApp.calendrier.userDeleted">User Deleted</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let calendrier of calendriers ;trackBy: trackId">
+                    <td><a [routerLink]="['/calendrier', calendrier.id, 'view']">{{ calendrier.id }}</a></td>
+                    <td>{{ calendrier.libelleCalendrier }}</td>
+                    <td>{{ calendrier.heureDebut | date:'mediumDate' }}</td>
+                    <td>{{ calendrier.heureFin | date:'mediumDate' }}</td>
+                    <td>{{ calendrier.dateDebut | date:'mediumDate' }}</td>
+                    <td>{{ calendrier.dateFin | date:'mediumDate' }}</td>
+                    <td>{{ calendrier.dateCreated | date:'mediumDate' }}</td>
+                    <td>{{ calendrier.dateUpdated | date:'mediumDate' }}</td>
+                    <td>{{ calendrier.dateDeleted | date:'mediumDate' }}</td>
+                    <td>{{ calendrier.userCreated | date:'mediumDate' }}</td>
+                    <td>{{ calendrier.userUpdated }}</td>
+                    <td>{{ calendrier.userDeleted }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/calendrier', calendrier.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/calendrier', calendrier.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(calendrier)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

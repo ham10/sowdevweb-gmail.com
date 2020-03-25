@@ -1,0 +1,60 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="typeMvtStock">
+            <h2><span jhiTranslate="hpdApp.typeMvtStock.detail.title">Type Mvt Stock</span> {{ typeMvtStock.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.typeMvtStock.codeTypeMvtStock">Code Type Mvt Stock</span></dt>
+                <dd>
+                    <span>{{ typeMvtStock.codeTypeMvtStock }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeMvtStock.libelleTypeMvtStock">Libelle Type Mvt Stock</span></dt>
+                <dd>
+                    <span>{{ typeMvtStock.libelleTypeMvtStock }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeMvtStock.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ typeMvtStock.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeMvtStock.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ typeMvtStock.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeMvtStock.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ typeMvtStock.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeMvtStock.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ typeMvtStock.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeMvtStock.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ typeMvtStock.userDeleted }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeMvtStock.typeSortie">Type Sortie</span></dt>
+                <dd>
+                    <div *ngIf="typeMvtStock.typeSortie">
+                        <a [routerLink]="['/type-sortie', typeMvtStock.typeSortie?.id, 'view']">{{ typeMvtStock.typeSortie?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/type-mvt-stock', typeMvtStock.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="typePrCharge">
+            <h2><span jhiTranslate="hpdApp.typePrCharge.detail.title">Type Pr Charge</span> {{ typePrCharge.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.typePrCharge.codeTypePrCharge">Code Type Pr Charge</span></dt>
+                <dd>
+                    <span>{{ typePrCharge.codeTypePrCharge }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typePrCharge.libelleTypePrCharge">Libelle Type Pr Charge</span></dt>
+                <dd>
+                    <span>{{ typePrCharge.libelleTypePrCharge }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typePrCharge.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ typePrCharge.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typePrCharge.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ typePrCharge.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typePrCharge.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ typePrCharge.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typePrCharge.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ typePrCharge.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typePrCharge.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ typePrCharge.userDeleted }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/type-pr-charge', typePrCharge.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

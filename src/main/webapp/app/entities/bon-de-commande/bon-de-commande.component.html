@@ -1,0 +1,103 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hpdApp.bonDeCommande.home.title">Bon De Commandes</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-bon-de-commande" [routerLink]="['/bon-de-commande/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hpdApp.bonDeCommande.home.createLabel">
+            Create a new Bon De Commande
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="bonDeCommandes?.length === 0">
+        <span jhiTranslate="hpdApp.bonDeCommande.home.notFound">No bonDeCommandes found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="bonDeCommandes?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="numero"><span jhiTranslate="hpdApp.bonDeCommande.numero">Numero</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="libelle"><span jhiTranslate="hpdApp.bonDeCommande.libelle">Libelle</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="prixTotal"><span jhiTranslate="hpdApp.bonDeCommande.prixTotal">Prix Total</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateComm"><span jhiTranslate="hpdApp.bonDeCommande.dateComm">Date Comm</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateCreated"><span jhiTranslate="hpdApp.bonDeCommande.dateCreated">Date Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateUpdated"><span jhiTranslate="hpdApp.bonDeCommande.dateUpdated">Date Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateDeleted"><span jhiTranslate="hpdApp.bonDeCommande.dateDeleted">Date Deleted</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userCreated"><span jhiTranslate="hpdApp.bonDeCommande.userCreated">User Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userUpdated"><span jhiTranslate="hpdApp.bonDeCommande.userUpdated">User Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userDeleted"><span jhiTranslate="hpdApp.bonDeCommande.userDeleted">User Deleted</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="bonLivraison.id"><span jhiTranslate="hpdApp.bonDeCommande.bonLivraison">Bon Livraison</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="serv.id"><span jhiTranslate="hpdApp.bonDeCommande.serv">Serv</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="etatBonCommande.id"><span jhiTranslate="hpdApp.bonDeCommande.etatBonCommande">Etat Bon Commande</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="typeBonDeCommande.id"><span jhiTranslate="hpdApp.bonDeCommande.typeBonDeCommande">Type Bon De Commande</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let bonDeCommande of bonDeCommandes ;trackBy: trackId">
+                    <td><a [routerLink]="['/bon-de-commande', bonDeCommande.id, 'view']">{{ bonDeCommande.id }}</a></td>
+                    <td>{{ bonDeCommande.numero }}</td>
+                    <td>{{ bonDeCommande.libelle }}</td>
+                    <td>{{ bonDeCommande.prixTotal }}</td>
+                    <td>{{ bonDeCommande.dateComm | date:'mediumDate' }}</td>
+                    <td>{{ bonDeCommande.dateCreated | date:'mediumDate' }}</td>
+                    <td>{{ bonDeCommande.dateUpdated | date:'mediumDate' }}</td>
+                    <td>{{ bonDeCommande.dateDeleted | date:'mediumDate' }}</td>
+                    <td>{{ bonDeCommande.userCreated }}</td>
+                    <td>{{ bonDeCommande.userUpdated }}</td>
+                    <td>{{ bonDeCommande.userDeleted }}</td>
+                    <td>
+                        <div *ngIf="bonDeCommande.bonLivraison">
+                            <a [routerLink]="['/bon-livraison', bonDeCommande.bonLivraison?.id, 'view']" >{{ bonDeCommande.bonLivraison?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="bonDeCommande.serv">
+                            <a [routerLink]="['/services', bonDeCommande.serv?.id, 'view']" >{{ bonDeCommande.serv?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="bonDeCommande.etatBonCommande">
+                            <a [routerLink]="['/etat-bon-com', bonDeCommande.etatBonCommande?.id, 'view']" >{{ bonDeCommande.etatBonCommande?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="bonDeCommande.typeBonDeCommande">
+                            <a [routerLink]="['/type-bon-com', bonDeCommande.typeBonDeCommande?.id, 'view']" >{{ bonDeCommande.typeBonDeCommande?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/bon-de-commande', bonDeCommande.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/bon-de-commande', bonDeCommande.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(bonDeCommande)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

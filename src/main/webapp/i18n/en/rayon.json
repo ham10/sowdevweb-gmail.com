@@ -1,0 +1,25 @@
+{
+  "hpdApp": {
+    "rayon": {
+      "home": {
+        "title": "Rayons",
+        "createLabel": "Create a new Rayon",
+        "createOrEditLabel": "Create or edit a Rayon",
+        "notFound": "No Rayons found"
+      },
+      "created": "A new Rayon is created with identifier {{ param }}",
+      "updated": "A Rayon is updated with identifier {{ param }}",
+      "deleted": "A Rayon is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Rayon {{ id }}?"
+      },
+      "detail": {
+        "title": "Rayon"
+      },
+      "codeRayon": "Code Rayon",
+      "libelleRayon": "Libelle Rayon",
+      "etagere": "Etagere",
+      "rayon": "Rayon"
+    }
+  }
+}

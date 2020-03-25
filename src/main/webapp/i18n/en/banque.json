@@ -1,0 +1,31 @@
+{
+  "hpdApp": {
+    "banque": {
+      "home": {
+        "title": "Banques",
+        "createLabel": "Create a new Banque",
+        "createOrEditLabel": "Create or edit a Banque",
+        "notFound": "No Banques found"
+      },
+      "created": "A new Banque is created with identifier {{ param }}",
+      "updated": "A Banque is updated with identifier {{ param }}",
+      "deleted": "A Banque is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Banque {{ id }}?"
+      },
+      "detail": {
+        "title": "Banque"
+      },
+      "codeBanque": "Code Banque",
+      "ribBanque": "Rib Banque",
+      "libelleBanque": "Libelle Banque",
+      "descriptionBanque": "Description Banque",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted",
+      "compteGeneral": "Compte General"
+    }
+  }
+}

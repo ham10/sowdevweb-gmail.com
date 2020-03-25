@@ -1,0 +1,29 @@
+{
+  "hpdApp": {
+    "catMagasin": {
+      "home": {
+        "title": "Cat Magasins",
+        "createLabel": "Create a new Cat Magasin",
+        "createOrEditLabel": "Create or edit a Cat Magasin",
+        "notFound": "No Cat Magasins found"
+      },
+      "created": "A new Cat Magasin is created with identifier {{ param }}",
+      "updated": "A Cat Magasin is updated with identifier {{ param }}",
+      "deleted": "A Cat Magasin is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Cat Magasin {{ id }}?"
+      },
+      "detail": {
+        "title": "Cat Magasin"
+      },
+      "codeCatMagasin": "Code Cat Magasin",
+      "libelleCatMagasin": "Libelle Cat Magasin",
+      "descriptionCatMagasin": "Description Cat Magasin",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted"
+    }
+  }
+}

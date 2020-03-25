@@ -1,0 +1,80 @@
+{
+    "name": "Facture",
+    "fields": [
+        {
+            "fieldName": "designation",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "montantFact",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "montantPaye",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "montantGlobal",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "moratoire",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "dateCreated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateUpdated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateDeleted",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "userCreated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userUpdated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userDeleted",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "operation",
+            "otherEntityRelationshipName": "operation",
+            "relationshipName": "operation"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "echeancier",
+            "otherEntityRelationshipName": "facture",
+            "relationshipName": "echeancier"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "bonLivraison",
+            "otherEntityRelationshipName": "facture",
+            "relationshipName": "bonLivraison",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200325192400",
+    "entityTableName": "facture",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

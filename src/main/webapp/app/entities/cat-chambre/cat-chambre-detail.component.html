@@ -1,0 +1,60 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="catChambre">
+            <h2><span jhiTranslate="hpdApp.catChambre.detail.title">Cat Chambre</span> {{ catChambre.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.catChambre.libelleCatChambre">Libelle Cat Chambre</span></dt>
+                <dd>
+                    <span>{{ catChambre.libelleCatChambre }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.catChambre.descriptionCatChambre">Description Cat Chambre</span></dt>
+                <dd>
+                    <span>{{ catChambre.descriptionCatChambre }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.catChambre.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ catChambre.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.catChambre.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ catChambre.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.catChambre.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ catChambre.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.catChambre.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ catChambre.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.catChambre.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ catChambre.userDeleted }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.catChambre.serv">Serv</span></dt>
+                <dd>
+                    <div *ngIf="catChambre.serv">
+                        <a [routerLink]="['/services', catChambre.serv?.id, 'view']">{{ catChambre.serv?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/cat-chambre', catChambre.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

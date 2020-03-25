@@ -1,0 +1,75 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hpdApp.antecedent.home.title">Antecedents</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-antecedent" [routerLink]="['/antecedent/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hpdApp.antecedent.home.createLabel">
+            Create a new Antecedent
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="antecedents?.length === 0">
+        <span jhiTranslate="hpdApp.antecedent.home.notFound">No antecedents found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="antecedents?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="libelle"><span jhiTranslate="hpdApp.antecedent.libelle">Libelle</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="description"><span jhiTranslate="hpdApp.antecedent.description">Description</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="date"><span jhiTranslate="hpdApp.antecedent.date">Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateCreated"><span jhiTranslate="hpdApp.antecedent.dateCreated">Date Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateUpdated"><span jhiTranslate="hpdApp.antecedent.dateUpdated">Date Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userCreated"><span jhiTranslate="hpdApp.antecedent.userCreated">User Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userUpdated"><span jhiTranslate="hpdApp.antecedent.userUpdated">User Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userDeleted"><span jhiTranslate="hpdApp.antecedent.userDeleted">User Deleted</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let antecedent of antecedents ;trackBy: trackId">
+                    <td><a [routerLink]="['/antecedent', antecedent.id, 'view']">{{ antecedent.id }}</a></td>
+                    <td>{{ antecedent.libelle }}</td>
+                    <td>{{ antecedent.description }}</td>
+                    <td>{{ antecedent.date | date:'mediumDate' }}</td>
+                    <td>{{ antecedent.dateCreated | date:'mediumDate' }}</td>
+                    <td>{{ antecedent.dateUpdated | date:'mediumDate' }}</td>
+                    <td>{{ antecedent.userCreated }}</td>
+                    <td>{{ antecedent.userUpdated }}</td>
+                    <td>{{ antecedent.userDeleted }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/antecedent', antecedent.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/antecedent', antecedent.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(antecedent)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+{
+  "hpdApp": {
+    "typeLit": {
+      "home": {
+        "title": "Type Lits",
+        "createLabel": "Create a new Type Lit",
+        "createOrEditLabel": "Create or edit a Type Lit",
+        "notFound": "No Type Lits found"
+      },
+      "created": "A new Type Lit is created with identifier {{ param }}",
+      "updated": "A Type Lit is updated with identifier {{ param }}",
+      "deleted": "A Type Lit is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Type Lit {{ id }}?"
+      },
+      "detail": {
+        "title": "Type Lit"
+      },
+      "codeTypeLit": "Code Type Lit",
+      "libelleTypeLit": "Libelle Type Lit",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted",
+      "lit": "Lit"
+    }
+  }
+}

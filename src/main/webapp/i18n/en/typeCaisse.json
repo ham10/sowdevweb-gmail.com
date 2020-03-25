@@ -1,0 +1,28 @@
+{
+  "hpdApp": {
+    "typeCaisse": {
+      "home": {
+        "title": "Type Caisses",
+        "createLabel": "Create a new Type Caisse",
+        "createOrEditLabel": "Create or edit a Type Caisse",
+        "notFound": "No Type Caisses found"
+      },
+      "created": "A new Type Caisse is created with identifier {{ param }}",
+      "updated": "A Type Caisse is updated with identifier {{ param }}",
+      "deleted": "A Type Caisse is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Type Caisse {{ id }}?"
+      },
+      "detail": {
+        "title": "Type Caisse"
+      },
+      "codeTypeCaisse": "Code Type Caisse",
+      "libelleTypeCaisse": "Libelle Type Caisse",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted"
+    }
+  }
+}

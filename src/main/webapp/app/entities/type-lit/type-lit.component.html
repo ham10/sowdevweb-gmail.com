@@ -1,0 +1,73 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hpdApp.typeLit.home.title">Type Lits</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-type-lit" [routerLink]="['/type-lit/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hpdApp.typeLit.home.createLabel">
+            Create a new Type Lit
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="typeLits?.length === 0">
+        <span jhiTranslate="hpdApp.typeLit.home.notFound">No typeLits found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="typeLits?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="codeTypeLit"><span jhiTranslate="hpdApp.typeLit.codeTypeLit">Code Type Lit</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="libelleTypeLit"><span jhiTranslate="hpdApp.typeLit.libelleTypeLit">Libelle Type Lit</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateCreated"><span jhiTranslate="hpdApp.typeLit.dateCreated">Date Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateUpdated"><span jhiTranslate="hpdApp.typeLit.dateUpdated">Date Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userCreated"><span jhiTranslate="hpdApp.typeLit.userCreated">User Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userUpdated"><span jhiTranslate="hpdApp.typeLit.userUpdated">User Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userDeleted"><span jhiTranslate="hpdApp.typeLit.userDeleted">User Deleted</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let typeLit of typeLits ;trackBy: trackId">
+                    <td><a [routerLink]="['/type-lit', typeLit.id, 'view']">{{ typeLit.id }}</a></td>
+                    <td>{{ typeLit.codeTypeLit }}</td>
+                    <td>{{ typeLit.libelleTypeLit }}</td>
+                    <td>{{ typeLit.dateCreated | date:'mediumDate' }}</td>
+                    <td>{{ typeLit.dateUpdated | date:'mediumDate' }}</td>
+                    <td>{{ typeLit.userCreated }}</td>
+                    <td>{{ typeLit.userUpdated }}</td>
+                    <td>{{ typeLit.userDeleted }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/type-lit', typeLit.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/type-lit', typeLit.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(typeLit)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

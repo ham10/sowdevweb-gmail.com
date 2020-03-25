@@ -1,0 +1,28 @@
+{
+  "hpdApp": {
+    "typeFournis": {
+      "home": {
+        "title": "TypeFournis",
+        "createLabel": "Créer un nouveau Type Fournis",
+        "createOrEditLabel": "Créer ou éditer un Type Fournis",
+        "notFound": "Aucun Type Fournis trouvé"
+      },
+      "created": "Un nouveau Type Fournis a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Type Fournis avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Type Fournis avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Type Fournis {{ id }} ?"
+      },
+      "detail": {
+        "title": "Type Fournis"
+      },
+      "codeTypeFournis": "Code Type Fournis",
+      "libelleTypeFournis": "Libelle Type Fournis",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted"
+    }
+  }
+}

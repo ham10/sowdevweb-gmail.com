@@ -1,0 +1,37 @@
+{
+  "hpdApp": {
+    "operation": {
+      "home": {
+        "title": "Operations",
+        "createLabel": "Create a new Operation",
+        "createOrEditLabel": "Create or edit a Operation",
+        "notFound": "No Operations found"
+      },
+      "created": "A new Operation is created with identifier {{ param }}",
+      "updated": "A Operation is updated with identifier {{ param }}",
+      "deleted": "A Operation is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Operation {{ id }}?"
+      },
+      "detail": {
+        "title": "Operation"
+      },
+      "libelle": "Libelle",
+      "date": "Date",
+      "montant": "Montant",
+      "taxe": "Taxe",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "dateDeleted": "Date Deleted",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted",
+      "immo": "Immo",
+      "ecriture": "Ecriture",
+      "schemaComptable": "Schema Comptable",
+      "etatOperation": "Etat Operation",
+      "caisse": "Caisse",
+      "operation": "Operation"
+    }
+  }
+}

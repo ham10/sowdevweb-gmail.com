@@ -1,0 +1,31 @@
+{
+  "hpdApp": {
+    "typeImmo": {
+      "home": {
+        "title": "Type Immos",
+        "createLabel": "Create a new Type Immo",
+        "createOrEditLabel": "Create or edit a Type Immo",
+        "notFound": "No Type Immos found"
+      },
+      "created": "A new Type Immo is created with identifier {{ param }}",
+      "updated": "A Type Immo is updated with identifier {{ param }}",
+      "deleted": "A Type Immo is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Type Immo {{ id }}?"
+      },
+      "detail": {
+        "title": "Type Immo"
+      },
+      "code": "Code",
+      "modeCalcul": "Mode Calcul",
+      "taux": "Taux",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "dateDeleted": "Date Deleted",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted",
+      "immo": "Immo"
+    }
+  }
+}

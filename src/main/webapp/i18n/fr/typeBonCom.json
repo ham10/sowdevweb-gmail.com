@@ -1,0 +1,29 @@
+{
+  "hpdApp": {
+    "typeBonCom": {
+      "home": {
+        "title": "TypeBonComs",
+        "createLabel": "Créer un nouveau Type Bon Com",
+        "createOrEditLabel": "Créer ou éditer un Type Bon Com",
+        "notFound": "Aucun Type Bon Com trouvé"
+      },
+      "created": "Un nouveau Type Bon Com a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Type Bon Com avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Type Bon Com avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Type Bon Com {{ id }} ?"
+      },
+      "detail": {
+        "title": "Type Bon Com"
+      },
+      "libelleTypeBonCom": "Libelle Type Bon Com",
+      "codeTypeBonCom": "Code Type Bon Com",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted",
+      "bonDeCommande": "Bon De Commande"
+    }
+  }
+}

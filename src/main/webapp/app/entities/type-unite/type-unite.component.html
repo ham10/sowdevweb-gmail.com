@@ -1,0 +1,73 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hpdApp.typeUnite.home.title">Type Unites</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-type-unite" [routerLink]="['/type-unite/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hpdApp.typeUnite.home.createLabel">
+            Create a new Type Unite
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="typeUnites?.length === 0">
+        <span jhiTranslate="hpdApp.typeUnite.home.notFound">No typeUnites found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="typeUnites?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="codeTypeUnite"><span jhiTranslate="hpdApp.typeUnite.codeTypeUnite">Code Type Unite</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="libelleTypeUnite"><span jhiTranslate="hpdApp.typeUnite.libelleTypeUnite">Libelle Type Unite</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateCreated"><span jhiTranslate="hpdApp.typeUnite.dateCreated">Date Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateUpdated"><span jhiTranslate="hpdApp.typeUnite.dateUpdated">Date Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userCreated"><span jhiTranslate="hpdApp.typeUnite.userCreated">User Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userUpdated"><span jhiTranslate="hpdApp.typeUnite.userUpdated">User Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userDeleted"><span jhiTranslate="hpdApp.typeUnite.userDeleted">User Deleted</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let typeUnite of typeUnites ;trackBy: trackId">
+                    <td><a [routerLink]="['/type-unite', typeUnite.id, 'view']">{{ typeUnite.id }}</a></td>
+                    <td>{{ typeUnite.codeTypeUnite }}</td>
+                    <td>{{ typeUnite.libelleTypeUnite }}</td>
+                    <td>{{ typeUnite.dateCreated | date:'mediumDate' }}</td>
+                    <td>{{ typeUnite.dateUpdated | date:'mediumDate' }}</td>
+                    <td>{{ typeUnite.userCreated }}</td>
+                    <td>{{ typeUnite.userUpdated }}</td>
+                    <td>{{ typeUnite.userDeleted }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/type-unite', typeUnite.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/type-unite', typeUnite.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(typeUnite)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

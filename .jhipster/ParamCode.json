@@ -1,0 +1,48 @@
+{
+    "name": "ParamCode",
+    "fields": [
+        {
+            "fieldName": "codeParamCode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "libelleParamCode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "descriptionParamCode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dateCreated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateUpdated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "userCreated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userUpdated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userDeleted",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20200325185500",
+    "entityTableName": "param_code",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

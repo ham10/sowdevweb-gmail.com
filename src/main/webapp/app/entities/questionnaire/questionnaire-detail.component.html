@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="questionnaire">
+            <h2><span jhiTranslate="hpdApp.questionnaire.detail.title">Questionnaire</span> {{ questionnaire.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.questionnaire.code">Code</span></dt>
+                <dd>
+                    <span>{{ questionnaire.code }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.questionnaire.libelle">Libelle</span></dt>
+                <dd>
+                    <span>{{ questionnaire.libelle }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.questionnaire.dateDeleted">Date Deleted</span></dt>
+                <dd>
+                    <span>{{ questionnaire.dateDeleted }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.questionnaire.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ questionnaire.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.questionnaire.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ questionnaire.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.questionnaire.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ questionnaire.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.questionnaire.userUpdate">User Update</span></dt>
+                <dd>
+                    <span>{{ questionnaire.userUpdate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.questionnaire.userDelete">User Delete</span></dt>
+                <dd>
+                    <span>{{ questionnaire.userDelete }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/questionnaire', questionnaire.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,77 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hpdApp.tauxDevise.home.title">Taux Devises</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-taux-devise" [routerLink]="['/taux-devise/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hpdApp.tauxDevise.home.createLabel">
+            Create a new Taux Devise
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="tauxDevises?.length === 0">
+        <span jhiTranslate="hpdApp.tauxDevise.home.notFound">No tauxDevises found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="tauxDevises?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="sensTauxDevise"><span jhiTranslate="hpdApp.tauxDevise.sensTauxDevise">Sens Taux Devise</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateCreated"><span jhiTranslate="hpdApp.tauxDevise.dateCreated">Date Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateUpdated"><span jhiTranslate="hpdApp.tauxDevise.dateUpdated">Date Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userCreated"><span jhiTranslate="hpdApp.tauxDevise.userCreated">User Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userUpdated"><span jhiTranslate="hpdApp.tauxDevise.userUpdated">User Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userDeleted"><span jhiTranslate="hpdApp.tauxDevise.userDeleted">User Deleted</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="devise.id"><span jhiTranslate="hpdApp.tauxDevise.devise">Devise</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let tauxDevise of tauxDevises ;trackBy: trackId">
+                    <td><a [routerLink]="['/taux-devise', tauxDevise.id, 'view']">{{ tauxDevise.id }}</a></td>
+                    <td>{{ tauxDevise.sensTauxDevise }}</td>
+                    <td>{{ tauxDevise.dateCreated | date:'mediumDate' }}</td>
+                    <td>{{ tauxDevise.dateUpdated | date:'mediumDate' }}</td>
+                    <td>{{ tauxDevise.userCreated }}</td>
+                    <td>{{ tauxDevise.userUpdated }}</td>
+                    <td>{{ tauxDevise.userDeleted }}</td>
+                    <td>
+                        <div *ngIf="tauxDevise.devise">
+                            <a [routerLink]="['/devise', tauxDevise.devise?.id, 'view']" >{{ tauxDevise.devise?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/taux-devise', tauxDevise.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/taux-devise', tauxDevise.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(tauxDevise)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

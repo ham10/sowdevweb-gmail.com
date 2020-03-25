@@ -1,0 +1,30 @@
+{
+  "hpdApp": {
+    "pole": {
+      "home": {
+        "title": "Poles",
+        "createLabel": "Créer un nouveau Pole",
+        "createOrEditLabel": "Créer ou éditer un Pole",
+        "notFound": "Aucun Pole trouvé"
+      },
+      "created": "Un nouveau Pole a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Pole avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Pole avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Pole {{ id }} ?"
+      },
+      "detail": {
+        "title": "Pole"
+      },
+      "codePole": "Code Pole",
+      "libellePole": "Libelle Pole",
+      "descriptionPole": "Description Pole",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted",
+      "typePole": "Type Pole"
+    }
+  }
+}

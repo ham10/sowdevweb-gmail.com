@@ -1,0 +1,64 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="codeBudget">
+            <h2><span jhiTranslate="hpdApp.codeBudget.detail.title">Code Budget</span> {{ codeBudget.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.codeBudget.codeCodeBudget">Code Code Budget</span></dt>
+                <dd>
+                    <span>{{ codeBudget.codeCodeBudget }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.codeBudget.libelleCodeBudget">Libelle Code Budget</span></dt>
+                <dd>
+                    <span>{{ codeBudget.libelleCodeBudget }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.codeBudget.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ codeBudget.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.codeBudget.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ codeBudget.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.codeBudget.dateDeleted">Date Deleted</span></dt>
+                <dd>
+                    <span>{{ codeBudget.dateDeleted }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.codeBudget.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ codeBudget.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.codeBudget.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ codeBudget.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.codeBudget.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ codeBudget.userDeleted }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.codeBudget.compteGeneral">Compte General</span></dt>
+                <dd>
+                    <div *ngIf="codeBudget.compteGeneral">
+                        <a [routerLink]="['/compte-gene', codeBudget.compteGeneral?.id, 'view']">{{ codeBudget.compteGeneral?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/code-budget', codeBudget.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

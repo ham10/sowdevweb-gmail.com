@@ -1,0 +1,37 @@
+{
+  "hpdApp": {
+    "bonDeCommande": {
+      "home": {
+        "title": "BonDeCommandes",
+        "createLabel": "Créer un nouveau Bon De Commande",
+        "createOrEditLabel": "Créer ou éditer un Bon De Commande",
+        "notFound": "Aucun Bon De Commande trouvé"
+      },
+      "created": "Un nouveau Bon De Commande a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Bon De Commande avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Bon De Commande avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Bon De Commande {{ id }} ?"
+      },
+      "detail": {
+        "title": "Bon De Commande"
+      },
+      "numero": "Numero",
+      "libelle": "Libelle",
+      "prixTotal": "Prix Total",
+      "dateComm": "Date Comm",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "dateDeleted": "Date Deleted",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted",
+      "bonLivraison": "Bon Livraison",
+      "ligneCommande": "Ligne Commande",
+      "offre": "Offre",
+      "serv": "Serv",
+      "etatBonCommande": "Etat Bon Commande",
+      "typeBonDeCommande": "Type Bon De Commande"
+    }
+  }
+}

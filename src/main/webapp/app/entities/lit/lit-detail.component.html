@@ -1,0 +1,66 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="lit">
+            <h2><span jhiTranslate="hpdApp.lit.detail.title">Lit</span> {{ lit.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.lit.numeroLit">Numero Lit</span></dt>
+                <dd>
+                    <span>{{ lit.numeroLit }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.lit.descriptionLit">Description Lit</span></dt>
+                <dd>
+                    <span>{{ lit.descriptionLit }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.lit.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ lit.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.lit.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ lit.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.lit.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ lit.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.lit.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ lit.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.lit.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ lit.userDeleted }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.lit.typeLit">Type Lit</span></dt>
+                <dd>
+                    <div *ngIf="lit.typeLit">
+                        <a [routerLink]="['/type-lit', lit.typeLit?.id, 'view']">{{ lit.typeLit?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.lit.box">Box</span></dt>
+                <dd>
+                    <div *ngIf="lit.box">
+                        <a [routerLink]="['/boxe', lit.box?.id, 'view']">{{ lit.box?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/lit', lit.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

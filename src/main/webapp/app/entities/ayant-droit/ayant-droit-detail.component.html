@@ -1,0 +1,76 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="ayantDroit">
+            <h2><span jhiTranslate="hpdApp.ayantDroit.detail.title">Ayant Droit</span> {{ ayantDroit.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.ayantDroit.code">Code</span></dt>
+                <dd>
+                    <span>{{ ayantDroit.code }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.ayantDroit.prenom">Prenom</span></dt>
+                <dd>
+                    <span>{{ ayantDroit.prenom }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.ayantDroit.nom">Nom</span></dt>
+                <dd>
+                    <span>{{ ayantDroit.nom }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.ayantDroit.lienParente">Lien Parente</span></dt>
+                <dd>
+                    <span>{{ ayantDroit.lienParente }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.ayantDroit.dateNais">Date Nais</span></dt>
+                <dd>
+                    <span>{{ ayantDroit.dateNais }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.ayantDroit.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ ayantDroit.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.ayantDroit.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ ayantDroit.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.ayantDroit.dateDeleted">Date Deleted</span></dt>
+                <dd>
+                    <span>{{ ayantDroit.dateDeleted }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.ayantDroit.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ ayantDroit.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.ayantDroit.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ ayantDroit.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.ayantDroit.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ ayantDroit.userDeleted }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.ayantDroit.typePrCharge">Type Pr Charge</span></dt>
+                <dd>
+                    <div *ngIf="ayantDroit.typePrCharge">
+                        <a [routerLink]="['/type-pr-charge', ayantDroit.typePrCharge?.id, 'view']">{{ ayantDroit.typePrCharge?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/ayant-droit', ayantDroit.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

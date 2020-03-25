@@ -1,0 +1,166 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hpdApp.patient.home.title">Patients</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-patient" [routerLink]="['/patient/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hpdApp.patient.home.createLabel">
+            Create a new Patient
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="patients?.length === 0">
+        <span jhiTranslate="hpdApp.patient.home.notFound">No patients found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="patients?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="codePatient"><span jhiTranslate="hpdApp.patient.codePatient">Code Patient</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="nomPatient"><span jhiTranslate="hpdApp.patient.nomPatient">Nom Patient</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="prenom"><span jhiTranslate="hpdApp.patient.prenom">Prenom</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="adresse"><span jhiTranslate="hpdApp.patient.adresse">Adresse</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="email"><span jhiTranslate="hpdApp.patient.email">Email</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateNaissance"><span jhiTranslate="hpdApp.patient.dateNaissance">Date Naissance</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="genre"><span jhiTranslate="hpdApp.patient.genre">Genre</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="photo"><span jhiTranslate="hpdApp.patient.photo">Photo</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="password"><span jhiTranslate="hpdApp.patient.password">Password</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="telephone"><span jhiTranslate="hpdApp.patient.telephone">Telephone</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="numeroPiece"><span jhiTranslate="hpdApp.patient.numeroPiece">Numero Piece</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="codeBarre"><span jhiTranslate="hpdApp.patient.codeBarre">Code Barre</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="entreprise"><span jhiTranslate="hpdApp.patient.entreprise">Entreprise</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="ville"><span jhiTranslate="hpdApp.patient.ville">Ville</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="quartier"><span jhiTranslate="hpdApp.patient.quartier">Quartier</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="longitude"><span jhiTranslate="hpdApp.patient.longitude">Longitude</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="latitude"><span jhiTranslate="hpdApp.patient.latitude">Latitude</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lieuNaissance"><span jhiTranslate="hpdApp.patient.lieuNaissance">Lieu Naissance</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="fonctionPatient"><span jhiTranslate="hpdApp.patient.fonctionPatient">Fonction Patient</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="situationSociale"><span jhiTranslate="hpdApp.patient.situationSociale">Situation Sociale</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="solde"><span jhiTranslate="hpdApp.patient.solde">Solde</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="cartePatient"><span jhiTranslate="hpdApp.patient.cartePatient">Carte Patient</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="bloque"><span jhiTranslate="hpdApp.patient.bloque">Bloque</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateValidite"><span jhiTranslate="hpdApp.patient.dateValidite">Date Validite</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="motifBlocage"><span jhiTranslate="hpdApp.patient.motifBlocage">Motif Blocage</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="prenomPerePatient"><span jhiTranslate="hpdApp.patient.prenomPerePatient">Prenom Pere Patient</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="nomMerePatient"><span jhiTranslate="hpdApp.patient.nomMerePatient">Nom Mere Patient</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="prenomMerePatient"><span jhiTranslate="hpdApp.patient.prenomMerePatient">Prenom Mere Patient</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="motifAdmission"><span jhiTranslate="hpdApp.patient.motifAdmission">Motif Admission</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="personneAContacter"><span jhiTranslate="hpdApp.patient.personneAContacter">Personne A Contacter</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="adressePersAContacter"><span jhiTranslate="hpdApp.patient.adressePersAContacter">Adresse Pers A Contacter</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="telPersAContacter"><span jhiTranslate="hpdApp.patient.telPersAContacter">Tel Pers A Contacter</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lienParentePersAContacter"><span jhiTranslate="hpdApp.patient.lienParentePersAContacter">Lien Parente Pers A Contacter</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="nomAccompagnant"><span jhiTranslate="hpdApp.patient.nomAccompagnant">Nom Accompagnant</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="prenomAccompagnant"><span jhiTranslate="hpdApp.patient.prenomAccompagnant">Prenom Accompagnant</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="telAccompagnant"><span jhiTranslate="hpdApp.patient.telAccompagnant">Tel Accompagnant</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="habitudeDeVie"><span jhiTranslate="hpdApp.patient.habitudeDeVie">Habitude De Vie</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="physioPathologique"><span jhiTranslate="hpdApp.patient.physioPathologique">Physio Pathologique</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateCreated"><span jhiTranslate="hpdApp.patient.dateCreated">Date Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateUpdated"><span jhiTranslate="hpdApp.patient.dateUpdated">Date Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userCreated"><span jhiTranslate="hpdApp.patient.userCreated">User Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userUpdated"><span jhiTranslate="hpdApp.patient.userUpdated">User Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userDeleted"><span jhiTranslate="hpdApp.patient.userDeleted">User Deleted</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="groupeSanguin.id"><span jhiTranslate="hpdApp.patient.groupeSanguin">Groupe Sanguin</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="typePatient.id"><span jhiTranslate="hpdApp.patient.typePatient">Type Patient</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="departement.id"><span jhiTranslate="hpdApp.patient.departement">Departement</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let patient of patients ;trackBy: trackId">
+                    <td><a [routerLink]="['/patient', patient.id, 'view']">{{ patient.id }}</a></td>
+                    <td>{{ patient.codePatient }}</td>
+                    <td>{{ patient.nomPatient }}</td>
+                    <td>{{ patient.prenom }}</td>
+                    <td>{{ patient.adresse }}</td>
+                    <td>{{ patient.email }}</td>
+                    <td>{{ patient.dateNaissance | date:'mediumDate' }}</td>
+                    <td>{{ patient.genre }}</td>
+                    <td>
+                        <a *ngIf="patient.photo" (click)="openFile(patient.photoContentType, patient.photo)" jhiTranslate="entity.action.open">open</a>
+                        <span *ngIf="patient.photo">{{ patient.photoContentType }}, {{ byteSize(patient.photo) }}</span>
+                    </td>
+                    <td>{{ patient.password }}</td>
+                    <td>{{ patient.telephone }}</td>
+                    <td>{{ patient.numeroPiece }}</td>
+                    <td>{{ patient.codeBarre }}</td>
+                    <td>{{ patient.entreprise }}</td>
+                    <td>{{ patient.ville }}</td>
+                    <td>{{ patient.quartier }}</td>
+                    <td>{{ patient.longitude }}</td>
+                    <td>{{ patient.latitude }}</td>
+                    <td>{{ patient.lieuNaissance }}</td>
+                    <td>{{ patient.fonctionPatient }}</td>
+                    <td>{{ patient.situationSociale }}</td>
+                    <td>{{ patient.solde }}</td>
+                    <td>{{ patient.cartePatient }}</td>
+                    <td>{{ patient.bloque }}</td>
+                    <td>{{ patient.dateValidite | date:'mediumDate' }}</td>
+                    <td>{{ patient.motifBlocage }}</td>
+                    <td>{{ patient.prenomPerePatient }}</td>
+                    <td>{{ patient.nomMerePatient }}</td>
+                    <td>{{ patient.prenomMerePatient }}</td>
+                    <td>{{ patient.motifAdmission }}</td>
+                    <td>{{ patient.personneAContacter }}</td>
+                    <td>{{ patient.adressePersAContacter }}</td>
+                    <td>{{ patient.telPersAContacter }}</td>
+                    <td>{{ patient.lienParentePersAContacter }}</td>
+                    <td>{{ patient.nomAccompagnant }}</td>
+                    <td>{{ patient.prenomAccompagnant }}</td>
+                    <td>{{ patient.telAccompagnant }}</td>
+                    <td>{{ patient.habitudeDeVie }}</td>
+                    <td>{{ patient.physioPathologique }}</td>
+                    <td>{{ patient.dateCreated | date:'mediumDate' }}</td>
+                    <td>{{ patient.dateUpdated | date:'mediumDate' }}</td>
+                    <td>{{ patient.userCreated }}</td>
+                    <td>{{ patient.userUpdated }}</td>
+                    <td>{{ patient.userDeleted }}</td>
+                    <td>
+                        <div *ngIf="patient.groupeSanguin">
+                            <a [routerLink]="['/groupe-san', patient.groupeSanguin?.id, 'view']" >{{ patient.groupeSanguin?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="patient.typePatient">
+                            <a [routerLink]="['/type-patient', patient.typePatient?.id, 'view']" >{{ patient.typePatient?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="patient.departement">
+                            <a [routerLink]="['/departement', patient.departement?.id, 'view']" >{{ patient.departement?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/patient', patient.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/patient', patient.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(patient)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,60 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="region">
+            <h2><span jhiTranslate="hpdApp.region.detail.title">Region</span> {{ region.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.region.codeRegion">Code Region</span></dt>
+                <dd>
+                    <span>{{ region.codeRegion }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.region.libelleRegion">Libelle Region</span></dt>
+                <dd>
+                    <span>{{ region.libelleRegion }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.region.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ region.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.region.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ region.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.region.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ region.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.region.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ region.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.region.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ region.userDeleted }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.region.pays">Pays</span></dt>
+                <dd>
+                    <div *ngIf="region.pays">
+                        <a [routerLink]="['/pays', region.pays?.id, 'view']">{{ region.pays?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/region', region.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

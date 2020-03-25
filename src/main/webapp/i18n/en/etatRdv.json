@@ -1,0 +1,23 @@
+{
+  "hpdApp": {
+    "etatRdv": {
+      "home": {
+        "title": "Etat Rdvs",
+        "createLabel": "Create a new Etat Rdv",
+        "createOrEditLabel": "Create or edit a Etat Rdv",
+        "notFound": "No Etat Rdvs found"
+      },
+      "created": "A new Etat Rdv is created with identifier {{ param }}",
+      "updated": "A Etat Rdv is updated with identifier {{ param }}",
+      "deleted": "A Etat Rdv is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Etat Rdv {{ id }}?"
+      },
+      "detail": {
+        "title": "Etat Rdv"
+      },
+      "code": "Code",
+      "libelle": "Libelle"
+    }
+  }
+}

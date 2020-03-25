@@ -1,0 +1,87 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hpdApp.ayantDroit.home.title">Ayant Droits</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-ayant-droit" [routerLink]="['/ayant-droit/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hpdApp.ayantDroit.home.createLabel">
+            Create a new Ayant Droit
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="ayantDroits?.length === 0">
+        <span jhiTranslate="hpdApp.ayantDroit.home.notFound">No ayantDroits found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="ayantDroits?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="code"><span jhiTranslate="hpdApp.ayantDroit.code">Code</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="prenom"><span jhiTranslate="hpdApp.ayantDroit.prenom">Prenom</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="nom"><span jhiTranslate="hpdApp.ayantDroit.nom">Nom</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lienParente"><span jhiTranslate="hpdApp.ayantDroit.lienParente">Lien Parente</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateNais"><span jhiTranslate="hpdApp.ayantDroit.dateNais">Date Nais</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateCreated"><span jhiTranslate="hpdApp.ayantDroit.dateCreated">Date Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateUpdated"><span jhiTranslate="hpdApp.ayantDroit.dateUpdated">Date Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateDeleted"><span jhiTranslate="hpdApp.ayantDroit.dateDeleted">Date Deleted</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userCreated"><span jhiTranslate="hpdApp.ayantDroit.userCreated">User Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userUpdated"><span jhiTranslate="hpdApp.ayantDroit.userUpdated">User Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userDeleted"><span jhiTranslate="hpdApp.ayantDroit.userDeleted">User Deleted</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="typePrCharge.id"><span jhiTranslate="hpdApp.ayantDroit.typePrCharge">Type Pr Charge</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let ayantDroit of ayantDroits ;trackBy: trackId">
+                    <td><a [routerLink]="['/ayant-droit', ayantDroit.id, 'view']">{{ ayantDroit.id }}</a></td>
+                    <td>{{ ayantDroit.code }}</td>
+                    <td>{{ ayantDroit.prenom }}</td>
+                    <td>{{ ayantDroit.nom }}</td>
+                    <td>{{ ayantDroit.lienParente }}</td>
+                    <td>{{ ayantDroit.dateNais | date:'mediumDate' }}</td>
+                    <td>{{ ayantDroit.dateCreated | date:'mediumDate' }}</td>
+                    <td>{{ ayantDroit.dateUpdated | date:'mediumDate' }}</td>
+                    <td>{{ ayantDroit.dateDeleted | date:'mediumDate' }}</td>
+                    <td>{{ ayantDroit.userCreated }}</td>
+                    <td>{{ ayantDroit.userUpdated }}</td>
+                    <td>{{ ayantDroit.userDeleted }}</td>
+                    <td>
+                        <div *ngIf="ayantDroit.typePrCharge">
+                            <a [routerLink]="['/type-pr-charge', ayantDroit.typePrCharge?.id, 'view']" >{{ ayantDroit.typePrCharge?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/ayant-droit', ayantDroit.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/ayant-droit', ayantDroit.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(ayantDroit)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

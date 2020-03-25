@@ -1,0 +1,60 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="fonctionnalite">
+            <h2><span jhiTranslate="hpdApp.fonctionnalite.detail.title">Fonctionnalite</span> {{ fonctionnalite.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.fonctionnalite.libelleFonctionnalite">Libelle Fonctionnalite</span></dt>
+                <dd>
+                    <span>{{ fonctionnalite.libelleFonctionnalite }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.fonctionnalite.descriptionFonctionnalite">Description Fonctionnalite</span></dt>
+                <dd>
+                    <span>{{ fonctionnalite.descriptionFonctionnalite }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.fonctionnalite.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ fonctionnalite.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.fonctionnalite.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ fonctionnalite.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.fonctionnalite.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ fonctionnalite.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.fonctionnalite.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ fonctionnalite.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.fonctionnalite.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ fonctionnalite.userDeleted }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.fonctionnalite.item">Item</span></dt>
+                <dd>
+                    <div *ngIf="fonctionnalite.item">
+                        <a [routerLink]="['/item', fonctionnalite.item?.id, 'view']">{{ fonctionnalite.item?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/fonctionnalite', fonctionnalite.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

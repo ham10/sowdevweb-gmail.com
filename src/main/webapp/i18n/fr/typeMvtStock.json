@@ -1,0 +1,30 @@
+{
+  "hpdApp": {
+    "typeMvtStock": {
+      "home": {
+        "title": "TypeMvtStocks",
+        "createLabel": "Créer un nouveau Type Mvt Stock",
+        "createOrEditLabel": "Créer ou éditer un Type Mvt Stock",
+        "notFound": "Aucun Type Mvt Stock trouvé"
+      },
+      "created": "Un nouveau Type Mvt Stock a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Type Mvt Stock avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Type Mvt Stock avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Type Mvt Stock {{ id }} ?"
+      },
+      "detail": {
+        "title": "Type Mvt Stock"
+      },
+      "codeTypeMvtStock": "Code Type Mvt Stock",
+      "libelleTypeMvtStock": "Libelle Type Mvt Stock",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted",
+      "mouvement": "Mouvement",
+      "typeSortie": "Type Sortie"
+    }
+  }
+}

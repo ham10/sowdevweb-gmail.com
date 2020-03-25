@@ -1,0 +1,29 @@
+{
+  "hpdApp": {
+    "typeConstante": {
+      "home": {
+        "title": "Type Constantes",
+        "createLabel": "Create a new Type Constante",
+        "createOrEditLabel": "Create or edit a Type Constante",
+        "notFound": "No Type Constantes found"
+      },
+      "created": "A new Type Constante is created with identifier {{ param }}",
+      "updated": "A Type Constante is updated with identifier {{ param }}",
+      "deleted": "A Type Constante is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Type Constante {{ id }}?"
+      },
+      "detail": {
+        "title": "Type Constante"
+      },
+      "codeTypeConstante": "Code Type Constante",
+      "libelleTypeConstante": "Libelle Type Constante",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted",
+      "ficheMedical": "Fiche Medical"
+    }
+  }
+}

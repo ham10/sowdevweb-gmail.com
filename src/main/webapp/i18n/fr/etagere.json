@@ -1,0 +1,25 @@
+{
+  "hpdApp": {
+    "etagere": {
+      "home": {
+        "title": "Etageres",
+        "createLabel": "Créer un nouveau Etagere",
+        "createOrEditLabel": "Créer ou éditer un Etagere",
+        "notFound": "Aucun Etagere trouvé"
+      },
+      "created": "Un nouveau Etagere a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Etagere avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Etagere avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Etagere {{ id }} ?"
+      },
+      "detail": {
+        "title": "Etagere"
+      },
+      "code": "Code",
+      "libelle": "Libelle",
+      "produit": "Produit",
+      "rayon": "Rayon"
+    }
+  }
+}

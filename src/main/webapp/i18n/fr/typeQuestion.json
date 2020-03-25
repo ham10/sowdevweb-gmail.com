@@ -1,0 +1,29 @@
+{
+  "hpdApp": {
+    "typeQuestion": {
+      "home": {
+        "title": "TypeQuestions",
+        "createLabel": "Créer un nouveau Type Question",
+        "createOrEditLabel": "Créer ou éditer un Type Question",
+        "notFound": "Aucun Type Question trouvé"
+      },
+      "created": "Un nouveau Type Question a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Type Question avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Type Question avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Type Question {{ id }} ?"
+      },
+      "detail": {
+        "title": "Type Question"
+      },
+      "code": "Code",
+      "belleType": "Belle Type",
+      "multipliciteChoix": "Multiplicite Choix",
+      "dateDeleted": "Date Deleted",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "userUpdate": "User Update",
+      "userDelete": "User Delete"
+    }
+  }
+}

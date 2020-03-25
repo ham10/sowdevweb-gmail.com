@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="paramSys">
+            <h2><span jhiTranslate="hpdApp.paramSys.detail.title">Param Sys</span> {{ paramSys.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.paramSys.codeParamSys">Code Param Sys</span></dt>
+                <dd>
+                    <span>{{ paramSys.codeParamSys }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.paramSys.libelleParamSys">Libelle Param Sys</span></dt>
+                <dd>
+                    <span>{{ paramSys.libelleParamSys }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.paramSys.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ paramSys.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.paramSys.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ paramSys.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.paramSys.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ paramSys.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.paramSys.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ paramSys.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.paramSys.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ paramSys.userDeleted }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/param-sys', paramSys.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

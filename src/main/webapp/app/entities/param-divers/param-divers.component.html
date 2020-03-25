@@ -1,0 +1,93 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hpdApp.paramDivers.home.title">Param Divers</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-param-divers" [routerLink]="['/param-divers/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hpdApp.paramDivers.home.createLabel">
+            Create a new Param Divers
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="paramDivers?.length === 0">
+        <span jhiTranslate="hpdApp.paramDivers.home.notFound">No paramDivers found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="paramDivers?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="codeParamDivers"><span jhiTranslate="hpdApp.paramDivers.codeParamDivers">Code Param Divers</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="libelleParamDivers"><span jhiTranslate="hpdApp.paramDivers.libelleParamDivers">Libelle Param Divers</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="descriptionParamDivers"><span jhiTranslate="hpdApp.paramDivers.descriptionParamDivers">Description Param Divers</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="valeurNum1"><span jhiTranslate="hpdApp.paramDivers.valeurNum1">Valeur Num 1</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="valeurNum2"><span jhiTranslate="hpdApp.paramDivers.valeurNum2">Valeur Num 2</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="valeurNum3"><span jhiTranslate="hpdApp.paramDivers.valeurNum3">Valeur Num 3</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="valeurText1"><span jhiTranslate="hpdApp.paramDivers.valeurText1">Valeur Text 1</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="valeurText2"><span jhiTranslate="hpdApp.paramDivers.valeurText2">Valeur Text 2</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="valeurText3"><span jhiTranslate="hpdApp.paramDivers.valeurText3">Valeur Text 3</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="valeurBoolean1"><span jhiTranslate="hpdApp.paramDivers.valeurBoolean1">Valeur Boolean 1</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="valeurBoolean2"><span jhiTranslate="hpdApp.paramDivers.valeurBoolean2">Valeur Boolean 2</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="valeurBoolean3"><span jhiTranslate="hpdApp.paramDivers.valeurBoolean3">Valeur Boolean 3</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateCreated"><span jhiTranslate="hpdApp.paramDivers.dateCreated">Date Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateUpdated"><span jhiTranslate="hpdApp.paramDivers.dateUpdated">Date Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userCreated"><span jhiTranslate="hpdApp.paramDivers.userCreated">User Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userUpdated"><span jhiTranslate="hpdApp.paramDivers.userUpdated">User Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userDeleted"><span jhiTranslate="hpdApp.paramDivers.userDeleted">User Deleted</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let paramDivers of paramDivers ;trackBy: trackId">
+                    <td><a [routerLink]="['/param-divers', paramDivers.id, 'view']">{{ paramDivers.id }}</a></td>
+                    <td>{{ paramDivers.codeParamDivers }}</td>
+                    <td>{{ paramDivers.libelleParamDivers }}</td>
+                    <td>{{ paramDivers.descriptionParamDivers }}</td>
+                    <td>{{ paramDivers.valeurNum1 }}</td>
+                    <td>{{ paramDivers.valeurNum2 }}</td>
+                    <td>{{ paramDivers.valeurNum3 }}</td>
+                    <td>{{ paramDivers.valeurText1 }}</td>
+                    <td>{{ paramDivers.valeurText2 }}</td>
+                    <td>{{ paramDivers.valeurText3 }}</td>
+                    <td>{{ paramDivers.valeurBoolean1 }}</td>
+                    <td>{{ paramDivers.valeurBoolean2 }}</td>
+                    <td>{{ paramDivers.valeurBoolean3 }}</td>
+                    <td>{{ paramDivers.dateCreated | date:'mediumDate' }}</td>
+                    <td>{{ paramDivers.dateUpdated | date:'mediumDate' }}</td>
+                    <td>{{ paramDivers.userCreated }}</td>
+                    <td>{{ paramDivers.userUpdated }}</td>
+                    <td>{{ paramDivers.userDeleted }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/param-divers', paramDivers.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/param-divers', paramDivers.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(paramDivers)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

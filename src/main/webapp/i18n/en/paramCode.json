@@ -1,0 +1,29 @@
+{
+  "hpdApp": {
+    "paramCode": {
+      "home": {
+        "title": "Param Codes",
+        "createLabel": "Create a new Param Code",
+        "createOrEditLabel": "Create or edit a Param Code",
+        "notFound": "No Param Codes found"
+      },
+      "created": "A new Param Code is created with identifier {{ param }}",
+      "updated": "A Param Code is updated with identifier {{ param }}",
+      "deleted": "A Param Code is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Param Code {{ id }}?"
+      },
+      "detail": {
+        "title": "Param Code"
+      },
+      "codeParamCode": "Code Param Code",
+      "libelleParamCode": "Libelle Param Code",
+      "descriptionParamCode": "Description Param Code",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted"
+    }
+  }
+}

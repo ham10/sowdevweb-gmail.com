@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="typeServices">
+            <h2><span jhiTranslate="hpdApp.typeServices.detail.title">Type Services</span> {{ typeServices.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.typeServices.codeTypeSrv">Code Type Srv</span></dt>
+                <dd>
+                    <span>{{ typeServices.codeTypeSrv }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeServices.libelleTypeSrv">Libelle Type Srv</span></dt>
+                <dd>
+                    <span>{{ typeServices.libelleTypeSrv }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeServices.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ typeServices.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeServices.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ typeServices.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeServices.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ typeServices.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeServices.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ typeServices.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeServices.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ typeServices.userDeleted }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/type-services', typeServices.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

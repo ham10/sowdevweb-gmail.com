@@ -1,0 +1,61 @@
+{
+    "name": "Devise",
+    "fields": [
+        {
+            "fieldName": "codeisoDvise",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "libelleDevise",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "descriptionDevise",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dateCreated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateUpdated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "userCreated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userUpdated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userDeleted",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "tauxDevise",
+            "otherEntityRelationshipName": "devise",
+            "relationshipName": "tauxDevise"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "monnaie",
+            "otherEntityRelationshipName": "devise",
+            "relationshipName": "monnaie"
+        }
+    ],
+    "changelogDate": "20200325181200",
+    "entityTableName": "devise",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,46 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="prodFournis">
+            <h2><span jhiTranslate="hpdApp.prodFournis.detail.title">Prod Fournis</span> {{ prodFournis.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.prodFournis.stock">Stock</span></dt>
+                <dd>
+                    <span>{{ prodFournis.stock }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.prodFournis.nom">Nom</span></dt>
+                <dd>
+                    <span>{{ prodFournis.nom }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.prodFournis.produit">Produit</span></dt>
+                <dd>
+                    <div *ngIf="prodFournis.produit">
+                        <a [routerLink]="['/produit', prodFournis.produit?.id, 'view']">{{ prodFournis.produit?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.prodFournis.fournisseur">Fournisseur</span></dt>
+                <dd>
+                    <div *ngIf="prodFournis.fournisseur">
+                        <a [routerLink]="['/fournisseur', prodFournis.fournisseur?.id, 'view']">{{ prodFournis.fournisseur?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/prod-fournis', prodFournis.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

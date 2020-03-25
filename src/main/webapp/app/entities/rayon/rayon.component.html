@@ -1,0 +1,69 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hpdApp.rayon.home.title">Rayons</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-rayon" [routerLink]="['/rayon/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hpdApp.rayon.home.createLabel">
+            Create a new Rayon
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="rayons?.length === 0">
+        <span jhiTranslate="hpdApp.rayon.home.notFound">No rayons found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="rayons?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="codeRayon"><span jhiTranslate="hpdApp.rayon.codeRayon">Code Rayon</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="libelleRayon"><span jhiTranslate="hpdApp.rayon.libelleRayon">Libelle Rayon</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="rayon.id"><span jhiTranslate="hpdApp.rayon.rayon">Rayon</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let rayon of rayons ;trackBy: trackId">
+                    <td><a [routerLink]="['/rayon', rayon.id, 'view']">{{ rayon.id }}</a></td>
+                    <td>{{ rayon.codeRayon }}</td>
+                    <td>{{ rayon.libelleRayon }}</td>
+                    <td>
+                        <div *ngIf="rayon.rayon">
+                            <a [routerLink]="['/depot', rayon.rayon?.id, 'view']" >{{ rayon.rayon?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/rayon', rayon.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/rayon', rayon.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(rayon)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

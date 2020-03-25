@@ -1,0 +1,74 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="ligneLivraison">
+            <h2><span jhiTranslate="hpdApp.ligneLivraison.detail.title">Ligne Livraison</span> {{ ligneLivraison.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.ligneLivraison.designation">Designation</span></dt>
+                <dd>
+                    <span>{{ ligneLivraison.designation }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.ligneLivraison.quantite">Quantite</span></dt>
+                <dd>
+                    <span>{{ ligneLivraison.quantite }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.ligneLivraison.prixUnitaire">Prix Unitaire</span></dt>
+                <dd>
+                    <span>{{ ligneLivraison.prixUnitaire }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.ligneLivraison.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ ligneLivraison.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.ligneLivraison.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ ligneLivraison.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.ligneLivraison.dateDeleted">Date Deleted</span></dt>
+                <dd>
+                    <span>{{ ligneLivraison.dateDeleted }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.ligneLivraison.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ ligneLivraison.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.ligneLivraison.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ ligneLivraison.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.ligneLivraison.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ ligneLivraison.userDeleted }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.ligneLivraison.produitFournisseur">Produit Fournisseur</span></dt>
+                <dd>
+                    <div *ngIf="ligneLivraison.produitFournisseur">
+                        <a [routerLink]="['/prod-fournis', ligneLivraison.produitFournisseur?.id, 'view']">{{ ligneLivraison.produitFournisseur?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.ligneLivraison.bonDeLivraison">Bon De Livraison</span></dt>
+                <dd>
+                    <div *ngIf="ligneLivraison.bonDeLivraison">
+                        <a [routerLink]="['/bon-livraison', ligneLivraison.bonDeLivraison?.id, 'view']">{{ ligneLivraison.bonDeLivraison?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/ligne-livraison', ligneLivraison.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

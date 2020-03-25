@@ -1,0 +1,43 @@
+{
+    "name": "Plat",
+    "fields": [
+        {
+            "fieldName": "quantite",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "typeRepas",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "date",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "typePlat",
+            "otherEntityRelationshipName": "plat",
+            "relationshipName": "typePlat",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "services",
+            "otherEntityRelationshipName": "plat",
+            "relationshipName": "serv",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200325194900",
+    "entityTableName": "plat",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

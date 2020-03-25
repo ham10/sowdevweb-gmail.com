@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="detailPlanning">
+            <h2><span jhiTranslate="hpdApp.detailPlanning.detail.title">Detail Planning</span> {{ detailPlanning.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.detailPlanning.titre">Titre</span></dt>
+                <dd>
+                    <span>{{ detailPlanning.titre }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.detailPlanning.dateDebut">Date Debut</span></dt>
+                <dd>
+                    <span>{{ detailPlanning.dateDebut }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.detailPlanning.dateFin">Date Fin</span></dt>
+                <dd>
+                    <span>{{ detailPlanning.dateFin }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.detailPlanning.planning">Planning</span></dt>
+                <dd>
+                    <div *ngIf="detailPlanning.planning">
+                        <a [routerLink]="['/planning', detailPlanning.planning?.id, 'view']">{{ detailPlanning.planning?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.detailPlanning.etatPlanning">Etat Planning</span></dt>
+                <dd>
+                    <div *ngIf="detailPlanning.etatPlanning">
+                        <a [routerLink]="['/etat-planning', detailPlanning.etatPlanning?.id, 'view']">{{ detailPlanning.etatPlanning?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/detail-planning', detailPlanning.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,62 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="typeImmo">
+            <h2><span jhiTranslate="hpdApp.typeImmo.detail.title">Type Immo</span> {{ typeImmo.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.typeImmo.code">Code</span></dt>
+                <dd>
+                    <span>{{ typeImmo.code }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeImmo.modeCalcul">Mode Calcul</span></dt>
+                <dd>
+                    <span>{{ typeImmo.modeCalcul }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeImmo.taux">Taux</span></dt>
+                <dd>
+                    <span>{{ typeImmo.taux }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeImmo.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ typeImmo.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeImmo.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ typeImmo.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeImmo.dateDeleted">Date Deleted</span></dt>
+                <dd>
+                    <span>{{ typeImmo.dateDeleted }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeImmo.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ typeImmo.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeImmo.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ typeImmo.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeImmo.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ typeImmo.userDeleted }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/type-immo', typeImmo.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

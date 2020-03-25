@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="acteMedical">
+            <h2><span jhiTranslate="hpdApp.acteMedical.detail.title">Acte Medical</span> {{ acteMedical.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.acteMedical.code">Code</span></dt>
+                <dd>
+                    <span>{{ acteMedical.code }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.acteMedical.libelleA">Libelle A</span></dt>
+                <dd>
+                    <span>{{ acteMedical.libelleA }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.acteMedical.description">Description</span></dt>
+                <dd>
+                    <span>{{ acteMedical.description }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.acteMedical.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ acteMedical.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.acteMedical.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ acteMedical.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.acteMedical.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ acteMedical.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.acteMedical.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ acteMedical.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.acteMedical.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ acteMedical.userDeleted }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/acte-medical', acteMedical.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="typeDoc">
+            <h2><span jhiTranslate="hpdApp.typeDoc.detail.title">Type Doc</span> {{ typeDoc.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.typeDoc.codeTypeDoc">Code Type Doc</span></dt>
+                <dd>
+                    <span>{{ typeDoc.codeTypeDoc }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeDoc.libelleTypeDoc">Libelle Type Doc</span></dt>
+                <dd>
+                    <span>{{ typeDoc.libelleTypeDoc }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeDoc.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ typeDoc.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeDoc.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ typeDoc.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeDoc.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ typeDoc.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeDoc.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ typeDoc.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeDoc.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ typeDoc.userDeleted }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/type-doc', typeDoc.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

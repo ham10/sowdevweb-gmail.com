@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="etatImmo">
+            <h2><span jhiTranslate="hpdApp.etatImmo.detail.title">Etat Immo</span> {{ etatImmo.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.etatImmo.codeEtat">Code Etat</span></dt>
+                <dd>
+                    <span>{{ etatImmo.codeEtat }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.etatImmo.libelleEtat">Libelle Etat</span></dt>
+                <dd>
+                    <span>{{ etatImmo.libelleEtat }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.etatImmo.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ etatImmo.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.etatImmo.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ etatImmo.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.etatImmo.dateDeleted">Date Deleted</span></dt>
+                <dd>
+                    <span>{{ etatImmo.dateDeleted }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.etatImmo.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ etatImmo.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.etatImmo.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ etatImmo.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.etatImmo.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ etatImmo.userDeleted }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/etat-immo', etatImmo.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

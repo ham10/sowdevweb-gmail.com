@@ -1,0 +1,37 @@
+{
+  "hpdApp": {
+    "services": {
+      "home": {
+        "title": "Services",
+        "createLabel": "Créer un nouveau Services",
+        "createOrEditLabel": "Créer ou éditer un Services",
+        "notFound": "Aucun Services trouvé"
+      },
+      "created": "Un nouveau Services a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Services avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Services avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Services {{ id }} ?"
+      },
+      "detail": {
+        "title": "Services"
+      },
+      "code": "Code",
+      "libelle": "Libelle",
+      "description": "Description",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted",
+      "catChambre": "Cat Chambre",
+      "dosMedical": "Dos Medical",
+      "bonDeCommande": "Bon De Commande",
+      "plat": "Plat",
+      "typeServices": "Type Services",
+      "deptServices": "Dept Services",
+      "specialite": "Specialite",
+      "compteGeneral": "Compte General"
+    }
+  }
+}

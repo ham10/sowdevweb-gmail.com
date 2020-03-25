@@ -1,0 +1,66 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-mouvement-heading" jhiTranslate="hpdApp.mouvement.home.createOrEditLabel">Create or edit a Mouvement</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.mouvement.codeMvt" for="field_codeMvt">Code Mvt</label>
+                    <input type="text" class="form-control" name="codeMvt" id="field_codeMvt"
+                           formControlName="codeMvt"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.mouvement.libelleMvt" for="field_libelleMvt">Libelle Mvt</label>
+                    <input type="text" class="form-control" name="libelleMvt" id="field_libelleMvt"
+                           formControlName="libelleMvt"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.mouvement.stockEntrant" for="field_stockEntrant">Stock Entrant</label>
+                    <input type="number" class="form-control" name="stockEntrant" id="field_stockEntrant"
+                           formControlName="stockEntrant"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.mouvement.stockSortant" for="field_stockSortant">Stock Sortant</label>
+                    <input type="number" class="form-control" name="stockSortant" id="field_stockSortant"
+                           formControlName="stockSortant"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.mouvement.produit" for="field_produit">Produit</label>
+                    <select class="form-control" id="field_produit" name="produit" formControlName="produit">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="produitOption.id === editForm.get('produit')!.value?.id ? editForm.get('produit')!.value : produitOption" *ngFor="let produitOption of produits; trackBy: trackById">{{ produitOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.mouvement.typeMvtStock" for="field_typeMvtStock">Type Mvt Stock</label>
+                    <select class="form-control" id="field_typeMvtStock" name="typeMvtStock" formControlName="typeMvtStock">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="typeMvtStockOption.id === editForm.get('typeMvtStock')!.value?.id ? editForm.get('typeMvtStock')!.value : typeMvtStockOption" *ngFor="let typeMvtStockOption of typemvtstocks; trackBy: trackById">{{ typeMvtStockOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

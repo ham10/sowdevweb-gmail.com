@@ -1,0 +1,29 @@
+{
+  "hpdApp": {
+    "typePole": {
+      "home": {
+        "title": "TypePoles",
+        "createLabel": "Créer un nouveau Type Pole",
+        "createOrEditLabel": "Créer ou éditer un Type Pole",
+        "notFound": "Aucun Type Pole trouvé"
+      },
+      "created": "Un nouveau Type Pole a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Type Pole avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Type Pole avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Type Pole {{ id }} ?"
+      },
+      "detail": {
+        "title": "Type Pole"
+      },
+      "codeTypePole": "Code Type Pole",
+      "libelleTypePole": "Libelle Type Pole",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted",
+      "pole": "Pole"
+    }
+  }
+}

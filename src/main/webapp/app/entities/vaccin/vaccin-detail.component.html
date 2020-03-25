@@ -1,0 +1,64 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="vaccin">
+            <h2><span jhiTranslate="hpdApp.vaccin.detail.title">Vaccin</span> {{ vaccin.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.vaccin.description">Description</span></dt>
+                <dd>
+                    <span>{{ vaccin.description }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.vaccin.date">Date</span></dt>
+                <dd>
+                    <span>{{ vaccin.date }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.vaccin.dateRenouv">Date Renouv</span></dt>
+                <dd>
+                    <span>{{ vaccin.dateRenouv }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.vaccin.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ vaccin.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.vaccin.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ vaccin.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.vaccin.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ vaccin.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.vaccin.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ vaccin.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.vaccin.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ vaccin.userDeleted }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.vaccin.ficheMedical">Fiche Medical</span></dt>
+                <dd>
+                    <div *ngIf="vaccin.ficheMedical">
+                        <a [routerLink]="['/fiche-medical', vaccin.ficheMedical?.id, 'view']">{{ vaccin.ficheMedical?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/vaccin', vaccin.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

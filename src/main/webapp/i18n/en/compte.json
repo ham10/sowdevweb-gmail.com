@@ -1,0 +1,36 @@
+{
+  "hpdApp": {
+    "compte": {
+      "home": {
+        "title": "Comptes",
+        "createLabel": "Create a new Compte",
+        "createOrEditLabel": "Create or edit a Compte",
+        "notFound": "No Comptes found"
+      },
+      "created": "A new Compte is created with identifier {{ param }}",
+      "updated": "A Compte is updated with identifier {{ param }}",
+      "deleted": "A Compte is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Compte {{ id }}?"
+      },
+      "detail": {
+        "title": "Compte"
+      },
+      "numeroCompte": "Numero Compte",
+      "libelleCompte": "Libelle Compte",
+      "soldeCompte": "Solde Compte",
+      "sensCompte": "Sens Compte",
+      "cumulMouvDebit": "Cumul Mouv Debit",
+      "cumulMouvCredit": "Cumul Mouv Credit",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "dateDeleted": "Date Deleted",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted",
+      "ecriture": "Ecriture",
+      "compteGeneral": "Compte General",
+      "patient": "Patient"
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+    "name": "TauxDevise",
+    "fields": [
+        {
+            "fieldName": "sensTauxDevise",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dateCreated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateUpdated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "userCreated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userUpdated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userDeleted",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "devise",
+            "otherEntityRelationshipName": "tauxDevise",
+            "relationshipName": "devise",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200325181300",
+    "entityTableName": "taux_devise",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

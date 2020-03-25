@@ -1,0 +1,32 @@
+{
+  "hpdApp": {
+    "sousFamille": {
+      "home": {
+        "title": "Sous Familles",
+        "createLabel": "Create a new Sous Famille",
+        "createOrEditLabel": "Create or edit a Sous Famille",
+        "notFound": "No Sous Familles found"
+      },
+      "created": "A new Sous Famille is created with identifier {{ param }}",
+      "updated": "A Sous Famille is updated with identifier {{ param }}",
+      "deleted": "A Sous Famille is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Sous Famille {{ id }}?"
+      },
+      "detail": {
+        "title": "Sous Famille"
+      },
+      "code": "Code",
+      "libelle": "Libelle",
+      "description": "Description",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "dateDeleted": "Date Deleted",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted",
+      "tarif": "Tarif",
+      "famille": "Famille"
+    }
+  }
+}

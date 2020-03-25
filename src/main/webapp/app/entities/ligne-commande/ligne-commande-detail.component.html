@@ -1,0 +1,70 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="ligneCommande">
+            <h2><span jhiTranslate="hpdApp.ligneCommande.detail.title">Ligne Commande</span> {{ ligneCommande.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.ligneCommande.produit">Produit</span></dt>
+                <dd>
+                    <span>{{ ligneCommande.produit }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.ligneCommande.quantite">Quantite</span></dt>
+                <dd>
+                    <span>{{ ligneCommande.quantite }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.ligneCommande.prixUnitaire">Prix Unitaire</span></dt>
+                <dd>
+                    <span>{{ ligneCommande.prixUnitaire }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.ligneCommande.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ ligneCommande.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.ligneCommande.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ ligneCommande.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.ligneCommande.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ ligneCommande.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.ligneCommande.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ ligneCommande.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.ligneCommande.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ ligneCommande.userDeleted }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.ligneCommande.produitFournisseur">Produit Fournisseur</span></dt>
+                <dd>
+                    <div *ngIf="ligneCommande.produitFournisseur">
+                        <a [routerLink]="['/prod-fournis', ligneCommande.produitFournisseur?.id, 'view']">{{ ligneCommande.produitFournisseur?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.ligneCommande.bonDeCommande">Bon De Commande</span></dt>
+                <dd>
+                    <div *ngIf="ligneCommande.bonDeCommande">
+                        <a [routerLink]="['/bon-de-commande', ligneCommande.bonDeCommande?.id, 'view']">{{ ligneCommande.bonDeCommande?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/ligne-commande', ligneCommande.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

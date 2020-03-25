@@ -1,0 +1,70 @@
+{
+  "hpdApp": {
+    "patient": {
+      "home": {
+        "title": "Patients",
+        "createLabel": "Create a new Patient",
+        "createOrEditLabel": "Create or edit a Patient",
+        "notFound": "No Patients found"
+      },
+      "created": "A new Patient is created with identifier {{ param }}",
+      "updated": "A Patient is updated with identifier {{ param }}",
+      "deleted": "A Patient is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Patient {{ id }}?"
+      },
+      "detail": {
+        "title": "Patient"
+      },
+      "codePatient": "Code Patient",
+      "nomPatient": "Nom Patient",
+      "prenom": "Prenom",
+      "adresse": "Adresse",
+      "email": "Email",
+      "dateNaissance": "Date Naissance",
+      "genre": "Genre",
+      "photo": "Photo",
+      "password": "Password",
+      "telephone": "Telephone",
+      "numeroPiece": "Numero Piece",
+      "codeBarre": "Code Barre",
+      "entreprise": "Entreprise",
+      "ville": "Ville",
+      "quartier": "Quartier",
+      "longitude": "Longitude",
+      "latitude": "Latitude",
+      "lieuNaissance": "Lieu Naissance",
+      "fonctionPatient": "Fonction Patient",
+      "situationSociale": "Situation Sociale",
+      "solde": "Solde",
+      "cartePatient": "Carte Patient",
+      "bloque": "Bloque",
+      "dateValidite": "Date Validite",
+      "motifBlocage": "Motif Blocage",
+      "prenomPerePatient": "Prenom Pere Patient",
+      "nomMerePatient": "Nom Mere Patient",
+      "prenomMerePatient": "Prenom Mere Patient",
+      "motifAdmission": "Motif Admission",
+      "personneAContacter": "Personne A Contacter",
+      "adressePersAContacter": "Adresse Pers A Contacter",
+      "telPersAContacter": "Tel Pers A Contacter",
+      "lienParentePersAContacter": "Lien Parente Pers A Contacter",
+      "nomAccompagnant": "Nom Accompagnant",
+      "prenomAccompagnant": "Prenom Accompagnant",
+      "telAccompagnant": "Tel Accompagnant",
+      "habitudeDeVie": "Habitude De Vie",
+      "physioPathologique": "Physio Pathologique",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted",
+      "dosMedical": "Dos Medical",
+      "hospitalisation": "Hospitalisation",
+      "compte": "Compte",
+      "groupeSanguin": "Groupe Sanguin",
+      "typePatient": "Type Patient",
+      "departement": "Departement"
+    }
+  }
+}

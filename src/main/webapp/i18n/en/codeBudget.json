@@ -1,0 +1,30 @@
+{
+  "hpdApp": {
+    "codeBudget": {
+      "home": {
+        "title": "Code Budgets",
+        "createLabel": "Create a new Code Budget",
+        "createOrEditLabel": "Create or edit a Code Budget",
+        "notFound": "No Code Budgets found"
+      },
+      "created": "A new Code Budget is created with identifier {{ param }}",
+      "updated": "A Code Budget is updated with identifier {{ param }}",
+      "deleted": "A Code Budget is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Code Budget {{ id }}?"
+      },
+      "detail": {
+        "title": "Code Budget"
+      },
+      "codeCodeBudget": "Code Code Budget",
+      "libelleCodeBudget": "Libelle Code Budget",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "dateDeleted": "Date Deleted",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted",
+      "compteGeneral": "Compte General"
+    }
+  }
+}

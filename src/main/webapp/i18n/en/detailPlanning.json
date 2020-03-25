@@ -1,0 +1,26 @@
+{
+  "hpdApp": {
+    "detailPlanning": {
+      "home": {
+        "title": "Detail Plannings",
+        "createLabel": "Create a new Detail Planning",
+        "createOrEditLabel": "Create or edit a Detail Planning",
+        "notFound": "No Detail Plannings found"
+      },
+      "created": "A new Detail Planning is created with identifier {{ param }}",
+      "updated": "A Detail Planning is updated with identifier {{ param }}",
+      "deleted": "A Detail Planning is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Detail Planning {{ id }}?"
+      },
+      "detail": {
+        "title": "Detail Planning"
+      },
+      "titre": "Titre",
+      "dateDebut": "Date Debut",
+      "dateFin": "Date Fin",
+      "planning": "Planning",
+      "etatPlanning": "Etat Planning"
+    }
+  }
+}

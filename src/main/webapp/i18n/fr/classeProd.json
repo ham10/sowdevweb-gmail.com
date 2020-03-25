@@ -1,0 +1,29 @@
+{
+  "hpdApp": {
+    "classeProd": {
+      "home": {
+        "title": "ClasseProds",
+        "createLabel": "Créer un nouveau Classe Prod",
+        "createOrEditLabel": "Créer ou éditer un Classe Prod",
+        "notFound": "Aucun Classe Prod trouvé"
+      },
+      "created": "Un nouveau Classe Prod a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Classe Prod avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Classe Prod avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Classe Prod {{ id }} ?"
+      },
+      "detail": {
+        "title": "Classe Prod"
+      },
+      "codeClasseProd": "Code Classe Prod",
+      "libelleClasseProd": "Libelle Classe Prod",
+      "descriptionClasseProd": "Description Classe Prod",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted"
+    }
+  }
+}

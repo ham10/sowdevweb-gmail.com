@@ -1,0 +1,58 @@
+{
+    "name": "Departement",
+    "fields": [
+        {
+            "fieldName": "codeDepartement",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "libelleDepartement",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dateCreated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateUpdated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "userCreated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userUpdated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userDeleted",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "etablis",
+            "otherEntityRelationshipName": "departement",
+            "relationshipName": "etablis"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "region",
+            "otherEntityRelationshipName": "departement",
+            "relationshipName": "region",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200325180500",
+    "entityTableName": "departement",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

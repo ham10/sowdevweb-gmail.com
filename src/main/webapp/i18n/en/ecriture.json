@@ -1,0 +1,33 @@
+{
+  "hpdApp": {
+    "ecriture": {
+      "home": {
+        "title": "Ecritures",
+        "createLabel": "Create a new Ecriture",
+        "createOrEditLabel": "Create or edit a Ecriture",
+        "notFound": "No Ecritures found"
+      },
+      "created": "A new Ecriture is created with identifier {{ param }}",
+      "updated": "A Ecriture is updated with identifier {{ param }}",
+      "deleted": "A Ecriture is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Ecriture {{ id }}?"
+      },
+      "detail": {
+        "title": "Ecriture"
+      },
+      "libelle": "Libelle",
+      "date": "Date",
+      "montant": "Montant",
+      "sens": "Sens",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "dateDeleted": "Date Deleted",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted",
+      "compte": "Compte",
+      "operation": "Operation"
+    }
+  }
+}

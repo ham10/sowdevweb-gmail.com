@@ -1,0 +1,64 @@
+{
+    "name": "CatChambre",
+    "fields": [
+        {
+            "fieldName": "libelleCatChambre",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "descriptionCatChambre",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dateCreated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateUpdated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "userCreated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userUpdated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userDeleted",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "chambre",
+            "otherEntityRelationshipName": "categorieChambre",
+            "relationshipName": "chambre"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "tarif",
+            "otherEntityRelationshipName": "categorieChambre",
+            "relationshipName": "tarif"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "services",
+            "otherEntityRelationshipName": "catChambre",
+            "relationshipName": "serv",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200325182100",
+    "entityTableName": "cat_chambre",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

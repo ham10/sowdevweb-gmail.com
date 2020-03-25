@@ -1,0 +1,28 @@
+{
+  "hpdApp": {
+    "typeFacture": {
+      "home": {
+        "title": "Type Factures",
+        "createLabel": "Create a new Type Facture",
+        "createOrEditLabel": "Create or edit a Type Facture",
+        "notFound": "No Type Factures found"
+      },
+      "created": "A new Type Facture is created with identifier {{ param }}",
+      "updated": "A Type Facture is updated with identifier {{ param }}",
+      "deleted": "A Type Facture is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Type Facture {{ id }}?"
+      },
+      "detail": {
+        "title": "Type Facture"
+      },
+      "codeTypeFacture": "Code Type Facture",
+      "libelleTypeFacture": "Libelle Type Facture",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted"
+    }
+  }
+}

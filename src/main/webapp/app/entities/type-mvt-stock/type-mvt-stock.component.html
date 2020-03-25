@@ -1,0 +1,79 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hpdApp.typeMvtStock.home.title">Type Mvt Stocks</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-type-mvt-stock" [routerLink]="['/type-mvt-stock/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hpdApp.typeMvtStock.home.createLabel">
+            Create a new Type Mvt Stock
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="typeMvtStocks?.length === 0">
+        <span jhiTranslate="hpdApp.typeMvtStock.home.notFound">No typeMvtStocks found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="typeMvtStocks?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="codeTypeMvtStock"><span jhiTranslate="hpdApp.typeMvtStock.codeTypeMvtStock">Code Type Mvt Stock</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="libelleTypeMvtStock"><span jhiTranslate="hpdApp.typeMvtStock.libelleTypeMvtStock">Libelle Type Mvt Stock</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateCreated"><span jhiTranslate="hpdApp.typeMvtStock.dateCreated">Date Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateUpdated"><span jhiTranslate="hpdApp.typeMvtStock.dateUpdated">Date Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userCreated"><span jhiTranslate="hpdApp.typeMvtStock.userCreated">User Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userUpdated"><span jhiTranslate="hpdApp.typeMvtStock.userUpdated">User Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userDeleted"><span jhiTranslate="hpdApp.typeMvtStock.userDeleted">User Deleted</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="typeSortie.id"><span jhiTranslate="hpdApp.typeMvtStock.typeSortie">Type Sortie</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let typeMvtStock of typeMvtStocks ;trackBy: trackId">
+                    <td><a [routerLink]="['/type-mvt-stock', typeMvtStock.id, 'view']">{{ typeMvtStock.id }}</a></td>
+                    <td>{{ typeMvtStock.codeTypeMvtStock }}</td>
+                    <td>{{ typeMvtStock.libelleTypeMvtStock }}</td>
+                    <td>{{ typeMvtStock.dateCreated | date:'mediumDate' }}</td>
+                    <td>{{ typeMvtStock.dateUpdated | date:'mediumDate' }}</td>
+                    <td>{{ typeMvtStock.userCreated }}</td>
+                    <td>{{ typeMvtStock.userUpdated }}</td>
+                    <td>{{ typeMvtStock.userDeleted }}</td>
+                    <td>
+                        <div *ngIf="typeMvtStock.typeSortie">
+                            <a [routerLink]="['/type-sortie', typeMvtStock.typeSortie?.id, 'view']" >{{ typeMvtStock.typeSortie?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/type-mvt-stock', typeMvtStock.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/type-mvt-stock', typeMvtStock.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(typeMvtStock)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

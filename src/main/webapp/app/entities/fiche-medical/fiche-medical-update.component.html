@@ -1,0 +1,135 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-fiche-medical-heading" jhiTranslate="hpdApp.ficheMedical.home.createOrEditLabel">Create or edit a Fiche Medical</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.ficheMedical.numeroFicheMedical" for="field_numeroFicheMedical">Numero Fiche Medical</label>
+                    <input type="text" class="form-control" name="numeroFicheMedical" id="field_numeroFicheMedical"
+                           formControlName="numeroFicheMedical"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.ficheMedical.dateConsultation" for="field_dateConsultation">Date Consultation</label>
+                    <div class="input-group">
+                        <input id="field_dateConsultation" type="text" class="form-control" name="dateConsultation" ngbDatepicker #dateConsultationDp="ngbDatepicker" formControlName="dateConsultation"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateConsultationDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.ficheMedical.facteurRisque" for="field_facteurRisque">Facteur Risque</label>
+                    <input type="text" class="form-control" name="facteurRisque" id="field_facteurRisque"
+                           formControlName="facteurRisque"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.ficheMedical.regimeAlimentaire" for="field_regimeAlimentaire">Regime Alimentaire</label>
+                    <input type="text" class="form-control" name="regimeAlimentaire" id="field_regimeAlimentaire"
+                           formControlName="regimeAlimentaire"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.ficheMedical.diagnostic" for="field_diagnostic">Diagnostic</label>
+                    <input type="text" class="form-control" name="diagnostic" id="field_diagnostic"
+                           formControlName="diagnostic"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.ficheMedical.recommandations" for="field_recommandations">Recommandations</label>
+                    <input type="text" class="form-control" name="recommandations" id="field_recommandations"
+                           formControlName="recommandations"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.ficheMedical.commentaires" for="field_commentaires">Commentaires</label>
+                    <input type="text" class="form-control" name="commentaires" id="field_commentaires"
+                           formControlName="commentaires"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.ficheMedical.dateProchainRV" for="field_dateProchainRV">Date Prochain RV</label>
+                    <div class="input-group">
+                        <input id="field_dateProchainRV" type="text" class="form-control" name="dateProchainRV" ngbDatepicker #dateProchainRVDp="ngbDatepicker" formControlName="dateProchainRV"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateProchainRVDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.ficheMedical.dateCreated" for="field_dateCreated">Date Created</label>
+                    <div class="input-group">
+                        <input id="field_dateCreated" type="text" class="form-control" name="dateCreated" ngbDatepicker #dateCreatedDp="ngbDatepicker" formControlName="dateCreated"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateCreatedDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.ficheMedical.dateUpdated" for="field_dateUpdated">Date Updated</label>
+                    <div class="input-group">
+                        <input id="field_dateUpdated" type="text" class="form-control" name="dateUpdated" ngbDatepicker #dateUpdatedDp="ngbDatepicker" formControlName="dateUpdated"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateUpdatedDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.ficheMedical.userCreated" for="field_userCreated">User Created</label>
+                    <input type="number" class="form-control" name="userCreated" id="field_userCreated"
+                           formControlName="userCreated"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.ficheMedical.userUpdated" for="field_userUpdated">User Updated</label>
+                    <input type="number" class="form-control" name="userUpdated" id="field_userUpdated"
+                           formControlName="userUpdated"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.ficheMedical.userDeleted" for="field_userDeleted">User Deleted</label>
+                    <input type="number" class="form-control" name="userDeleted" id="field_userDeleted"
+                           formControlName="userDeleted"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.ficheMedical.medecin" for="field_medecin">Medecin</label>
+                    <select class="form-control" id="field_medecin" name="medecin" formControlName="medecin">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="medecinOption.id === editForm.get('medecin')!.value?.id ? editForm.get('medecin')!.value : medecinOption" *ngFor="let medecinOption of medecins; trackBy: trackById">{{ medecinOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label jhiTranslate="hpdApp.ficheMedical.typeConstante" for="field_typeConstantes">Type Constante</label>
+                    <select class="form-control" id="field_typeConstantes" multiple name="typeConstantes" formControlName="typeConstantes">
+                        <option [ngValue]="getSelected(editForm.get('typeConstantes')!.value, typeConstanteOption)" *ngFor="let typeConstanteOption of typeconstantes; trackBy: trackById">{{ typeConstanteOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

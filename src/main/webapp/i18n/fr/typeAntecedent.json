@@ -1,0 +1,28 @@
+{
+  "hpdApp": {
+    "typeAntecedent": {
+      "home": {
+        "title": "TypeAntecedents",
+        "createLabel": "Créer un nouveau Type Antecedent",
+        "createOrEditLabel": "Créer ou éditer un Type Antecedent",
+        "notFound": "Aucun Type Antecedent trouvé"
+      },
+      "created": "Un nouveau Type Antecedent a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Type Antecedent avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Type Antecedent avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Type Antecedent {{ id }} ?"
+      },
+      "detail": {
+        "title": "Type Antecedent"
+      },
+      "codeTypeAntecedent": "Code Type Antecedent",
+      "libelleTypeAntecedent": "Libelle Type Antecedent",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted"
+    }
+  }
+}

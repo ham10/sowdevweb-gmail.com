@@ -1,0 +1,81 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hpdApp.vaccin.home.title">Vaccins</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-vaccin" [routerLink]="['/vaccin/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hpdApp.vaccin.home.createLabel">
+            Create a new Vaccin
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="vaccins?.length === 0">
+        <span jhiTranslate="hpdApp.vaccin.home.notFound">No vaccins found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="vaccins?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="description"><span jhiTranslate="hpdApp.vaccin.description">Description</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="date"><span jhiTranslate="hpdApp.vaccin.date">Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateRenouv"><span jhiTranslate="hpdApp.vaccin.dateRenouv">Date Renouv</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateCreated"><span jhiTranslate="hpdApp.vaccin.dateCreated">Date Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateUpdated"><span jhiTranslate="hpdApp.vaccin.dateUpdated">Date Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userCreated"><span jhiTranslate="hpdApp.vaccin.userCreated">User Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userUpdated"><span jhiTranslate="hpdApp.vaccin.userUpdated">User Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userDeleted"><span jhiTranslate="hpdApp.vaccin.userDeleted">User Deleted</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="ficheMedical.id"><span jhiTranslate="hpdApp.vaccin.ficheMedical">Fiche Medical</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let vaccin of vaccins ;trackBy: trackId">
+                    <td><a [routerLink]="['/vaccin', vaccin.id, 'view']">{{ vaccin.id }}</a></td>
+                    <td>{{ vaccin.description }}</td>
+                    <td>{{ vaccin.date | date:'mediumDate' }}</td>
+                    <td>{{ vaccin.dateRenouv | date:'mediumDate' }}</td>
+                    <td>{{ vaccin.dateCreated | date:'mediumDate' }}</td>
+                    <td>{{ vaccin.dateUpdated | date:'mediumDate' }}</td>
+                    <td>{{ vaccin.userCreated }}</td>
+                    <td>{{ vaccin.userUpdated }}</td>
+                    <td>{{ vaccin.userDeleted }}</td>
+                    <td>
+                        <div *ngIf="vaccin.ficheMedical">
+                            <a [routerLink]="['/fiche-medical', vaccin.ficheMedical?.id, 'view']" >{{ vaccin.ficheMedical?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/vaccin', vaccin.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/vaccin', vaccin.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(vaccin)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

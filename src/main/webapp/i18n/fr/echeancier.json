@@ -1,0 +1,36 @@
+{
+  "hpdApp": {
+    "echeancier": {
+      "home": {
+        "title": "Echeanciers",
+        "createLabel": "Créer un nouveau Echeancier",
+        "createOrEditLabel": "Créer ou éditer un Echeancier",
+        "notFound": "Aucun Echeancier trouvé"
+      },
+      "created": "Un nouveau Echeancier a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Echeancier avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Echeancier avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Echeancier {{ id }} ?"
+      },
+      "detail": {
+        "title": "Echeancier"
+      },
+      "code": "Code",
+      "numero": "Numero",
+      "date": "Date",
+      "datePaiement": "Date Paiement",
+      "montant": "Montant",
+      "montantPaye": "Montant Paye",
+      "capital": "Capital",
+      "frais": "Frais",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "dateDeleted": "Date Deleted",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted",
+      "facture": "Facture"
+    }
+  }
+}

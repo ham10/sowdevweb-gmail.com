@@ -1,0 +1,35 @@
+{
+  "hpdApp": {
+    "tarif": {
+      "home": {
+        "title": "Tarifs",
+        "createLabel": "Créer un nouveau Tarif",
+        "createOrEditLabel": "Créer ou éditer un Tarif",
+        "notFound": "Aucun Tarif trouvé"
+      },
+      "created": "Un nouveau Tarif a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Tarif avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Tarif avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Tarif {{ id }} ?"
+      },
+      "detail": {
+        "title": "Tarif"
+      },
+      "code": "Code",
+      "libelle": "Libelle",
+      "montant": "Montant",
+      "pourcentage": "Pourcentage",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "dateDeleted": "Date Deleted",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted",
+      "typeSoins": "Type Soins",
+      "sousfamille": "Sousfamille",
+      "actemedical": "Actemedical",
+      "categorieChambre": "Categorie Chambre"
+    }
+  }
+}

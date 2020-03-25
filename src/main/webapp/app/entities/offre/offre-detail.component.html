@@ -1,0 +1,82 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="offre">
+            <h2><span jhiTranslate="hpdApp.offre.detail.title">Offre</span> {{ offre.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.offre.libelle">Libelle</span></dt>
+                <dd>
+                    <span>{{ offre.libelle }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.offre.date">Date</span></dt>
+                <dd>
+                    <span>{{ offre.date }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.offre.montant">Montant</span></dt>
+                <dd>
+                    <span>{{ offre.montant }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.offre.taxe">Taxe</span></dt>
+                <dd>
+                    <span>{{ offre.taxe }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.offre.numMarche">Num Marche</span></dt>
+                <dd>
+                    <span>{{ offre.numMarche }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.offre.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ offre.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.offre.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ offre.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.offre.dateDeleted">Date Deleted</span></dt>
+                <dd>
+                    <span>{{ offre.dateDeleted }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.offre.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ offre.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.offre.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ offre.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.offre.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ offre.userDeleted }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.offre.bonDeCommande">Bon De Commande</span></dt>
+                <dd>
+                    <div *ngIf="offre.bonDeCommande">
+                        <a [routerLink]="['/bon-de-commande', offre.bonDeCommande?.id, 'view']">{{ offre.bonDeCommande?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.offre.fournisseur">Fournisseur</span></dt>
+                <dd>
+                    <div *ngIf="offre.fournisseur">
+                        <a [routerLink]="['/fournisseur', offre.fournisseur?.id, 'view']">{{ offre.fournisseur?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/offre', offre.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

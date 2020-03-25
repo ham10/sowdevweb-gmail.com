@@ -1,0 +1,83 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hpdApp.ordonnance.home.title">Ordonnances</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-ordonnance" [routerLink]="['/ordonnance/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hpdApp.ordonnance.home.createLabel">
+            Create a new Ordonnance
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="ordonnances?.length === 0">
+        <span jhiTranslate="hpdApp.ordonnance.home.notFound">No ordonnances found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="ordonnances?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="numero"><span jhiTranslate="hpdApp.ordonnance.numero">Numero</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="date"><span jhiTranslate="hpdApp.ordonnance.date">Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="description"><span jhiTranslate="hpdApp.ordonnance.description">Description</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="prescription"><span jhiTranslate="hpdApp.ordonnance.prescription">Prescription</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateCreated"><span jhiTranslate="hpdApp.ordonnance.dateCreated">Date Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateUpdated"><span jhiTranslate="hpdApp.ordonnance.dateUpdated">Date Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userCreated"><span jhiTranslate="hpdApp.ordonnance.userCreated">User Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userUpdated"><span jhiTranslate="hpdApp.ordonnance.userUpdated">User Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userDeleted"><span jhiTranslate="hpdApp.ordonnance.userDeleted">User Deleted</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="ficheMedical.id"><span jhiTranslate="hpdApp.ordonnance.ficheMedical">Fiche Medical</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let ordonnance of ordonnances ;trackBy: trackId">
+                    <td><a [routerLink]="['/ordonnance', ordonnance.id, 'view']">{{ ordonnance.id }}</a></td>
+                    <td>{{ ordonnance.numero }}</td>
+                    <td>{{ ordonnance.date | date:'mediumDate' }}</td>
+                    <td>{{ ordonnance.description }}</td>
+                    <td>{{ ordonnance.prescription }}</td>
+                    <td>{{ ordonnance.dateCreated | date:'mediumDate' }}</td>
+                    <td>{{ ordonnance.dateUpdated | date:'mediumDate' }}</td>
+                    <td>{{ ordonnance.userCreated }}</td>
+                    <td>{{ ordonnance.userUpdated }}</td>
+                    <td>{{ ordonnance.userDeleted }}</td>
+                    <td>
+                        <div *ngIf="ordonnance.ficheMedical">
+                            <a [routerLink]="['/fiche-medical', ordonnance.ficheMedical?.id, 'view']" >{{ ordonnance.ficheMedical?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/ordonnance', ordonnance.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/ordonnance', ordonnance.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(ordonnance)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

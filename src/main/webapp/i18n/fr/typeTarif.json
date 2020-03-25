@@ -1,0 +1,30 @@
+{
+  "hpdApp": {
+    "typeTarif": {
+      "home": {
+        "title": "TypeTarifs",
+        "createLabel": "Créer un nouveau Type Tarif",
+        "createOrEditLabel": "Créer ou éditer un Type Tarif",
+        "notFound": "Aucun Type Tarif trouvé"
+      },
+      "created": "Un nouveau Type Tarif a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Type Tarif avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Type Tarif avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Type Tarif {{ id }} ?"
+      },
+      "detail": {
+        "title": "Type Tarif"
+      },
+      "code": "Code",
+      "libelle": "Libelle",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "dateDeleted": "Date Deleted",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted",
+      "famille": "Famille"
+    }
+  }
+}

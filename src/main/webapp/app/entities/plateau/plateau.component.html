@@ -1,0 +1,79 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hpdApp.plateau.home.title">Plateaus</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-plateau" [routerLink]="['/plateau/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hpdApp.plateau.home.createLabel">
+            Create a new Plateau
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="plateaus?.length === 0">
+        <span jhiTranslate="hpdApp.plateau.home.notFound">No plateaus found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="plateaus?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="libellePlateau"><span jhiTranslate="hpdApp.plateau.libellePlateau">Libelle Plateau</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="descriptionPlateau"><span jhiTranslate="hpdApp.plateau.descriptionPlateau">Description Plateau</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateCreated"><span jhiTranslate="hpdApp.plateau.dateCreated">Date Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateUpdated"><span jhiTranslate="hpdApp.plateau.dateUpdated">Date Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userCreated"><span jhiTranslate="hpdApp.plateau.userCreated">User Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userUpdated"><span jhiTranslate="hpdApp.plateau.userUpdated">User Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userDeleted"><span jhiTranslate="hpdApp.plateau.userDeleted">User Deleted</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="typePlateau.id"><span jhiTranslate="hpdApp.plateau.typePlateau">Type Plateau</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let plateau of plateaus ;trackBy: trackId">
+                    <td><a [routerLink]="['/plateau', plateau.id, 'view']">{{ plateau.id }}</a></td>
+                    <td>{{ plateau.libellePlateau }}</td>
+                    <td>{{ plateau.descriptionPlateau }}</td>
+                    <td>{{ plateau.dateCreated | date:'mediumDate' }}</td>
+                    <td>{{ plateau.dateUpdated | date:'mediumDate' }}</td>
+                    <td>{{ plateau.userCreated }}</td>
+                    <td>{{ plateau.userUpdated }}</td>
+                    <td>{{ plateau.userDeleted }}</td>
+                    <td>
+                        <div *ngIf="plateau.typePlateau">
+                            <a [routerLink]="['/type-plateau', plateau.typePlateau?.id, 'view']" >{{ plateau.typePlateau?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/plateau', plateau.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/plateau', plateau.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(plateau)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,64 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="famille">
+            <h2><span jhiTranslate="hpdApp.famille.detail.title">Famille</span> {{ famille.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.famille.code">Code</span></dt>
+                <dd>
+                    <span>{{ famille.code }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.famille.libelle">Libelle</span></dt>
+                <dd>
+                    <span>{{ famille.libelle }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.famille.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ famille.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.famille.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ famille.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.famille.dateDeleted">Date Deleted</span></dt>
+                <dd>
+                    <span>{{ famille.dateDeleted }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.famille.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ famille.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.famille.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ famille.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.famille.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ famille.userDeleted }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.famille.typeTarif">Type Tarif</span></dt>
+                <dd>
+                    <div *ngIf="famille.typeTarif">
+                        <a [routerLink]="['/type-tarif', famille.typeTarif?.id, 'view']">{{ famille.typeTarif?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/famille', famille.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

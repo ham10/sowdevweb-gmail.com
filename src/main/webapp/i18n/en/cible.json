@@ -1,0 +1,29 @@
+{
+  "hpdApp": {
+    "cible": {
+      "home": {
+        "title": "Cibles",
+        "createLabel": "Create a new Cible",
+        "createOrEditLabel": "Create or edit a Cible",
+        "notFound": "No Cibles found"
+      },
+      "created": "A new Cible is created with identifier {{ param }}",
+      "updated": "A Cible is updated with identifier {{ param }}",
+      "deleted": "A Cible is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Cible {{ id }}?"
+      },
+      "detail": {
+        "title": "Cible"
+      },
+      "libelleCible": "Libelle Cible",
+      "idUser": "Id User",
+      "dateDeleted": "Date Deleted",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "userCreated": "User Created",
+      "userUpdate": "User Update",
+      "userDelete": "User Delete"
+    }
+  }
+}

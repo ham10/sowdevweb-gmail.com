@@ -1,0 +1,29 @@
+{
+  "hpdApp": {
+    "typeSoins": {
+      "home": {
+        "title": "TypeSoins",
+        "createLabel": "Créer un nouveau Type Soins",
+        "createOrEditLabel": "Créer ou éditer un Type Soins",
+        "notFound": "Aucun Type Soins trouvé"
+      },
+      "created": "Un nouveau Type Soins a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Type Soins avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Type Soins avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Type Soins {{ id }} ?"
+      },
+      "detail": {
+        "title": "Type Soins"
+      },
+      "codeTypeSoins": "Code Type Soins",
+      "libelleTypeSoins": "Libelle Type Soins",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted",
+      "tarif": "Tarif"
+    }
+  }
+}

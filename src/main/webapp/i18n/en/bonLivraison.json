@@ -1,0 +1,36 @@
+{
+  "hpdApp": {
+    "bonLivraison": {
+      "home": {
+        "title": "Bon Livraisons",
+        "createLabel": "Create a new Bon Livraison",
+        "createOrEditLabel": "Create or edit a Bon Livraison",
+        "notFound": "No Bon Livraisons found"
+      },
+      "created": "A new Bon Livraison is created with identifier {{ param }}",
+      "updated": "A Bon Livraison is updated with identifier {{ param }}",
+      "deleted": "A Bon Livraison is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Bon Livraison {{ id }}?"
+      },
+      "detail": {
+        "title": "Bon Livraison"
+      },
+      "designationBonLivraison": "Designation Bon Livraison",
+      "prixTotalBonLivraison": "Prix Total Bon Livraison",
+      "dateBonLivraison": "Date Bon Livraison",
+      "userCertified": "User Certified",
+      "dateCertif": "Date Certif",
+      "numCertif": "Num Certif",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "dateDeleted": "Date Deleted",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted",
+      "facture": "Facture",
+      "ligneLivraison": "Ligne Livraison",
+      "bonDeCommande": "Bon De Commande"
+    }
+  }
+}

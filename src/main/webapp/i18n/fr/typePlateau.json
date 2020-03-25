@@ -1,0 +1,29 @@
+{
+  "hpdApp": {
+    "typePlateau": {
+      "home": {
+        "title": "TypePlateaus",
+        "createLabel": "Créer un nouveau Type Plateau",
+        "createOrEditLabel": "Créer ou éditer un Type Plateau",
+        "notFound": "Aucun Type Plateau trouvé"
+      },
+      "created": "Un nouveau Type Plateau a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Type Plateau avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Type Plateau avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Type Plateau {{ id }} ?"
+      },
+      "detail": {
+        "title": "Type Plateau"
+      },
+      "codeTypePlateau": "Code Type Plateau",
+      "libelleTypePlateau": "Libelle Type Plateau",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted",
+      "plateau": "Plateau"
+    }
+  }
+}

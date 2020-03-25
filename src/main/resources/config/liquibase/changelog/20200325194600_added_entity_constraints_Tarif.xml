@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity Tarif.
+    -->
+    <changeSet id="20200325194600-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="type_soins_id"
+                                 baseTableName="tarif"
+                                 constraintName="fk_tarif_type_soins_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="type_soins"/>
+
+        <addForeignKeyConstraint baseColumnNames="sousfamille_id"
+                                 baseTableName="tarif"
+                                 constraintName="fk_tarif_sousfamille_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="sous_famille"/>
+
+        <addForeignKeyConstraint baseColumnNames="actemedical_id"
+                                 baseTableName="tarif"
+                                 constraintName="fk_tarif_actemedical_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="acte_medical"/>
+
+        <addForeignKeyConstraint baseColumnNames="categorie_chambre_id"
+                                 baseTableName="tarif"
+                                 constraintName="fk_tarif_categorie_chambre_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="cat_chambre"/>
+
+    </changeSet>
+</databaseChangeLog>

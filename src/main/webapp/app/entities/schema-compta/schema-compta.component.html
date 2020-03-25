@@ -1,0 +1,89 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hpdApp.schemaCompta.home.title">Schema Comptas</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-schema-compta" [routerLink]="['/schema-compta/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hpdApp.schemaCompta.home.createLabel">
+            Create a new Schema Compta
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="schemaComptas?.length === 0">
+        <span jhiTranslate="hpdApp.schemaCompta.home.notFound">No schemaComptas found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="schemaComptas?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="code"><span jhiTranslate="hpdApp.schemaCompta.code">Code</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="libelle"><span jhiTranslate="hpdApp.schemaCompta.libelle">Libelle</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="sens"><span jhiTranslate="hpdApp.schemaCompta.sens">Sens</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateCreated"><span jhiTranslate="hpdApp.schemaCompta.dateCreated">Date Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateUpdated"><span jhiTranslate="hpdApp.schemaCompta.dateUpdated">Date Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateDeleted"><span jhiTranslate="hpdApp.schemaCompta.dateDeleted">Date Deleted</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userCreated"><span jhiTranslate="hpdApp.schemaCompta.userCreated">User Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userUpdated"><span jhiTranslate="hpdApp.schemaCompta.userUpdated">User Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userDeleted"><span jhiTranslate="hpdApp.schemaCompta.userDeleted">User Deleted</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="operation.id"><span jhiTranslate="hpdApp.schemaCompta.operation">Operation</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="natureOperation.id"><span jhiTranslate="hpdApp.schemaCompta.natureOperation">Nature Operation</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let schemaCompta of schemaComptas ;trackBy: trackId">
+                    <td><a [routerLink]="['/schema-compta', schemaCompta.id, 'view']">{{ schemaCompta.id }}</a></td>
+                    <td>{{ schemaCompta.code }}</td>
+                    <td>{{ schemaCompta.libelle }}</td>
+                    <td>{{ schemaCompta.sens }}</td>
+                    <td>{{ schemaCompta.dateCreated | date:'mediumDate' }}</td>
+                    <td>{{ schemaCompta.dateUpdated | date:'mediumDate' }}</td>
+                    <td>{{ schemaCompta.dateDeleted | date:'mediumDate' }}</td>
+                    <td>{{ schemaCompta.userCreated }}</td>
+                    <td>{{ schemaCompta.userUpdated }}</td>
+                    <td>{{ schemaCompta.userDeleted }}</td>
+                    <td>
+                        <div *ngIf="schemaCompta.operation">
+                            <a [routerLink]="['/operation', schemaCompta.operation?.id, 'view']" >{{ schemaCompta.operation?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="schemaCompta.natureOperation">
+                            <a [routerLink]="['/nature-op', schemaCompta.natureOperation?.id, 'view']" >{{ schemaCompta.natureOperation?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/schema-compta', schemaCompta.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/schema-compta', schemaCompta.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(schemaCompta)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

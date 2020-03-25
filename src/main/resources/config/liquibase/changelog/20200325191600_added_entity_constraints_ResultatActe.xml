@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity ResultatActe.
+    -->
+    <changeSet id="20200325191600-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="resultat_acte_id"
+                                 baseTableName="resultat_acte_acte_medical"
+                                 constraintName="fk_resultat_acte_acte_medical_resultat_acte_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="resultat_acte"/>
+
+        <addForeignKeyConstraint baseColumnNames="acte_medical_id"
+                                 baseTableName="resultat_acte_acte_medical"
+                                 constraintName="fk_resultat_acte_acte_medical_acte_medical_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="acte_medical"/>
+        
+        <addForeignKeyConstraint baseColumnNames="fiche_medical_id"
+                                 baseTableName="resultat_acte"
+                                 constraintName="fk_resultat_acte_fiche_medical_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="fiche_medical"/>
+
+    </changeSet>
+</databaseChangeLog>

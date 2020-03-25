@@ -1,0 +1,96 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="immo">
+            <h2><span jhiTranslate="hpdApp.immo.detail.title">Immo</span> {{ immo.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.immo.libelle">Libelle</span></dt>
+                <dd>
+                    <span>{{ immo.libelle }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.immo.valeurAquisition">Valeur Aquisition</span></dt>
+                <dd>
+                    <span>{{ immo.valeurAquisition }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.immo.dateAquisition">Date Aquisition</span></dt>
+                <dd>
+                    <span>{{ immo.dateAquisition }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.immo.valeurNetComptable">Valeur Net Comptable</span></dt>
+                <dd>
+                    <span>{{ immo.valeurNetComptable }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.immo.montant">Montant</span></dt>
+                <dd>
+                    <span>{{ immo.montant }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.immo.duree">Duree</span></dt>
+                <dd>
+                    <span>{{ immo.duree }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.immo.nbreEcheance">Nbre Echeance</span></dt>
+                <dd>
+                    <span>{{ immo.nbreEcheance }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.immo.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ immo.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.immo.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ immo.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.immo.dateDeleted">Date Deleted</span></dt>
+                <dd>
+                    <span>{{ immo.dateDeleted }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.immo.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ immo.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.immo.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ immo.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.immo.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ immo.userDeleted }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.immo.operation">Operation</span></dt>
+                <dd>
+                    <div *ngIf="immo.operation">
+                        <a [routerLink]="['/operation', immo.operation?.id, 'view']">{{ immo.operation?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.immo.typeImmo">Type Immo</span></dt>
+                <dd>
+                    <div *ngIf="immo.typeImmo">
+                        <a [routerLink]="['/type-immo', immo.typeImmo?.id, 'view']">{{ immo.typeImmo?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.immo.tableauAmortissement">Tableau Amortissement</span></dt>
+                <dd>
+                    <div *ngIf="immo.tableauAmortissement">
+                        <a [routerLink]="['/tab-amortis', immo.tableauAmortissement?.id, 'view']">{{ immo.tableauAmortissement?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/immo', immo.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

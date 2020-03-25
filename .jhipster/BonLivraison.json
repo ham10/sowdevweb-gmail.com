@@ -1,0 +1,84 @@
+{
+    "name": "BonLivraison",
+    "fields": [
+        {
+            "fieldName": "designationBonLivraison",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "prixTotalBonLivraison",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "dateBonLivraison",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "userCertified",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "dateCertif",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "numCertif",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dateCreated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateUpdated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateDeleted",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "userCreated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userUpdated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userDeleted",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "facture",
+            "otherEntityRelationshipName": "bonLivraison",
+            "relationshipName": "facture"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "ligneLivraison",
+            "otherEntityRelationshipName": "bonDeLivraison",
+            "relationshipName": "ligneLivraison"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "bonDeCommande",
+            "otherEntityRelationshipName": "bonLivraison",
+            "relationshipName": "bonDeCommande",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20200325192600",
+    "entityTableName": "bon_livraison",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

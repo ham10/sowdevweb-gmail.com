@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="typePole">
+            <h2><span jhiTranslate="hpdApp.typePole.detail.title">Type Pole</span> {{ typePole.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.typePole.codeTypePole">Code Type Pole</span></dt>
+                <dd>
+                    <span>{{ typePole.codeTypePole }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typePole.libelleTypePole">Libelle Type Pole</span></dt>
+                <dd>
+                    <span>{{ typePole.libelleTypePole }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typePole.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ typePole.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typePole.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ typePole.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typePole.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ typePole.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typePole.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ typePole.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typePole.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ typePole.userDeleted }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/type-pole', typePole.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

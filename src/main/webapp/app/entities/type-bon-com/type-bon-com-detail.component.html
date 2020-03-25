@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="typeBonCom">
+            <h2><span jhiTranslate="hpdApp.typeBonCom.detail.title">Type Bon Com</span> {{ typeBonCom.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.typeBonCom.libelleTypeBonCom">Libelle Type Bon Com</span></dt>
+                <dd>
+                    <span>{{ typeBonCom.libelleTypeBonCom }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeBonCom.codeTypeBonCom">Code Type Bon Com</span></dt>
+                <dd>
+                    <span>{{ typeBonCom.codeTypeBonCom }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeBonCom.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ typeBonCom.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeBonCom.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ typeBonCom.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeBonCom.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ typeBonCom.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeBonCom.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ typeBonCom.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeBonCom.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ typeBonCom.userDeleted }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/type-bon-com', typeBonCom.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

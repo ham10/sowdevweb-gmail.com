@@ -1,0 +1,91 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hpdApp.etablis.home.title">Etablis</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-etablis" [routerLink]="['/etablis/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hpdApp.etablis.home.createLabel">
+            Create a new Etablis
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="etablis?.length === 0">
+        <span jhiTranslate="hpdApp.etablis.home.notFound">No etablis found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="etablis?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="codeEtabl"><span jhiTranslate="hpdApp.etablis.codeEtabl">Code Etabl</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="raisonSocialeEtabl"><span jhiTranslate="hpdApp.etablis.raisonSocialeEtabl">Raison Sociale Etabl</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="adresseEtabl"><span jhiTranslate="hpdApp.etablis.adresseEtabl">Adresse Etabl</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="telephoneEtabl"><span jhiTranslate="hpdApp.etablis.telephoneEtabl">Telephone Etabl</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="nineaEtabl"><span jhiTranslate="hpdApp.etablis.nineaEtabl">Ninea Etabl</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="rcEtabl"><span jhiTranslate="hpdApp.etablis.rcEtabl">Rc Etabl</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="emailEtabl"><span jhiTranslate="hpdApp.etablis.emailEtabl">Email Etabl</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="description"><span jhiTranslate="hpdApp.etablis.description">Description</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateCreated"><span jhiTranslate="hpdApp.etablis.dateCreated">Date Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateUpdated"><span jhiTranslate="hpdApp.etablis.dateUpdated">Date Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userCreated"><span jhiTranslate="hpdApp.etablis.userCreated">User Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userUpdated"><span jhiTranslate="hpdApp.etablis.userUpdated">User Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userDeleted"><span jhiTranslate="hpdApp.etablis.userDeleted">User Deleted</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="departement.id"><span jhiTranslate="hpdApp.etablis.departement">Departement</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let etablis of etablis ;trackBy: trackId">
+                    <td><a [routerLink]="['/etablis', etablis.id, 'view']">{{ etablis.id }}</a></td>
+                    <td>{{ etablis.codeEtabl }}</td>
+                    <td>{{ etablis.raisonSocialeEtabl }}</td>
+                    <td>{{ etablis.adresseEtabl }}</td>
+                    <td>{{ etablis.telephoneEtabl }}</td>
+                    <td>{{ etablis.nineaEtabl }}</td>
+                    <td>{{ etablis.rcEtabl }}</td>
+                    <td>{{ etablis.emailEtabl }}</td>
+                    <td>{{ etablis.description }}</td>
+                    <td>{{ etablis.dateCreated | date:'mediumDate' }}</td>
+                    <td>{{ etablis.dateUpdated | date:'mediumDate' }}</td>
+                    <td>{{ etablis.userCreated }}</td>
+                    <td>{{ etablis.userUpdated }}</td>
+                    <td>{{ etablis.userDeleted }}</td>
+                    <td>
+                        <div *ngIf="etablis.departement">
+                            <a [routerLink]="['/departement', etablis.departement?.id, 'view']" >{{ etablis.departement?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/etablis', etablis.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/etablis', etablis.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(etablis)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

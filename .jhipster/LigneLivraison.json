@@ -1,0 +1,67 @@
+{
+    "name": "LigneLivraison",
+    "fields": [
+        {
+            "fieldName": "designation",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "quantite",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "prixUnitaire",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "dateCreated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateUpdated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateDeleted",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "userCreated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userUpdated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userDeleted",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "prodFournis",
+            "otherEntityRelationshipName": "ligneLivraison",
+            "relationshipName": "produitFournisseur",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "bonLivraison",
+            "otherEntityRelationshipName": "ligneLivraison",
+            "relationshipName": "bonDeLivraison",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200325192700",
+    "entityTableName": "ligne_livraison",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

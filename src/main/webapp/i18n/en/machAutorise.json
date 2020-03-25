@@ -1,0 +1,28 @@
+{
+  "hpdApp": {
+    "machAutorise": {
+      "home": {
+        "title": "Mach Autorises",
+        "createLabel": "Create a new Mach Autorise",
+        "createOrEditLabel": "Create or edit a Mach Autorise",
+        "notFound": "No Mach Autorises found"
+      },
+      "created": "A new Mach Autorise is created with identifier {{ param }}",
+      "updated": "A Mach Autorise is updated with identifier {{ param }}",
+      "deleted": "A Mach Autorise is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Mach Autorise {{ id }}?"
+      },
+      "detail": {
+        "title": "Mach Autorise"
+      },
+      "numeroMachAutorise": "Numero Mach Autorise",
+      "adresseMacMachAutorise": "Adresse Mac Mach Autorise",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted"
+    }
+  }
+}

@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="typeFact">
+            <h2><span jhiTranslate="hpdApp.typeFact.detail.title">Type Fact</span> {{ typeFact.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.typeFact.codeTypeFact">Code Type Fact</span></dt>
+                <dd>
+                    <span>{{ typeFact.codeTypeFact }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeFact.libelleTypeFact">Libelle Type Fact</span></dt>
+                <dd>
+                    <span>{{ typeFact.libelleTypeFact }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeFact.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ typeFact.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeFact.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ typeFact.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeFact.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ typeFact.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeFact.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ typeFact.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeFact.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ typeFact.userDeleted }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/type-fact', typeFact.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

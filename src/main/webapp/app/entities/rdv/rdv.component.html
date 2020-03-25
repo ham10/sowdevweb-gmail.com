@@ -1,0 +1,83 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hpdApp.rDV.home.title">RDVS</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-rdv" [routerLink]="['/menu/rdv/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hpdApp.rDV.home.createLabel">
+            Create a new RDV
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="rDVS?.length === 0">
+        <span jhiTranslate="hpdApp.rDV.home.notFound">No rDVS found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="rDVS?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="numRdv"><span jhiTranslate="hpdApp.rDV.numRdv">Num Rdv</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateRdv"><span jhiTranslate="hpdApp.rDV.dateRdv">Date Rdv</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="heureRdv"><span jhiTranslate="hpdApp.rDV.heureRdv">Heure Rdv</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="patient.id"><span jhiTranslate="hpdApp.rDV.patient">Patient</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="planning.id"><span jhiTranslate="hpdApp.rDV.planning">Planning</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="etatRDV.id"><span jhiTranslate="hpdApp.rDV.etatRDV">Etat RDV</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let rDV of rDVS ;trackBy: trackId">
+                    <td><a [routerLink]="['/menu/rdv', rDV.id, 'view']">{{ rDV.id }}</a></td>
+                    <td>{{ rDV.numRdv }}</td>
+                    <td>{{ rDV.dateRdv | date:'mediumDate' }}</td>
+                    <td>{{ rDV.heureRdv | date:'medium' }}</td>
+                    <td>
+                        <div *ngIf="rDV.patient">
+                            <a [routerLink]="['menu/patient', rDV.patient?.id, 'view']" >{{ rDV.patient?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="rDV.planning">
+                            <a [routerLink]="['/planning', rDV.planning?.id, 'view']" >{{ rDV.planning?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="rDV.etatRDV">
+                            <a [routerLink]="['/etat-rdv', rDV.etatRDV?.id, 'view']" >{{ rDV.etatRDV?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/menu/rdv', rDV.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/menu/rdv', rDV.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(rDV)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

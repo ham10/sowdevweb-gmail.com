@@ -1,0 +1,81 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hpdApp.codeBudget.home.title">Code Budgets</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-code-budget" [routerLink]="['/code-budget/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hpdApp.codeBudget.home.createLabel">
+            Create a new Code Budget
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="codeBudgets?.length === 0">
+        <span jhiTranslate="hpdApp.codeBudget.home.notFound">No codeBudgets found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="codeBudgets?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="codeCodeBudget"><span jhiTranslate="hpdApp.codeBudget.codeCodeBudget">Code Code Budget</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="libelleCodeBudget"><span jhiTranslate="hpdApp.codeBudget.libelleCodeBudget">Libelle Code Budget</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateCreated"><span jhiTranslate="hpdApp.codeBudget.dateCreated">Date Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateUpdated"><span jhiTranslate="hpdApp.codeBudget.dateUpdated">Date Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateDeleted"><span jhiTranslate="hpdApp.codeBudget.dateDeleted">Date Deleted</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userCreated"><span jhiTranslate="hpdApp.codeBudget.userCreated">User Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userUpdated"><span jhiTranslate="hpdApp.codeBudget.userUpdated">User Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userDeleted"><span jhiTranslate="hpdApp.codeBudget.userDeleted">User Deleted</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="compteGeneral.id"><span jhiTranslate="hpdApp.codeBudget.compteGeneral">Compte General</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let codeBudget of codeBudgets ;trackBy: trackId">
+                    <td><a [routerLink]="['/code-budget', codeBudget.id, 'view']">{{ codeBudget.id }}</a></td>
+                    <td>{{ codeBudget.codeCodeBudget }}</td>
+                    <td>{{ codeBudget.libelleCodeBudget }}</td>
+                    <td>{{ codeBudget.dateCreated | date:'mediumDate' }}</td>
+                    <td>{{ codeBudget.dateUpdated | date:'mediumDate' }}</td>
+                    <td>{{ codeBudget.dateDeleted | date:'mediumDate' }}</td>
+                    <td>{{ codeBudget.userCreated }}</td>
+                    <td>{{ codeBudget.userUpdated }}</td>
+                    <td>{{ codeBudget.userDeleted }}</td>
+                    <td>
+                        <div *ngIf="codeBudget.compteGeneral">
+                            <a [routerLink]="['/compte-gene', codeBudget.compteGeneral?.id, 'view']" >{{ codeBudget.compteGeneral?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/code-budget', codeBudget.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/code-budget', codeBudget.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(codeBudget)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

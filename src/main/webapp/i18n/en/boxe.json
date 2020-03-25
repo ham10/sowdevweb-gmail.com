@@ -1,0 +1,29 @@
+{
+  "hpdApp": {
+    "boxe": {
+      "home": {
+        "title": "Boxes",
+        "createLabel": "Create a new Boxe",
+        "createOrEditLabel": "Create or edit a Boxe",
+        "notFound": "No Boxes found"
+      },
+      "created": "A new Boxe is created with identifier {{ param }}",
+      "updated": "A Boxe is updated with identifier {{ param }}",
+      "deleted": "A Boxe is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Boxe {{ id }}?"
+      },
+      "detail": {
+        "title": "Boxe"
+      },
+      "numeroBoxe": "Numero Boxe",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted",
+      "lit": "Lit",
+      "chambre": "Chambre"
+    }
+  }
+}

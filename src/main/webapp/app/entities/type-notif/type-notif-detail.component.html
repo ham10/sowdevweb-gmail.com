@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="typeNotif">
+            <h2><span jhiTranslate="hpdApp.typeNotif.detail.title">Type Notif</span> {{ typeNotif.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.typeNotif.codeTypeNotif">Code Type Notif</span></dt>
+                <dd>
+                    <span>{{ typeNotif.codeTypeNotif }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeNotif.libelleTypeNotif">Libelle Type Notif</span></dt>
+                <dd>
+                    <span>{{ typeNotif.libelleTypeNotif }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeNotif.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ typeNotif.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeNotif.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ typeNotif.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeNotif.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ typeNotif.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeNotif.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ typeNotif.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeNotif.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ typeNotif.userDeleted }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/type-notif', typeNotif.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

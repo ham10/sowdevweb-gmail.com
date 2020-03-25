@@ -1,0 +1,24 @@
+{
+  "hpdApp": {
+    "etatBonCom": {
+      "home": {
+        "title": "Etat Bon Coms",
+        "createLabel": "Create a new Etat Bon Com",
+        "createOrEditLabel": "Create or edit a Etat Bon Com",
+        "notFound": "No Etat Bon Coms found"
+      },
+      "created": "A new Etat Bon Com is created with identifier {{ param }}",
+      "updated": "A Etat Bon Com is updated with identifier {{ param }}",
+      "deleted": "A Etat Bon Com is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Etat Bon Com {{ id }}?"
+      },
+      "detail": {
+        "title": "Etat Bon Com"
+      },
+      "libelle": "Libelle",
+      "code": "Code",
+      "bonDeCommande": "Bon De Commande"
+    }
+  }
+}

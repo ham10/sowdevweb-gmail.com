@@ -1,0 +1,70 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="produit">
+            <h2><span jhiTranslate="hpdApp.produit.detail.title">Produit</span> {{ produit.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.produit.code">Code</span></dt>
+                <dd>
+                    <span>{{ produit.code }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.produit.libelle">Libelle</span></dt>
+                <dd>
+                    <span>{{ produit.libelle }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.produit.quantiteStock">Quantite Stock</span></dt>
+                <dd>
+                    <span>{{ produit.quantiteStock }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.produit.stockProvisoire">Stock Provisoire</span></dt>
+                <dd>
+                    <span>{{ produit.stockProvisoire }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.produit.tva">Tva</span></dt>
+                <dd>
+                    <span>{{ produit.tva }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.produit.prixVenteUnitaire">Prix Vente Unitaire</span></dt>
+                <dd>
+                    <span>{{ produit.prixVenteUnitaire }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.produit.codeBarre">Code Barre</span></dt>
+                <dd>
+                    <span>{{ produit.codeBarre }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.produit.seuil">Seuil</span></dt>
+                <dd>
+                    <span>{{ produit.seuil }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.produit.etagere">Etagere</span></dt>
+                <dd>
+                    <div *ngIf="produit.etagere">
+                        <a [routerLink]="['/etagere', produit.etagere?.id, 'view']">{{ produit.etagere?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.produit.typeproduit">Typeproduit</span></dt>
+                <dd>
+                    <div *ngIf="produit.typeproduit">
+                        <a [routerLink]="['/type-prod', produit.typeproduit?.id, 'view']">{{ produit.typeproduit?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/produit', produit.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

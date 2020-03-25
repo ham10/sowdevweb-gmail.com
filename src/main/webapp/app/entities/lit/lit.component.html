@@ -1,0 +1,85 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hpdApp.lit.home.title">Lits</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-lit" [routerLink]="['/lit/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hpdApp.lit.home.createLabel">
+            Create a new Lit
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="lits?.length === 0">
+        <span jhiTranslate="hpdApp.lit.home.notFound">No lits found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="lits?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="numeroLit"><span jhiTranslate="hpdApp.lit.numeroLit">Numero Lit</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="descriptionLit"><span jhiTranslate="hpdApp.lit.descriptionLit">Description Lit</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateCreated"><span jhiTranslate="hpdApp.lit.dateCreated">Date Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateUpdated"><span jhiTranslate="hpdApp.lit.dateUpdated">Date Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userCreated"><span jhiTranslate="hpdApp.lit.userCreated">User Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userUpdated"><span jhiTranslate="hpdApp.lit.userUpdated">User Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userDeleted"><span jhiTranslate="hpdApp.lit.userDeleted">User Deleted</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="typeLit.id"><span jhiTranslate="hpdApp.lit.typeLit">Type Lit</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="box.id"><span jhiTranslate="hpdApp.lit.box">Box</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let lit of lits ;trackBy: trackId">
+                    <td><a [routerLink]="['/lit', lit.id, 'view']">{{ lit.id }}</a></td>
+                    <td>{{ lit.numeroLit }}</td>
+                    <td>{{ lit.descriptionLit }}</td>
+                    <td>{{ lit.dateCreated | date:'mediumDate' }}</td>
+                    <td>{{ lit.dateUpdated | date:'mediumDate' }}</td>
+                    <td>{{ lit.userCreated }}</td>
+                    <td>{{ lit.userUpdated }}</td>
+                    <td>{{ lit.userDeleted }}</td>
+                    <td>
+                        <div *ngIf="lit.typeLit">
+                            <a [routerLink]="['/type-lit', lit.typeLit?.id, 'view']" >{{ lit.typeLit?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="lit.box">
+                            <a [routerLink]="['/boxe', lit.box?.id, 'view']" >{{ lit.box?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/lit', lit.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/lit', lit.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(lit)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

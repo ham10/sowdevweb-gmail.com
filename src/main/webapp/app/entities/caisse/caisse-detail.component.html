@@ -1,0 +1,66 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="caisse">
+            <h2><span jhiTranslate="hpdApp.caisse.detail.title">Caisse</span> {{ caisse.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.caisse.numero">Numero</span></dt>
+                <dd>
+                    <span>{{ caisse.numero }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.caisse.soldeMin">Solde Min</span></dt>
+                <dd>
+                    <span>{{ caisse.soldeMin }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.caisse.soldeMax">Solde Max</span></dt>
+                <dd>
+                    <span>{{ caisse.soldeMax }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.caisse.montant">Montant</span></dt>
+                <dd>
+                    <span>{{ caisse.montant }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.caisse.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ caisse.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.caisse.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ caisse.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.caisse.dateDeleted">Date Deleted</span></dt>
+                <dd>
+                    <span>{{ caisse.dateDeleted }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.caisse.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ caisse.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.caisse.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ caisse.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.caisse.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ caisse.userDeleted }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/caisse', caisse.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

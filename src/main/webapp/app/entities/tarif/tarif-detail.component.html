@@ -1,0 +1,90 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="tarif">
+            <h2><span jhiTranslate="hpdApp.tarif.detail.title">Tarif</span> {{ tarif.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.tarif.code">Code</span></dt>
+                <dd>
+                    <span>{{ tarif.code }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.tarif.libelle">Libelle</span></dt>
+                <dd>
+                    <span>{{ tarif.libelle }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.tarif.montant">Montant</span></dt>
+                <dd>
+                    <span>{{ tarif.montant }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.tarif.pourcentage">Pourcentage</span></dt>
+                <dd>
+                    <span>{{ tarif.pourcentage }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.tarif.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ tarif.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.tarif.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ tarif.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.tarif.dateDeleted">Date Deleted</span></dt>
+                <dd>
+                    <span>{{ tarif.dateDeleted }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.tarif.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ tarif.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.tarif.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ tarif.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.tarif.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ tarif.userDeleted }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.tarif.typeSoins">Type Soins</span></dt>
+                <dd>
+                    <div *ngIf="tarif.typeSoins">
+                        <a [routerLink]="['/type-soins', tarif.typeSoins?.id, 'view']">{{ tarif.typeSoins?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.tarif.sousfamille">Sousfamille</span></dt>
+                <dd>
+                    <div *ngIf="tarif.sousfamille">
+                        <a [routerLink]="['/sous-famille', tarif.sousfamille?.id, 'view']">{{ tarif.sousfamille?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.tarif.actemedical">Actemedical</span></dt>
+                <dd>
+                    <div *ngIf="tarif.actemedical">
+                        <a [routerLink]="['/acte-medical', tarif.actemedical?.id, 'view']">{{ tarif.actemedical?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.tarif.categorieChambre">Categorie Chambre</span></dt>
+                <dd>
+                    <div *ngIf="tarif.categorieChambre">
+                        <a [routerLink]="['/cat-chambre', tarif.categorieChambre?.id, 'view']">{{ tarif.categorieChambre?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/tarif', tarif.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

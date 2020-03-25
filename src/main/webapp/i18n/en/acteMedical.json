@@ -1,0 +1,31 @@
+{
+  "hpdApp": {
+    "acteMedical": {
+      "home": {
+        "title": "Acte Medicals",
+        "createLabel": "Create a new Acte Medical",
+        "createOrEditLabel": "Create or edit a Acte Medical",
+        "notFound": "No Acte Medicals found"
+      },
+      "created": "A new Acte Medical is created with identifier {{ param }}",
+      "updated": "A Acte Medical is updated with identifier {{ param }}",
+      "deleted": "A Acte Medical is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Acte Medical {{ id }}?"
+      },
+      "detail": {
+        "title": "Acte Medical"
+      },
+      "code": "Code",
+      "libelleA": "Libelle A",
+      "description": "Description",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted",
+      "tarif": "Tarif",
+      "resultatActe": "Resultat Acte"
+    }
+  }
+}

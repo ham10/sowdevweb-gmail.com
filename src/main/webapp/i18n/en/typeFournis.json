@@ -1,0 +1,28 @@
+{
+  "hpdApp": {
+    "typeFournis": {
+      "home": {
+        "title": "Type Fournis",
+        "createLabel": "Create a new Type Fournis",
+        "createOrEditLabel": "Create or edit a Type Fournis",
+        "notFound": "No Type Fournis found"
+      },
+      "created": "A new Type Fournis is created with identifier {{ param }}",
+      "updated": "A Type Fournis is updated with identifier {{ param }}",
+      "deleted": "A Type Fournis is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Type Fournis {{ id }}?"
+      },
+      "detail": {
+        "title": "Type Fournis"
+      },
+      "codeTypeFournis": "Code Type Fournis",
+      "libelleTypeFournis": "Libelle Type Fournis",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted"
+    }
+  }
+}

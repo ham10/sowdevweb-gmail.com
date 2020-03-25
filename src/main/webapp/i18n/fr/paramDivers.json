@@ -1,0 +1,38 @@
+{
+  "hpdApp": {
+    "paramDivers": {
+      "home": {
+        "title": "ParamDivers",
+        "createLabel": "Créer un nouveau Param Divers",
+        "createOrEditLabel": "Créer ou éditer un Param Divers",
+        "notFound": "Aucun Param Divers trouvé"
+      },
+      "created": "Un nouveau Param Divers a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Param Divers avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Param Divers avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Param Divers {{ id }} ?"
+      },
+      "detail": {
+        "title": "Param Divers"
+      },
+      "codeParamDivers": "Code Param Divers",
+      "libelleParamDivers": "Libelle Param Divers",
+      "descriptionParamDivers": "Description Param Divers",
+      "valeurNum1": "Valeur Num 1",
+      "valeurNum2": "Valeur Num 2",
+      "valeurNum3": "Valeur Num 3",
+      "valeurText1": "Valeur Text 1",
+      "valeurText2": "Valeur Text 2",
+      "valeurText3": "Valeur Text 3",
+      "valeurBoolean1": "Valeur Boolean 1",
+      "valeurBoolean2": "Valeur Boolean 2",
+      "valeurBoolean3": "Valeur Boolean 3",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted"
+    }
+  }
+}

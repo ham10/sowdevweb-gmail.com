@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="typePiece">
+            <h2><span jhiTranslate="hpdApp.typePiece.detail.title">Type Piece</span> {{ typePiece.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.typePiece.codeTypePiece">Code Type Piece</span></dt>
+                <dd>
+                    <span>{{ typePiece.codeTypePiece }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typePiece.libelleTypePiece">Libelle Type Piece</span></dt>
+                <dd>
+                    <span>{{ typePiece.libelleTypePiece }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typePiece.descriptionTypePiece">Description Type Piece</span></dt>
+                <dd>
+                    <span>{{ typePiece.descriptionTypePiece }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typePiece.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ typePiece.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typePiece.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ typePiece.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typePiece.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ typePiece.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typePiece.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ typePiece.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typePiece.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ typePiece.userDeleted }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/type-piece', typePiece.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

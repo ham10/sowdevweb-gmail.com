@@ -1,0 +1,51 @@
+{
+    "name": "Specialite",
+    "fields": [
+        {
+            "fieldName": "codeSpecialite",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "libelleSpecialite",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dateCreated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateUpdated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "userCreated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userUpdated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userDeleted",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "services",
+            "otherEntityRelationshipName": "specialite",
+            "relationshipName": "services"
+        }
+    ],
+    "changelogDate": "20200325181600",
+    "entityTableName": "specialite",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

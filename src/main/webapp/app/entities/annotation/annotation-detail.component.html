@@ -1,0 +1,76 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="annotation">
+            <h2><span jhiTranslate="hpdApp.annotation.detail.title">Annotation</span> {{ annotation.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.annotation.code">Code</span></dt>
+                <dd>
+                    <span>{{ annotation.code }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.annotation.note">Note</span></dt>
+                <dd>
+                    <span>{{ annotation.note }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.annotation.observation">Observation</span></dt>
+                <dd>
+                    <span>{{ annotation.observation }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.annotation.nbQuestions">Nb Questions</span></dt>
+                <dd>
+                    <span>{{ annotation.nbQuestions }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.annotation.moyenne">Moyenne</span></dt>
+                <dd>
+                    <span>{{ annotation.moyenne }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.annotation.dateDeleted">Date Deleted</span></dt>
+                <dd>
+                    <span>{{ annotation.dateDeleted }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.annotation.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ annotation.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.annotation.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ annotation.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.annotation.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ annotation.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.annotation.userUpdate">User Update</span></dt>
+                <dd>
+                    <span>{{ annotation.userUpdate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.annotation.userDelete">User Delete</span></dt>
+                <dd>
+                    <span>{{ annotation.userDelete }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.annotation.questionnaire">Questionnaire</span></dt>
+                <dd>
+                    <div *ngIf="annotation.questionnaire">
+                        <a [routerLink]="['/questionnaire', annotation.questionnaire?.id, 'view']">{{ annotation.questionnaire?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/annotation', annotation.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

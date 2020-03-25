@@ -1,0 +1,29 @@
+{
+  "hpdApp": {
+    "fonctionnalite": {
+      "home": {
+        "title": "Fonctionnalites",
+        "createLabel": "Create a new Fonctionnalite",
+        "createOrEditLabel": "Create or edit a Fonctionnalite",
+        "notFound": "No Fonctionnalites found"
+      },
+      "created": "A new Fonctionnalite is created with identifier {{ param }}",
+      "updated": "A Fonctionnalite is updated with identifier {{ param }}",
+      "deleted": "A Fonctionnalite is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Fonctionnalite {{ id }}?"
+      },
+      "detail": {
+        "title": "Fonctionnalite"
+      },
+      "libelleFonctionnalite": "Libelle Fonctionnalite",
+      "descriptionFonctionnalite": "Description Fonctionnalite",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted",
+      "item": "Item"
+    }
+  }
+}

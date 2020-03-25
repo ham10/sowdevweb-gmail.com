@@ -1,0 +1,28 @@
+{
+  "hpdApp": {
+    "typeMagasin": {
+      "home": {
+        "title": "Type Magasins",
+        "createLabel": "Create a new Type Magasin",
+        "createOrEditLabel": "Create or edit a Type Magasin",
+        "notFound": "No Type Magasins found"
+      },
+      "created": "A new Type Magasin is created with identifier {{ param }}",
+      "updated": "A Type Magasin is updated with identifier {{ param }}",
+      "deleted": "A Type Magasin is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Type Magasin {{ id }}?"
+      },
+      "detail": {
+        "title": "Type Magasin"
+      },
+      "codeTypeMagasin": "Code Type Magasin",
+      "libelleTypeMagasin": "Libelle Type Magasin",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted"
+    }
+  }
+}

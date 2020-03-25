@@ -1,0 +1,68 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="ordonnance">
+            <h2><span jhiTranslate="hpdApp.ordonnance.detail.title">Ordonnance</span> {{ ordonnance.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.ordonnance.numero">Numero</span></dt>
+                <dd>
+                    <span>{{ ordonnance.numero }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.ordonnance.date">Date</span></dt>
+                <dd>
+                    <span>{{ ordonnance.date }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.ordonnance.description">Description</span></dt>
+                <dd>
+                    <span>{{ ordonnance.description }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.ordonnance.prescription">Prescription</span></dt>
+                <dd>
+                    <span>{{ ordonnance.prescription }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.ordonnance.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ ordonnance.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.ordonnance.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ ordonnance.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.ordonnance.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ ordonnance.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.ordonnance.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ ordonnance.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.ordonnance.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ ordonnance.userDeleted }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.ordonnance.ficheMedical">Fiche Medical</span></dt>
+                <dd>
+                    <div *ngIf="ordonnance.ficheMedical">
+                        <a [routerLink]="['/fiche-medical', ordonnance.ficheMedical?.id, 'view']">{{ ordonnance.ficheMedical?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/ordonnance', ordonnance.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,48 @@
+{
+    "name": "TypeQuestion",
+    "fields": [
+        {
+            "fieldName": "code",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "belleType",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "multipliciteChoix",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "dateDeleted",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "dateCreated",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "dateUpdated",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "userUpdate",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userDelete",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20200325200800",
+    "entityTableName": "type_question",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

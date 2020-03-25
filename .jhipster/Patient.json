@@ -1,0 +1,253 @@
+{
+    "name": "Patient",
+    "fields": [
+        {
+            "fieldName": "codePatient",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "nomPatient",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "prenom",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "adresse",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "dateNaissance",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "genre",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "photo",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "any"
+        },
+        {
+            "fieldName": "password",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "telephone",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "numeroPiece",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "codeBarre",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "entreprise",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "ville",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "quartier",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "longitude",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "latitude",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lieuNaissance",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fonctionPatient",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "situationSociale",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "solde",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "cartePatient",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "bloque",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "dateValidite",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "motifBlocage",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "prenomPerePatient",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nomMerePatient",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "prenomMerePatient",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "motifAdmission",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "personneAContacter",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "adressePersAContacter",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "telPersAContacter",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lienParentePersAContacter",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nomAccompagnant",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "prenomAccompagnant",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "telAccompagnant",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "habitudeDeVie",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "physioPathologique",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dateCreated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateUpdated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "userCreated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userUpdated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userDeleted",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "dosMedical",
+            "otherEntityRelationshipName": "patient",
+            "relationshipName": "dosMedical"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "hospitalisation",
+            "otherEntityRelationshipName": "patient",
+            "relationshipName": "hospitalisation"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "compte",
+            "otherEntityRelationshipName": "patient",
+            "relationshipName": "compte"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "groupeSan",
+            "otherEntityRelationshipName": "patient",
+            "relationshipName": "groupeSanguin",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "typePatient",
+            "otherEntityRelationshipName": "patient",
+            "relationshipName": "typePatient",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "departement",
+            "otherEntityRelationshipName": "patient",
+            "relationshipName": "departement",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200325190800",
+    "entityTableName": "patient",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

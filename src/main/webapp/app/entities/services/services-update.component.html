@@ -1,0 +1,118 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-services-heading" jhiTranslate="hpdApp.services.home.createOrEditLabel">Create or edit a Services</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.services.code" for="field_code">Code</label>
+                    <input type="text" class="form-control" name="code" id="field_code"
+                           formControlName="code"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.services.libelle" for="field_libelle">Libelle</label>
+                    <input type="text" class="form-control" name="libelle" id="field_libelle"
+                           formControlName="libelle"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.services.description" for="field_description">Description</label>
+                    <div class="input-group">
+                        <input id="field_description" type="text" class="form-control" name="description" ngbDatepicker #descriptionDp="ngbDatepicker" formControlName="description"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="descriptionDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.services.dateCreated" for="field_dateCreated">Date Created</label>
+                    <div class="input-group">
+                        <input id="field_dateCreated" type="text" class="form-control" name="dateCreated" ngbDatepicker #dateCreatedDp="ngbDatepicker" formControlName="dateCreated"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateCreatedDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.services.dateUpdated" for="field_dateUpdated">Date Updated</label>
+                    <div class="input-group">
+                        <input id="field_dateUpdated" type="text" class="form-control" name="dateUpdated" ngbDatepicker #dateUpdatedDp="ngbDatepicker" formControlName="dateUpdated"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateUpdatedDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.services.userCreated" for="field_userCreated">User Created</label>
+                    <input type="number" class="form-control" name="userCreated" id="field_userCreated"
+                           formControlName="userCreated"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.services.userUpdated" for="field_userUpdated">User Updated</label>
+                    <input type="number" class="form-control" name="userUpdated" id="field_userUpdated"
+                           formControlName="userUpdated"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.services.userDeleted" for="field_userDeleted">User Deleted</label>
+                    <input type="number" class="form-control" name="userDeleted" id="field_userDeleted"
+                           formControlName="userDeleted"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.services.typeServices" for="field_typeServices">Type Services</label>
+                    <select class="form-control" id="field_typeServices" name="typeServices" formControlName="typeServices">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="typeServicesOption.id === editForm.get('typeServices')!.value?.id ? editForm.get('typeServices')!.value : typeServicesOption" *ngFor="let typeServicesOption of typeservices; trackBy: trackById">{{ typeServicesOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.services.deptServices" for="field_deptServices">Dept Services</label>
+                    <select class="form-control" id="field_deptServices" name="deptServices" formControlName="deptServices">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="deptServicesOption.id === editForm.get('deptServices')!.value?.id ? editForm.get('deptServices')!.value : deptServicesOption" *ngFor="let deptServicesOption of deptservices; trackBy: trackById">{{ deptServicesOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.services.specialite" for="field_specialite">Specialite</label>
+                    <select class="form-control" id="field_specialite" name="specialite" formControlName="specialite">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="specialiteOption.id === editForm.get('specialite')!.value?.id ? editForm.get('specialite')!.value : specialiteOption" *ngFor="let specialiteOption of specialites; trackBy: trackById">{{ specialiteOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.services.compteGeneral" for="field_compteGeneral">Compte General</label>
+                    <select class="form-control" id="field_compteGeneral" name="compteGeneral" formControlName="compteGeneral">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="compteGeneOption.id === editForm.get('compteGeneral')!.value?.id ? editForm.get('compteGeneral')!.value : compteGeneOption" *ngFor="let compteGeneOption of comptegenes; trackBy: trackById">{{ compteGeneOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

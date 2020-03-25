@@ -1,0 +1,40 @@
+{
+  "hpdApp": {
+    "medecin": {
+      "home": {
+        "title": "Medecins",
+        "createLabel": "Create a new Medecin",
+        "createOrEditLabel": "Create or edit a Medecin",
+        "notFound": "No Medecins found"
+      },
+      "created": "A new Medecin is created with identifier {{ param }}",
+      "updated": "A Medecin is updated with identifier {{ param }}",
+      "deleted": "A Medecin is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Medecin {{ id }}?"
+      },
+      "detail": {
+        "title": "Medecin"
+      },
+      "nomMedecin": "Nom Medecin",
+      "prenom": "Prenom",
+      "adresse": "Adresse",
+      "email": "Email",
+      "dateNaissance": "Date Naissance",
+      "genreMedecin": "Genre Medecin",
+      "nationalite": "Nationalite",
+      "telephone": "Telephone",
+      "anciennete": "Anciennete",
+      "numeroPiece": "Numero Piece",
+      "gradeMedecin": "Grade Medecin",
+      "specialite": "Specialite",
+      "dateEmbauche": "Date Embauche",
+      "dateValidite": "Date Validite",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted"
+    }
+  }
+}

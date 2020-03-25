@@ -1,0 +1,71 @@
+{
+    "name": "Question",
+    "fields": [
+        {
+            "fieldName": "code",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "libelle",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "obligatoire",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "dateDeleted",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "dateCreated",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "dateUpdated",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "userCreated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userUpdate",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userDelete",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "questionnaire",
+            "otherEntityRelationshipName": "question",
+            "relationshipName": "questionnaire",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "typeQuestion",
+            "otherEntityRelationshipName": "question",
+            "relationshipName": "typeQuestion",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200325200600",
+    "entityTableName": "question",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

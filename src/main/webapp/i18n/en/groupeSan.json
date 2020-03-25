@@ -1,0 +1,29 @@
+{
+  "hpdApp": {
+    "groupeSan": {
+      "home": {
+        "title": "Groupe Sans",
+        "createLabel": "Create a new Groupe San",
+        "createOrEditLabel": "Create or edit a Groupe San",
+        "notFound": "No Groupe Sans found"
+      },
+      "created": "A new Groupe San is created with identifier {{ param }}",
+      "updated": "A Groupe San is updated with identifier {{ param }}",
+      "deleted": "A Groupe San is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Groupe San {{ id }}?"
+      },
+      "detail": {
+        "title": "Groupe San"
+      },
+      "codeGroupeSan": "Code Groupe San",
+      "libelleGroupeSan": "Libelle Groupe San",
+      "descriptionGroupeSan": "Description Groupe San",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted"
+    }
+  }
+}

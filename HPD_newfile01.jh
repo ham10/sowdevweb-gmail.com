@@ -1,0 +1,1843 @@
+
+            // Parametrage
+/**
+ * The Enter the entity name entity.
+ * @author A true hipster
+ */
+entity Pays
+{
+    codePays 	String
+    libellePays	String
+    dateCreated	LocalDate
+    dateUpdated	LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+
+entity Region
+{
+    codeRegion 	    String
+    libelleRegion	String
+    dateCreated	    LocalDate
+    dateUpdated	    LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+entity Departement
+{
+    codeDepartement 	String
+    libelleDepartement	String
+    dateCreated	        LocalDate
+    dateUpdated	        LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+entity Etablis
+{
+    codeEtabl 	        String
+    raisonSocialeEtabl	String
+    adresseEtabl	    String
+    telephoneEtabl	    Integer
+    nineaEtabl	        String
+    rcEtabl	            String
+    emailEtabl	        String
+    description	        String
+    dateCreated	        LocalDate
+    dateUpdated	        LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+entity TypePole
+{
+    codeTypePole 	String
+    libelleTypePole	String
+    dateCreated	    LocalDate
+    dateUpdated	    LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+entity TypeUnite
+{
+    codeTypeUnite	    String
+    libelleTypeUnite    String
+    dateCreated	LocalDate
+    dateUpdated	LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+entity Pole
+{
+    codePole 	String
+    libellePole	String
+    descriptionPole String
+    dateCreated	LocalDate
+    dateUpdated	LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+entity Unite
+{
+    codeUnite 	String
+    libelleUnite	String
+    descriptionUnite String
+    dateCreated	LocalDate
+    dateUpdated	LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+entity TypeServices
+{
+    codeTypeSrv 	String
+    libelleTypeSrv	String
+    dateCreated	LocalDate
+    dateUpdated	LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+
+entity Devise
+{
+    codeisoDvise 	String
+    libelleDevise	String
+    descriptionDevise String
+    dateCreated	LocalDate
+    dateUpdated	LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+entity TauxDevise
+{
+    sensTauxDevise 	String
+    dateCreated	LocalDate
+    dateUpdated	LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+entity Plateau
+{
+    libellePlateau	String
+    descriptionPlateau String
+    dateCreated	LocalDate
+    dateUpdated	LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+entity DeptServices
+{
+    codeDeptSrv 	String
+    libelleDeptSrv	String
+    dateCreated	LocalDate
+    dateUpdated	LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+entity Specialite
+{
+    codeSpecialite 	String
+    libelleSpecialite	String
+    dateCreated	LocalDate
+    dateUpdated	LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+
+entity Monnaie
+{
+    libelleMonnaie	String
+    montantMonnaie	Double
+    natureMonnaie	String
+    dateCreated	LocalDate
+    dateUpdated	LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+entity TypePlateau
+{
+    codeTypePlateau 	String
+    libelleTypePlateau	String
+    dateCreated	LocalDate
+    dateUpdated	LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+entity Boxe
+{
+    numeroBoxe Integer
+    dateCreated	LocalDate
+    dateUpdated	LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+entity TypeLit
+{
+    codeTypeLit 	String
+    libelleTypeLit	String
+    dateCreated	LocalDate
+    dateUpdated	LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+entity CatChambre
+{
+    libelleCatChambre	String
+    descriptionCatChambre String
+    dateCreated	LocalDate
+    dateUpdated	LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+entity Chambre
+{
+    numeroChambre 	Integer
+    postTelChambre	Integer
+    dateCreated	LocalDate
+    dateUpdated	LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+entity JourFerie
+{
+    libelleJourFerie	String
+    dateJourFerie LocalDate
+    dateCreated	LocalDate
+    dateUpdated	LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+entity Lit
+{
+    numeroLit 	Integer
+    descriptionLit	String
+    dateCreated	LocalDate
+    dateUpdated	LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+entity Jour
+{
+    libelleJour	String
+    dateCreated	LocalDate
+    dateUpdated	LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+entity ParamDivers
+{
+    codeParamDivers	String
+    libelleParamDivers	String
+    descriptionParamDivers	String
+    valeurNum1	Integer
+    valeurNum2	Integer
+    valeurNum3	Integer
+    valeurText1	String
+    valeurText2	String
+    valeurText3	String
+    valeurBoolean1	Boolean
+    valeurBoolean2	Boolean
+    valeurBoolean3	Boolean
+    dateCreated	LocalDate
+    dateUpdated	LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+entity GroupeSan
+{
+    codeGroupeSan Integer
+    libelleGroupeSan	String
+    descriptionGroupeSan String
+    dateCreated	LocalDate
+    dateUpdated	LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+entity HoraireCon
+{
+    heureDebutHC	LocalDate
+    heureFinHC	LocalDate
+    dateDebutHC	LocalDate
+    dateFinHC	LocalDate
+    dateCreated	LocalDate
+    dateUpdated	LocalDate
+    dateDeleted	LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+entity CodeBudget
+{
+    codeCodeBudget Integer
+    libelleCodeBudget String
+    dateCreated	LocalDate
+    dateUpdated	LocalDate
+    dateDeleted	LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+entity ChapCompta
+{
+    numeroChapCompta	Integer
+    libelleChapCompta	String
+    sensChapCompta	String
+    soldeChapCompta	Double
+    cumulMouvDebitChapCompta	Double
+    cumulMouvCreditChapCompta Double
+    dateCreated	LocalDate
+    dateUpdated	LocalDate
+    dateDeleted	LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+entity CompteGene
+{
+    numeroCompteGene	Integer
+    libelleCompteGene	String
+    sensCompteGene	String
+    soldeCompteGene	Double
+    cumulMouvDebitCompteGene	Double
+    cumulMouvCreditCompteGene	Double
+    dateCreated	LocalDate
+    dateUpdated	LocalDate
+    dateDeleted	LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+entity TypeCaisse
+{
+    codeTypeCaisse 	String
+    libelleTypeCaisse	String
+    dateCreated	LocalDate
+    dateUpdated	LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+entity TypePrCharge
+{
+    codeTypePrCharge 	String
+    libelleTypePrCharge	String
+    dateCreated	LocalDate
+    dateUpdated	LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+entity TypeSoins
+{
+    codeTypeSoins 	String
+    libelleTypeSoins	String
+    dateCreated	LocalDate
+    dateUpdated	LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+entity TypeNotif
+{
+    codeTypeNotif 	String
+    libelleTypeNotif	String
+    dateCreated	LocalDate
+    dateUpdated	LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+entity TypeAntecedent
+{
+    codeTypeAntecedent 	String
+    libelleTypeAntecedent	String
+    dateCreated	LocalDate
+    dateUpdated	LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+entity TypeMvtStock
+{
+    codeTypeMvtStock 	String
+    libelleTypeMvtStock	String
+    dateCreated	LocalDate
+    dateUpdated	LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+entity TypeFacture
+{
+    codeTypeFacture 	String
+    libelleTypeFacture	String
+    dateCreated	LocalDate
+    dateUpdated	LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+entity TypeDoc
+{
+    codeTypeDoc 	String
+    libelleTypeDoc	String
+    dateCreated	LocalDate
+    dateUpdated	LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+entity TypeFournis
+{
+    codeTypeFournis 	String
+    libelleTypeFournis	String
+    dateCreated	LocalDate
+    dateUpdated	LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+entity TypeSortie
+{
+    codeTypeSortie 	String
+    libelleTypeSortie	String
+    dateCreated	LocalDate
+    dateUpdated	LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+entity TypeChamps
+{
+    codeTypeChamps 	String
+    libelleTypeChamps	String
+    dateCreated	LocalDate
+    dateUpdated	LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+entity TypeMagasin
+{
+    codeTypeMagasin 	String
+    libelleTypeMagasin	String
+    dateCreated	LocalDate
+    dateUpdated	LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+entity TypePatient
+{
+    codeTypePatient 	String
+    libelleTypePatient	String
+    dateCreated	LocalDate
+    dateUpdated	LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+entity TypeConstante
+{
+    codeTypeConstante 	String
+    libelleTypeConstante	String
+    dateCreated	LocalDate
+    dateUpdated	LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+entity TypePlat
+{
+    codeTypePlat 	String
+    libelleTypePlat	String
+    dateCreated	    LocalDate
+    dateUpdated	    LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+entity TypeFact
+{
+    codeTypeFact 	String
+    libelleTypeFact	String
+    dateCreated	            LocalDate
+    dateUpdated	            LocalDate
+    userCreated  Long
+    userUpdated	 Long
+    userDeleted	Long
+}
+
+entity TypeReport
+{
+    codeTypeReport 	    String
+    libelleTypeReport	String
+    dateCreated	        LocalDate
+    dateUpdated	        LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+entity ParamSys
+{
+    codeParamSys 	String
+    libelleParamSys	String
+    dateCreated	        LocalDate
+    dateUpdated	        LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+entity ModeRegle
+{
+    codeModeRegle 	    String
+    libelleModeRegle    String
+    dateCreated	            LocalDate
+    dateUpdated	            LocalDate
+    userCreated  Long
+    userUpdated	 Long
+    userDeleted	Long
+}
+
+entity CatReport
+{
+    codeCategReport 	String
+    libelleCategReport	String
+    dateCreated	LocalDate
+    dateUpdated	LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+entity TypeProd
+{
+    codeTypeProd 	String
+    libelleTypeProd	String
+    dateCreated	LocalDate
+    dateUpdated	LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+entity Calendrier
+{
+    libelleCalendrier	String
+    heureDebut	LocalDate
+    heureFin	LocalDate
+    dateDebut	LocalDate
+    dateFin	LocalDate
+    dateCreated	LocalDate
+    dateUpdated	LocalDate
+    dateDeleted	LocalDate
+    userCreated	LocalDate
+    userUpdated  Long
+    userDeleted	Long
+}
+
+entity FormeProd
+{
+    codeFormeProd 	String
+    libelleFormeProd	String
+    dateCreated	LocalDate
+    dateUpdated	LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+entity ParamCode
+{
+    codeParamCode 	String
+    libelleParamCode	String
+    descriptionParamCode String
+    dateCreated	LocalDate
+    dateUpdated	LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+entity SitMat
+{
+    codeSitMat 	String
+    libelleSitMat	String
+}
+
+entity Civilite
+{
+    libelleCivilite 	String
+    intituleCivilite	String
+}
+
+entity ClasseProd
+{
+    codeClasseProd 	String
+    libelleClasseProd	String
+    descriptionClasseProd String
+    dateCreated	LocalDate
+    dateUpdated	LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+entity CatMagasin
+{
+    codeCatMagasin 	String
+    libelleCatMagasin	String
+    descriptionCatMagasin String
+    dateCreated	LocalDate
+    dateUpdated	LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+entity TypePiece
+{
+    codeTypePiece 	String
+    libelleTypePiece	String
+    descriptionTypePiece String
+    dateCreated	LocalDate
+    dateUpdated	LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+entity Banque
+{
+    codeBanque	String
+    ribBanque	String
+    libelleBanque	String
+    descriptionBanque String
+    dateCreated	LocalDate
+    dateUpdated	LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+
+
+entity Module
+{
+    libelleModule	String
+    descriptionModule	String
+    dateCreated	LocalDate
+    dateUpdated	LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+entity Item
+{
+    libelleItem	String
+    descriptionItem	String
+    dateCreated	LocalDate
+    dateUpdated	LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+entity Fonctionnalite
+{
+    libelleFonctionnalite	String
+    descriptionFonctionnalite	String
+    dateCreated	LocalDate
+    dateUpdated	LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+entity Activite
+{
+    dateActivite	LocalDate
+    heureConnexionActivite	String
+    heureDeConnexionActivite	String
+    adresseIpActivite	String
+    dateCreated	LocalDate
+    userCreated  Long
+    adresseMac	String
+}
+
+entity Evenement
+{
+    heure	String
+    eventName	String
+    description	String
+    dateCreated	String
+    userCreated  Long
+    userUpdated  Long
+    idEntity	Integer
+    entityToucher	String
+}
+
+entity MachAutorise
+{
+    numeroMachAutorise	String
+    adresseMacMachAutorise	String
+    dateCreated	LocalDate
+    dateUpdated	LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+
+            // Gestion Patient
+
+entity Patient
+{
+	codePatient	String required
+	nomPatient String	required
+	prenom	String required
+	adresse	String required
+	email	String required
+	dateNaissance	LocalDate required
+	genre	String required
+	photo	Blob
+	password	String
+	telephone	String required
+	numeroPiece	String
+	codeBarre	String
+	entreprise	String
+	ville	String
+	quartier	String
+	longitude	String
+	latitude	String
+	lieuNaissance	String
+	fonctionPatient	String
+	situationSociale	String
+	solde	Double
+	cartePatient	String
+	bloque	Boolean
+	dateValidite	LocalDate
+	motifBlocage	String
+	prenomPerePatient	String
+	nomMerePatient	String
+	prenomMerePatient	String
+	motifAdmission	String
+	personneAContacter	String
+	adressePersAContacter	String
+	telPersAContacter	String
+	lienParentePersAContacter	String
+	nomAccompagnant	String
+	prenomAccompagnant	String
+	telAccompagnant	String
+	habitudeDeVie	String
+	physioPathologique	String
+	dateCreated	LocalDate
+	dateUpdated	LocalDate
+	userCreated  Long
+	userUpdated  Long
+	userDeleted	Long
+}
+
+entity FicheMedical
+{
+	numeroFicheMedical	String
+	dateConsultation	LocalDate
+	facteurRisque	String
+	regimeAlimentaire	String
+	diagnostic	String
+	recommandations	String
+	commentaires	String
+	dateProchainRV	LocalDate
+	dateCreated	LocalDate
+	dateUpdated	LocalDate
+	userCreated  Long
+	userUpdated  Long
+	userDeleted	Long
+}
+
+entity DosMedical
+{
+	dateCreation	LocalDate
+	numeroDossierDosMedical	Integer
+	niveauDependance	Integer
+	etatConscience	Integer
+	etatCutane	Integer
+	intoleranceMedic	String
+	dateCreated	LocalDate
+	dateUpdated	LocalDate
+	userCreated  Long
+	userUpdated  Long
+	userDeleted	Long
+}
+
+entity Medecin
+{
+	nomMedecin	String
+	prenom	String
+	adresse	String
+	email	String
+	dateNaissance	LocalDate
+	genreMedecin	String
+	nationalite	String
+	telephone	String
+	anciennete	Integer
+	numeroPiece	Integer
+	gradeMedecin	String
+	specialite	String
+	dateEmbauche	LocalDate
+	dateValidite	LocalDate
+	dateCreated	LocalDate
+	dateUpdated	LocalDate
+	userCreated  Long
+	userUpdated  Long
+	userDeleted	Long
+}
+
+entity Ordonnance
+{
+	numero	String
+	date	LocalDate
+	description	String
+	prescription	String
+	dateCreated	LocalDate
+	dateUpdated	LocalDate
+	userCreated  Long
+	userUpdated  Long
+	userDeleted	Long
+}
+
+entity Vaccin
+{
+	description	String
+	date	LocalDate
+	dateRenouv	LocalDate
+	dateCreated	LocalDate
+	dateUpdated	LocalDate
+	userCreated  Long
+	userUpdated  Long
+	userDeleted	Long
+}
+
+
+entity Hospitalisation
+{
+	dateEntre	LocalDate
+	dateSortie	LocalDate
+	observation	String
+	modeSortie	String
+	objetPatient	String
+    dateAccouchement Instant
+	dateOperation LocalDate
+	dateReveil LocalDate
+	poidsBebe Double
+	tailleBebe Double
+	poidsPlacenta Double
+	genreBebe String
+	dateCreated	LocalDate
+	dateUpdated	LocalDate
+	userCreated  Long
+	userUpdated  Long
+	userDeleted	Long
+}
+
+entity Antecedent
+{
+	libelle	String
+	description	String
+	date	LocalDate
+	dateCreated	LocalDate
+	dateUpdated	LocalDate
+	userCreated  Long
+	userUpdated  Long
+	userDeleted	Long
+}
+
+entity ResultatActe
+{
+	numero	String
+	resultat	String
+	date	LocalDate
+	description	String
+	dateCreated	LocalDate
+	dateUpdated	LocalDate
+	userCreated  Long
+	userUpdated  Long
+	userDeleted	Long
+}
+
+entity ActeMedical
+{
+	code	String
+	libelleA	String
+	description	String
+	dateCreated	LocalDate
+	dateUpdated	LocalDate
+	userCreated  Long
+	userUpdated  Long
+	userDeleted	Long
+}
+
+
+            // Module Budget
+
+entity Fournisseur
+{
+    nom	String
+    statut	String
+    raisonSociale	String
+    adresse	String
+    telephone	String
+    ninea	String
+    rc	String
+    ville	String
+    email	String
+    dateCreated	LocalDate
+    dateUpdated	LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+entity TypeBonCom
+{
+    libelleTypeBonCom	String
+    codeTypeBonCom	String
+    dateCreated	LocalDate
+    dateUpdated	LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+entity Services
+{
+    code	String
+    libelle	String
+    description	LocalDate
+    dateCreated	LocalDate
+    dateUpdated	LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+entity LigneCommande
+{
+    produit	String
+    quantite	Integer
+    prixUnitaire	Double
+    dateCreated	LocalDate
+    dateUpdated	LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+entity BonDeCommande
+{
+    numero	String
+    libelle	String
+    prixTotal	Double
+    dateComm	LocalDate
+    dateCreated	LocalDate
+    dateUpdated	LocalDate
+    dateDeleted	LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+entity EtatBonCom
+{
+    libelle	String
+    code	String
+}
+
+entity Facture
+{
+    designation	String
+    montantFact	Double
+    montantPaye	Double
+    montantGlobal	Double
+    moratoire	Boolean
+    dateCreated	LocalDate
+    dateUpdated	LocalDate
+    dateDeleted	LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+entity Offre
+{
+    libelle	LocalDate
+    date	LocalDate
+    montant	Double
+    taxe	Double
+    numMarche	String
+    dateCreated	LocalDate
+    dateUpdated	LocalDate
+    dateDeleted	LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+entity BonLivraison
+{
+    designationBonLivraison	String
+    prixTotalBonLivraison	Double
+    dateBonLivraison	LocalDate
+    userCertified	Integer
+    dateCertif	LocalDate
+    numCertif	String
+    dateCreated	LocalDate
+    dateUpdated	LocalDate
+    dateDeleted	LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+entity LigneLivraison
+{
+    designation	String
+    quantite	Integer
+    prixUnitaire	Double
+    dateCreated	LocalDate
+    dateUpdated	LocalDate
+    dateDeleted	LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+entity Fichier
+{
+    cheminFichier	String
+    formatFichier	String
+    separateurFichier	String
+    dateCreated	LocalDate
+    dateUpdated	LocalDate
+    dateDeleted	LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+
+                            //Module Comptabilite
+
+entity Compte
+{
+    numeroCompte	Integer
+    libelleCompte	String
+    soldeCompte	Double
+    sensCompte	String
+    cumulMouvDebit	Double
+    cumulMouvCredit	Double
+    dateCreated	LocalDate
+    dateUpdated	LocalDate
+    dateDeleted	Integer
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+entity NatureOp
+{
+    numero	Integer
+    libelle	String
+    dateCreated	LocalDate
+    dateUpdated	LocalDate
+    dateDeleted	LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+entity SchemaCompta
+{
+    code	Integer
+    libelle	String
+    sens	String
+    dateCreated	LocalDate
+    dateUpdated	LocalDate
+    dateDeleted	LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+entity Operation
+{
+    libelle	String
+    date	LocalDate
+    montant	Double
+    taxe	Double
+    dateCreated	LocalDate
+    dateUpdated	LocalDate
+    dateDeleted	LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+entity EtatOperation
+{
+    code	Integer
+    libelle	String
+    dateCreated	LocalDate
+    dateUpdated	LocalDate
+    dateDeleted	LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+entity EtatCaisse
+{
+    code	Integer
+    libelle	String
+    dateCreated	LocalDate
+    dateUpdated	LocalDate
+    dateDeleted	LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+entity Ecriture
+{
+    libelle	String
+    date	LocalDate
+    montant	Double
+    sens	String
+    dateCreated	LocalDate
+    dateUpdated	LocalDate
+    dateDeleted	LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+entity Caisse
+{
+    numero	Integer
+    soldeMin	LocalDate
+    soldeMax	String
+    montant	Integer
+    dateCreated	LocalDate
+    dateUpdated	LocalDate
+    dateDeleted	LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+entity TabAmortis
+{
+    libelle	String
+    montant	Double
+    date	LocalDate
+    etat	String
+    dateCreated	LocalDate
+    dateUpdated	LocalDate
+    dateDeleted	LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+entity TypeImmo
+{
+    code	String
+    modeCalcul	String
+    taux	Double
+    dateCreated	LocalDate
+    dateUpdated	LocalDate
+    dateDeleted	LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+
+entity Immo
+{
+    libelle	String
+    valeurAquisition	Double
+    dateAquisition	LocalDate
+    valeurNetComptable	Double
+    montant	Double
+    duree	Integer
+    nbreEcheance	Integer
+    dateCreated	LocalDate
+    dateUpdated	LocalDate
+    dateDeleted	LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+entity EtatImmo
+{
+    codeEtat	String
+    libelleEtat	String
+    dateCreated	LocalDate
+    dateUpdated	LocalDate
+    dateDeleted	LocalDate
+    userCreated  Long
+    userUpdated  Long
+    userDeleted	Long
+}
+
+
+
+                    //Facturation
+
+entity TypeTarif
+{
+	code		String
+  	libelle		String
+  	dateCreated	LocalDate
+  	dateUpdated	LocalDate
+ 	dateDeleted	LocalDate
+  	userCreated  Long
+  	userUpdated  Long
+  	userDeleted	Long
+}
+
+
+entity AyantDroit
+{
+	code		String
+  	prenom		String
+    nom			String
+    lienParente	String
+    dateNais	LocalDate
+  	dateCreated	LocalDate
+  	dateUpdated	LocalDate
+ 	dateDeleted	LocalDate
+  	userCreated  Long
+  	userUpdated  Long
+  	userDeleted	Long
+}
+
+entity Famille
+{
+	code		String
+  	libelle		String
+  	dateCreated	LocalDate
+  	dateUpdated	LocalDate
+ 	dateDeleted	LocalDate
+  	userCreated  Long
+  	userUpdated  Long
+  	userDeleted	Long
+}
+
+entity SousFamille
+{
+	code		String
+  	libelle		String
+    description	String
+  	dateCreated	LocalDate
+  	dateUpdated	LocalDate
+ 	dateDeleted	LocalDate
+  	userCreated  Long
+  	userUpdated  Long
+  	userDeleted	Long
+}
+
+entity Echeancier
+{
+	code			String
+  	numero			String
+    date	LocalDate
+    datePaiement	LocalDate
+    montant		Double
+    montantPaye		Double
+    capital			Double
+    frais			Double
+  	dateCreated		LocalDate
+  	dateUpdated		LocalDate
+ 	dateDeleted		LocalDate
+  	userCreated		Long
+  	userUpdated		Long
+  	userDeleted		Long
+}
+
+entity Tarif
+{
+	code		String
+  	libelle		String
+    montant		Double
+    pourcentage Integer
+  	dateCreated	LocalDate
+  	dateUpdated	LocalDate
+ 	dateDeleted	LocalDate
+  	userCreated  Long
+  	userUpdated  Long
+  	userDeleted	Long
+}
+
+entity EtatFacture
+{
+	code		String
+  	libelle		String
+  	dateCreated	LocalDate
+  	dateUpdated	LocalDate
+ 	dateDeleted	LocalDate
+  	userCreated  Long
+  	userUpdated  Long
+  	userDeleted	Long
+}
+
+
+
+
+            //stockPharmacie
+
+entity Produit
+{
+    code	String
+    libelle	String
+    quantiteStock	Integer
+    stockProvisoire	Integer
+    tva	Boolean
+    prixVenteUnitaire	Integer
+    codeBarre	String
+    seuil	Integer
+}
+
+entity Plat
+{
+    quantite	Integer
+    typeRepas	String
+    date	LocalDate
+}
+
+entity ProdFournis
+{
+    stock	String
+    nom	String
+}
+
+entity Depot
+{
+    codeDepot	Integer
+    libelleDepot	String
+}
+
+
+entity Rayon
+{
+    codeRayon	String
+    libelleRayon	String
+}
+
+
+entity Etagere
+{
+    code	String
+    libelle	String
+}
+
+
+entity Mouvement
+{
+    codeMvt	String
+    libelleMvt	String
+    stockEntrant	Integer
+    stockSortant	Integer
+}
+
+
+entity TypeCond {
+    code	String
+    libelle	String
+}
+
+
+entity Inventaire
+{
+    code	String
+    date	String
+    quantiteEntrant	Double
+    quantiteInitiale	Double
+    quantiteSortant	Double
+    nombreSortant	Integer
+    nombreLivraison	Integer
+    nombreRetour	Integer
+}
+
+
+
+            //RendezVous
+
+entity TypePlanning
+{
+    code    String
+    libelle String
+}
+
+entity RDV
+{
+    numRdv String
+    dateRdv  LocalDate
+    heureRdv Instant
+}
+
+entity Planning
+{
+    num  String
+    libelle String
+    dateCreated LocalDate
+}
+
+entity DetailPlanning
+{
+    titre String
+    dateDebut   Instant
+    dateFin    Instant
+}
+
+entity EtatRdv
+{
+    code   String
+    libelle    String
+}
+
+entity EtatPlanning
+{
+    code   String
+    libelle  String
+}
+
+
+            //SuiviEvaluation
+
+entity Cible
+{
+    libelleCible    String
+    idUser          Integer
+    dateDeleted      Instant
+    dateCreated      Instant
+    dateUpdated       Instant
+    userCreated	 Long
+    userUpdate	 Long
+    userDelete       Long
+}
+
+entity Questionnaire
+{
+    code  String
+    libelle String
+    dateDeleted           Instant
+    dateCreated           Instant
+    dateUpdated          Instant
+    userCreated  Long
+    userUpdate Long
+    userDelete Long
+}
+
+
+entity Annotation
+{
+    code String
+    note Integer
+    observation String
+    nbQuestions  Integer
+    moyenne Float
+    dateDeleted           Instant
+    dateCreated           Instant
+    dateUpdated          Instant
+    userCreated  Long
+    userUpdate Long
+    userDelete Long
+}
+
+entity Question
+{
+    code String
+    libelle String
+    description String
+    obligatoire       Boolean
+    dateDeleted           Instant
+    dateCreated           Instant
+    dateUpdated          Instant
+    userCreated  Long
+    userUpdate Long
+    userDelete Long
+}
+
+entity Reponse
+{
+    code String
+    reponse String
+    dateDeleted       Instant
+    dateCreated       Instant
+    dateUpdated       Instant
+    userCreated  Long
+    userUpdate Long
+    userDelete Long
+}
+
+entity TypeQuestion
+{
+    code String
+    belleType String
+    multipliciteChoix Integer
+    dateDeleted           Instant
+    dateCreated           Instant
+    dateUpdated          Instant
+    userUpdate Long
+    userDelete Long
+}
+
+relationship ManyToOne
+{
+    Question{questionnaire} to Questionnaire
+    Question{typeQuestion} to TypeQuestion
+}
+
+relationship ManyToOne
+{
+    Reponse{Question} to Question
+}
+
+relationship ManyToOne
+{
+    Annotation {questionnaire} to Questionnaire
+}
+
+relationship OneToMany
+{
+    Pays to Region{pays}
+    Region to Departement{region}
+    Departement to Etablis{departement}
+    TypePole to Pole{typePole}
+    TypeServices to Services{typeServices}
+    TypeUnite to Unite{typeUnite}
+    DeptServices to Services{deptServices}
+    Devise to TauxDevise{devise}
+    Specialite to Services{specialite}
+    TypePlateau to Plateau{typePlateau}
+    Chambre to Boxe{chambre}
+    TypeLit to Lit{typeLit}
+    Boxe to Lit{box}
+    Devise to Monnaie{devise}
+    Services to CatChambre{serv}
+    CatChambre to Chambre{categorieChambre}
+    Jour to HoraireCon{jour}
+    CompteGene to CodeBudget{compteGeneral}
+    ChapCompta to CompteGene{chapitreComptable}
+    CompteGene to Banque{compteGeneral}
+}
+
+
+/**
+ * Many to one relationship.
+ */
+
+/**
+ * One to many relationship.
+ */
+relationship OneToMany
+{
+
+    Module to Item{module}
+    Item to Fonctionnalite{item}
+    Activite to Evenement{activite}
+}
+
+
+/**
+ * One to one relationship.
+ */
+relationship ManyToOne
+{
+	Patient{groupeSanguin} to GroupeSan
+}
+
+
+/**
+ * One to one relationship.
+ */
+relationship OneToOne
+{
+	Hospitalisation{lit} to Lit
+}
+
+/**
+ * One to many relationship.
+ */
+relationship OneToMany
+{
+	FicheMedical {dossierMedical} to DosMedical
+}
+
+/**
+ * Many to one relationship.
+ */
+relationship ManyToMany
+{
+	DosMedical to Antecedent
+}
+
+/**
+ * One to many relationship.
+ */
+relationship OneToMany
+{
+	Services to DosMedical{serv}
+}
+
+/**
+ * One to many relationship.
+ */
+relationship OneToMany
+{
+	FicheMedical to ResultatActe{ficheMedical}
+}
+
+/**
+ * One to many relationship.
+ */
+relationship OneToMany
+{
+	FicheMedical to Ordonnance{ficheMedical}
+}
+
+relationship ManyToMany
+{
+	FicheMedical to TypeConstante
+}
+
+/**
+ * Many to one relationship.
+ */
+relationship ManyToOne
+{
+	FicheMedical{medecin} to Medecin
+}
+
+/**
+ * One to many relationship.
+ */
+relationship OneToMany
+{
+	FicheMedical to Vaccin{ficheMedical}
+}
+
+/**
+ * Many to one relationship.
+ */
+relationship ManyToMany
+{
+	ResultatActe to ActeMedical
+}
+
+/**
+ * One to many relationship.
+ */
+relationship OneToMany
+{
+	Patient to DosMedical{patient}
+}
+
+/**
+ * One to many relationship.
+ */
+relationship OneToMany
+{
+	Patient to Hospitalisation{patient}
+}
+
+
+/**
+ * One to many relationship.
+ */
+relationship ManyToOne
+{
+	Patient{typePatient} to TypePatient
+	Patient{departement} to Departement
+}
+
+
+relationship OneToMany {
+    Fournisseur to Offre{fournisseur}
+    BonLivraison to Facture{bonLivraison}
+    CompteGene to CodeBudget{compteGeneral}
+    CompteGene to Services {compteGeneral}
+    Services to BonDeCommande{serv}
+
+}
+
+
+relationship OneToOne
+{
+    Offre to BonDeCommande
+}
+
+
+/**
+ * One to many relationship.
+ */
+relationship OneToMany
+{
+    Compte to Ecriture{compte}
+    CompteGene to Compte{compteGeneral}
+    EtatOperation to Operation{etatOperation}
+    NatureOp to SchemaCompta{natureOperation}
+    Caisse to Operation{caisse}
+    Operation to Immo{operation}
+    Operation to Ecriture{operation}
+    TypeImmo to Immo{typeImmo}
+    TabAmortis to Immo{tableauAmortissement}
+    Facture to Operation{operation}
+}
+
+relationship OneToOne {
+    SchemaCompta{operation} to Operation{schemaComptable}
+}
+
+relationship OneToMany {
+	TypeTarif to Famille{typeTarif}
+	Famille to SousFamille{Famille}
+	TypeSoins to Tarif{typeSoins}
+	SousFamille to Tarif{sousfamille}
+	ActeMedical to Tarif{actemedical}
+	CatChambre to Tarif{categorieChambre}
+	Facture to Echeancier{Facture}
+	TypePrCharge to AyantDroit{TypePrCharge}
+	Patient to Compte{Patient}
+}
+
+
+/**
+ * One to many relationship.
+ */
+relationship OneToMany
+{
+    Produit to TypeCond{produit}
+    Etagere to Produit{etagere}
+    Depot to Rayon{rayon}
+    Rayon to Etagere{rayon}
+    Produit to Mouvement{produit}
+    Produit to Inventaire{produit}
+    TypeSortie to TypeMvtStock{typeSortie}
+    TypeMvtStock to Mouvement{typeMvtStock}
+    TypeProd to Produit{typeproduit}
+    Produit to ProdFournis{produit}
+    TypePlat to Plat{typePlat}
+    Services to Plat{serv}
+    EtatBonCom to BonDeCommande{etatBonCommande}
+    ProdFournis to LigneLivraison{produitFournisseur}
+    BonLivraison to LigneLivraison{bonDeLivraison}
+    ProdFournis to LigneCommande{produitFournisseur}
+    BonDeCommande to LigneCommande{bonDeCommande}
+    TypeBonCom to BonDeCommande{typeBonDeCommande}
+    Fournisseur to ProdFournis{fournisseur}
+}
+
+/**
+ * One to one relationship.
+ */
+relationship OneToOne
+{
+    BonDeCommande to BonLivraison
+}
+
+
+relationship ManyToOne
+{
+    DetailPlanning{planning} to Planning
+    DetailPlanning {etatPlanning} to EtatPlanning
+}
+
+relationship ManyToOne
+{
+    Planning {Medecin} to Medecin
+    Planning {typePlanning} to TypePlanning
+}
+
+relationship ManyToOne
+{
+    RDV {patient} to Patient
+    RDV {planning} to Planning
+    RDV {etatRDV} to EtatRdv
+}
+
+// Set pagination options
+service all with serviceImpl
+paginate * with infinite-scroll

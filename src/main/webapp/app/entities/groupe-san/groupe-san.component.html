@@ -1,0 +1,75 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hpdApp.groupeSan.home.title">Groupe Sans</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-groupe-san" [routerLink]="['/groupe-san/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hpdApp.groupeSan.home.createLabel">
+            Create a new Groupe San
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="groupeSans?.length === 0">
+        <span jhiTranslate="hpdApp.groupeSan.home.notFound">No groupeSans found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="groupeSans?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="codeGroupeSan"><span jhiTranslate="hpdApp.groupeSan.codeGroupeSan">Code Groupe San</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="libelleGroupeSan"><span jhiTranslate="hpdApp.groupeSan.libelleGroupeSan">Libelle Groupe San</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="descriptionGroupeSan"><span jhiTranslate="hpdApp.groupeSan.descriptionGroupeSan">Description Groupe San</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateCreated"><span jhiTranslate="hpdApp.groupeSan.dateCreated">Date Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateUpdated"><span jhiTranslate="hpdApp.groupeSan.dateUpdated">Date Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userCreated"><span jhiTranslate="hpdApp.groupeSan.userCreated">User Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userUpdated"><span jhiTranslate="hpdApp.groupeSan.userUpdated">User Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userDeleted"><span jhiTranslate="hpdApp.groupeSan.userDeleted">User Deleted</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let groupeSan of groupeSans ;trackBy: trackId">
+                    <td><a [routerLink]="['/groupe-san', groupeSan.id, 'view']">{{ groupeSan.id }}</a></td>
+                    <td>{{ groupeSan.codeGroupeSan }}</td>
+                    <td>{{ groupeSan.libelleGroupeSan }}</td>
+                    <td>{{ groupeSan.descriptionGroupeSan }}</td>
+                    <td>{{ groupeSan.dateCreated | date:'mediumDate' }}</td>
+                    <td>{{ groupeSan.dateUpdated | date:'mediumDate' }}</td>
+                    <td>{{ groupeSan.userCreated }}</td>
+                    <td>{{ groupeSan.userUpdated }}</td>
+                    <td>{{ groupeSan.userDeleted }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/groupe-san', groupeSan.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/groupe-san', groupeSan.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(groupeSan)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

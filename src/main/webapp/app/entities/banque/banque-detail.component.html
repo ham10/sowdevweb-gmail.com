@@ -1,0 +1,68 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="banque">
+            <h2><span jhiTranslate="hpdApp.banque.detail.title">Banque</span> {{ banque.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.banque.codeBanque">Code Banque</span></dt>
+                <dd>
+                    <span>{{ banque.codeBanque }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.banque.ribBanque">Rib Banque</span></dt>
+                <dd>
+                    <span>{{ banque.ribBanque }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.banque.libelleBanque">Libelle Banque</span></dt>
+                <dd>
+                    <span>{{ banque.libelleBanque }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.banque.descriptionBanque">Description Banque</span></dt>
+                <dd>
+                    <span>{{ banque.descriptionBanque }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.banque.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ banque.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.banque.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ banque.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.banque.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ banque.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.banque.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ banque.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.banque.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ banque.userDeleted }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.banque.compteGeneral">Compte General</span></dt>
+                <dd>
+                    <div *ngIf="banque.compteGeneral">
+                        <a [routerLink]="['/compte-gene', banque.compteGeneral?.id, 'view']">{{ banque.compteGeneral?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/banque', banque.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

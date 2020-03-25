@@ -1,0 +1,96 @@
+{
+    "name": "CompteGene",
+    "fields": [
+        {
+            "fieldName": "numeroCompteGene",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "libelleCompteGene",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "sensCompteGene",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "soldeCompteGene",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "cumulMouvDebitCompteGene",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "cumulMouvCreditCompteGene",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "dateCreated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateUpdated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateDeleted",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "userCreated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userUpdated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userDeleted",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "codeBudget",
+            "otherEntityRelationshipName": "compteGeneral",
+            "relationshipName": "codeBudget"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "banque",
+            "otherEntityRelationshipName": "compteGeneral",
+            "relationshipName": "banque"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "services",
+            "otherEntityRelationshipName": "compteGeneral",
+            "relationshipName": "services"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "compte",
+            "otherEntityRelationshipName": "compteGeneral",
+            "relationshipName": "compte"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "chapCompta",
+            "otherEntityRelationshipName": "compteGene",
+            "relationshipName": "chapitreComptable",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200325183100",
+    "entityTableName": "compte_gene",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,28 @@
+{
+  "hpdApp": {
+    "typeReport": {
+      "home": {
+        "title": "TypeReports",
+        "createLabel": "Créer un nouveau Type Report",
+        "createOrEditLabel": "Créer ou éditer un Type Report",
+        "notFound": "Aucun Type Report trouvé"
+      },
+      "created": "Un nouveau Type Report a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Type Report avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Type Report avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Type Report {{ id }} ?"
+      },
+      "detail": {
+        "title": "Type Report"
+      },
+      "codeTypeReport": "Code Type Report",
+      "libelleTypeReport": "Libelle Type Report",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted"
+    }
+  }
+}

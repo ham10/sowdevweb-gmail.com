@@ -1,0 +1,74 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="resultatActe">
+            <h2><span jhiTranslate="hpdApp.resultatActe.detail.title">Resultat Acte</span> {{ resultatActe.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.resultatActe.numero">Numero</span></dt>
+                <dd>
+                    <span>{{ resultatActe.numero }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.resultatActe.resultat">Resultat</span></dt>
+                <dd>
+                    <span>{{ resultatActe.resultat }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.resultatActe.date">Date</span></dt>
+                <dd>
+                    <span>{{ resultatActe.date }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.resultatActe.description">Description</span></dt>
+                <dd>
+                    <span>{{ resultatActe.description }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.resultatActe.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ resultatActe.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.resultatActe.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ resultatActe.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.resultatActe.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ resultatActe.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.resultatActe.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ resultatActe.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.resultatActe.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ resultatActe.userDeleted }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.resultatActe.acteMedical">Acte Medical</span></dt>
+                <dd>
+                    <span *ngFor="let acteMedical of resultatActe.acteMedicals; let last = last">
+                        <a [routerLink]="['/acte-medical', acteMedical?.id, 'view']">{{ acteMedical.id }}</a>{{ last ? '' : ', ' }}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.resultatActe.ficheMedical">Fiche Medical</span></dt>
+                <dd>
+                    <div *ngIf="resultatActe.ficheMedical">
+                        <a [routerLink]="['/fiche-medical', resultatActe.ficheMedical?.id, 'view']">{{ resultatActe.ficheMedical?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/resultat-acte', resultatActe.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

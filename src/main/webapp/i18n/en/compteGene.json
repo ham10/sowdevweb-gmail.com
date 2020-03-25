@@ -1,0 +1,38 @@
+{
+  "hpdApp": {
+    "compteGene": {
+      "home": {
+        "title": "Compte Genes",
+        "createLabel": "Create a new Compte Gene",
+        "createOrEditLabel": "Create or edit a Compte Gene",
+        "notFound": "No Compte Genes found"
+      },
+      "created": "A new Compte Gene is created with identifier {{ param }}",
+      "updated": "A Compte Gene is updated with identifier {{ param }}",
+      "deleted": "A Compte Gene is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Compte Gene {{ id }}?"
+      },
+      "detail": {
+        "title": "Compte Gene"
+      },
+      "numeroCompteGene": "Numero Compte Gene",
+      "libelleCompteGene": "Libelle Compte Gene",
+      "sensCompteGene": "Sens Compte Gene",
+      "soldeCompteGene": "Solde Compte Gene",
+      "cumulMouvDebitCompteGene": "Cumul Mouv Debit Compte Gene",
+      "cumulMouvCreditCompteGene": "Cumul Mouv Credit Compte Gene",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "dateDeleted": "Date Deleted",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted",
+      "codeBudget": "Code Budget",
+      "banque": "Banque",
+      "services": "Services",
+      "compte": "Compte",
+      "chapitreComptable": "Chapitre Comptable"
+    }
+  }
+}

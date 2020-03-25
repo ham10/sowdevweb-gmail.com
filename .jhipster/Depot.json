@@ -1,0 +1,31 @@
+{
+    "name": "Depot",
+    "fields": [
+        {
+            "fieldName": "codeDepot",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "libelleDepot",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "rayon",
+            "otherEntityRelationshipName": "rayon",
+            "relationshipName": "rayon"
+        }
+    ],
+    "changelogDate": "20200325195100",
+    "entityTableName": "depot",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

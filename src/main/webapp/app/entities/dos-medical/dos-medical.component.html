@@ -1,0 +1,99 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hpdApp.dosMedical.home.title">Dos Medicals</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-dos-medical" [routerLink]="['/dos-medical/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hpdApp.dosMedical.home.createLabel">
+            Create a new Dos Medical
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="dosMedicals?.length === 0">
+        <span jhiTranslate="hpdApp.dosMedical.home.notFound">No dosMedicals found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="dosMedicals?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateCreation"><span jhiTranslate="hpdApp.dosMedical.dateCreation">Date Creation</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="numeroDossierDosMedical"><span jhiTranslate="hpdApp.dosMedical.numeroDossierDosMedical">Numero Dossier Dos Medical</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="niveauDependance"><span jhiTranslate="hpdApp.dosMedical.niveauDependance">Niveau Dependance</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="etatConscience"><span jhiTranslate="hpdApp.dosMedical.etatConscience">Etat Conscience</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="etatCutane"><span jhiTranslate="hpdApp.dosMedical.etatCutane">Etat Cutane</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="intoleranceMedic"><span jhiTranslate="hpdApp.dosMedical.intoleranceMedic">Intolerance Medic</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateCreated"><span jhiTranslate="hpdApp.dosMedical.dateCreated">Date Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateUpdated"><span jhiTranslate="hpdApp.dosMedical.dateUpdated">Date Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userCreated"><span jhiTranslate="hpdApp.dosMedical.userCreated">User Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userUpdated"><span jhiTranslate="hpdApp.dosMedical.userUpdated">User Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userDeleted"><span jhiTranslate="hpdApp.dosMedical.userDeleted">User Deleted</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="ficheMedical.id"><span jhiTranslate="hpdApp.dosMedical.ficheMedical">Fiche Medical</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="serv.id"><span jhiTranslate="hpdApp.dosMedical.serv">Serv</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="patient.id"><span jhiTranslate="hpdApp.dosMedical.patient">Patient</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let dosMedical of dosMedicals ;trackBy: trackId">
+                    <td><a [routerLink]="['/dos-medical', dosMedical.id, 'view']">{{ dosMedical.id }}</a></td>
+                    <td>{{ dosMedical.dateCreation | date:'mediumDate' }}</td>
+                    <td>{{ dosMedical.numeroDossierDosMedical }}</td>
+                    <td>{{ dosMedical.niveauDependance }}</td>
+                    <td>{{ dosMedical.etatConscience }}</td>
+                    <td>{{ dosMedical.etatCutane }}</td>
+                    <td>{{ dosMedical.intoleranceMedic }}</td>
+                    <td>{{ dosMedical.dateCreated | date:'mediumDate' }}</td>
+                    <td>{{ dosMedical.dateUpdated | date:'mediumDate' }}</td>
+                    <td>{{ dosMedical.userCreated }}</td>
+                    <td>{{ dosMedical.userUpdated }}</td>
+                    <td>{{ dosMedical.userDeleted }}</td>
+                    <td>
+                        <div *ngIf="dosMedical.ficheMedical">
+                            <a [routerLink]="['/fiche-medical', dosMedical.ficheMedical?.id, 'view']" >{{ dosMedical.ficheMedical?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="dosMedical.serv">
+                            <a [routerLink]="['/services', dosMedical.serv?.id, 'view']" >{{ dosMedical.serv?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="dosMedical.patient">
+                            <a [routerLink]="['/patient', dosMedical.patient?.id, 'view']" >{{ dosMedical.patient?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/dos-medical', dosMedical.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/dos-medical', dosMedical.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(dosMedical)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

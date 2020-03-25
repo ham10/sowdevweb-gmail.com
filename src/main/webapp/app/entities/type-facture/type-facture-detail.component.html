@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="typeFacture">
+            <h2><span jhiTranslate="hpdApp.typeFacture.detail.title">Type Facture</span> {{ typeFacture.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.typeFacture.codeTypeFacture">Code Type Facture</span></dt>
+                <dd>
+                    <span>{{ typeFacture.codeTypeFacture }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeFacture.libelleTypeFacture">Libelle Type Facture</span></dt>
+                <dd>
+                    <span>{{ typeFacture.libelleTypeFacture }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeFacture.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ typeFacture.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeFacture.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ typeFacture.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeFacture.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ typeFacture.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeFacture.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ typeFacture.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeFacture.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ typeFacture.userDeleted }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/type-facture', typeFacture.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,76 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="facture">
+            <h2><span jhiTranslate="hpdApp.facture.detail.title">Facture</span> {{ facture.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.facture.designation">Designation</span></dt>
+                <dd>
+                    <span>{{ facture.designation }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.facture.montantFact">Montant Fact</span></dt>
+                <dd>
+                    <span>{{ facture.montantFact }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.facture.montantPaye">Montant Paye</span></dt>
+                <dd>
+                    <span>{{ facture.montantPaye }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.facture.montantGlobal">Montant Global</span></dt>
+                <dd>
+                    <span>{{ facture.montantGlobal }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.facture.moratoire">Moratoire</span></dt>
+                <dd>
+                    <span>{{ facture.moratoire }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.facture.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ facture.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.facture.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ facture.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.facture.dateDeleted">Date Deleted</span></dt>
+                <dd>
+                    <span>{{ facture.dateDeleted }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.facture.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ facture.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.facture.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ facture.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.facture.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ facture.userDeleted }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.facture.bonLivraison">Bon Livraison</span></dt>
+                <dd>
+                    <div *ngIf="facture.bonLivraison">
+                        <a [routerLink]="['/bon-livraison', facture.bonLivraison?.id, 'view']">{{ facture.bonLivraison?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/facture', facture.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

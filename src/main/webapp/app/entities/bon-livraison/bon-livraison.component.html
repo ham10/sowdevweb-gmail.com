@@ -1,0 +1,83 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hpdApp.bonLivraison.home.title">Bon Livraisons</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-bon-livraison" [routerLink]="['/bon-livraison/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hpdApp.bonLivraison.home.createLabel">
+            Create a new Bon Livraison
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="bonLivraisons?.length === 0">
+        <span jhiTranslate="hpdApp.bonLivraison.home.notFound">No bonLivraisons found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="bonLivraisons?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="designationBonLivraison"><span jhiTranslate="hpdApp.bonLivraison.designationBonLivraison">Designation Bon Livraison</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="prixTotalBonLivraison"><span jhiTranslate="hpdApp.bonLivraison.prixTotalBonLivraison">Prix Total Bon Livraison</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateBonLivraison"><span jhiTranslate="hpdApp.bonLivraison.dateBonLivraison">Date Bon Livraison</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userCertified"><span jhiTranslate="hpdApp.bonLivraison.userCertified">User Certified</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateCertif"><span jhiTranslate="hpdApp.bonLivraison.dateCertif">Date Certif</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="numCertif"><span jhiTranslate="hpdApp.bonLivraison.numCertif">Num Certif</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateCreated"><span jhiTranslate="hpdApp.bonLivraison.dateCreated">Date Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateUpdated"><span jhiTranslate="hpdApp.bonLivraison.dateUpdated">Date Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateDeleted"><span jhiTranslate="hpdApp.bonLivraison.dateDeleted">Date Deleted</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userCreated"><span jhiTranslate="hpdApp.bonLivraison.userCreated">User Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userUpdated"><span jhiTranslate="hpdApp.bonLivraison.userUpdated">User Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userDeleted"><span jhiTranslate="hpdApp.bonLivraison.userDeleted">User Deleted</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let bonLivraison of bonLivraisons ;trackBy: trackId">
+                    <td><a [routerLink]="['/bon-livraison', bonLivraison.id, 'view']">{{ bonLivraison.id }}</a></td>
+                    <td>{{ bonLivraison.designationBonLivraison }}</td>
+                    <td>{{ bonLivraison.prixTotalBonLivraison }}</td>
+                    <td>{{ bonLivraison.dateBonLivraison | date:'mediumDate' }}</td>
+                    <td>{{ bonLivraison.userCertified }}</td>
+                    <td>{{ bonLivraison.dateCertif | date:'mediumDate' }}</td>
+                    <td>{{ bonLivraison.numCertif }}</td>
+                    <td>{{ bonLivraison.dateCreated | date:'mediumDate' }}</td>
+                    <td>{{ bonLivraison.dateUpdated | date:'mediumDate' }}</td>
+                    <td>{{ bonLivraison.dateDeleted | date:'mediumDate' }}</td>
+                    <td>{{ bonLivraison.userCreated }}</td>
+                    <td>{{ bonLivraison.userUpdated }}</td>
+                    <td>{{ bonLivraison.userDeleted }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/bon-livraison', bonLivraison.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/bon-livraison', bonLivraison.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(bonLivraison)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

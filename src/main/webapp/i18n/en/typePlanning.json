@@ -1,0 +1,23 @@
+{
+  "hpdApp": {
+    "typePlanning": {
+      "home": {
+        "title": "Type Plannings",
+        "createLabel": "Create a new Type Planning",
+        "createOrEditLabel": "Create or edit a Type Planning",
+        "notFound": "No Type Plannings found"
+      },
+      "created": "A new Type Planning is created with identifier {{ param }}",
+      "updated": "A Type Planning is updated with identifier {{ param }}",
+      "deleted": "A Type Planning is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Type Planning {{ id }}?"
+      },
+      "detail": {
+        "title": "Type Planning"
+      },
+      "code": "Code",
+      "libelle": "Libelle"
+    }
+  }
+}

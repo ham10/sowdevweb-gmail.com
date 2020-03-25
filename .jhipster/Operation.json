@@ -1,0 +1,97 @@
+{
+    "name": "Operation",
+    "fields": [
+        {
+            "fieldName": "libelle",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "date",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "montant",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "taxe",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "dateCreated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateUpdated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateDeleted",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "userCreated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userUpdated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userDeleted",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "immo",
+            "otherEntityRelationshipName": "operation",
+            "relationshipName": "immo"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "ecriture",
+            "otherEntityRelationshipName": "operation",
+            "relationshipName": "ecriture"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "schemaCompta",
+            "otherEntityRelationshipName": "operation",
+            "relationshipName": "schemaComptable",
+            "ownerSide": false
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "etatOperation",
+            "otherEntityRelationshipName": "operation",
+            "relationshipName": "etatOperation",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "caisse",
+            "otherEntityRelationshipName": "operation",
+            "relationshipName": "caisse",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "facture",
+            "otherEntityRelationshipName": "operation",
+            "relationshipName": "operation",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200325193200",
+    "entityTableName": "operation",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

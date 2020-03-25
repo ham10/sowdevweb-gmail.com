@@ -1,0 +1,90 @@
+{
+    "name": "Immo",
+    "fields": [
+        {
+            "fieldName": "libelle",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "valeurAquisition",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "dateAquisition",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "valeurNetComptable",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "montant",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "duree",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "nbreEcheance",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "dateCreated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateUpdated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateDeleted",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "userCreated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userUpdated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userDeleted",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "operation",
+            "otherEntityRelationshipName": "immo",
+            "relationshipName": "operation",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "typeImmo",
+            "otherEntityRelationshipName": "immo",
+            "relationshipName": "typeImmo",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "tabAmortis",
+            "otherEntityRelationshipName": "immo",
+            "relationshipName": "tableauAmortissement",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200325193900",
+    "entityTableName": "immo",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,29 @@
+{
+  "hpdApp": {
+    "etatImmo": {
+      "home": {
+        "title": "Etat Immos",
+        "createLabel": "Create a new Etat Immo",
+        "createOrEditLabel": "Create or edit a Etat Immo",
+        "notFound": "No Etat Immos found"
+      },
+      "created": "A new Etat Immo is created with identifier {{ param }}",
+      "updated": "A Etat Immo is updated with identifier {{ param }}",
+      "deleted": "A Etat Immo is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Etat Immo {{ id }}?"
+      },
+      "detail": {
+        "title": "Etat Immo"
+      },
+      "codeEtat": "Code Etat",
+      "libelleEtat": "Libelle Etat",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "dateDeleted": "Date Deleted",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted"
+    }
+  }
+}

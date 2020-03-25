@@ -1,0 +1,219 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="patient">
+            <h2><span jhiTranslate="hpdApp.patient.detail.title">Patient</span> {{ patient.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.patient.codePatient">Code Patient</span></dt>
+                <dd>
+                    <span>{{ patient.codePatient }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.patient.nomPatient">Nom Patient</span></dt>
+                <dd>
+                    <span>{{ patient.nomPatient }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.patient.prenom">Prenom</span></dt>
+                <dd>
+                    <span>{{ patient.prenom }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.patient.adresse">Adresse</span></dt>
+                <dd>
+                    <span>{{ patient.adresse }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.patient.email">Email</span></dt>
+                <dd>
+                    <span>{{ patient.email }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.patient.dateNaissance">Date Naissance</span></dt>
+                <dd>
+                    <span>{{ patient.dateNaissance }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.patient.genre">Genre</span></dt>
+                <dd>
+                    <span>{{ patient.genre }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.patient.photo">Photo</span></dt>
+                <dd>
+                    <div *ngIf="patient.photo">
+                        <a (click)="openFile(patient.photoContentType!, patient.photo)" jhiTranslate="entity.action.open">open</a>
+                        {{ patient.photoContentType }}, {{ byteSize(patient.photo) }}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.patient.password">Password</span></dt>
+                <dd>
+                    <span>{{ patient.password }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.patient.telephone">Telephone</span></dt>
+                <dd>
+                    <span>{{ patient.telephone }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.patient.numeroPiece">Numero Piece</span></dt>
+                <dd>
+                    <span>{{ patient.numeroPiece }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.patient.codeBarre">Code Barre</span></dt>
+                <dd>
+                    <span>{{ patient.codeBarre }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.patient.entreprise">Entreprise</span></dt>
+                <dd>
+                    <span>{{ patient.entreprise }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.patient.ville">Ville</span></dt>
+                <dd>
+                    <span>{{ patient.ville }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.patient.quartier">Quartier</span></dt>
+                <dd>
+                    <span>{{ patient.quartier }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.patient.longitude">Longitude</span></dt>
+                <dd>
+                    <span>{{ patient.longitude }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.patient.latitude">Latitude</span></dt>
+                <dd>
+                    <span>{{ patient.latitude }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.patient.lieuNaissance">Lieu Naissance</span></dt>
+                <dd>
+                    <span>{{ patient.lieuNaissance }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.patient.fonctionPatient">Fonction Patient</span></dt>
+                <dd>
+                    <span>{{ patient.fonctionPatient }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.patient.situationSociale">Situation Sociale</span></dt>
+                <dd>
+                    <span>{{ patient.situationSociale }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.patient.solde">Solde</span></dt>
+                <dd>
+                    <span>{{ patient.solde }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.patient.cartePatient">Carte Patient</span></dt>
+                <dd>
+                    <span>{{ patient.cartePatient }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.patient.bloque">Bloque</span></dt>
+                <dd>
+                    <span>{{ patient.bloque }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.patient.dateValidite">Date Validite</span></dt>
+                <dd>
+                    <span>{{ patient.dateValidite }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.patient.motifBlocage">Motif Blocage</span></dt>
+                <dd>
+                    <span>{{ patient.motifBlocage }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.patient.prenomPerePatient">Prenom Pere Patient</span></dt>
+                <dd>
+                    <span>{{ patient.prenomPerePatient }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.patient.nomMerePatient">Nom Mere Patient</span></dt>
+                <dd>
+                    <span>{{ patient.nomMerePatient }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.patient.prenomMerePatient">Prenom Mere Patient</span></dt>
+                <dd>
+                    <span>{{ patient.prenomMerePatient }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.patient.motifAdmission">Motif Admission</span></dt>
+                <dd>
+                    <span>{{ patient.motifAdmission }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.patient.personneAContacter">Personne A Contacter</span></dt>
+                <dd>
+                    <span>{{ patient.personneAContacter }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.patient.adressePersAContacter">Adresse Pers A Contacter</span></dt>
+                <dd>
+                    <span>{{ patient.adressePersAContacter }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.patient.telPersAContacter">Tel Pers A Contacter</span></dt>
+                <dd>
+                    <span>{{ patient.telPersAContacter }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.patient.lienParentePersAContacter">Lien Parente Pers A Contacter</span></dt>
+                <dd>
+                    <span>{{ patient.lienParentePersAContacter }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.patient.nomAccompagnant">Nom Accompagnant</span></dt>
+                <dd>
+                    <span>{{ patient.nomAccompagnant }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.patient.prenomAccompagnant">Prenom Accompagnant</span></dt>
+                <dd>
+                    <span>{{ patient.prenomAccompagnant }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.patient.telAccompagnant">Tel Accompagnant</span></dt>
+                <dd>
+                    <span>{{ patient.telAccompagnant }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.patient.habitudeDeVie">Habitude De Vie</span></dt>
+                <dd>
+                    <span>{{ patient.habitudeDeVie }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.patient.physioPathologique">Physio Pathologique</span></dt>
+                <dd>
+                    <span>{{ patient.physioPathologique }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.patient.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ patient.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.patient.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ patient.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.patient.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ patient.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.patient.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ patient.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.patient.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ patient.userDeleted }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.patient.groupeSanguin">Groupe Sanguin</span></dt>
+                <dd>
+                    <div *ngIf="patient.groupeSanguin">
+                        <a [routerLink]="['/groupe-san', patient.groupeSanguin?.id, 'view']">{{ patient.groupeSanguin?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.patient.typePatient">Type Patient</span></dt>
+                <dd>
+                    <div *ngIf="patient.typePatient">
+                        <a [routerLink]="['/type-patient', patient.typePatient?.id, 'view']">{{ patient.typePatient?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.patient.departement">Departement</span></dt>
+                <dd>
+                    <div *ngIf="patient.departement">
+                        <a [routerLink]="['/departement', patient.departement?.id, 'view']">{{ patient.departement?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/patient', patient.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

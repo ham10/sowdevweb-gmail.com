@@ -1,0 +1,48 @@
+{
+    "name": "TypePiece",
+    "fields": [
+        {
+            "fieldName": "codeTypePiece",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "libelleTypePiece",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "descriptionTypePiece",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dateCreated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateUpdated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "userCreated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userUpdated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userDeleted",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20200325190000",
+    "entityTableName": "type_piece",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

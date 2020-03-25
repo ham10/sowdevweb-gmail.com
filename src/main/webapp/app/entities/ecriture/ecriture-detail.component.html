@@ -1,0 +1,78 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="ecriture">
+            <h2><span jhiTranslate="hpdApp.ecriture.detail.title">Ecriture</span> {{ ecriture.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.ecriture.libelle">Libelle</span></dt>
+                <dd>
+                    <span>{{ ecriture.libelle }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.ecriture.date">Date</span></dt>
+                <dd>
+                    <span>{{ ecriture.date }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.ecriture.montant">Montant</span></dt>
+                <dd>
+                    <span>{{ ecriture.montant }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.ecriture.sens">Sens</span></dt>
+                <dd>
+                    <span>{{ ecriture.sens }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.ecriture.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ ecriture.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.ecriture.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ ecriture.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.ecriture.dateDeleted">Date Deleted</span></dt>
+                <dd>
+                    <span>{{ ecriture.dateDeleted }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.ecriture.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ ecriture.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.ecriture.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ ecriture.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.ecriture.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ ecriture.userDeleted }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.ecriture.compte">Compte</span></dt>
+                <dd>
+                    <div *ngIf="ecriture.compte">
+                        <a [routerLink]="['/compte', ecriture.compte?.id, 'view']">{{ ecriture.compte?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.ecriture.operation">Operation</span></dt>
+                <dd>
+                    <div *ngIf="ecriture.operation">
+                        <a [routerLink]="['/operation', ecriture.operation?.id, 'view']">{{ ecriture.operation?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/ecriture', ecriture.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,81 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hpdApp.reponse.home.title">Reponses</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-reponse" [routerLink]="['/reponse/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hpdApp.reponse.home.createLabel">
+            Create a new Reponse
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="reponses?.length === 0">
+        <span jhiTranslate="hpdApp.reponse.home.notFound">No reponses found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="reponses?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="code"><span jhiTranslate="hpdApp.reponse.code">Code</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="reponse"><span jhiTranslate="hpdApp.reponse.reponse">Reponse</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateDeleted"><span jhiTranslate="hpdApp.reponse.dateDeleted">Date Deleted</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateCreated"><span jhiTranslate="hpdApp.reponse.dateCreated">Date Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateUpdated"><span jhiTranslate="hpdApp.reponse.dateUpdated">Date Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userCreated"><span jhiTranslate="hpdApp.reponse.userCreated">User Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userUpdate"><span jhiTranslate="hpdApp.reponse.userUpdate">User Update</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userDelete"><span jhiTranslate="hpdApp.reponse.userDelete">User Delete</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="question.id"><span jhiTranslate="hpdApp.reponse.question">Question</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let reponse of reponses ;trackBy: trackId">
+                    <td><a [routerLink]="['/reponse', reponse.id, 'view']">{{ reponse.id }}</a></td>
+                    <td>{{ reponse.code }}</td>
+                    <td>{{ reponse.reponse }}</td>
+                    <td>{{ reponse.dateDeleted | date:'medium' }}</td>
+                    <td>{{ reponse.dateCreated | date:'medium' }}</td>
+                    <td>{{ reponse.dateUpdated | date:'medium' }}</td>
+                    <td>{{ reponse.userCreated }}</td>
+                    <td>{{ reponse.userUpdate }}</td>
+                    <td>{{ reponse.userDelete }}</td>
+                    <td>
+                        <div *ngIf="reponse.question">
+                            <a [routerLink]="['/question', reponse.question?.id, 'view']" >{{ reponse.question?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/reponse', reponse.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/reponse', reponse.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(reponse)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

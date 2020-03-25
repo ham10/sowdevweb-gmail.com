@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="typeMagasin">
+            <h2><span jhiTranslate="hpdApp.typeMagasin.detail.title">Type Magasin</span> {{ typeMagasin.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.typeMagasin.codeTypeMagasin">Code Type Magasin</span></dt>
+                <dd>
+                    <span>{{ typeMagasin.codeTypeMagasin }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeMagasin.libelleTypeMagasin">Libelle Type Magasin</span></dt>
+                <dd>
+                    <span>{{ typeMagasin.libelleTypeMagasin }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeMagasin.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ typeMagasin.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeMagasin.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ typeMagasin.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeMagasin.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ typeMagasin.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeMagasin.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ typeMagasin.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeMagasin.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ typeMagasin.userDeleted }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/type-magasin', typeMagasin.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

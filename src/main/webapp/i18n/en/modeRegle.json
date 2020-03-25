@@ -1,0 +1,28 @@
+{
+  "hpdApp": {
+    "modeRegle": {
+      "home": {
+        "title": "Mode Regles",
+        "createLabel": "Create a new Mode Regle",
+        "createOrEditLabel": "Create or edit a Mode Regle",
+        "notFound": "No Mode Regles found"
+      },
+      "created": "A new Mode Regle is created with identifier {{ param }}",
+      "updated": "A Mode Regle is updated with identifier {{ param }}",
+      "deleted": "A Mode Regle is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Mode Regle {{ id }}?"
+      },
+      "detail": {
+        "title": "Mode Regle"
+      },
+      "codeModeRegle": "Code Mode Regle",
+      "libelleModeRegle": "Libelle Mode Regle",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted"
+    }
+  }
+}

@@ -1,0 +1,100 @@
+{
+    "name": "Hospitalisation",
+    "fields": [
+        {
+            "fieldName": "dateEntre",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateSortie",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "observation",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "modeSortie",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "objetPatient",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dateAccouchement",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "dateOperation",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateReveil",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "poidsBebe",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "tailleBebe",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "poidsPlacenta",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "genreBebe",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dateCreated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateUpdated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "userCreated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userUpdated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userDeleted",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "lit",
+            "otherEntityRelationshipName": "hospitalisation",
+            "relationshipName": "lit",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "patient",
+            "otherEntityRelationshipName": "hospitalisation",
+            "relationshipName": "patient",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200325191400",
+    "entityTableName": "hospitalisation",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

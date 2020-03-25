@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="machAutorise">
+            <h2><span jhiTranslate="hpdApp.machAutorise.detail.title">Mach Autorise</span> {{ machAutorise.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.machAutorise.numeroMachAutorise">Numero Mach Autorise</span></dt>
+                <dd>
+                    <span>{{ machAutorise.numeroMachAutorise }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.machAutorise.adresseMacMachAutorise">Adresse Mac Mach Autorise</span></dt>
+                <dd>
+                    <span>{{ machAutorise.adresseMacMachAutorise }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.machAutorise.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ machAutorise.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.machAutorise.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ machAutorise.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.machAutorise.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ machAutorise.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.machAutorise.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ machAutorise.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.machAutorise.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ machAutorise.userDeleted }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/mach-autorise', machAutorise.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

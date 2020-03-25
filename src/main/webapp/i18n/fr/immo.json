@@ -1,0 +1,37 @@
+{
+  "hpdApp": {
+    "immo": {
+      "home": {
+        "title": "Immos",
+        "createLabel": "Créer un nouveau Immo",
+        "createOrEditLabel": "Créer ou éditer un Immo",
+        "notFound": "Aucun Immo trouvé"
+      },
+      "created": "Un nouveau Immo a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Immo avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Immo avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Immo {{ id }} ?"
+      },
+      "detail": {
+        "title": "Immo"
+      },
+      "libelle": "Libelle",
+      "valeurAquisition": "Valeur Aquisition",
+      "dateAquisition": "Date Aquisition",
+      "valeurNetComptable": "Valeur Net Comptable",
+      "montant": "Montant",
+      "duree": "Duree",
+      "nbreEcheance": "Nbre Echeance",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "dateDeleted": "Date Deleted",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted",
+      "operation": "Operation",
+      "typeImmo": "Type Immo",
+      "tableauAmortissement": "Tableau Amortissement"
+    }
+  }
+}

@@ -1,0 +1,63 @@
+{
+    "name": "LigneCommande",
+    "fields": [
+        {
+            "fieldName": "produit",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "quantite",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "prixUnitaire",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "dateCreated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateUpdated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "userCreated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userUpdated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userDeleted",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "prodFournis",
+            "otherEntityRelationshipName": "ligneCommande",
+            "relationshipName": "produitFournisseur",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "bonDeCommande",
+            "otherEntityRelationshipName": "ligneCommande",
+            "relationshipName": "bonDeCommande",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200325192100",
+    "entityTableName": "ligne_commande",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,118 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-compte-gene-heading" jhiTranslate="hpdApp.compteGene.home.createOrEditLabel">Create or edit a Compte Gene</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.compteGene.numeroCompteGene" for="field_numeroCompteGene">Numero Compte Gene</label>
+                    <input type="number" class="form-control" name="numeroCompteGene" id="field_numeroCompteGene"
+                           formControlName="numeroCompteGene"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.compteGene.libelleCompteGene" for="field_libelleCompteGene">Libelle Compte Gene</label>
+                    <input type="text" class="form-control" name="libelleCompteGene" id="field_libelleCompteGene"
+                           formControlName="libelleCompteGene"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.compteGene.sensCompteGene" for="field_sensCompteGene">Sens Compte Gene</label>
+                    <input type="text" class="form-control" name="sensCompteGene" id="field_sensCompteGene"
+                           formControlName="sensCompteGene"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.compteGene.soldeCompteGene" for="field_soldeCompteGene">Solde Compte Gene</label>
+                    <input type="number" class="form-control" name="soldeCompteGene" id="field_soldeCompteGene"
+                           formControlName="soldeCompteGene"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.compteGene.cumulMouvDebitCompteGene" for="field_cumulMouvDebitCompteGene">Cumul Mouv Debit Compte Gene</label>
+                    <input type="number" class="form-control" name="cumulMouvDebitCompteGene" id="field_cumulMouvDebitCompteGene"
+                           formControlName="cumulMouvDebitCompteGene"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.compteGene.cumulMouvCreditCompteGene" for="field_cumulMouvCreditCompteGene">Cumul Mouv Credit Compte Gene</label>
+                    <input type="number" class="form-control" name="cumulMouvCreditCompteGene" id="field_cumulMouvCreditCompteGene"
+                           formControlName="cumulMouvCreditCompteGene"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.compteGene.dateCreated" for="field_dateCreated">Date Created</label>
+                    <div class="input-group">
+                        <input id="field_dateCreated" type="text" class="form-control" name="dateCreated" ngbDatepicker #dateCreatedDp="ngbDatepicker" formControlName="dateCreated"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateCreatedDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.compteGene.dateUpdated" for="field_dateUpdated">Date Updated</label>
+                    <div class="input-group">
+                        <input id="field_dateUpdated" type="text" class="form-control" name="dateUpdated" ngbDatepicker #dateUpdatedDp="ngbDatepicker" formControlName="dateUpdated"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateUpdatedDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.compteGene.dateDeleted" for="field_dateDeleted">Date Deleted</label>
+                    <div class="input-group">
+                        <input id="field_dateDeleted" type="text" class="form-control" name="dateDeleted" ngbDatepicker #dateDeletedDp="ngbDatepicker" formControlName="dateDeleted"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateDeletedDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.compteGene.userCreated" for="field_userCreated">User Created</label>
+                    <input type="number" class="form-control" name="userCreated" id="field_userCreated"
+                           formControlName="userCreated"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.compteGene.userUpdated" for="field_userUpdated">User Updated</label>
+                    <input type="number" class="form-control" name="userUpdated" id="field_userUpdated"
+                           formControlName="userUpdated"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.compteGene.userDeleted" for="field_userDeleted">User Deleted</label>
+                    <input type="number" class="form-control" name="userDeleted" id="field_userDeleted"
+                           formControlName="userDeleted"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.compteGene.chapitreComptable" for="field_chapitreComptable">Chapitre Comptable</label>
+                    <select class="form-control" id="field_chapitreComptable" name="chapitreComptable" formControlName="chapitreComptable">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="chapComptaOption.id === editForm.get('chapitreComptable')!.value?.id ? editForm.get('chapitreComptable')!.value : chapComptaOption" *ngFor="let chapComptaOption of chapcomptas; trackBy: trackById">{{ chapComptaOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

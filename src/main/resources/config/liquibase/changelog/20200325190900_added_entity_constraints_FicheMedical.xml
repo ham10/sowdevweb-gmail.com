@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity FicheMedical.
+    -->
+    <changeSet id="20200325190900-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="medecin_id"
+                                 baseTableName="fiche_medical"
+                                 constraintName="fk_fiche_medical_medecin_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="medecin"/>
+
+        <addForeignKeyConstraint baseColumnNames="fiche_medical_id"
+                                 baseTableName="fiche_medical_type_constante"
+                                 constraintName="fk_fiche_medical_type_constante_fiche_medical_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="fiche_medical"/>
+
+        <addForeignKeyConstraint baseColumnNames="type_constante_id"
+                                 baseTableName="fiche_medical_type_constante"
+                                 constraintName="fk_fiche_medical_type_constante_type_constante_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="type_constante"/>
+        
+    </changeSet>
+</databaseChangeLog>

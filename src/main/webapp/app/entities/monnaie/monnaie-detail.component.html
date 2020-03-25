@@ -1,0 +1,64 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="monnaie">
+            <h2><span jhiTranslate="hpdApp.monnaie.detail.title">Monnaie</span> {{ monnaie.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.monnaie.libelleMonnaie">Libelle Monnaie</span></dt>
+                <dd>
+                    <span>{{ monnaie.libelleMonnaie }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.monnaie.montantMonnaie">Montant Monnaie</span></dt>
+                <dd>
+                    <span>{{ monnaie.montantMonnaie }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.monnaie.natureMonnaie">Nature Monnaie</span></dt>
+                <dd>
+                    <span>{{ monnaie.natureMonnaie }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.monnaie.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ monnaie.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.monnaie.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ monnaie.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.monnaie.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ monnaie.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.monnaie.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ monnaie.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.monnaie.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ monnaie.userDeleted }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.monnaie.devise">Devise</span></dt>
+                <dd>
+                    <div *ngIf="monnaie.devise">
+                        <a [routerLink]="['/devise', monnaie.devise?.id, 'view']">{{ monnaie.devise?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/monnaie', monnaie.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

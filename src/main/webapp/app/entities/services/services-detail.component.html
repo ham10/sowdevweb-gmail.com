@@ -1,0 +1,82 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="services">
+            <h2><span jhiTranslate="hpdApp.services.detail.title">Services</span> {{ services.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.services.code">Code</span></dt>
+                <dd>
+                    <span>{{ services.code }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.services.libelle">Libelle</span></dt>
+                <dd>
+                    <span>{{ services.libelle }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.services.description">Description</span></dt>
+                <dd>
+                    <span>{{ services.description }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.services.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ services.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.services.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ services.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.services.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ services.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.services.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ services.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.services.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ services.userDeleted }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.services.typeServices">Type Services</span></dt>
+                <dd>
+                    <div *ngIf="services.typeServices">
+                        <a [routerLink]="['/type-services', services.typeServices?.id, 'view']">{{ services.typeServices?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.services.deptServices">Dept Services</span></dt>
+                <dd>
+                    <div *ngIf="services.deptServices">
+                        <a [routerLink]="['/dept-services', services.deptServices?.id, 'view']">{{ services.deptServices?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.services.specialite">Specialite</span></dt>
+                <dd>
+                    <div *ngIf="services.specialite">
+                        <a [routerLink]="['/specialite', services.specialite?.id, 'view']">{{ services.specialite?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.services.compteGeneral">Compte General</span></dt>
+                <dd>
+                    <div *ngIf="services.compteGeneral">
+                        <a [routerLink]="['/compte-gene', services.compteGeneral?.id, 'view']">{{ services.compteGeneral?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/services', services.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

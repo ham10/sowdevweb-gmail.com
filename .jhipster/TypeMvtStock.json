@@ -1,0 +1,58 @@
+{
+    "name": "TypeMvtStock",
+    "fields": [
+        {
+            "fieldName": "codeTypeMvtStock",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "libelleTypeMvtStock",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dateCreated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateUpdated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "userCreated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userUpdated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userDeleted",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "mouvement",
+            "otherEntityRelationshipName": "typeMvtStock",
+            "relationshipName": "mouvement"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "typeSortie",
+            "otherEntityRelationshipName": "typeMvtStock",
+            "relationshipName": "typeSortie",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200325183700",
+    "entityTableName": "type_mvt_stock",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

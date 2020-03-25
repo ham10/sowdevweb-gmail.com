@@ -1,0 +1,74 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="bonLivraison">
+            <h2><span jhiTranslate="hpdApp.bonLivraison.detail.title">Bon Livraison</span> {{ bonLivraison.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.bonLivraison.designationBonLivraison">Designation Bon Livraison</span></dt>
+                <dd>
+                    <span>{{ bonLivraison.designationBonLivraison }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.bonLivraison.prixTotalBonLivraison">Prix Total Bon Livraison</span></dt>
+                <dd>
+                    <span>{{ bonLivraison.prixTotalBonLivraison }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.bonLivraison.dateBonLivraison">Date Bon Livraison</span></dt>
+                <dd>
+                    <span>{{ bonLivraison.dateBonLivraison }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.bonLivraison.userCertified">User Certified</span></dt>
+                <dd>
+                    <span>{{ bonLivraison.userCertified }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.bonLivraison.dateCertif">Date Certif</span></dt>
+                <dd>
+                    <span>{{ bonLivraison.dateCertif }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.bonLivraison.numCertif">Num Certif</span></dt>
+                <dd>
+                    <span>{{ bonLivraison.numCertif }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.bonLivraison.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ bonLivraison.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.bonLivraison.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ bonLivraison.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.bonLivraison.dateDeleted">Date Deleted</span></dt>
+                <dd>
+                    <span>{{ bonLivraison.dateDeleted }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.bonLivraison.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ bonLivraison.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.bonLivraison.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ bonLivraison.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.bonLivraison.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ bonLivraison.userDeleted }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/bon-livraison', bonLivraison.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

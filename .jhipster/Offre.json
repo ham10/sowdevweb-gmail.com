@@ -1,0 +1,76 @@
+{
+    "name": "Offre",
+    "fields": [
+        {
+            "fieldName": "libelle",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "date",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "montant",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "taxe",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "numMarche",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dateCreated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateUpdated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateDeleted",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "userCreated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userUpdated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userDeleted",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "bonDeCommande",
+            "otherEntityRelationshipName": "offre",
+            "relationshipName": "bonDeCommande",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "fournisseur",
+            "otherEntityRelationshipName": "offre",
+            "relationshipName": "fournisseur",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200325192500",
+    "entityTableName": "offre",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

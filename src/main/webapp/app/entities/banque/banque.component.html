@@ -1,0 +1,83 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hpdApp.banque.home.title">Banques</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-banque" [routerLink]="['/banque/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hpdApp.banque.home.createLabel">
+            Create a new Banque
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="banques?.length === 0">
+        <span jhiTranslate="hpdApp.banque.home.notFound">No banques found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="banques?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="codeBanque"><span jhiTranslate="hpdApp.banque.codeBanque">Code Banque</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="ribBanque"><span jhiTranslate="hpdApp.banque.ribBanque">Rib Banque</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="libelleBanque"><span jhiTranslate="hpdApp.banque.libelleBanque">Libelle Banque</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="descriptionBanque"><span jhiTranslate="hpdApp.banque.descriptionBanque">Description Banque</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateCreated"><span jhiTranslate="hpdApp.banque.dateCreated">Date Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateUpdated"><span jhiTranslate="hpdApp.banque.dateUpdated">Date Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userCreated"><span jhiTranslate="hpdApp.banque.userCreated">User Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userUpdated"><span jhiTranslate="hpdApp.banque.userUpdated">User Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userDeleted"><span jhiTranslate="hpdApp.banque.userDeleted">User Deleted</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="compteGeneral.id"><span jhiTranslate="hpdApp.banque.compteGeneral">Compte General</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let banque of banques ;trackBy: trackId">
+                    <td><a [routerLink]="['/banque', banque.id, 'view']">{{ banque.id }}</a></td>
+                    <td>{{ banque.codeBanque }}</td>
+                    <td>{{ banque.ribBanque }}</td>
+                    <td>{{ banque.libelleBanque }}</td>
+                    <td>{{ banque.descriptionBanque }}</td>
+                    <td>{{ banque.dateCreated | date:'mediumDate' }}</td>
+                    <td>{{ banque.dateUpdated | date:'mediumDate' }}</td>
+                    <td>{{ banque.userCreated }}</td>
+                    <td>{{ banque.userUpdated }}</td>
+                    <td>{{ banque.userDeleted }}</td>
+                    <td>
+                        <div *ngIf="banque.compteGeneral">
+                            <a [routerLink]="['/compte-gene', banque.compteGeneral?.id, 'view']" >{{ banque.compteGeneral?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/banque', banque.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/banque', banque.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(banque)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+{
+  "hpdApp": {
+    "evenement": {
+      "home": {
+        "title": "Evenements",
+        "createLabel": "Créer un nouveau Evenement",
+        "createOrEditLabel": "Créer ou éditer un Evenement",
+        "notFound": "Aucun Evenement trouvé"
+      },
+      "created": "Un nouveau Evenement a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Evenement avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Evenement avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Evenement {{ id }} ?"
+      },
+      "detail": {
+        "title": "Evenement"
+      },
+      "heure": "Heure",
+      "eventName": "Event Name",
+      "description": "Description",
+      "dateCreated": "Date Created",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "idEntity": "Id Entity",
+      "entityToucher": "Entity Toucher",
+      "activite": "Activite"
+    }
+  }
+}

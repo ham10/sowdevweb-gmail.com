@@ -1,0 +1,38 @@
+{
+    "name": "Etagere",
+    "fields": [
+        {
+            "fieldName": "code",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "libelle",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "produit",
+            "otherEntityRelationshipName": "etagere",
+            "relationshipName": "produit"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "rayon",
+            "otherEntityRelationshipName": "etagere",
+            "relationshipName": "rayon",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200325195300",
+    "entityTableName": "etagere",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

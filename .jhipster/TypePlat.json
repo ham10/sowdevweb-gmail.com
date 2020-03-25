@@ -1,0 +1,51 @@
+{
+    "name": "TypePlat",
+    "fields": [
+        {
+            "fieldName": "codeTypePlat",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "libelleTypePlat",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dateCreated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateUpdated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "userCreated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userUpdated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userDeleted",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "plat",
+            "otherEntityRelationshipName": "typePlat",
+            "relationshipName": "plat"
+        }
+    ],
+    "changelogDate": "20200325184600",
+    "entityTableName": "type_plat",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

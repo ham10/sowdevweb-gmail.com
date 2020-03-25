@@ -1,0 +1,51 @@
+{
+    "name": "TypeSoins",
+    "fields": [
+        {
+            "fieldName": "codeTypeSoins",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "libelleTypeSoins",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dateCreated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateUpdated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "userCreated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userUpdated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userDeleted",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "tarif",
+            "otherEntityRelationshipName": "typeSoins",
+            "relationshipName": "tarif"
+        }
+    ],
+    "changelogDate": "20200325183400",
+    "entityTableName": "type_soins",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

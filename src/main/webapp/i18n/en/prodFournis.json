@@ -1,0 +1,27 @@
+{
+  "hpdApp": {
+    "prodFournis": {
+      "home": {
+        "title": "Prod Fournis",
+        "createLabel": "Create a new Prod Fournis",
+        "createOrEditLabel": "Create or edit a Prod Fournis",
+        "notFound": "No Prod Fournis found"
+      },
+      "created": "A new Prod Fournis is created with identifier {{ param }}",
+      "updated": "A Prod Fournis is updated with identifier {{ param }}",
+      "deleted": "A Prod Fournis is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Prod Fournis {{ id }}?"
+      },
+      "detail": {
+        "title": "Prod Fournis"
+      },
+      "stock": "Stock",
+      "nom": "Nom",
+      "ligneLivraison": "Ligne Livraison",
+      "ligneCommande": "Ligne Commande",
+      "produit": "Produit",
+      "fournisseur": "Fournisseur"
+    }
+  }
+}

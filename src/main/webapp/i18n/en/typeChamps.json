@@ -1,0 +1,28 @@
+{
+  "hpdApp": {
+    "typeChamps": {
+      "home": {
+        "title": "Type Champs",
+        "createLabel": "Create a new Type Champs",
+        "createOrEditLabel": "Create or edit a Type Champs",
+        "notFound": "No Type Champs found"
+      },
+      "created": "A new Type Champs is created with identifier {{ param }}",
+      "updated": "A Type Champs is updated with identifier {{ param }}",
+      "deleted": "A Type Champs is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Type Champs {{ id }}?"
+      },
+      "detail": {
+        "title": "Type Champs"
+      },
+      "codeTypeChamps": "Code Type Champs",
+      "libelleTypeChamps": "Libelle Type Champs",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted"
+    }
+  }
+}

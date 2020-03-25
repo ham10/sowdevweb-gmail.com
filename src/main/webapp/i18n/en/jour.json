@@ -1,0 +1,28 @@
+{
+  "hpdApp": {
+    "jour": {
+      "home": {
+        "title": "Jours",
+        "createLabel": "Create a new Jour",
+        "createOrEditLabel": "Create or edit a Jour",
+        "notFound": "No Jours found"
+      },
+      "created": "A new Jour is created with identifier {{ param }}",
+      "updated": "A Jour is updated with identifier {{ param }}",
+      "deleted": "A Jour is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Jour {{ id }}?"
+      },
+      "detail": {
+        "title": "Jour"
+      },
+      "libelleJour": "Libelle Jour",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted",
+      "horaireCon": "Horaire Con"
+    }
+  }
+}

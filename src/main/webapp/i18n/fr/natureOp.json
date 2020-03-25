@@ -1,0 +1,30 @@
+{
+  "hpdApp": {
+    "natureOp": {
+      "home": {
+        "title": "NatureOps",
+        "createLabel": "Créer un nouveau Nature Op",
+        "createOrEditLabel": "Créer ou éditer un Nature Op",
+        "notFound": "Aucun Nature Op trouvé"
+      },
+      "created": "Un nouveau Nature Op a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Nature Op avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Nature Op avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Nature Op {{ id }} ?"
+      },
+      "detail": {
+        "title": "Nature Op"
+      },
+      "numero": "Numero",
+      "libelle": "Libelle",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "dateDeleted": "Date Deleted",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted",
+      "schemaCompta": "Schema Compta"
+    }
+  }
+}

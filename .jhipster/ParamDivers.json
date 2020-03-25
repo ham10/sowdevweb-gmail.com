@@ -1,0 +1,84 @@
+{
+    "name": "ParamDivers",
+    "fields": [
+        {
+            "fieldName": "codeParamDivers",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "libelleParamDivers",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "descriptionParamDivers",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "valeurNum1",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "valeurNum2",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "valeurNum3",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "valeurText1",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "valeurText2",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "valeurText3",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "valeurBoolean1",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "valeurBoolean2",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "valeurBoolean3",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "dateCreated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateUpdated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "userCreated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userUpdated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userDeleted",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20200325182600",
+    "entityTableName": "param_divers",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

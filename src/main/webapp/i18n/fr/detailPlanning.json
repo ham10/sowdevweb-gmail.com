@@ -1,0 +1,26 @@
+{
+  "hpdApp": {
+    "detailPlanning": {
+      "home": {
+        "title": "DetailPlannings",
+        "createLabel": "Créer un nouveau Detail Planning",
+        "createOrEditLabel": "Créer ou éditer un Detail Planning",
+        "notFound": "Aucun Detail Planning trouvé"
+      },
+      "created": "Un nouveau Detail Planning a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Detail Planning avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Detail Planning avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Detail Planning {{ id }} ?"
+      },
+      "detail": {
+        "title": "Detail Planning"
+      },
+      "titre": "Titre",
+      "dateDebut": "Date Debut",
+      "dateFin": "Date Fin",
+      "planning": "Planning",
+      "etatPlanning": "Etat Planning"
+    }
+  }
+}

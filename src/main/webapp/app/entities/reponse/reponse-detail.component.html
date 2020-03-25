@@ -1,0 +1,64 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="reponse">
+            <h2><span jhiTranslate="hpdApp.reponse.detail.title">Reponse</span> {{ reponse.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.reponse.code">Code</span></dt>
+                <dd>
+                    <span>{{ reponse.code }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.reponse.reponse">Reponse</span></dt>
+                <dd>
+                    <span>{{ reponse.reponse }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.reponse.dateDeleted">Date Deleted</span></dt>
+                <dd>
+                    <span>{{ reponse.dateDeleted }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.reponse.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ reponse.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.reponse.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ reponse.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.reponse.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ reponse.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.reponse.userUpdate">User Update</span></dt>
+                <dd>
+                    <span>{{ reponse.userUpdate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.reponse.userDelete">User Delete</span></dt>
+                <dd>
+                    <span>{{ reponse.userDelete }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.reponse.question">Question</span></dt>
+                <dd>
+                    <div *ngIf="reponse.question">
+                        <a [routerLink]="['/question', reponse.question?.id, 'view']">{{ reponse.question?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/reponse', reponse.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

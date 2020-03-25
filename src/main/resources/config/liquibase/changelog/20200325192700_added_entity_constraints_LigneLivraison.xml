@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity LigneLivraison.
+    -->
+    <changeSet id="20200325192700-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="produit_fournisseur_id"
+                                 baseTableName="ligne_livraison"
+                                 constraintName="fk_ligne_livraison_produit_fournisseur_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="prod_fournis"/>
+
+        <addForeignKeyConstraint baseColumnNames="bon_de_livraison_id"
+                                 baseTableName="ligne_livraison"
+                                 constraintName="fk_ligne_livraison_bon_de_livraison_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="bon_livraison"/>
+
+    </changeSet>
+</databaseChangeLog>

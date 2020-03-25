@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="antecedent">
+            <h2><span jhiTranslate="hpdApp.antecedent.detail.title">Antecedent</span> {{ antecedent.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.antecedent.libelle">Libelle</span></dt>
+                <dd>
+                    <span>{{ antecedent.libelle }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.antecedent.description">Description</span></dt>
+                <dd>
+                    <span>{{ antecedent.description }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.antecedent.date">Date</span></dt>
+                <dd>
+                    <span>{{ antecedent.date }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.antecedent.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ antecedent.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.antecedent.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ antecedent.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.antecedent.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ antecedent.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.antecedent.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ antecedent.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.antecedent.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ antecedent.userDeleted }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/antecedent', antecedent.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

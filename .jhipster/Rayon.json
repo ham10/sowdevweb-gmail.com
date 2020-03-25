@@ -1,0 +1,38 @@
+{
+    "name": "Rayon",
+    "fields": [
+        {
+            "fieldName": "codeRayon",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "libelleRayon",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "etagere",
+            "otherEntityRelationshipName": "rayon",
+            "relationshipName": "etagere"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "depot",
+            "otherEntityRelationshipName": "rayon",
+            "relationshipName": "rayon",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200325195200",
+    "entityTableName": "rayon",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

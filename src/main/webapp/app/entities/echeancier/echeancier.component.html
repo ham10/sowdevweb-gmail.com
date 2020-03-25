@@ -1,0 +1,93 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hpdApp.echeancier.home.title">Echeanciers</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-echeancier" [routerLink]="['/echeancier/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hpdApp.echeancier.home.createLabel">
+            Create a new Echeancier
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="echeanciers?.length === 0">
+        <span jhiTranslate="hpdApp.echeancier.home.notFound">No echeanciers found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="echeanciers?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="code"><span jhiTranslate="hpdApp.echeancier.code">Code</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="numero"><span jhiTranslate="hpdApp.echeancier.numero">Numero</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="date"><span jhiTranslate="hpdApp.echeancier.date">Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="datePaiement"><span jhiTranslate="hpdApp.echeancier.datePaiement">Date Paiement</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="montant"><span jhiTranslate="hpdApp.echeancier.montant">Montant</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="montantPaye"><span jhiTranslate="hpdApp.echeancier.montantPaye">Montant Paye</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="capital"><span jhiTranslate="hpdApp.echeancier.capital">Capital</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="frais"><span jhiTranslate="hpdApp.echeancier.frais">Frais</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateCreated"><span jhiTranslate="hpdApp.echeancier.dateCreated">Date Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateUpdated"><span jhiTranslate="hpdApp.echeancier.dateUpdated">Date Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateDeleted"><span jhiTranslate="hpdApp.echeancier.dateDeleted">Date Deleted</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userCreated"><span jhiTranslate="hpdApp.echeancier.userCreated">User Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userUpdated"><span jhiTranslate="hpdApp.echeancier.userUpdated">User Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userDeleted"><span jhiTranslate="hpdApp.echeancier.userDeleted">User Deleted</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="facture.id"><span jhiTranslate="hpdApp.echeancier.facture">Facture</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let echeancier of echeanciers ;trackBy: trackId">
+                    <td><a [routerLink]="['/echeancier', echeancier.id, 'view']">{{ echeancier.id }}</a></td>
+                    <td>{{ echeancier.code }}</td>
+                    <td>{{ echeancier.numero }}</td>
+                    <td>{{ echeancier.date | date:'mediumDate' }}</td>
+                    <td>{{ echeancier.datePaiement | date:'mediumDate' }}</td>
+                    <td>{{ echeancier.montant }}</td>
+                    <td>{{ echeancier.montantPaye }}</td>
+                    <td>{{ echeancier.capital }}</td>
+                    <td>{{ echeancier.frais }}</td>
+                    <td>{{ echeancier.dateCreated | date:'mediumDate' }}</td>
+                    <td>{{ echeancier.dateUpdated | date:'mediumDate' }}</td>
+                    <td>{{ echeancier.dateDeleted | date:'mediumDate' }}</td>
+                    <td>{{ echeancier.userCreated }}</td>
+                    <td>{{ echeancier.userUpdated }}</td>
+                    <td>{{ echeancier.userDeleted }}</td>
+                    <td>
+                        <div *ngIf="echeancier.facture">
+                            <a [routerLink]="['/facture', echeancier.facture?.id, 'view']" >{{ echeancier.facture?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/echeancier', echeancier.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/echeancier', echeancier.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(echeancier)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

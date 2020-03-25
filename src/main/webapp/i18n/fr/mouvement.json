@@ -1,0 +1,27 @@
+{
+  "hpdApp": {
+    "mouvement": {
+      "home": {
+        "title": "Mouvements",
+        "createLabel": "Créer un nouveau Mouvement",
+        "createOrEditLabel": "Créer ou éditer un Mouvement",
+        "notFound": "Aucun Mouvement trouvé"
+      },
+      "created": "Un nouveau Mouvement a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Mouvement avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Mouvement avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Mouvement {{ id }} ?"
+      },
+      "detail": {
+        "title": "Mouvement"
+      },
+      "codeMvt": "Code Mvt",
+      "libelleMvt": "Libelle Mvt",
+      "stockEntrant": "Stock Entrant",
+      "stockSortant": "Stock Sortant",
+      "produit": "Produit",
+      "typeMvtStock": "Type Mvt Stock"
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "hpdApp": {
+    "etatOperation": {
+      "home": {
+        "title": "EtatOperations",
+        "createLabel": "Créer un nouveau Etat Operation",
+        "createOrEditLabel": "Créer ou éditer un Etat Operation",
+        "notFound": "Aucun Etat Operation trouvé"
+      },
+      "created": "Un nouveau Etat Operation a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Etat Operation avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Etat Operation avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Etat Operation {{ id }} ?"
+      },
+      "detail": {
+        "title": "Etat Operation"
+      },
+      "code": "Code",
+      "libelle": "Libelle",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "dateDeleted": "Date Deleted",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted",
+      "operation": "Operation"
+    }
+  }
+}

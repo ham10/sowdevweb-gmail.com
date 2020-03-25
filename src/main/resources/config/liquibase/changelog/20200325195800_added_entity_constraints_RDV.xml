@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity RDV.
+    -->
+    <changeSet id="20200325195800-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="patient_id"
+                                 baseTableName="rdv"
+                                 constraintName="fk_rdv_patient_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="patient"/>
+
+        <addForeignKeyConstraint baseColumnNames="planning_id"
+                                 baseTableName="rdv"
+                                 constraintName="fk_rdv_planning_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="planning"/>
+
+        <addForeignKeyConstraint baseColumnNames="etatrdv_id"
+                                 baseTableName="rdv"
+                                 constraintName="fk_rdv_etatrdv_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="etat_rdv"/>
+
+    </changeSet>
+</databaseChangeLog>

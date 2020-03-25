@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="typeQuestion">
+            <h2><span jhiTranslate="hpdApp.typeQuestion.detail.title">Type Question</span> {{ typeQuestion.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.typeQuestion.code">Code</span></dt>
+                <dd>
+                    <span>{{ typeQuestion.code }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeQuestion.belleType">Belle Type</span></dt>
+                <dd>
+                    <span>{{ typeQuestion.belleType }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeQuestion.multipliciteChoix">Multiplicite Choix</span></dt>
+                <dd>
+                    <span>{{ typeQuestion.multipliciteChoix }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeQuestion.dateDeleted">Date Deleted</span></dt>
+                <dd>
+                    <span>{{ typeQuestion.dateDeleted }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeQuestion.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ typeQuestion.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeQuestion.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ typeQuestion.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeQuestion.userUpdate">User Update</span></dt>
+                <dd>
+                    <span>{{ typeQuestion.userUpdate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeQuestion.userDelete">User Delete</span></dt>
+                <dd>
+                    <span>{{ typeQuestion.userDelete }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/type-question', typeQuestion.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

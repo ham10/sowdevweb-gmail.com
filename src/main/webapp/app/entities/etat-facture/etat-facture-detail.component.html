@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="etatFacture">
+            <h2><span jhiTranslate="hpdApp.etatFacture.detail.title">Etat Facture</span> {{ etatFacture.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.etatFacture.code">Code</span></dt>
+                <dd>
+                    <span>{{ etatFacture.code }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.etatFacture.libelle">Libelle</span></dt>
+                <dd>
+                    <span>{{ etatFacture.libelle }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.etatFacture.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ etatFacture.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.etatFacture.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ etatFacture.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.etatFacture.dateDeleted">Date Deleted</span></dt>
+                <dd>
+                    <span>{{ etatFacture.dateDeleted }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.etatFacture.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ etatFacture.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.etatFacture.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ etatFacture.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.etatFacture.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ etatFacture.userDeleted }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/etat-facture', etatFacture.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

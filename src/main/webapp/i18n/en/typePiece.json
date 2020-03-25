@@ -1,0 +1,29 @@
+{
+  "hpdApp": {
+    "typePiece": {
+      "home": {
+        "title": "Type Pieces",
+        "createLabel": "Create a new Type Piece",
+        "createOrEditLabel": "Create or edit a Type Piece",
+        "notFound": "No Type Pieces found"
+      },
+      "created": "A new Type Piece is created with identifier {{ param }}",
+      "updated": "A Type Piece is updated with identifier {{ param }}",
+      "deleted": "A Type Piece is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Type Piece {{ id }}?"
+      },
+      "detail": {
+        "title": "Type Piece"
+      },
+      "codeTypePiece": "Code Type Piece",
+      "libelleTypePiece": "Libelle Type Piece",
+      "descriptionTypePiece": "Description Type Piece",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted"
+    }
+  }
+}

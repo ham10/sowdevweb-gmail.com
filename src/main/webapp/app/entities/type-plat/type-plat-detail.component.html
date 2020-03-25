@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="typePlat">
+            <h2><span jhiTranslate="hpdApp.typePlat.detail.title">Type Plat</span> {{ typePlat.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.typePlat.codeTypePlat">Code Type Plat</span></dt>
+                <dd>
+                    <span>{{ typePlat.codeTypePlat }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typePlat.libelleTypePlat">Libelle Type Plat</span></dt>
+                <dd>
+                    <span>{{ typePlat.libelleTypePlat }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typePlat.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ typePlat.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typePlat.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ typePlat.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typePlat.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ typePlat.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typePlat.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ typePlat.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typePlat.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ typePlat.userDeleted }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/type-plat', typePlat.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

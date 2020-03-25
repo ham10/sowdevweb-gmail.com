@@ -1,0 +1,74 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="chapCompta">
+            <h2><span jhiTranslate="hpdApp.chapCompta.detail.title">Chap Compta</span> {{ chapCompta.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.chapCompta.numeroChapCompta">Numero Chap Compta</span></dt>
+                <dd>
+                    <span>{{ chapCompta.numeroChapCompta }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.chapCompta.libelleChapCompta">Libelle Chap Compta</span></dt>
+                <dd>
+                    <span>{{ chapCompta.libelleChapCompta }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.chapCompta.sensChapCompta">Sens Chap Compta</span></dt>
+                <dd>
+                    <span>{{ chapCompta.sensChapCompta }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.chapCompta.soldeChapCompta">Solde Chap Compta</span></dt>
+                <dd>
+                    <span>{{ chapCompta.soldeChapCompta }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.chapCompta.cumulMouvDebitChapCompta">Cumul Mouv Debit Chap Compta</span></dt>
+                <dd>
+                    <span>{{ chapCompta.cumulMouvDebitChapCompta }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.chapCompta.cumulMouvCreditChapCompta">Cumul Mouv Credit Chap Compta</span></dt>
+                <dd>
+                    <span>{{ chapCompta.cumulMouvCreditChapCompta }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.chapCompta.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ chapCompta.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.chapCompta.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ chapCompta.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.chapCompta.dateDeleted">Date Deleted</span></dt>
+                <dd>
+                    <span>{{ chapCompta.dateDeleted }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.chapCompta.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ chapCompta.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.chapCompta.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ chapCompta.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.chapCompta.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ chapCompta.userDeleted }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/chap-compta', chapCompta.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

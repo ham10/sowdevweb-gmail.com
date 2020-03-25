@@ -1,0 +1,28 @@
+{
+  "hpdApp": {
+    "typeFact": {
+      "home": {
+        "title": "Type Facts",
+        "createLabel": "Create a new Type Fact",
+        "createOrEditLabel": "Create or edit a Type Fact",
+        "notFound": "No Type Facts found"
+      },
+      "created": "A new Type Fact is created with identifier {{ param }}",
+      "updated": "A Type Fact is updated with identifier {{ param }}",
+      "deleted": "A Type Fact is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Type Fact {{ id }}?"
+      },
+      "detail": {
+        "title": "Type Fact"
+      },
+      "codeTypeFact": "Code Type Fact",
+      "libelleTypeFact": "Libelle Type Fact",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted"
+    }
+  }
+}

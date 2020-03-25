@@ -1,0 +1,86 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="compte">
+            <h2><span jhiTranslate="hpdApp.compte.detail.title">Compte</span> {{ compte.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.compte.numeroCompte">Numero Compte</span></dt>
+                <dd>
+                    <span>{{ compte.numeroCompte }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.compte.libelleCompte">Libelle Compte</span></dt>
+                <dd>
+                    <span>{{ compte.libelleCompte }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.compte.soldeCompte">Solde Compte</span></dt>
+                <dd>
+                    <span>{{ compte.soldeCompte }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.compte.sensCompte">Sens Compte</span></dt>
+                <dd>
+                    <span>{{ compte.sensCompte }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.compte.cumulMouvDebit">Cumul Mouv Debit</span></dt>
+                <dd>
+                    <span>{{ compte.cumulMouvDebit }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.compte.cumulMouvCredit">Cumul Mouv Credit</span></dt>
+                <dd>
+                    <span>{{ compte.cumulMouvCredit }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.compte.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ compte.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.compte.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ compte.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.compte.dateDeleted">Date Deleted</span></dt>
+                <dd>
+                    <span>{{ compte.dateDeleted }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.compte.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ compte.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.compte.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ compte.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.compte.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ compte.userDeleted }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.compte.compteGeneral">Compte General</span></dt>
+                <dd>
+                    <div *ngIf="compte.compteGeneral">
+                        <a [routerLink]="['/compte-gene', compte.compteGeneral?.id, 'view']">{{ compte.compteGeneral?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.compte.patient">Patient</span></dt>
+                <dd>
+                    <div *ngIf="compte.patient">
+                        <a [routerLink]="['/patient', compte.patient?.id, 'view']">{{ compte.patient?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/compte', compte.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

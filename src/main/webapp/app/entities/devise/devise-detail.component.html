@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="devise">
+            <h2><span jhiTranslate="hpdApp.devise.detail.title">Devise</span> {{ devise.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.devise.codeisoDvise">Codeiso Dvise</span></dt>
+                <dd>
+                    <span>{{ devise.codeisoDvise }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.devise.libelleDevise">Libelle Devise</span></dt>
+                <dd>
+                    <span>{{ devise.libelleDevise }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.devise.descriptionDevise">Description Devise</span></dt>
+                <dd>
+                    <span>{{ devise.descriptionDevise }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.devise.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ devise.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.devise.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ devise.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.devise.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ devise.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.devise.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ devise.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.devise.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ devise.userDeleted }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/devise', devise.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

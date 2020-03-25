@@ -1,0 +1,56 @@
+{
+    "name": "Pole",
+    "fields": [
+        {
+            "fieldName": "codePole",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "libellePole",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "descriptionPole",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dateCreated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateUpdated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "userCreated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userUpdated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userDeleted",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "typePole",
+            "otherEntityRelationshipName": "pole",
+            "relationshipName": "typePole",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200325180900",
+    "entityTableName": "pole",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

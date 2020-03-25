@@ -1,0 +1,31 @@
+{
+  "hpdApp": {
+    "catChambre": {
+      "home": {
+        "title": "Cat Chambres",
+        "createLabel": "Create a new Cat Chambre",
+        "createOrEditLabel": "Create or edit a Cat Chambre",
+        "notFound": "No Cat Chambres found"
+      },
+      "created": "A new Cat Chambre is created with identifier {{ param }}",
+      "updated": "A Cat Chambre is updated with identifier {{ param }}",
+      "deleted": "A Cat Chambre is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Cat Chambre {{ id }}?"
+      },
+      "detail": {
+        "title": "Cat Chambre"
+      },
+      "libelleCatChambre": "Libelle Cat Chambre",
+      "descriptionCatChambre": "Description Cat Chambre",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted",
+      "chambre": "Chambre",
+      "tarif": "Tarif",
+      "serv": "Serv"
+    }
+  }
+}

@@ -1,0 +1,90 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="ficheMedical">
+            <h2><span jhiTranslate="hpdApp.ficheMedical.detail.title">Fiche Medical</span> {{ ficheMedical.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.ficheMedical.numeroFicheMedical">Numero Fiche Medical</span></dt>
+                <dd>
+                    <span>{{ ficheMedical.numeroFicheMedical }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.ficheMedical.dateConsultation">Date Consultation</span></dt>
+                <dd>
+                    <span>{{ ficheMedical.dateConsultation }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.ficheMedical.facteurRisque">Facteur Risque</span></dt>
+                <dd>
+                    <span>{{ ficheMedical.facteurRisque }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.ficheMedical.regimeAlimentaire">Regime Alimentaire</span></dt>
+                <dd>
+                    <span>{{ ficheMedical.regimeAlimentaire }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.ficheMedical.diagnostic">Diagnostic</span></dt>
+                <dd>
+                    <span>{{ ficheMedical.diagnostic }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.ficheMedical.recommandations">Recommandations</span></dt>
+                <dd>
+                    <span>{{ ficheMedical.recommandations }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.ficheMedical.commentaires">Commentaires</span></dt>
+                <dd>
+                    <span>{{ ficheMedical.commentaires }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.ficheMedical.dateProchainRV">Date Prochain RV</span></dt>
+                <dd>
+                    <span>{{ ficheMedical.dateProchainRV }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.ficheMedical.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ ficheMedical.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.ficheMedical.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ ficheMedical.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.ficheMedical.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ ficheMedical.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.ficheMedical.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ ficheMedical.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.ficheMedical.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ ficheMedical.userDeleted }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.ficheMedical.medecin">Medecin</span></dt>
+                <dd>
+                    <div *ngIf="ficheMedical.medecin">
+                        <a [routerLink]="['/medecin', ficheMedical.medecin?.id, 'view']">{{ ficheMedical.medecin?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.ficheMedical.typeConstante">Type Constante</span></dt>
+                <dd>
+                    <span *ngFor="let typeConstante of ficheMedical.typeConstantes; let last = last">
+                        <a [routerLink]="['/type-constante', typeConstante?.id, 'view']">{{ typeConstante.id }}</a>{{ last ? '' : ', ' }}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/fiche-medical', ficheMedical.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

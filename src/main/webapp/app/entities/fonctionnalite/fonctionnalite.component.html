@@ -1,0 +1,79 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hpdApp.fonctionnalite.home.title">Fonctionnalites</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-fonctionnalite" [routerLink]="['/fonctionnalite/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hpdApp.fonctionnalite.home.createLabel">
+            Create a new Fonctionnalite
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="fonctionnalites?.length === 0">
+        <span jhiTranslate="hpdApp.fonctionnalite.home.notFound">No fonctionnalites found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="fonctionnalites?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="libelleFonctionnalite"><span jhiTranslate="hpdApp.fonctionnalite.libelleFonctionnalite">Libelle Fonctionnalite</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="descriptionFonctionnalite"><span jhiTranslate="hpdApp.fonctionnalite.descriptionFonctionnalite">Description Fonctionnalite</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateCreated"><span jhiTranslate="hpdApp.fonctionnalite.dateCreated">Date Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateUpdated"><span jhiTranslate="hpdApp.fonctionnalite.dateUpdated">Date Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userCreated"><span jhiTranslate="hpdApp.fonctionnalite.userCreated">User Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userUpdated"><span jhiTranslate="hpdApp.fonctionnalite.userUpdated">User Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userDeleted"><span jhiTranslate="hpdApp.fonctionnalite.userDeleted">User Deleted</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="item.id"><span jhiTranslate="hpdApp.fonctionnalite.item">Item</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let fonctionnalite of fonctionnalites ;trackBy: trackId">
+                    <td><a [routerLink]="['/fonctionnalite', fonctionnalite.id, 'view']">{{ fonctionnalite.id }}</a></td>
+                    <td>{{ fonctionnalite.libelleFonctionnalite }}</td>
+                    <td>{{ fonctionnalite.descriptionFonctionnalite }}</td>
+                    <td>{{ fonctionnalite.dateCreated | date:'mediumDate' }}</td>
+                    <td>{{ fonctionnalite.dateUpdated | date:'mediumDate' }}</td>
+                    <td>{{ fonctionnalite.userCreated }}</td>
+                    <td>{{ fonctionnalite.userUpdated }}</td>
+                    <td>{{ fonctionnalite.userDeleted }}</td>
+                    <td>
+                        <div *ngIf="fonctionnalite.item">
+                            <a [routerLink]="['/item', fonctionnalite.item?.id, 'view']" >{{ fonctionnalite.item?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/fonctionnalite', fonctionnalite.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/fonctionnalite', fonctionnalite.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(fonctionnalite)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,64 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="pole">
+            <h2><span jhiTranslate="hpdApp.pole.detail.title">Pole</span> {{ pole.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.pole.codePole">Code Pole</span></dt>
+                <dd>
+                    <span>{{ pole.codePole }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.pole.libellePole">Libelle Pole</span></dt>
+                <dd>
+                    <span>{{ pole.libellePole }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.pole.descriptionPole">Description Pole</span></dt>
+                <dd>
+                    <span>{{ pole.descriptionPole }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.pole.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ pole.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.pole.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ pole.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.pole.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ pole.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.pole.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ pole.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.pole.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ pole.userDeleted }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.pole.typePole">Type Pole</span></dt>
+                <dd>
+                    <div *ngIf="pole.typePole">
+                        <a [routerLink]="['/type-pole', pole.typePole?.id, 'view']">{{ pole.typePole?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/pole', pole.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

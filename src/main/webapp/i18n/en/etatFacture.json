@@ -1,0 +1,29 @@
+{
+  "hpdApp": {
+    "etatFacture": {
+      "home": {
+        "title": "Etat Factures",
+        "createLabel": "Create a new Etat Facture",
+        "createOrEditLabel": "Create or edit a Etat Facture",
+        "notFound": "No Etat Factures found"
+      },
+      "created": "A new Etat Facture is created with identifier {{ param }}",
+      "updated": "A Etat Facture is updated with identifier {{ param }}",
+      "deleted": "A Etat Facture is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Etat Facture {{ id }}?"
+      },
+      "detail": {
+        "title": "Etat Facture"
+      },
+      "code": "Code",
+      "libelle": "Libelle",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "dateDeleted": "Date Deleted",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted"
+    }
+  }
+}

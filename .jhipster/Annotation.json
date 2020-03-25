@@ -1,0 +1,68 @@
+{
+    "name": "Annotation",
+    "fields": [
+        {
+            "fieldName": "code",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "note",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "observation",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nbQuestions",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "moyenne",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "dateDeleted",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "dateCreated",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "dateUpdated",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "userCreated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userUpdate",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userDelete",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "questionnaire",
+            "otherEntityRelationshipName": "annotation",
+            "relationshipName": "questionnaire",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200325200500",
+    "entityTableName": "annotation",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

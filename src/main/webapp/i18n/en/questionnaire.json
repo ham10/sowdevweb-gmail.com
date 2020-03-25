@@ -1,0 +1,29 @@
+{
+  "hpdApp": {
+    "questionnaire": {
+      "home": {
+        "title": "Questionnaires",
+        "createLabel": "Create a new Questionnaire",
+        "createOrEditLabel": "Create or edit a Questionnaire",
+        "notFound": "No Questionnaires found"
+      },
+      "created": "A new Questionnaire is created with identifier {{ param }}",
+      "updated": "A Questionnaire is updated with identifier {{ param }}",
+      "deleted": "A Questionnaire is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Questionnaire {{ id }}?"
+      },
+      "detail": {
+        "title": "Questionnaire"
+      },
+      "code": "Code",
+      "libelle": "Libelle",
+      "dateDeleted": "Date Deleted",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "userCreated": "User Created",
+      "userUpdate": "User Update",
+      "userDelete": "User Delete"
+    }
+  }
+}

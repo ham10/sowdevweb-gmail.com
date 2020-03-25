@@ -1,0 +1,73 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hpdApp.jourFerie.home.title">Jour Feries</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-jour-ferie" [routerLink]="['/jour-ferie/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hpdApp.jourFerie.home.createLabel">
+            Create a new Jour Ferie
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="jourFeries?.length === 0">
+        <span jhiTranslate="hpdApp.jourFerie.home.notFound">No jourFeries found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="jourFeries?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="libelleJourFerie"><span jhiTranslate="hpdApp.jourFerie.libelleJourFerie">Libelle Jour Ferie</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateJourFerie"><span jhiTranslate="hpdApp.jourFerie.dateJourFerie">Date Jour Ferie</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateCreated"><span jhiTranslate="hpdApp.jourFerie.dateCreated">Date Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateUpdated"><span jhiTranslate="hpdApp.jourFerie.dateUpdated">Date Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userCreated"><span jhiTranslate="hpdApp.jourFerie.userCreated">User Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userUpdated"><span jhiTranslate="hpdApp.jourFerie.userUpdated">User Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userDeleted"><span jhiTranslate="hpdApp.jourFerie.userDeleted">User Deleted</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let jourFerie of jourFeries ;trackBy: trackId">
+                    <td><a [routerLink]="['/jour-ferie', jourFerie.id, 'view']">{{ jourFerie.id }}</a></td>
+                    <td>{{ jourFerie.libelleJourFerie }}</td>
+                    <td>{{ jourFerie.dateJourFerie | date:'mediumDate' }}</td>
+                    <td>{{ jourFerie.dateCreated | date:'mediumDate' }}</td>
+                    <td>{{ jourFerie.dateUpdated | date:'mediumDate' }}</td>
+                    <td>{{ jourFerie.userCreated }}</td>
+                    <td>{{ jourFerie.userUpdated }}</td>
+                    <td>{{ jourFerie.userDeleted }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/jour-ferie', jourFerie.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/jour-ferie', jourFerie.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(jourFerie)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+{
+  "hpdApp": {
+    "annotation": {
+      "home": {
+        "title": "Annotations",
+        "createLabel": "Créer un nouveau Annotation",
+        "createOrEditLabel": "Créer ou éditer un Annotation",
+        "notFound": "Aucun Annotation trouvé"
+      },
+      "created": "Un nouveau Annotation a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Annotation avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Annotation avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Annotation {{ id }} ?"
+      },
+      "detail": {
+        "title": "Annotation"
+      },
+      "code": "Code",
+      "note": "Note",
+      "observation": "Observation",
+      "nbQuestions": "Nb Questions",
+      "moyenne": "Moyenne",
+      "dateDeleted": "Date Deleted",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "userCreated": "User Created",
+      "userUpdate": "User Update",
+      "userDelete": "User Delete",
+      "questionnaire": "Questionnaire"
+    }
+  }
+}

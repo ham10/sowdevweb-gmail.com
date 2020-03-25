@@ -1,0 +1,97 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hpdApp.medecin.home.title">Medecins</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-medecin" [routerLink]="['/medecin/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hpdApp.medecin.home.createLabel">
+            Create a new Medecin
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="medecins?.length === 0">
+        <span jhiTranslate="hpdApp.medecin.home.notFound">No medecins found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="medecins?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="nomMedecin"><span jhiTranslate="hpdApp.medecin.nomMedecin">Nom Medecin</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="prenom"><span jhiTranslate="hpdApp.medecin.prenom">Prenom</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="adresse"><span jhiTranslate="hpdApp.medecin.adresse">Adresse</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="email"><span jhiTranslate="hpdApp.medecin.email">Email</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateNaissance"><span jhiTranslate="hpdApp.medecin.dateNaissance">Date Naissance</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="genreMedecin"><span jhiTranslate="hpdApp.medecin.genreMedecin">Genre Medecin</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="nationalite"><span jhiTranslate="hpdApp.medecin.nationalite">Nationalite</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="telephone"><span jhiTranslate="hpdApp.medecin.telephone">Telephone</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="anciennete"><span jhiTranslate="hpdApp.medecin.anciennete">Anciennete</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="numeroPiece"><span jhiTranslate="hpdApp.medecin.numeroPiece">Numero Piece</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="gradeMedecin"><span jhiTranslate="hpdApp.medecin.gradeMedecin">Grade Medecin</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="specialite"><span jhiTranslate="hpdApp.medecin.specialite">Specialite</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateEmbauche"><span jhiTranslate="hpdApp.medecin.dateEmbauche">Date Embauche</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateValidite"><span jhiTranslate="hpdApp.medecin.dateValidite">Date Validite</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateCreated"><span jhiTranslate="hpdApp.medecin.dateCreated">Date Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateUpdated"><span jhiTranslate="hpdApp.medecin.dateUpdated">Date Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userCreated"><span jhiTranslate="hpdApp.medecin.userCreated">User Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userUpdated"><span jhiTranslate="hpdApp.medecin.userUpdated">User Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userDeleted"><span jhiTranslate="hpdApp.medecin.userDeleted">User Deleted</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let medecin of medecins ;trackBy: trackId">
+                    <td><a [routerLink]="['/medecin', medecin.id, 'view']">{{ medecin.id }}</a></td>
+                    <td>{{ medecin.nomMedecin }}</td>
+                    <td>{{ medecin.prenom }}</td>
+                    <td>{{ medecin.adresse }}</td>
+                    <td>{{ medecin.email }}</td>
+                    <td>{{ medecin.dateNaissance | date:'mediumDate' }}</td>
+                    <td>{{ medecin.genreMedecin }}</td>
+                    <td>{{ medecin.nationalite }}</td>
+                    <td>{{ medecin.telephone }}</td>
+                    <td>{{ medecin.anciennete }}</td>
+                    <td>{{ medecin.numeroPiece }}</td>
+                    <td>{{ medecin.gradeMedecin }}</td>
+                    <td>{{ medecin.specialite }}</td>
+                    <td>{{ medecin.dateEmbauche | date:'mediumDate' }}</td>
+                    <td>{{ medecin.dateValidite | date:'mediumDate' }}</td>
+                    <td>{{ medecin.dateCreated | date:'mediumDate' }}</td>
+                    <td>{{ medecin.dateUpdated | date:'mediumDate' }}</td>
+                    <td>{{ medecin.userCreated }}</td>
+                    <td>{{ medecin.userUpdated }}</td>
+                    <td>{{ medecin.userDeleted }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/medecin', medecin.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/medecin', medecin.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(medecin)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

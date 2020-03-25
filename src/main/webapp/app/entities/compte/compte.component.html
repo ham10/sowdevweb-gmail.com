@@ -1,0 +1,95 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hpdApp.compte.home.title">Comptes</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-compte" [routerLink]="['/compte/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hpdApp.compte.home.createLabel">
+            Create a new Compte
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="comptes?.length === 0">
+        <span jhiTranslate="hpdApp.compte.home.notFound">No comptes found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="comptes?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="numeroCompte"><span jhiTranslate="hpdApp.compte.numeroCompte">Numero Compte</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="libelleCompte"><span jhiTranslate="hpdApp.compte.libelleCompte">Libelle Compte</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="soldeCompte"><span jhiTranslate="hpdApp.compte.soldeCompte">Solde Compte</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="sensCompte"><span jhiTranslate="hpdApp.compte.sensCompte">Sens Compte</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="cumulMouvDebit"><span jhiTranslate="hpdApp.compte.cumulMouvDebit">Cumul Mouv Debit</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="cumulMouvCredit"><span jhiTranslate="hpdApp.compte.cumulMouvCredit">Cumul Mouv Credit</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateCreated"><span jhiTranslate="hpdApp.compte.dateCreated">Date Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateUpdated"><span jhiTranslate="hpdApp.compte.dateUpdated">Date Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateDeleted"><span jhiTranslate="hpdApp.compte.dateDeleted">Date Deleted</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userCreated"><span jhiTranslate="hpdApp.compte.userCreated">User Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userUpdated"><span jhiTranslate="hpdApp.compte.userUpdated">User Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userDeleted"><span jhiTranslate="hpdApp.compte.userDeleted">User Deleted</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="compteGeneral.id"><span jhiTranslate="hpdApp.compte.compteGeneral">Compte General</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="patient.id"><span jhiTranslate="hpdApp.compte.patient">Patient</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let compte of comptes ;trackBy: trackId">
+                    <td><a [routerLink]="['/compte', compte.id, 'view']">{{ compte.id }}</a></td>
+                    <td>{{ compte.numeroCompte }}</td>
+                    <td>{{ compte.libelleCompte }}</td>
+                    <td>{{ compte.soldeCompte }}</td>
+                    <td>{{ compte.sensCompte }}</td>
+                    <td>{{ compte.cumulMouvDebit }}</td>
+                    <td>{{ compte.cumulMouvCredit }}</td>
+                    <td>{{ compte.dateCreated | date:'mediumDate' }}</td>
+                    <td>{{ compte.dateUpdated | date:'mediumDate' }}</td>
+                    <td>{{ compte.dateDeleted }}</td>
+                    <td>{{ compte.userCreated }}</td>
+                    <td>{{ compte.userUpdated }}</td>
+                    <td>{{ compte.userDeleted }}</td>
+                    <td>
+                        <div *ngIf="compte.compteGeneral">
+                            <a [routerLink]="['/compte-gene', compte.compteGeneral?.id, 'view']" >{{ compte.compteGeneral?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="compte.patient">
+                            <a [routerLink]="['/patient', compte.patient?.id, 'view']" >{{ compte.patient?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/compte', compte.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/compte', compte.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(compte)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

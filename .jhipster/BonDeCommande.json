@@ -1,0 +1,99 @@
+{
+    "name": "BonDeCommande",
+    "fields": [
+        {
+            "fieldName": "numero",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "libelle",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "prixTotal",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "dateComm",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateCreated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateUpdated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateDeleted",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "userCreated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userUpdated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userDeleted",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "bonLivraison",
+            "otherEntityRelationshipName": "bonDeCommande",
+            "relationshipName": "bonLivraison",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "ligneCommande",
+            "otherEntityRelationshipName": "bonDeCommande",
+            "relationshipName": "ligneCommande"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "offre",
+            "otherEntityRelationshipName": "bonDeCommande",
+            "relationshipName": "offre",
+            "ownerSide": false
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "services",
+            "otherEntityRelationshipName": "bonDeCommande",
+            "relationshipName": "serv",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "etatBonCom",
+            "otherEntityRelationshipName": "bonDeCommande",
+            "relationshipName": "etatBonCommande",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "typeBonCom",
+            "otherEntityRelationshipName": "bonDeCommande",
+            "relationshipName": "typeBonDeCommande",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200325192200",
+    "entityTableName": "bon_de_commande",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

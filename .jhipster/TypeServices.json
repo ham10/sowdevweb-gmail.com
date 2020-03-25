@@ -1,0 +1,51 @@
+{
+    "name": "TypeServices",
+    "fields": [
+        {
+            "fieldName": "codeTypeSrv",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "libelleTypeSrv",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dateCreated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateUpdated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "userCreated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userUpdated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userDeleted",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "services",
+            "otherEntityRelationshipName": "typeServices",
+            "relationshipName": "services"
+        }
+    ],
+    "changelogDate": "20200325181100",
+    "entityTableName": "type_services",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

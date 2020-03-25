@@ -1,0 +1,87 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hpdApp.annotation.home.title">Annotations</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-annotation" [routerLink]="['/annotation/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hpdApp.annotation.home.createLabel">
+            Create a new Annotation
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="annotations?.length === 0">
+        <span jhiTranslate="hpdApp.annotation.home.notFound">No annotations found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="annotations?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="code"><span jhiTranslate="hpdApp.annotation.code">Code</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="note"><span jhiTranslate="hpdApp.annotation.note">Note</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="observation"><span jhiTranslate="hpdApp.annotation.observation">Observation</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="nbQuestions"><span jhiTranslate="hpdApp.annotation.nbQuestions">Nb Questions</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="moyenne"><span jhiTranslate="hpdApp.annotation.moyenne">Moyenne</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateDeleted"><span jhiTranslate="hpdApp.annotation.dateDeleted">Date Deleted</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateCreated"><span jhiTranslate="hpdApp.annotation.dateCreated">Date Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateUpdated"><span jhiTranslate="hpdApp.annotation.dateUpdated">Date Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userCreated"><span jhiTranslate="hpdApp.annotation.userCreated">User Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userUpdate"><span jhiTranslate="hpdApp.annotation.userUpdate">User Update</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userDelete"><span jhiTranslate="hpdApp.annotation.userDelete">User Delete</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="questionnaire.id"><span jhiTranslate="hpdApp.annotation.questionnaire">Questionnaire</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let annotation of annotations ;trackBy: trackId">
+                    <td><a [routerLink]="['/annotation', annotation.id, 'view']">{{ annotation.id }}</a></td>
+                    <td>{{ annotation.code }}</td>
+                    <td>{{ annotation.note }}</td>
+                    <td>{{ annotation.observation }}</td>
+                    <td>{{ annotation.nbQuestions }}</td>
+                    <td>{{ annotation.moyenne }}</td>
+                    <td>{{ annotation.dateDeleted | date:'medium' }}</td>
+                    <td>{{ annotation.dateCreated | date:'medium' }}</td>
+                    <td>{{ annotation.dateUpdated | date:'medium' }}</td>
+                    <td>{{ annotation.userCreated }}</td>
+                    <td>{{ annotation.userUpdate }}</td>
+                    <td>{{ annotation.userDelete }}</td>
+                    <td>
+                        <div *ngIf="annotation.questionnaire">
+                            <a [routerLink]="['/questionnaire', annotation.questionnaire?.id, 'view']" >{{ annotation.questionnaire?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/annotation', annotation.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/annotation', annotation.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(annotation)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

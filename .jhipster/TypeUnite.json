@@ -1,0 +1,51 @@
+{
+    "name": "TypeUnite",
+    "fields": [
+        {
+            "fieldName": "codeTypeUnite",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "libelleTypeUnite",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dateCreated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateUpdated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "userCreated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userUpdated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userDeleted",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "unite",
+            "otherEntityRelationshipName": "typeUnite",
+            "relationshipName": "unite"
+        }
+    ],
+    "changelogDate": "20200325180800",
+    "entityTableName": "type_unite",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="typeSortie">
+            <h2><span jhiTranslate="hpdApp.typeSortie.detail.title">Type Sortie</span> {{ typeSortie.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.typeSortie.codeTypeSortie">Code Type Sortie</span></dt>
+                <dd>
+                    <span>{{ typeSortie.codeTypeSortie }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeSortie.libelleTypeSortie">Libelle Type Sortie</span></dt>
+                <dd>
+                    <span>{{ typeSortie.libelleTypeSortie }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeSortie.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ typeSortie.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeSortie.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ typeSortie.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeSortie.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ typeSortie.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeSortie.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ typeSortie.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeSortie.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ typeSortie.userDeleted }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/type-sortie', typeSortie.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

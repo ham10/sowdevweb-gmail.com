@@ -1,0 +1,28 @@
+{
+  "hpdApp": {
+    "formeProd": {
+      "home": {
+        "title": "Forme Prods",
+        "createLabel": "Create a new Forme Prod",
+        "createOrEditLabel": "Create or edit a Forme Prod",
+        "notFound": "No Forme Prods found"
+      },
+      "created": "A new Forme Prod is created with identifier {{ param }}",
+      "updated": "A Forme Prod is updated with identifier {{ param }}",
+      "deleted": "A Forme Prod is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Forme Prod {{ id }}?"
+      },
+      "detail": {
+        "title": "Forme Prod"
+      },
+      "codeFormeProd": "Code Forme Prod",
+      "libelleFormeProd": "Libelle Forme Prod",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted"
+    }
+  }
+}

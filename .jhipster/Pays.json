@@ -1,0 +1,52 @@
+{
+    "name": "Pays",
+    "fields": [
+        {
+            "fieldName": "codePays",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "libellePays",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dateCreated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateUpdated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "userCreated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userUpdated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userDeleted",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "region",
+            "otherEntityRelationshipName": "pays",
+            "relationshipName": "region"
+        }
+    ],
+    "changelogDate": "20200325180300",
+    "javadoc": "The Enter the entity name entity.\\n@author A true hipster",
+    "entityTableName": "pays",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

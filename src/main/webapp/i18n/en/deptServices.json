@@ -1,0 +1,29 @@
+{
+  "hpdApp": {
+    "deptServices": {
+      "home": {
+        "title": "Dept Services",
+        "createLabel": "Create a new Dept Services",
+        "createOrEditLabel": "Create or edit a Dept Services",
+        "notFound": "No Dept Services found"
+      },
+      "created": "A new Dept Services is created with identifier {{ param }}",
+      "updated": "A Dept Services is updated with identifier {{ param }}",
+      "deleted": "A Dept Services is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Dept Services {{ id }}?"
+      },
+      "detail": {
+        "title": "Dept Services"
+      },
+      "codeDeptSrv": "Code Dept Srv",
+      "libelleDeptSrv": "Libelle Dept Srv",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted",
+      "services": "Services"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "hpdApp": {
+    "typePatient": {
+      "home": {
+        "title": "Type Patients",
+        "createLabel": "Create a new Type Patient",
+        "createOrEditLabel": "Create or edit a Type Patient",
+        "notFound": "No Type Patients found"
+      },
+      "created": "A new Type Patient is created with identifier {{ param }}",
+      "updated": "A Type Patient is updated with identifier {{ param }}",
+      "deleted": "A Type Patient is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Type Patient {{ id }}?"
+      },
+      "detail": {
+        "title": "Type Patient"
+      },
+      "codeTypePatient": "Code Type Patient",
+      "libelleTypePatient": "Libelle Type Patient",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted"
+    }
+  }
+}

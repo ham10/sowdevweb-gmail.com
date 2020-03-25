@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="etatOperation">
+            <h2><span jhiTranslate="hpdApp.etatOperation.detail.title">Etat Operation</span> {{ etatOperation.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.etatOperation.code">Code</span></dt>
+                <dd>
+                    <span>{{ etatOperation.code }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.etatOperation.libelle">Libelle</span></dt>
+                <dd>
+                    <span>{{ etatOperation.libelle }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.etatOperation.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ etatOperation.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.etatOperation.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ etatOperation.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.etatOperation.dateDeleted">Date Deleted</span></dt>
+                <dd>
+                    <span>{{ etatOperation.dateDeleted }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.etatOperation.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ etatOperation.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.etatOperation.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ etatOperation.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.etatOperation.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ etatOperation.userDeleted }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/etat-operation', etatOperation.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

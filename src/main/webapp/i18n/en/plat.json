@@ -1,0 +1,26 @@
+{
+  "hpdApp": {
+    "plat": {
+      "home": {
+        "title": "Plats",
+        "createLabel": "Create a new Plat",
+        "createOrEditLabel": "Create or edit a Plat",
+        "notFound": "No Plats found"
+      },
+      "created": "A new Plat is created with identifier {{ param }}",
+      "updated": "A Plat is updated with identifier {{ param }}",
+      "deleted": "A Plat is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Plat {{ id }}?"
+      },
+      "detail": {
+        "title": "Plat"
+      },
+      "quantite": "Quantite",
+      "typeRepas": "Type Repas",
+      "date": "Date",
+      "typePlat": "Type Plat",
+      "serv": "Serv"
+    }
+  }
+}

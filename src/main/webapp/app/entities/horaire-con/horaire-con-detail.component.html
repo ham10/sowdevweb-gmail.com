@@ -1,0 +1,72 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="horaireCon">
+            <h2><span jhiTranslate="hpdApp.horaireCon.detail.title">Horaire Con</span> {{ horaireCon.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.horaireCon.heureDebutHC">Heure Debut HC</span></dt>
+                <dd>
+                    <span>{{ horaireCon.heureDebutHC }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.horaireCon.heureFinHC">Heure Fin HC</span></dt>
+                <dd>
+                    <span>{{ horaireCon.heureFinHC }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.horaireCon.dateDebutHC">Date Debut HC</span></dt>
+                <dd>
+                    <span>{{ horaireCon.dateDebutHC }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.horaireCon.dateFinHC">Date Fin HC</span></dt>
+                <dd>
+                    <span>{{ horaireCon.dateFinHC }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.horaireCon.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ horaireCon.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.horaireCon.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ horaireCon.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.horaireCon.dateDeleted">Date Deleted</span></dt>
+                <dd>
+                    <span>{{ horaireCon.dateDeleted }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.horaireCon.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ horaireCon.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.horaireCon.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ horaireCon.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.horaireCon.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ horaireCon.userDeleted }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.horaireCon.jour">Jour</span></dt>
+                <dd>
+                    <div *ngIf="horaireCon.jour">
+                        <a [routerLink]="['/jour', horaireCon.jour?.id, 'view']">{{ horaireCon.jour?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/horaire-con', horaireCon.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

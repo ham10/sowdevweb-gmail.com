@@ -1,0 +1,64 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="evenement">
+            <h2><span jhiTranslate="hpdApp.evenement.detail.title">Evenement</span> {{ evenement.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.evenement.heure">Heure</span></dt>
+                <dd>
+                    <span>{{ evenement.heure }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.evenement.eventName">Event Name</span></dt>
+                <dd>
+                    <span>{{ evenement.eventName }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.evenement.description">Description</span></dt>
+                <dd>
+                    <span>{{ evenement.description }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.evenement.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ evenement.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.evenement.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ evenement.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.evenement.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ evenement.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.evenement.idEntity">Id Entity</span></dt>
+                <dd>
+                    <span>{{ evenement.idEntity }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.evenement.entityToucher">Entity Toucher</span></dt>
+                <dd>
+                    <span>{{ evenement.entityToucher }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.evenement.activite">Activite</span></dt>
+                <dd>
+                    <div *ngIf="evenement.activite">
+                        <a [routerLink]="['/activite', evenement.activite?.id, 'view']">{{ evenement.activite?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/evenement', evenement.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

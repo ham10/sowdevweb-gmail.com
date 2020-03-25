@@ -1,0 +1,103 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hpdApp.tarif.home.title">Tarifs</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-tarif" [routerLink]="['/tarif/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hpdApp.tarif.home.createLabel">
+            Create a new Tarif
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="tarifs?.length === 0">
+        <span jhiTranslate="hpdApp.tarif.home.notFound">No tarifs found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="tarifs?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="code"><span jhiTranslate="hpdApp.tarif.code">Code</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="libelle"><span jhiTranslate="hpdApp.tarif.libelle">Libelle</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="montant"><span jhiTranslate="hpdApp.tarif.montant">Montant</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="pourcentage"><span jhiTranslate="hpdApp.tarif.pourcentage">Pourcentage</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateCreated"><span jhiTranslate="hpdApp.tarif.dateCreated">Date Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateUpdated"><span jhiTranslate="hpdApp.tarif.dateUpdated">Date Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateDeleted"><span jhiTranslate="hpdApp.tarif.dateDeleted">Date Deleted</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userCreated"><span jhiTranslate="hpdApp.tarif.userCreated">User Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userUpdated"><span jhiTranslate="hpdApp.tarif.userUpdated">User Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userDeleted"><span jhiTranslate="hpdApp.tarif.userDeleted">User Deleted</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="typeSoins.id"><span jhiTranslate="hpdApp.tarif.typeSoins">Type Soins</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="sousfamille.id"><span jhiTranslate="hpdApp.tarif.sousfamille">Sousfamille</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="actemedical.id"><span jhiTranslate="hpdApp.tarif.actemedical">Actemedical</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="categorieChambre.id"><span jhiTranslate="hpdApp.tarif.categorieChambre">Categorie Chambre</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let tarif of tarifs ;trackBy: trackId">
+                    <td><a [routerLink]="['/tarif', tarif.id, 'view']">{{ tarif.id }}</a></td>
+                    <td>{{ tarif.code }}</td>
+                    <td>{{ tarif.libelle }}</td>
+                    <td>{{ tarif.montant }}</td>
+                    <td>{{ tarif.pourcentage }}</td>
+                    <td>{{ tarif.dateCreated | date:'mediumDate' }}</td>
+                    <td>{{ tarif.dateUpdated | date:'mediumDate' }}</td>
+                    <td>{{ tarif.dateDeleted | date:'mediumDate' }}</td>
+                    <td>{{ tarif.userCreated }}</td>
+                    <td>{{ tarif.userUpdated }}</td>
+                    <td>{{ tarif.userDeleted }}</td>
+                    <td>
+                        <div *ngIf="tarif.typeSoins">
+                            <a [routerLink]="['/type-soins', tarif.typeSoins?.id, 'view']" >{{ tarif.typeSoins?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="tarif.sousfamille">
+                            <a [routerLink]="['/sous-famille', tarif.sousfamille?.id, 'view']" >{{ tarif.sousfamille?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="tarif.actemedical">
+                            <a [routerLink]="['/acte-medical', tarif.actemedical?.id, 'view']" >{{ tarif.actemedical?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="tarif.categorieChambre">
+                            <a [routerLink]="['/cat-chambre', tarif.categorieChambre?.id, 'view']" >{{ tarif.categorieChambre?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/tarif', tarif.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/tarif', tarif.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(tarif)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

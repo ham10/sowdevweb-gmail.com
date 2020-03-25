@@ -1,0 +1,30 @@
+{
+  "hpdApp": {
+    "lit": {
+      "home": {
+        "title": "Lits",
+        "createLabel": "Créer un nouveau Lit",
+        "createOrEditLabel": "Créer ou éditer un Lit",
+        "notFound": "Aucun Lit trouvé"
+      },
+      "created": "Un nouveau Lit a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Lit avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Lit avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Lit {{ id }} ?"
+      },
+      "detail": {
+        "title": "Lit"
+      },
+      "numeroLit": "Numero Lit",
+      "descriptionLit": "Description Lit",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted",
+      "typeLit": "Type Lit",
+      "box": "Box"
+    }
+  }
+}

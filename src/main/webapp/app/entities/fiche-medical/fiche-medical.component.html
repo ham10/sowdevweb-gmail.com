@@ -1,0 +1,91 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hpdApp.ficheMedical.home.title">Fiche Medicals</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-fiche-medical" [routerLink]="['/fiche-medical/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hpdApp.ficheMedical.home.createLabel">
+            Create a new Fiche Medical
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="ficheMedicals?.length === 0">
+        <span jhiTranslate="hpdApp.ficheMedical.home.notFound">No ficheMedicals found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="ficheMedicals?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="numeroFicheMedical"><span jhiTranslate="hpdApp.ficheMedical.numeroFicheMedical">Numero Fiche Medical</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateConsultation"><span jhiTranslate="hpdApp.ficheMedical.dateConsultation">Date Consultation</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="facteurRisque"><span jhiTranslate="hpdApp.ficheMedical.facteurRisque">Facteur Risque</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="regimeAlimentaire"><span jhiTranslate="hpdApp.ficheMedical.regimeAlimentaire">Regime Alimentaire</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="diagnostic"><span jhiTranslate="hpdApp.ficheMedical.diagnostic">Diagnostic</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="recommandations"><span jhiTranslate="hpdApp.ficheMedical.recommandations">Recommandations</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="commentaires"><span jhiTranslate="hpdApp.ficheMedical.commentaires">Commentaires</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateProchainRV"><span jhiTranslate="hpdApp.ficheMedical.dateProchainRV">Date Prochain RV</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateCreated"><span jhiTranslate="hpdApp.ficheMedical.dateCreated">Date Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateUpdated"><span jhiTranslate="hpdApp.ficheMedical.dateUpdated">Date Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userCreated"><span jhiTranslate="hpdApp.ficheMedical.userCreated">User Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userUpdated"><span jhiTranslate="hpdApp.ficheMedical.userUpdated">User Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userDeleted"><span jhiTranslate="hpdApp.ficheMedical.userDeleted">User Deleted</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="medecin.id"><span jhiTranslate="hpdApp.ficheMedical.medecin">Medecin</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let ficheMedical of ficheMedicals ;trackBy: trackId">
+                    <td><a [routerLink]="['/fiche-medical', ficheMedical.id, 'view']">{{ ficheMedical.id }}</a></td>
+                    <td>{{ ficheMedical.numeroFicheMedical }}</td>
+                    <td>{{ ficheMedical.dateConsultation | date:'mediumDate' }}</td>
+                    <td>{{ ficheMedical.facteurRisque }}</td>
+                    <td>{{ ficheMedical.regimeAlimentaire }}</td>
+                    <td>{{ ficheMedical.diagnostic }}</td>
+                    <td>{{ ficheMedical.recommandations }}</td>
+                    <td>{{ ficheMedical.commentaires }}</td>
+                    <td>{{ ficheMedical.dateProchainRV | date:'mediumDate' }}</td>
+                    <td>{{ ficheMedical.dateCreated | date:'mediumDate' }}</td>
+                    <td>{{ ficheMedical.dateUpdated | date:'mediumDate' }}</td>
+                    <td>{{ ficheMedical.userCreated }}</td>
+                    <td>{{ ficheMedical.userUpdated }}</td>
+                    <td>{{ ficheMedical.userDeleted }}</td>
+                    <td>
+                        <div *ngIf="ficheMedical.medecin">
+                            <a [routerLink]="['/medecin', ficheMedical.medecin?.id, 'view']" >{{ ficheMedical.medecin?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/fiche-medical', ficheMedical.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/fiche-medical', ficheMedical.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(ficheMedical)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

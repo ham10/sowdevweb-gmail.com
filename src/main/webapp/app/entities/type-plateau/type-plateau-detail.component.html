@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="typePlateau">
+            <h2><span jhiTranslate="hpdApp.typePlateau.detail.title">Type Plateau</span> {{ typePlateau.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.typePlateau.codeTypePlateau">Code Type Plateau</span></dt>
+                <dd>
+                    <span>{{ typePlateau.codeTypePlateau }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typePlateau.libelleTypePlateau">Libelle Type Plateau</span></dt>
+                <dd>
+                    <span>{{ typePlateau.libelleTypePlateau }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typePlateau.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ typePlateau.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typePlateau.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ typePlateau.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typePlateau.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ typePlateau.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typePlateau.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ typePlateau.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typePlateau.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ typePlateau.userDeleted }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/type-plateau', typePlateau.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

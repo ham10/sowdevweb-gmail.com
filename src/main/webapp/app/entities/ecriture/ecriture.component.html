@@ -1,0 +1,91 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hpdApp.ecriture.home.title">Ecritures</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-ecriture" [routerLink]="['/ecriture/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hpdApp.ecriture.home.createLabel">
+            Create a new Ecriture
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="ecritures?.length === 0">
+        <span jhiTranslate="hpdApp.ecriture.home.notFound">No ecritures found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="ecritures?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="libelle"><span jhiTranslate="hpdApp.ecriture.libelle">Libelle</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="date"><span jhiTranslate="hpdApp.ecriture.date">Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="montant"><span jhiTranslate="hpdApp.ecriture.montant">Montant</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="sens"><span jhiTranslate="hpdApp.ecriture.sens">Sens</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateCreated"><span jhiTranslate="hpdApp.ecriture.dateCreated">Date Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateUpdated"><span jhiTranslate="hpdApp.ecriture.dateUpdated">Date Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateDeleted"><span jhiTranslate="hpdApp.ecriture.dateDeleted">Date Deleted</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userCreated"><span jhiTranslate="hpdApp.ecriture.userCreated">User Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userUpdated"><span jhiTranslate="hpdApp.ecriture.userUpdated">User Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userDeleted"><span jhiTranslate="hpdApp.ecriture.userDeleted">User Deleted</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="compte.id"><span jhiTranslate="hpdApp.ecriture.compte">Compte</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="operation.id"><span jhiTranslate="hpdApp.ecriture.operation">Operation</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let ecriture of ecritures ;trackBy: trackId">
+                    <td><a [routerLink]="['/ecriture', ecriture.id, 'view']">{{ ecriture.id }}</a></td>
+                    <td>{{ ecriture.libelle }}</td>
+                    <td>{{ ecriture.date | date:'mediumDate' }}</td>
+                    <td>{{ ecriture.montant }}</td>
+                    <td>{{ ecriture.sens }}</td>
+                    <td>{{ ecriture.dateCreated | date:'mediumDate' }}</td>
+                    <td>{{ ecriture.dateUpdated | date:'mediumDate' }}</td>
+                    <td>{{ ecriture.dateDeleted | date:'mediumDate' }}</td>
+                    <td>{{ ecriture.userCreated }}</td>
+                    <td>{{ ecriture.userUpdated }}</td>
+                    <td>{{ ecriture.userDeleted }}</td>
+                    <td>
+                        <div *ngIf="ecriture.compte">
+                            <a [routerLink]="['/compte', ecriture.compte?.id, 'view']" >{{ ecriture.compte?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="ecriture.operation">
+                            <a [routerLink]="['/operation', ecriture.operation?.id, 'view']" >{{ ecriture.operation?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/ecriture', ecriture.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/ecriture', ecriture.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(ecriture)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

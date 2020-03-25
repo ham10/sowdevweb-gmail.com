@@ -1,0 +1,43 @@
+{
+    "name": "DetailPlanning",
+    "fields": [
+        {
+            "fieldName": "titre",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dateDebut",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "dateFin",
+            "fieldType": "Instant"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "planning",
+            "otherEntityRelationshipName": "detailPlanning",
+            "relationshipName": "planning",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "etatPlanning",
+            "otherEntityRelationshipName": "detailPlanning",
+            "relationshipName": "etatPlanning",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200325200000",
+    "entityTableName": "detail_planning",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

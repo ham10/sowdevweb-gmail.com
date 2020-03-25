@@ -1,0 +1,71 @@
+{
+    "name": "ChapCompta",
+    "fields": [
+        {
+            "fieldName": "numeroChapCompta",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "libelleChapCompta",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "sensChapCompta",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "soldeChapCompta",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "cumulMouvDebitChapCompta",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "cumulMouvCreditChapCompta",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "dateCreated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateUpdated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateDeleted",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "userCreated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userUpdated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userDeleted",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "compteGene",
+            "otherEntityRelationshipName": "chapitreComptable",
+            "relationshipName": "compteGene"
+        }
+    ],
+    "changelogDate": "20200325183000",
+    "entityTableName": "chap_compta",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

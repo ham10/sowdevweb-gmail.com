@@ -1,0 +1,34 @@
+{
+  "hpdApp": {
+    "chapCompta": {
+      "home": {
+        "title": "ChapComptas",
+        "createLabel": "Créer un nouveau Chap Compta",
+        "createOrEditLabel": "Créer ou éditer un Chap Compta",
+        "notFound": "Aucun Chap Compta trouvé"
+      },
+      "created": "Un nouveau Chap Compta a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Chap Compta avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Chap Compta avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Chap Compta {{ id }} ?"
+      },
+      "detail": {
+        "title": "Chap Compta"
+      },
+      "numeroChapCompta": "Numero Chap Compta",
+      "libelleChapCompta": "Libelle Chap Compta",
+      "sensChapCompta": "Sens Chap Compta",
+      "soldeChapCompta": "Solde Chap Compta",
+      "cumulMouvDebitChapCompta": "Cumul Mouv Debit Chap Compta",
+      "cumulMouvCreditChapCompta": "Cumul Mouv Credit Chap Compta",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "dateDeleted": "Date Deleted",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted",
+      "compteGene": "Compte Gene"
+    }
+  }
+}

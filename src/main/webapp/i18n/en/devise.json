@@ -1,0 +1,31 @@
+{
+  "hpdApp": {
+    "devise": {
+      "home": {
+        "title": "Devises",
+        "createLabel": "Create a new Devise",
+        "createOrEditLabel": "Create or edit a Devise",
+        "notFound": "No Devises found"
+      },
+      "created": "A new Devise is created with identifier {{ param }}",
+      "updated": "A Devise is updated with identifier {{ param }}",
+      "deleted": "A Devise is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Devise {{ id }}?"
+      },
+      "detail": {
+        "title": "Devise"
+      },
+      "codeisoDvise": "Codeiso Dvise",
+      "libelleDevise": "Libelle Devise",
+      "descriptionDevise": "Description Devise",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted",
+      "tauxDevise": "Taux Devise",
+      "monnaie": "Monnaie"
+    }
+  }
+}

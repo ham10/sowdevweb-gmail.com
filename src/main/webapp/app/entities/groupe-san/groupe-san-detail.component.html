@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="groupeSan">
+            <h2><span jhiTranslate="hpdApp.groupeSan.detail.title">Groupe San</span> {{ groupeSan.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.groupeSan.codeGroupeSan">Code Groupe San</span></dt>
+                <dd>
+                    <span>{{ groupeSan.codeGroupeSan }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.groupeSan.libelleGroupeSan">Libelle Groupe San</span></dt>
+                <dd>
+                    <span>{{ groupeSan.libelleGroupeSan }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.groupeSan.descriptionGroupeSan">Description Groupe San</span></dt>
+                <dd>
+                    <span>{{ groupeSan.descriptionGroupeSan }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.groupeSan.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ groupeSan.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.groupeSan.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ groupeSan.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.groupeSan.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ groupeSan.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.groupeSan.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ groupeSan.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.groupeSan.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ groupeSan.userDeleted }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/groupe-san', groupeSan.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

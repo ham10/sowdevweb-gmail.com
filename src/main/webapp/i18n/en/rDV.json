@@ -1,0 +1,27 @@
+{
+  "hpdApp": {
+    "rDV": {
+      "home": {
+        "title": "RDVS",
+        "createLabel": "Create a new RDV",
+        "createOrEditLabel": "Create or edit a RDV",
+        "notFound": "No RDVS found"
+      },
+      "created": "A new RDV is created with identifier {{ param }}",
+      "updated": "A RDV is updated with identifier {{ param }}",
+      "deleted": "A RDV is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete RDV {{ id }}?"
+      },
+      "detail": {
+        "title": "RDV"
+      },
+      "numRdv": "Num Rdv",
+      "dateRdv": "Date Rdv",
+      "heureRdv": "Heure Rdv",
+      "patient": "Patient",
+      "planning": "Planning",
+      "etatRDV": "Etat RDV"
+    }
+  }
+}

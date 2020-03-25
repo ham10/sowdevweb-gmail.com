@@ -1,0 +1,28 @@
+{
+  "hpdApp": {
+    "tauxDevise": {
+      "home": {
+        "title": "TauxDevises",
+        "createLabel": "Créer un nouveau Taux Devise",
+        "createOrEditLabel": "Créer ou éditer un Taux Devise",
+        "notFound": "Aucun Taux Devise trouvé"
+      },
+      "created": "Un nouveau Taux Devise a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Taux Devise avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Taux Devise avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Taux Devise {{ id }} ?"
+      },
+      "detail": {
+        "title": "Taux Devise"
+      },
+      "sensTauxDevise": "Sens Taux Devise",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted",
+      "devise": "Devise"
+    }
+  }
+}

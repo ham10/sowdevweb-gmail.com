@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="typeAntecedent">
+            <h2><span jhiTranslate="hpdApp.typeAntecedent.detail.title">Type Antecedent</span> {{ typeAntecedent.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.typeAntecedent.codeTypeAntecedent">Code Type Antecedent</span></dt>
+                <dd>
+                    <span>{{ typeAntecedent.codeTypeAntecedent }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeAntecedent.libelleTypeAntecedent">Libelle Type Antecedent</span></dt>
+                <dd>
+                    <span>{{ typeAntecedent.libelleTypeAntecedent }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeAntecedent.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ typeAntecedent.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeAntecedent.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ typeAntecedent.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeAntecedent.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ typeAntecedent.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeAntecedent.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ typeAntecedent.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeAntecedent.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ typeAntecedent.userDeleted }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/type-antecedent', typeAntecedent.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

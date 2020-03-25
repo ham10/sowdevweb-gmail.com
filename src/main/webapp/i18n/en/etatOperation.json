@@ -1,0 +1,30 @@
+{
+  "hpdApp": {
+    "etatOperation": {
+      "home": {
+        "title": "Etat Operations",
+        "createLabel": "Create a new Etat Operation",
+        "createOrEditLabel": "Create or edit a Etat Operation",
+        "notFound": "No Etat Operations found"
+      },
+      "created": "A new Etat Operation is created with identifier {{ param }}",
+      "updated": "A Etat Operation is updated with identifier {{ param }}",
+      "deleted": "A Etat Operation is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Etat Operation {{ id }}?"
+      },
+      "detail": {
+        "title": "Etat Operation"
+      },
+      "code": "Code",
+      "libelle": "Libelle",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "dateDeleted": "Date Deleted",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted",
+      "operation": "Operation"
+    }
+  }
+}

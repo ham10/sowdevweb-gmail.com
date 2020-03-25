@@ -1,0 +1,28 @@
+{
+  "hpdApp": {
+    "typeNotif": {
+      "home": {
+        "title": "Type Notifs",
+        "createLabel": "Create a new Type Notif",
+        "createOrEditLabel": "Create or edit a Type Notif",
+        "notFound": "No Type Notifs found"
+      },
+      "created": "A new Type Notif is created with identifier {{ param }}",
+      "updated": "A Type Notif is updated with identifier {{ param }}",
+      "deleted": "A Type Notif is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Type Notif {{ id }}?"
+      },
+      "detail": {
+        "title": "Type Notif"
+      },
+      "codeTypeNotif": "Code Type Notif",
+      "libelleTypeNotif": "Libelle Type Notif",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted"
+    }
+  }
+}

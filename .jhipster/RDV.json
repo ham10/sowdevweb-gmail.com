@@ -1,0 +1,50 @@
+{
+    "name": "RDV",
+    "fields": [
+        {
+            "fieldName": "numRdv",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dateRdv",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "heureRdv",
+            "fieldType": "Instant"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "patient",
+            "otherEntityRelationshipName": "rDV",
+            "relationshipName": "patient",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "planning",
+            "otherEntityRelationshipName": "rDV",
+            "relationshipName": "planning",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "etatRdv",
+            "otherEntityRelationshipName": "rDV",
+            "relationshipName": "etatRDV",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200325195800",
+    "entityTableName": "rdv",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

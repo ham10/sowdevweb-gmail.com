@@ -1,0 +1,32 @@
+{
+  "hpdApp": {
+    "schemaCompta": {
+      "home": {
+        "title": "SchemaComptas",
+        "createLabel": "Créer un nouveau Schema Compta",
+        "createOrEditLabel": "Créer ou éditer un Schema Compta",
+        "notFound": "Aucun Schema Compta trouvé"
+      },
+      "created": "Un nouveau Schema Compta a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Schema Compta avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Schema Compta avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Schema Compta {{ id }} ?"
+      },
+      "detail": {
+        "title": "Schema Compta"
+      },
+      "code": "Code",
+      "libelle": "Libelle",
+      "sens": "Sens",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "dateDeleted": "Date Deleted",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted",
+      "operation": "Operation",
+      "natureOperation": "Nature Operation"
+    }
+  }
+}

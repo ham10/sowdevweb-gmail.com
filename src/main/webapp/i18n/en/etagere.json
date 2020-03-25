@@ -1,0 +1,25 @@
+{
+  "hpdApp": {
+    "etagere": {
+      "home": {
+        "title": "Etageres",
+        "createLabel": "Create a new Etagere",
+        "createOrEditLabel": "Create or edit a Etagere",
+        "notFound": "No Etageres found"
+      },
+      "created": "A new Etagere is created with identifier {{ param }}",
+      "updated": "A Etagere is updated with identifier {{ param }}",
+      "deleted": "A Etagere is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Etagere {{ id }}?"
+      },
+      "detail": {
+        "title": "Etagere"
+      },
+      "code": "Code",
+      "libelle": "Libelle",
+      "produit": "Produit",
+      "rayon": "Rayon"
+    }
+  }
+}

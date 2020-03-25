@@ -1,0 +1,40 @@
+{
+  "hpdApp": {
+    "hospitalisation": {
+      "home": {
+        "title": "Hospitalisations",
+        "createLabel": "Create a new Hospitalisation",
+        "createOrEditLabel": "Create or edit a Hospitalisation",
+        "notFound": "No Hospitalisations found"
+      },
+      "created": "A new Hospitalisation is created with identifier {{ param }}",
+      "updated": "A Hospitalisation is updated with identifier {{ param }}",
+      "deleted": "A Hospitalisation is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Hospitalisation {{ id }}?"
+      },
+      "detail": {
+        "title": "Hospitalisation"
+      },
+      "dateEntre": "Date Entre",
+      "dateSortie": "Date Sortie",
+      "observation": "Observation",
+      "modeSortie": "Mode Sortie",
+      "objetPatient": "Objet Patient",
+      "dateAccouchement": "Date Accouchement",
+      "dateOperation": "Date Operation",
+      "dateReveil": "Date Reveil",
+      "poidsBebe": "Poids Bebe",
+      "tailleBebe": "Taille Bebe",
+      "poidsPlacenta": "Poids Placenta",
+      "genreBebe": "Genre Bebe",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted",
+      "lit": "Lit",
+      "patient": "Patient"
+    }
+  }
+}

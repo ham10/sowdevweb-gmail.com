@@ -1,0 +1,43 @@
+{
+    "name": "Planning",
+    "fields": [
+        {
+            "fieldName": "num",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "libelle",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dateCreated",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "medecin",
+            "otherEntityRelationshipName": "planning",
+            "relationshipName": "medecin",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "typePlanning",
+            "otherEntityRelationshipName": "planning",
+            "relationshipName": "typePlanning",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200325195900",
+    "entityTableName": "planning",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,64 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="unite">
+            <h2><span jhiTranslate="hpdApp.unite.detail.title">Unite</span> {{ unite.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.unite.codeUnite">Code Unite</span></dt>
+                <dd>
+                    <span>{{ unite.codeUnite }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.unite.libelleUnite">Libelle Unite</span></dt>
+                <dd>
+                    <span>{{ unite.libelleUnite }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.unite.descriptionUnite">Description Unite</span></dt>
+                <dd>
+                    <span>{{ unite.descriptionUnite }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.unite.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ unite.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.unite.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ unite.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.unite.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ unite.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.unite.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ unite.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.unite.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ unite.userDeleted }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.unite.typeUnite">Type Unite</span></dt>
+                <dd>
+                    <div *ngIf="unite.typeUnite">
+                        <a [routerLink]="['/type-unite', unite.typeUnite?.id, 'view']">{{ unite.typeUnite?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/unite', unite.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

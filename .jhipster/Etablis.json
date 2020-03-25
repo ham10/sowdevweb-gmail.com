@@ -1,0 +1,76 @@
+{
+    "name": "Etablis",
+    "fields": [
+        {
+            "fieldName": "codeEtabl",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "raisonSocialeEtabl",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "adresseEtabl",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "telephoneEtabl",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "nineaEtabl",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "rcEtabl",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "emailEtabl",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dateCreated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateUpdated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "userCreated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userUpdated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userDeleted",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "departement",
+            "otherEntityRelationshipName": "etablis",
+            "relationshipName": "departement",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200325180600",
+    "entityTableName": "etablis",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

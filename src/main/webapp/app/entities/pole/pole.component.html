@@ -1,0 +1,81 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hpdApp.pole.home.title">Poles</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-pole" [routerLink]="['/pole/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hpdApp.pole.home.createLabel">
+            Create a new Pole
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="poles?.length === 0">
+        <span jhiTranslate="hpdApp.pole.home.notFound">No poles found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="poles?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="codePole"><span jhiTranslate="hpdApp.pole.codePole">Code Pole</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="libellePole"><span jhiTranslate="hpdApp.pole.libellePole">Libelle Pole</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="descriptionPole"><span jhiTranslate="hpdApp.pole.descriptionPole">Description Pole</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateCreated"><span jhiTranslate="hpdApp.pole.dateCreated">Date Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateUpdated"><span jhiTranslate="hpdApp.pole.dateUpdated">Date Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userCreated"><span jhiTranslate="hpdApp.pole.userCreated">User Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userUpdated"><span jhiTranslate="hpdApp.pole.userUpdated">User Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userDeleted"><span jhiTranslate="hpdApp.pole.userDeleted">User Deleted</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="typePole.id"><span jhiTranslate="hpdApp.pole.typePole">Type Pole</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let pole of poles ;trackBy: trackId">
+                    <td><a [routerLink]="['/pole', pole.id, 'view']">{{ pole.id }}</a></td>
+                    <td>{{ pole.codePole }}</td>
+                    <td>{{ pole.libellePole }}</td>
+                    <td>{{ pole.descriptionPole }}</td>
+                    <td>{{ pole.dateCreated | date:'mediumDate' }}</td>
+                    <td>{{ pole.dateUpdated | date:'mediumDate' }}</td>
+                    <td>{{ pole.userCreated }}</td>
+                    <td>{{ pole.userUpdated }}</td>
+                    <td>{{ pole.userDeleted }}</td>
+                    <td>
+                        <div *ngIf="pole.typePole">
+                            <a [routerLink]="['/type-pole', pole.typePole?.id, 'view']" >{{ pole.typePole?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/pole', pole.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/pole', pole.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(pole)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+{
+  "hpdApp": {
+    "ligneLivraison": {
+      "home": {
+        "title": "LigneLivraisons",
+        "createLabel": "Créer un nouveau Ligne Livraison",
+        "createOrEditLabel": "Créer ou éditer un Ligne Livraison",
+        "notFound": "Aucun Ligne Livraison trouvé"
+      },
+      "created": "Un nouveau Ligne Livraison a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Ligne Livraison avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Ligne Livraison avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Ligne Livraison {{ id }} ?"
+      },
+      "detail": {
+        "title": "Ligne Livraison"
+      },
+      "designation": "Designation",
+      "quantite": "Quantite",
+      "prixUnitaire": "Prix Unitaire",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "dateDeleted": "Date Deleted",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted",
+      "produitFournisseur": "Produit Fournisseur",
+      "bonDeLivraison": "Bon De Livraison"
+    }
+  }
+}

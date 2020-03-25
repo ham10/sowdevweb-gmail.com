@@ -1,0 +1,120 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-etablis-heading" jhiTranslate="hpdApp.etablis.home.createOrEditLabel">Create or edit a Etablis</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.etablis.codeEtabl" for="field_codeEtabl">Code Etabl</label>
+                    <input type="text" class="form-control" name="codeEtabl" id="field_codeEtabl"
+                           formControlName="codeEtabl"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.etablis.raisonSocialeEtabl" for="field_raisonSocialeEtabl">Raison Sociale Etabl</label>
+                    <input type="text" class="form-control" name="raisonSocialeEtabl" id="field_raisonSocialeEtabl"
+                           formControlName="raisonSocialeEtabl"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.etablis.adresseEtabl" for="field_adresseEtabl">Adresse Etabl</label>
+                    <input type="text" class="form-control" name="adresseEtabl" id="field_adresseEtabl"
+                           formControlName="adresseEtabl"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.etablis.telephoneEtabl" for="field_telephoneEtabl">Telephone Etabl</label>
+                    <input type="number" class="form-control" name="telephoneEtabl" id="field_telephoneEtabl"
+                           formControlName="telephoneEtabl"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.etablis.nineaEtabl" for="field_nineaEtabl">Ninea Etabl</label>
+                    <input type="text" class="form-control" name="nineaEtabl" id="field_nineaEtabl"
+                           formControlName="nineaEtabl"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.etablis.rcEtabl" for="field_rcEtabl">Rc Etabl</label>
+                    <input type="text" class="form-control" name="rcEtabl" id="field_rcEtabl"
+                           formControlName="rcEtabl"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.etablis.emailEtabl" for="field_emailEtabl">Email Etabl</label>
+                    <input type="text" class="form-control" name="emailEtabl" id="field_emailEtabl"
+                           formControlName="emailEtabl"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.etablis.description" for="field_description">Description</label>
+                    <input type="text" class="form-control" name="description" id="field_description"
+                           formControlName="description"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.etablis.dateCreated" for="field_dateCreated">Date Created</label>
+                    <div class="input-group">
+                        <input id="field_dateCreated" type="text" class="form-control" name="dateCreated" ngbDatepicker #dateCreatedDp="ngbDatepicker" formControlName="dateCreated"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateCreatedDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.etablis.dateUpdated" for="field_dateUpdated">Date Updated</label>
+                    <div class="input-group">
+                        <input id="field_dateUpdated" type="text" class="form-control" name="dateUpdated" ngbDatepicker #dateUpdatedDp="ngbDatepicker" formControlName="dateUpdated"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateUpdatedDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.etablis.userCreated" for="field_userCreated">User Created</label>
+                    <input type="number" class="form-control" name="userCreated" id="field_userCreated"
+                           formControlName="userCreated"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.etablis.userUpdated" for="field_userUpdated">User Updated</label>
+                    <input type="number" class="form-control" name="userUpdated" id="field_userUpdated"
+                           formControlName="userUpdated"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.etablis.userDeleted" for="field_userDeleted">User Deleted</label>
+                    <input type="number" class="form-control" name="userDeleted" id="field_userDeleted"
+                           formControlName="userDeleted"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.etablis.departement" for="field_departement">Departement</label>
+                    <select class="form-control" id="field_departement" name="departement" formControlName="departement">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="departementOption.id === editForm.get('departement')!.value?.id ? editForm.get('departement')!.value : departementOption" *ngFor="let departementOption of departements; trackBy: trackById">{{ departementOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,90 @@
+{
+    "name": "DosMedical",
+    "fields": [
+        {
+            "fieldName": "dateCreation",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "numeroDossierDosMedical",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "niveauDependance",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "etatConscience",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "etatCutane",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "intoleranceMedic",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dateCreated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateUpdated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "userCreated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userUpdated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userDeleted",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "antecedent",
+            "otherEntityRelationshipName": "dosMedical",
+            "relationshipName": "antecedent",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "ficheMedical",
+            "otherEntityRelationshipName": "dossierMedical",
+            "relationshipName": "ficheMedical",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "services",
+            "otherEntityRelationshipName": "dosMedical",
+            "relationshipName": "serv",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "patient",
+            "otherEntityRelationshipName": "dosMedical",
+            "relationshipName": "patient",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200325191000",
+    "entityTableName": "dos_medical",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="typeLit">
+            <h2><span jhiTranslate="hpdApp.typeLit.detail.title">Type Lit</span> {{ typeLit.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.typeLit.codeTypeLit">Code Type Lit</span></dt>
+                <dd>
+                    <span>{{ typeLit.codeTypeLit }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeLit.libelleTypeLit">Libelle Type Lit</span></dt>
+                <dd>
+                    <span>{{ typeLit.libelleTypeLit }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeLit.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ typeLit.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeLit.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ typeLit.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeLit.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ typeLit.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeLit.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ typeLit.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeLit.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ typeLit.userDeleted }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/type-lit', typeLit.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+{
+  "hpdApp": {
+    "civilite": {
+      "home": {
+        "title": "Civilites",
+        "createLabel": "Create a new Civilite",
+        "createOrEditLabel": "Create or edit a Civilite",
+        "notFound": "No Civilites found"
+      },
+      "created": "A new Civilite is created with identifier {{ param }}",
+      "updated": "A Civilite is updated with identifier {{ param }}",
+      "deleted": "A Civilite is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Civilite {{ id }}?"
+      },
+      "detail": {
+        "title": "Civilite"
+      },
+      "libelleCivilite": "Libelle Civilite",
+      "intituleCivilite": "Intitule Civilite"
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "hpdApp": {
+    "etablis": {
+      "home": {
+        "title": "Etablis",
+        "createLabel": "Créer un nouveau Etablis",
+        "createOrEditLabel": "Créer ou éditer un Etablis",
+        "notFound": "Aucun Etablis trouvé"
+      },
+      "created": "Un nouveau Etablis a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Etablis avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Etablis avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Etablis {{ id }} ?"
+      },
+      "detail": {
+        "title": "Etablis"
+      },
+      "codeEtabl": "Code Etabl",
+      "raisonSocialeEtabl": "Raison Sociale Etabl",
+      "adresseEtabl": "Adresse Etabl",
+      "telephoneEtabl": "Telephone Etabl",
+      "nineaEtabl": "Ninea Etabl",
+      "rcEtabl": "Rc Etabl",
+      "emailEtabl": "Email Etabl",
+      "description": "Description",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted",
+      "departement": "Departement"
+    }
+  }
+}

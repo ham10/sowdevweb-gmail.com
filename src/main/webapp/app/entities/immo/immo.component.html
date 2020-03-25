@@ -1,0 +1,103 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hpdApp.immo.home.title">Immos</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-immo" [routerLink]="['/immo/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hpdApp.immo.home.createLabel">
+            Create a new Immo
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="immos?.length === 0">
+        <span jhiTranslate="hpdApp.immo.home.notFound">No immos found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="immos?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="libelle"><span jhiTranslate="hpdApp.immo.libelle">Libelle</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="valeurAquisition"><span jhiTranslate="hpdApp.immo.valeurAquisition">Valeur Aquisition</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateAquisition"><span jhiTranslate="hpdApp.immo.dateAquisition">Date Aquisition</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="valeurNetComptable"><span jhiTranslate="hpdApp.immo.valeurNetComptable">Valeur Net Comptable</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="montant"><span jhiTranslate="hpdApp.immo.montant">Montant</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="duree"><span jhiTranslate="hpdApp.immo.duree">Duree</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="nbreEcheance"><span jhiTranslate="hpdApp.immo.nbreEcheance">Nbre Echeance</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateCreated"><span jhiTranslate="hpdApp.immo.dateCreated">Date Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateUpdated"><span jhiTranslate="hpdApp.immo.dateUpdated">Date Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateDeleted"><span jhiTranslate="hpdApp.immo.dateDeleted">Date Deleted</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userCreated"><span jhiTranslate="hpdApp.immo.userCreated">User Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userUpdated"><span jhiTranslate="hpdApp.immo.userUpdated">User Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userDeleted"><span jhiTranslate="hpdApp.immo.userDeleted">User Deleted</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="operation.id"><span jhiTranslate="hpdApp.immo.operation">Operation</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="typeImmo.id"><span jhiTranslate="hpdApp.immo.typeImmo">Type Immo</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="tableauAmortissement.id"><span jhiTranslate="hpdApp.immo.tableauAmortissement">Tableau Amortissement</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let immo of immos ;trackBy: trackId">
+                    <td><a [routerLink]="['/immo', immo.id, 'view']">{{ immo.id }}</a></td>
+                    <td>{{ immo.libelle }}</td>
+                    <td>{{ immo.valeurAquisition }}</td>
+                    <td>{{ immo.dateAquisition | date:'mediumDate' }}</td>
+                    <td>{{ immo.valeurNetComptable }}</td>
+                    <td>{{ immo.montant }}</td>
+                    <td>{{ immo.duree }}</td>
+                    <td>{{ immo.nbreEcheance }}</td>
+                    <td>{{ immo.dateCreated | date:'mediumDate' }}</td>
+                    <td>{{ immo.dateUpdated | date:'mediumDate' }}</td>
+                    <td>{{ immo.dateDeleted | date:'mediumDate' }}</td>
+                    <td>{{ immo.userCreated }}</td>
+                    <td>{{ immo.userUpdated }}</td>
+                    <td>{{ immo.userDeleted }}</td>
+                    <td>
+                        <div *ngIf="immo.operation">
+                            <a [routerLink]="['/operation', immo.operation?.id, 'view']" >{{ immo.operation?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="immo.typeImmo">
+                            <a [routerLink]="['/type-immo', immo.typeImmo?.id, 'view']" >{{ immo.typeImmo?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="immo.tableauAmortissement">
+                            <a [routerLink]="['/tab-amortis', immo.tableauAmortissement?.id, 'view']" >{{ immo.tableauAmortissement?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/immo', immo.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/immo', immo.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(immo)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

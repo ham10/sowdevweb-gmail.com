@@ -1,0 +1,70 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="calendrier">
+            <h2><span jhiTranslate="hpdApp.calendrier.detail.title">Calendrier</span> {{ calendrier.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.calendrier.libelleCalendrier">Libelle Calendrier</span></dt>
+                <dd>
+                    <span>{{ calendrier.libelleCalendrier }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.calendrier.heureDebut">Heure Debut</span></dt>
+                <dd>
+                    <span>{{ calendrier.heureDebut }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.calendrier.heureFin">Heure Fin</span></dt>
+                <dd>
+                    <span>{{ calendrier.heureFin }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.calendrier.dateDebut">Date Debut</span></dt>
+                <dd>
+                    <span>{{ calendrier.dateDebut }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.calendrier.dateFin">Date Fin</span></dt>
+                <dd>
+                    <span>{{ calendrier.dateFin }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.calendrier.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ calendrier.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.calendrier.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ calendrier.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.calendrier.dateDeleted">Date Deleted</span></dt>
+                <dd>
+                    <span>{{ calendrier.dateDeleted }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.calendrier.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ calendrier.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.calendrier.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ calendrier.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.calendrier.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ calendrier.userDeleted }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/calendrier', calendrier.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

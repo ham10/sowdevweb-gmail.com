@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity Famille.
+    -->
+    <changeSet id="20200325194300-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="type_tarif_id"
+                                 baseTableName="famille"
+                                 constraintName="fk_famille_type_tarif_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="type_tarif"/>
+
+    </changeSet>
+</databaseChangeLog>

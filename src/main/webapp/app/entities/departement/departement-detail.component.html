@@ -1,0 +1,60 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="departement">
+            <h2><span jhiTranslate="hpdApp.departement.detail.title">Departement</span> {{ departement.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.departement.codeDepartement">Code Departement</span></dt>
+                <dd>
+                    <span>{{ departement.codeDepartement }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.departement.libelleDepartement">Libelle Departement</span></dt>
+                <dd>
+                    <span>{{ departement.libelleDepartement }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.departement.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ departement.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.departement.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ departement.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.departement.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ departement.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.departement.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ departement.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.departement.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ departement.userDeleted }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.departement.region">Region</span></dt>
+                <dd>
+                    <div *ngIf="departement.region">
+                        <a [routerLink]="['/region', departement.region?.id, 'view']">{{ departement.region?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/departement', departement.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

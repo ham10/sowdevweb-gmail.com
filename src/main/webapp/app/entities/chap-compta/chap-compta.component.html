@@ -1,0 +1,83 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hpdApp.chapCompta.home.title">Chap Comptas</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-chap-compta" [routerLink]="['/chap-compta/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hpdApp.chapCompta.home.createLabel">
+            Create a new Chap Compta
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="chapComptas?.length === 0">
+        <span jhiTranslate="hpdApp.chapCompta.home.notFound">No chapComptas found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="chapComptas?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="numeroChapCompta"><span jhiTranslate="hpdApp.chapCompta.numeroChapCompta">Numero Chap Compta</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="libelleChapCompta"><span jhiTranslate="hpdApp.chapCompta.libelleChapCompta">Libelle Chap Compta</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="sensChapCompta"><span jhiTranslate="hpdApp.chapCompta.sensChapCompta">Sens Chap Compta</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="soldeChapCompta"><span jhiTranslate="hpdApp.chapCompta.soldeChapCompta">Solde Chap Compta</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="cumulMouvDebitChapCompta"><span jhiTranslate="hpdApp.chapCompta.cumulMouvDebitChapCompta">Cumul Mouv Debit Chap Compta</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="cumulMouvCreditChapCompta"><span jhiTranslate="hpdApp.chapCompta.cumulMouvCreditChapCompta">Cumul Mouv Credit Chap Compta</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateCreated"><span jhiTranslate="hpdApp.chapCompta.dateCreated">Date Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateUpdated"><span jhiTranslate="hpdApp.chapCompta.dateUpdated">Date Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateDeleted"><span jhiTranslate="hpdApp.chapCompta.dateDeleted">Date Deleted</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userCreated"><span jhiTranslate="hpdApp.chapCompta.userCreated">User Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userUpdated"><span jhiTranslate="hpdApp.chapCompta.userUpdated">User Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userDeleted"><span jhiTranslate="hpdApp.chapCompta.userDeleted">User Deleted</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let chapCompta of chapComptas ;trackBy: trackId">
+                    <td><a [routerLink]="['/chap-compta', chapCompta.id, 'view']">{{ chapCompta.id }}</a></td>
+                    <td>{{ chapCompta.numeroChapCompta }}</td>
+                    <td>{{ chapCompta.libelleChapCompta }}</td>
+                    <td>{{ chapCompta.sensChapCompta }}</td>
+                    <td>{{ chapCompta.soldeChapCompta }}</td>
+                    <td>{{ chapCompta.cumulMouvDebitChapCompta }}</td>
+                    <td>{{ chapCompta.cumulMouvCreditChapCompta }}</td>
+                    <td>{{ chapCompta.dateCreated | date:'mediumDate' }}</td>
+                    <td>{{ chapCompta.dateUpdated | date:'mediumDate' }}</td>
+                    <td>{{ chapCompta.dateDeleted | date:'mediumDate' }}</td>
+                    <td>{{ chapCompta.userCreated }}</td>
+                    <td>{{ chapCompta.userUpdated }}</td>
+                    <td>{{ chapCompta.userDeleted }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/chap-compta', chapCompta.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/chap-compta', chapCompta.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(chapCompta)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

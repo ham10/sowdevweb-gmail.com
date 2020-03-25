@@ -1,0 +1,56 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="rDV">
+            <h2><span jhiTranslate="hpdApp.rDV.detail.title">RDV</span> {{ rDV.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.rDV.numRdv">Num Rdv</span></dt>
+                <dd>
+                    <span>{{ rDV.numRdv }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.rDV.dateRdv">Date Rdv</span></dt>
+                <dd>
+                    <span>{{ rDV.dateRdv }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.rDV.heureRdv">Heure Rdv</span></dt>
+                <dd>
+                    <span>{{ rDV.heureRdv }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.rDV.patient">Patient</span></dt>
+                <dd>
+                    <div *ngIf="rDV.patient">
+                        <a [routerLink]="['/patient', rDV.patient?.id, 'view']">{{ rDV.patient?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.rDV.planning">Planning</span></dt>
+                <dd>
+                    <div *ngIf="rDV.planning">
+                        <a [routerLink]="['/planning', rDV.planning?.id, 'view']">{{ rDV.planning?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.rDV.etatRDV">Etat RDV</span></dt>
+                <dd>
+                    <div *ngIf="rDV.etatRDV">
+                        <a [routerLink]="['/etat-rdv', rDV.etatRDV?.id, 'view']">{{ rDV.etatRDV?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/rdv', rDV.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

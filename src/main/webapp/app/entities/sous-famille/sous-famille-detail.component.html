@@ -1,0 +1,68 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="sousFamille">
+            <h2><span jhiTranslate="hpdApp.sousFamille.detail.title">Sous Famille</span> {{ sousFamille.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.sousFamille.code">Code</span></dt>
+                <dd>
+                    <span>{{ sousFamille.code }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.sousFamille.libelle">Libelle</span></dt>
+                <dd>
+                    <span>{{ sousFamille.libelle }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.sousFamille.description">Description</span></dt>
+                <dd>
+                    <span>{{ sousFamille.description }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.sousFamille.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ sousFamille.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.sousFamille.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ sousFamille.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.sousFamille.dateDeleted">Date Deleted</span></dt>
+                <dd>
+                    <span>{{ sousFamille.dateDeleted }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.sousFamille.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ sousFamille.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.sousFamille.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ sousFamille.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.sousFamille.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ sousFamille.userDeleted }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.sousFamille.famille">Famille</span></dt>
+                <dd>
+                    <div *ngIf="sousFamille.famille">
+                        <a [routerLink]="['/famille', sousFamille.famille?.id, 'view']">{{ sousFamille.famille?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/sous-famille', sousFamille.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

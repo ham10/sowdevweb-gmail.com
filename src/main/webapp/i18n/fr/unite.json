@@ -1,0 +1,30 @@
+{
+  "hpdApp": {
+    "unite": {
+      "home": {
+        "title": "Unites",
+        "createLabel": "Créer un nouveau Unite",
+        "createOrEditLabel": "Créer ou éditer un Unite",
+        "notFound": "Aucun Unite trouvé"
+      },
+      "created": "Un nouveau Unite a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Unite avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Unite avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Unite {{ id }} ?"
+      },
+      "detail": {
+        "title": "Unite"
+      },
+      "codeUnite": "Code Unite",
+      "libelleUnite": "Libelle Unite",
+      "descriptionUnite": "Description Unite",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted",
+      "typeUnite": "Type Unite"
+    }
+  }
+}

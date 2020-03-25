@@ -1,0 +1,64 @@
+{
+    "name": "HoraireCon",
+    "fields": [
+        {
+            "fieldName": "heureDebutHC",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "heureFinHC",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateDebutHC",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateFinHC",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateCreated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateUpdated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateDeleted",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "userCreated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userUpdated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userDeleted",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "jour",
+            "otherEntityRelationshipName": "horaireCon",
+            "relationshipName": "jour",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200325182800",
+    "entityTableName": "horaire_con",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

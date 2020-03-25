@@ -1,0 +1,90 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-produit-heading" jhiTranslate="hpdApp.produit.home.createOrEditLabel">Create or edit a Produit</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.produit.code" for="field_code">Code</label>
+                    <input type="text" class="form-control" name="code" id="field_code"
+                           formControlName="code"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.produit.libelle" for="field_libelle">Libelle</label>
+                    <input type="text" class="form-control" name="libelle" id="field_libelle"
+                           formControlName="libelle"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.produit.quantiteStock" for="field_quantiteStock">Quantite Stock</label>
+                    <input type="number" class="form-control" name="quantiteStock" id="field_quantiteStock"
+                           formControlName="quantiteStock"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.produit.stockProvisoire" for="field_stockProvisoire">Stock Provisoire</label>
+                    <input type="number" class="form-control" name="stockProvisoire" id="field_stockProvisoire"
+                           formControlName="stockProvisoire"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.produit.tva" for="field_tva">Tva</label>
+                    <input type="checkbox" class="form-control" name="tva" id="field_tva"
+                           formControlName="tva"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.produit.prixVenteUnitaire" for="field_prixVenteUnitaire">Prix Vente Unitaire</label>
+                    <input type="number" class="form-control" name="prixVenteUnitaire" id="field_prixVenteUnitaire"
+                           formControlName="prixVenteUnitaire"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.produit.codeBarre" for="field_codeBarre">Code Barre</label>
+                    <input type="text" class="form-control" name="codeBarre" id="field_codeBarre"
+                           formControlName="codeBarre"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.produit.seuil" for="field_seuil">Seuil</label>
+                    <input type="number" class="form-control" name="seuil" id="field_seuil"
+                           formControlName="seuil"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.produit.etagere" for="field_etagere">Etagere</label>
+                    <select class="form-control" id="field_etagere" name="etagere" formControlName="etagere">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="etagereOption.id === editForm.get('etagere')!.value?.id ? editForm.get('etagere')!.value : etagereOption" *ngFor="let etagereOption of etageres; trackBy: trackById">{{ etagereOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.produit.typeproduit" for="field_typeproduit">Typeproduit</label>
+                    <select class="form-control" id="field_typeproduit" name="typeproduit" formControlName="typeproduit">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="typeProdOption.id === editForm.get('typeproduit')!.value?.id ? editForm.get('typeproduit')!.value : typeProdOption" *ngFor="let typeProdOption of typeprods; trackBy: trackById">{{ typeProdOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

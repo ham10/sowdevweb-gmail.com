@@ -1,0 +1,56 @@
+{
+    "name": "Evenement",
+    "fields": [
+        {
+            "fieldName": "heure",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "eventName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dateCreated",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "userCreated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userUpdated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "idEntity",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "entityToucher",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "activite",
+            "otherEntityRelationshipName": "evenement",
+            "relationshipName": "activite",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200325190600",
+    "entityTableName": "evenement",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

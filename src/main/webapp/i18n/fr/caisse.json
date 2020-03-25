@@ -1,0 +1,32 @@
+{
+  "hpdApp": {
+    "caisse": {
+      "home": {
+        "title": "Caisses",
+        "createLabel": "Créer un nouveau Caisse",
+        "createOrEditLabel": "Créer ou éditer un Caisse",
+        "notFound": "Aucun Caisse trouvé"
+      },
+      "created": "Un nouveau Caisse a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Caisse avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Caisse avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Caisse {{ id }} ?"
+      },
+      "detail": {
+        "title": "Caisse"
+      },
+      "numero": "Numero",
+      "soldeMin": "Solde Min",
+      "soldeMax": "Solde Max",
+      "montant": "Montant",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "dateDeleted": "Date Deleted",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted",
+      "operation": "Operation"
+    }
+  }
+}

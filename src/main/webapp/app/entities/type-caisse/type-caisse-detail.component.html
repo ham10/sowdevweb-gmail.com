@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="typeCaisse">
+            <h2><span jhiTranslate="hpdApp.typeCaisse.detail.title">Type Caisse</span> {{ typeCaisse.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.typeCaisse.codeTypeCaisse">Code Type Caisse</span></dt>
+                <dd>
+                    <span>{{ typeCaisse.codeTypeCaisse }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeCaisse.libelleTypeCaisse">Libelle Type Caisse</span></dt>
+                <dd>
+                    <span>{{ typeCaisse.libelleTypeCaisse }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeCaisse.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ typeCaisse.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeCaisse.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ typeCaisse.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeCaisse.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ typeCaisse.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeCaisse.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ typeCaisse.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeCaisse.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ typeCaisse.userDeleted }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/type-caisse', typeCaisse.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,108 @@
+{
+    "name": "FicheMedical",
+    "fields": [
+        {
+            "fieldName": "numeroFicheMedical",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dateConsultation",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "facteurRisque",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "regimeAlimentaire",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "diagnostic",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "recommandations",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "commentaires",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dateProchainRV",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateCreated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateUpdated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "userCreated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userUpdated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userDeleted",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "dosMedical",
+            "otherEntityRelationshipName": "ficheMedical",
+            "relationshipName": "dossierMedical"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "resultatActe",
+            "otherEntityRelationshipName": "ficheMedical",
+            "relationshipName": "resultatActe"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "ordonnance",
+            "otherEntityRelationshipName": "ficheMedical",
+            "relationshipName": "ordonnance"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "vaccin",
+            "otherEntityRelationshipName": "ficheMedical",
+            "relationshipName": "vaccin"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "medecin",
+            "otherEntityRelationshipName": "ficheMedical",
+            "relationshipName": "medecin",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "typeConstante",
+            "otherEntityRelationshipName": "ficheMedical",
+            "relationshipName": "typeConstante",
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20200325190900",
+    "entityTableName": "fiche_medical",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,28 @@
+{
+  "hpdApp": {
+    "typeDoc": {
+      "home": {
+        "title": "Type Docs",
+        "createLabel": "Create a new Type Doc",
+        "createOrEditLabel": "Create or edit a Type Doc",
+        "notFound": "No Type Docs found"
+      },
+      "created": "A new Type Doc is created with identifier {{ param }}",
+      "updated": "A Type Doc is updated with identifier {{ param }}",
+      "deleted": "A Type Doc is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Type Doc {{ id }}?"
+      },
+      "detail": {
+        "title": "Type Doc"
+      },
+      "codeTypeDoc": "Code Type Doc",
+      "libelleTypeDoc": "Libelle Type Doc",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted"
+    }
+  }
+}

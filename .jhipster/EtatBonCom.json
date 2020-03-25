@@ -1,0 +1,31 @@
+{
+    "name": "EtatBonCom",
+    "fields": [
+        {
+            "fieldName": "libelle",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "code",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "bonDeCommande",
+            "otherEntityRelationshipName": "etatBonCommande",
+            "relationshipName": "bonDeCommande"
+        }
+    ],
+    "changelogDate": "20200325192300",
+    "entityTableName": "etat_bon_com",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

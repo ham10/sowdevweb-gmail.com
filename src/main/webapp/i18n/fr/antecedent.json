@@ -1,0 +1,30 @@
+{
+  "hpdApp": {
+    "antecedent": {
+      "home": {
+        "title": "Antecedents",
+        "createLabel": "Créer un nouveau Antecedent",
+        "createOrEditLabel": "Créer ou éditer un Antecedent",
+        "notFound": "Aucun Antecedent trouvé"
+      },
+      "created": "Un nouveau Antecedent a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Antecedent avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Antecedent avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Antecedent {{ id }} ?"
+      },
+      "detail": {
+        "title": "Antecedent"
+      },
+      "libelle": "Libelle",
+      "description": "Description",
+      "date": "Date",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted",
+      "dosMedical": "Dos Medical"
+    }
+  }
+}

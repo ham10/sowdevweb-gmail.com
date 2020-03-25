@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity DosMedical.
+    -->
+    <changeSet id="20200325191000-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="dos_medical_id"
+                                 baseTableName="dos_medical_antecedent"
+                                 constraintName="fk_dos_medical_antecedent_dos_medical_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="dos_medical"/>
+
+        <addForeignKeyConstraint baseColumnNames="antecedent_id"
+                                 baseTableName="dos_medical_antecedent"
+                                 constraintName="fk_dos_medical_antecedent_antecedent_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="antecedent"/>
+        
+        <addForeignKeyConstraint baseColumnNames="fiche_medical_id"
+                                 baseTableName="dos_medical"
+                                 constraintName="fk_dos_medical_fiche_medical_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="fiche_medical"/>
+
+        <addForeignKeyConstraint baseColumnNames="serv_id"
+                                 baseTableName="dos_medical"
+                                 constraintName="fk_dos_medical_serv_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="services"/>
+
+        <addForeignKeyConstraint baseColumnNames="patient_id"
+                                 baseTableName="dos_medical"
+                                 constraintName="fk_dos_medical_patient_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="patient"/>
+
+    </changeSet>
+</databaseChangeLog>

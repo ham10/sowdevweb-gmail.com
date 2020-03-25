@@ -1,0 +1,51 @@
+{
+    "name": "ProdFournis",
+    "fields": [
+        {
+            "fieldName": "stock",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nom",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "ligneLivraison",
+            "otherEntityRelationshipName": "produitFournisseur",
+            "relationshipName": "ligneLivraison"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "ligneCommande",
+            "otherEntityRelationshipName": "produitFournisseur",
+            "relationshipName": "ligneCommande"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "produit",
+            "otherEntityRelationshipName": "prodFournis",
+            "relationshipName": "produit",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "fournisseur",
+            "otherEntityRelationshipName": "prodFournis",
+            "relationshipName": "fournisseur",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200325195000",
+    "entityTableName": "prod_fournis",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

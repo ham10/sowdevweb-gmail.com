@@ -1,0 +1,29 @@
+{
+  "hpdApp": {
+    "etatFacture": {
+      "home": {
+        "title": "EtatFactures",
+        "createLabel": "Créer un nouveau Etat Facture",
+        "createOrEditLabel": "Créer ou éditer un Etat Facture",
+        "notFound": "Aucun Etat Facture trouvé"
+      },
+      "created": "Un nouveau Etat Facture a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Etat Facture avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Etat Facture avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Etat Facture {{ id }} ?"
+      },
+      "detail": {
+        "title": "Etat Facture"
+      },
+      "code": "Code",
+      "libelle": "Libelle",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "dateDeleted": "Date Deleted",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted"
+    }
+  }
+}

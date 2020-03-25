@@ -1,0 +1,29 @@
+{
+  "hpdApp": {
+    "typeSoins": {
+      "home": {
+        "title": "Type Soins",
+        "createLabel": "Create a new Type Soins",
+        "createOrEditLabel": "Create or edit a Type Soins",
+        "notFound": "No Type Soins found"
+      },
+      "created": "A new Type Soins is created with identifier {{ param }}",
+      "updated": "A Type Soins is updated with identifier {{ param }}",
+      "deleted": "A Type Soins is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Type Soins {{ id }}?"
+      },
+      "detail": {
+        "title": "Type Soins"
+      },
+      "codeTypeSoins": "Code Type Soins",
+      "libelleTypeSoins": "Libelle Type Soins",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted",
+      "tarif": "Tarif"
+    }
+  }
+}

@@ -1,0 +1,169 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-hospitalisation-heading" jhiTranslate="hpdApp.hospitalisation.home.createOrEditLabel">Create or edit a Hospitalisation</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.hospitalisation.dateEntre" for="field_dateEntre">Date Entre</label>
+                    <div class="input-group">
+                        <input id="field_dateEntre" type="text" class="form-control" name="dateEntre" ngbDatepicker #dateEntreDp="ngbDatepicker" formControlName="dateEntre"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateEntreDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.hospitalisation.dateSortie" for="field_dateSortie">Date Sortie</label>
+                    <div class="input-group">
+                        <input id="field_dateSortie" type="text" class="form-control" name="dateSortie" ngbDatepicker #dateSortieDp="ngbDatepicker" formControlName="dateSortie"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateSortieDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.hospitalisation.observation" for="field_observation">Observation</label>
+                    <input type="text" class="form-control" name="observation" id="field_observation"
+                           formControlName="observation"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.hospitalisation.modeSortie" for="field_modeSortie">Mode Sortie</label>
+                    <input type="text" class="form-control" name="modeSortie" id="field_modeSortie"
+                           formControlName="modeSortie"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.hospitalisation.objetPatient" for="field_objetPatient">Objet Patient</label>
+                    <input type="text" class="form-control" name="objetPatient" id="field_objetPatient"
+                           formControlName="objetPatient"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.hospitalisation.dateAccouchement" for="field_dateAccouchement">Date Accouchement</label>
+                    <div class="d-flex">
+                        <input id="field_dateAccouchement" type="datetime-local" class="form-control" name="dateAccouchement" formControlName="dateAccouchement" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.hospitalisation.dateOperation" for="field_dateOperation">Date Operation</label>
+                    <div class="input-group">
+                        <input id="field_dateOperation" type="text" class="form-control" name="dateOperation" ngbDatepicker #dateOperationDp="ngbDatepicker" formControlName="dateOperation"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateOperationDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.hospitalisation.dateReveil" for="field_dateReveil">Date Reveil</label>
+                    <div class="input-group">
+                        <input id="field_dateReveil" type="text" class="form-control" name="dateReveil" ngbDatepicker #dateReveilDp="ngbDatepicker" formControlName="dateReveil"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateReveilDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.hospitalisation.poidsBebe" for="field_poidsBebe">Poids Bebe</label>
+                    <input type="number" class="form-control" name="poidsBebe" id="field_poidsBebe"
+                           formControlName="poidsBebe"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.hospitalisation.tailleBebe" for="field_tailleBebe">Taille Bebe</label>
+                    <input type="number" class="form-control" name="tailleBebe" id="field_tailleBebe"
+                           formControlName="tailleBebe"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.hospitalisation.poidsPlacenta" for="field_poidsPlacenta">Poids Placenta</label>
+                    <input type="number" class="form-control" name="poidsPlacenta" id="field_poidsPlacenta"
+                           formControlName="poidsPlacenta"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.hospitalisation.genreBebe" for="field_genreBebe">Genre Bebe</label>
+                    <input type="text" class="form-control" name="genreBebe" id="field_genreBebe"
+                           formControlName="genreBebe"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.hospitalisation.dateCreated" for="field_dateCreated">Date Created</label>
+                    <div class="input-group">
+                        <input id="field_dateCreated" type="text" class="form-control" name="dateCreated" ngbDatepicker #dateCreatedDp="ngbDatepicker" formControlName="dateCreated"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateCreatedDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.hospitalisation.dateUpdated" for="field_dateUpdated">Date Updated</label>
+                    <div class="input-group">
+                        <input id="field_dateUpdated" type="text" class="form-control" name="dateUpdated" ngbDatepicker #dateUpdatedDp="ngbDatepicker" formControlName="dateUpdated"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateUpdatedDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.hospitalisation.userCreated" for="field_userCreated">User Created</label>
+                    <input type="number" class="form-control" name="userCreated" id="field_userCreated"
+                           formControlName="userCreated"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.hospitalisation.userUpdated" for="field_userUpdated">User Updated</label>
+                    <input type="number" class="form-control" name="userUpdated" id="field_userUpdated"
+                           formControlName="userUpdated"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.hospitalisation.userDeleted" for="field_userDeleted">User Deleted</label>
+                    <input type="number" class="form-control" name="userDeleted" id="field_userDeleted"
+                           formControlName="userDeleted"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.hospitalisation.lit" for="field_lit">Lit</label>
+                    <select class="form-control" id="field_lit" name="lit" formControlName="lit">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="litOption.id === editForm.get('lit')!.value?.id ? editForm.get('lit')!.value : litOption" *ngFor="let litOption of lits; trackBy: trackById">{{ litOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.hospitalisation.patient" for="field_patient">Patient</label>
+                    <select class="form-control" id="field_patient" name="patient" formControlName="patient">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="patientOption.id === editForm.get('patient')!.value?.id ? editForm.get('patient')!.value : patientOption" *ngFor="let patientOption of patients; trackBy: trackById">{{ patientOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+{
+  "hpdApp": {
+    "jourFerie": {
+      "home": {
+        "title": "Jour Feries",
+        "createLabel": "Create a new Jour Ferie",
+        "createOrEditLabel": "Create or edit a Jour Ferie",
+        "notFound": "No Jour Feries found"
+      },
+      "created": "A new Jour Ferie is created with identifier {{ param }}",
+      "updated": "A Jour Ferie is updated with identifier {{ param }}",
+      "deleted": "A Jour Ferie is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Jour Ferie {{ id }}?"
+      },
+      "detail": {
+        "title": "Jour Ferie"
+      },
+      "libelleJourFerie": "Libelle Jour Ferie",
+      "dateJourFerie": "Date Jour Ferie",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted"
+    }
+  }
+}

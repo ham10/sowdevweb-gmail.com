@@ -1,0 +1,34 @@
+{
+  "hpdApp": {
+    "offre": {
+      "home": {
+        "title": "Offres",
+        "createLabel": "Créer un nouveau Offre",
+        "createOrEditLabel": "Créer ou éditer un Offre",
+        "notFound": "Aucun Offre trouvé"
+      },
+      "created": "Un nouveau Offre a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Offre avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Offre avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Offre {{ id }} ?"
+      },
+      "detail": {
+        "title": "Offre"
+      },
+      "libelle": "Libelle",
+      "date": "Date",
+      "montant": "Montant",
+      "taxe": "Taxe",
+      "numMarche": "Num Marche",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "dateDeleted": "Date Deleted",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted",
+      "bonDeCommande": "Bon De Commande",
+      "fournisseur": "Fournisseur"
+    }
+  }
+}

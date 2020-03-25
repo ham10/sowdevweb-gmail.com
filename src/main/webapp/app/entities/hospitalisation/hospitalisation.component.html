@@ -1,0 +1,105 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hpdApp.hospitalisation.home.title">Hospitalisations</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-hospitalisation" [routerLink]="['/hospitalisation/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hpdApp.hospitalisation.home.createLabel">
+            Create a new Hospitalisation
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="hospitalisations?.length === 0">
+        <span jhiTranslate="hpdApp.hospitalisation.home.notFound">No hospitalisations found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="hospitalisations?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateEntre"><span jhiTranslate="hpdApp.hospitalisation.dateEntre">Date Entre</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateSortie"><span jhiTranslate="hpdApp.hospitalisation.dateSortie">Date Sortie</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="observation"><span jhiTranslate="hpdApp.hospitalisation.observation">Observation</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="modeSortie"><span jhiTranslate="hpdApp.hospitalisation.modeSortie">Mode Sortie</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="objetPatient"><span jhiTranslate="hpdApp.hospitalisation.objetPatient">Objet Patient</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateAccouchement"><span jhiTranslate="hpdApp.hospitalisation.dateAccouchement">Date Accouchement</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateOperation"><span jhiTranslate="hpdApp.hospitalisation.dateOperation">Date Operation</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateReveil"><span jhiTranslate="hpdApp.hospitalisation.dateReveil">Date Reveil</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="poidsBebe"><span jhiTranslate="hpdApp.hospitalisation.poidsBebe">Poids Bebe</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="tailleBebe"><span jhiTranslate="hpdApp.hospitalisation.tailleBebe">Taille Bebe</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="poidsPlacenta"><span jhiTranslate="hpdApp.hospitalisation.poidsPlacenta">Poids Placenta</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="genreBebe"><span jhiTranslate="hpdApp.hospitalisation.genreBebe">Genre Bebe</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateCreated"><span jhiTranslate="hpdApp.hospitalisation.dateCreated">Date Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateUpdated"><span jhiTranslate="hpdApp.hospitalisation.dateUpdated">Date Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userCreated"><span jhiTranslate="hpdApp.hospitalisation.userCreated">User Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userUpdated"><span jhiTranslate="hpdApp.hospitalisation.userUpdated">User Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userDeleted"><span jhiTranslate="hpdApp.hospitalisation.userDeleted">User Deleted</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lit.id"><span jhiTranslate="hpdApp.hospitalisation.lit">Lit</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="patient.id"><span jhiTranslate="hpdApp.hospitalisation.patient">Patient</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let hospitalisation of hospitalisations ;trackBy: trackId">
+                    <td><a [routerLink]="['/hospitalisation', hospitalisation.id, 'view']">{{ hospitalisation.id }}</a></td>
+                    <td>{{ hospitalisation.dateEntre | date:'mediumDate' }}</td>
+                    <td>{{ hospitalisation.dateSortie | date:'mediumDate' }}</td>
+                    <td>{{ hospitalisation.observation }}</td>
+                    <td>{{ hospitalisation.modeSortie }}</td>
+                    <td>{{ hospitalisation.objetPatient }}</td>
+                    <td>{{ hospitalisation.dateAccouchement | date:'medium' }}</td>
+                    <td>{{ hospitalisation.dateOperation | date:'mediumDate' }}</td>
+                    <td>{{ hospitalisation.dateReveil | date:'mediumDate' }}</td>
+                    <td>{{ hospitalisation.poidsBebe }}</td>
+                    <td>{{ hospitalisation.tailleBebe }}</td>
+                    <td>{{ hospitalisation.poidsPlacenta }}</td>
+                    <td>{{ hospitalisation.genreBebe }}</td>
+                    <td>{{ hospitalisation.dateCreated | date:'mediumDate' }}</td>
+                    <td>{{ hospitalisation.dateUpdated | date:'mediumDate' }}</td>
+                    <td>{{ hospitalisation.userCreated }}</td>
+                    <td>{{ hospitalisation.userUpdated }}</td>
+                    <td>{{ hospitalisation.userDeleted }}</td>
+                    <td>
+                        <div *ngIf="hospitalisation.lit">
+                            <a [routerLink]="['/lit', hospitalisation.lit?.id, 'view']" >{{ hospitalisation.lit?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="hospitalisation.patient">
+                            <a [routerLink]="['/patient', hospitalisation.patient?.id, 'view']" >{{ hospitalisation.patient?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/hospitalisation', hospitalisation.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/hospitalisation', hospitalisation.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(hospitalisation)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

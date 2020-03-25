@@ -1,0 +1,87 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hpdApp.produit.home.title">Produits</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-produit" [routerLink]="['/produit/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hpdApp.produit.home.createLabel">
+            Create a new Produit
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="produits?.length === 0">
+        <span jhiTranslate="hpdApp.produit.home.notFound">No produits found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="produits?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="code"><span jhiTranslate="hpdApp.produit.code">Code</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="libelle"><span jhiTranslate="hpdApp.produit.libelle">Libelle</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="quantiteStock"><span jhiTranslate="hpdApp.produit.quantiteStock">Quantite Stock</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="stockProvisoire"><span jhiTranslate="hpdApp.produit.stockProvisoire">Stock Provisoire</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="tva"><span jhiTranslate="hpdApp.produit.tva">Tva</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="prixVenteUnitaire"><span jhiTranslate="hpdApp.produit.prixVenteUnitaire">Prix Vente Unitaire</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="codeBarre"><span jhiTranslate="hpdApp.produit.codeBarre">Code Barre</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="seuil"><span jhiTranslate="hpdApp.produit.seuil">Seuil</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="etagere.id"><span jhiTranslate="hpdApp.produit.etagere">Etagere</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="typeproduit.id"><span jhiTranslate="hpdApp.produit.typeproduit">Typeproduit</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let produit of produits ;trackBy: trackId">
+                    <td><a [routerLink]="['/produit', produit.id, 'view']">{{ produit.id }}</a></td>
+                    <td>{{ produit.code }}</td>
+                    <td>{{ produit.libelle }}</td>
+                    <td>{{ produit.quantiteStock }}</td>
+                    <td>{{ produit.stockProvisoire }}</td>
+                    <td>{{ produit.tva }}</td>
+                    <td>{{ produit.prixVenteUnitaire }}</td>
+                    <td>{{ produit.codeBarre }}</td>
+                    <td>{{ produit.seuil }}</td>
+                    <td>
+                        <div *ngIf="produit.etagere">
+                            <a [routerLink]="['/etagere', produit.etagere?.id, 'view']" >{{ produit.etagere?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="produit.typeproduit">
+                            <a [routerLink]="['/type-prod', produit.typeproduit?.id, 'view']" >{{ produit.typeproduit?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/produit', produit.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/produit', produit.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(produit)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

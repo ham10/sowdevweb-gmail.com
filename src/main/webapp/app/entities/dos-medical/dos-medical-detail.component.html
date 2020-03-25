@@ -1,0 +1,94 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="dosMedical">
+            <h2><span jhiTranslate="hpdApp.dosMedical.detail.title">Dos Medical</span> {{ dosMedical.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.dosMedical.dateCreation">Date Creation</span></dt>
+                <dd>
+                    <span>{{ dosMedical.dateCreation }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.dosMedical.numeroDossierDosMedical">Numero Dossier Dos Medical</span></dt>
+                <dd>
+                    <span>{{ dosMedical.numeroDossierDosMedical }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.dosMedical.niveauDependance">Niveau Dependance</span></dt>
+                <dd>
+                    <span>{{ dosMedical.niveauDependance }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.dosMedical.etatConscience">Etat Conscience</span></dt>
+                <dd>
+                    <span>{{ dosMedical.etatConscience }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.dosMedical.etatCutane">Etat Cutane</span></dt>
+                <dd>
+                    <span>{{ dosMedical.etatCutane }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.dosMedical.intoleranceMedic">Intolerance Medic</span></dt>
+                <dd>
+                    <span>{{ dosMedical.intoleranceMedic }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.dosMedical.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ dosMedical.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.dosMedical.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ dosMedical.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.dosMedical.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ dosMedical.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.dosMedical.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ dosMedical.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.dosMedical.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ dosMedical.userDeleted }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.dosMedical.antecedent">Antecedent</span></dt>
+                <dd>
+                    <span *ngFor="let antecedent of dosMedical.antecedents; let last = last">
+                        <a [routerLink]="['/antecedent', antecedent?.id, 'view']">{{ antecedent.id }}</a>{{ last ? '' : ', ' }}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.dosMedical.ficheMedical">Fiche Medical</span></dt>
+                <dd>
+                    <div *ngIf="dosMedical.ficheMedical">
+                        <a [routerLink]="['/fiche-medical', dosMedical.ficheMedical?.id, 'view']">{{ dosMedical.ficheMedical?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.dosMedical.serv">Serv</span></dt>
+                <dd>
+                    <div *ngIf="dosMedical.serv">
+                        <a [routerLink]="['/services', dosMedical.serv?.id, 'view']">{{ dosMedical.serv?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.dosMedical.patient">Patient</span></dt>
+                <dd>
+                    <div *ngIf="dosMedical.patient">
+                        <a [routerLink]="['/patient', dosMedical.patient?.id, 'view']">{{ dosMedical.patient?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/dos-medical', dosMedical.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

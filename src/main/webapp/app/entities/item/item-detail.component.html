@@ -1,0 +1,60 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="item">
+            <h2><span jhiTranslate="hpdApp.item.detail.title">Item</span> {{ item.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.item.libelleItem">Libelle Item</span></dt>
+                <dd>
+                    <span>{{ item.libelleItem }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.item.descriptionItem">Description Item</span></dt>
+                <dd>
+                    <span>{{ item.descriptionItem }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.item.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ item.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.item.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ item.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.item.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ item.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.item.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ item.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.item.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ item.userDeleted }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.item.module">Module</span></dt>
+                <dd>
+                    <div *ngIf="item.module">
+                        <a [routerLink]="['/module', item.module?.id, 'view']">{{ item.module?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/item', item.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

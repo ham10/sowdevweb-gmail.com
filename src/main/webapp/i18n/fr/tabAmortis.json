@@ -1,0 +1,32 @@
+{
+  "hpdApp": {
+    "tabAmortis": {
+      "home": {
+        "title": "TabAmortis",
+        "createLabel": "Créer un nouveau Tab Amortis",
+        "createOrEditLabel": "Créer ou éditer un Tab Amortis",
+        "notFound": "Aucun Tab Amortis trouvé"
+      },
+      "created": "Un nouveau Tab Amortis a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Tab Amortis avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Tab Amortis avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Tab Amortis {{ id }} ?"
+      },
+      "detail": {
+        "title": "Tab Amortis"
+      },
+      "libelle": "Libelle",
+      "montant": "Montant",
+      "date": "Date",
+      "etat": "Etat",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "dateDeleted": "Date Deleted",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted",
+      "immo": "Immo"
+    }
+  }
+}

@@ -1,0 +1,134 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-bon-de-commande-heading" jhiTranslate="hpdApp.bonDeCommande.home.createOrEditLabel">Create or edit a Bon De Commande</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.bonDeCommande.numero" for="field_numero">Numero</label>
+                    <input type="text" class="form-control" name="numero" id="field_numero"
+                           formControlName="numero"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.bonDeCommande.libelle" for="field_libelle">Libelle</label>
+                    <input type="text" class="form-control" name="libelle" id="field_libelle"
+                           formControlName="libelle"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.bonDeCommande.prixTotal" for="field_prixTotal">Prix Total</label>
+                    <input type="number" class="form-control" name="prixTotal" id="field_prixTotal"
+                           formControlName="prixTotal"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.bonDeCommande.dateComm" for="field_dateComm">Date Comm</label>
+                    <div class="input-group">
+                        <input id="field_dateComm" type="text" class="form-control" name="dateComm" ngbDatepicker #dateCommDp="ngbDatepicker" formControlName="dateComm"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateCommDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.bonDeCommande.dateCreated" for="field_dateCreated">Date Created</label>
+                    <div class="input-group">
+                        <input id="field_dateCreated" type="text" class="form-control" name="dateCreated" ngbDatepicker #dateCreatedDp="ngbDatepicker" formControlName="dateCreated"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateCreatedDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.bonDeCommande.dateUpdated" for="field_dateUpdated">Date Updated</label>
+                    <div class="input-group">
+                        <input id="field_dateUpdated" type="text" class="form-control" name="dateUpdated" ngbDatepicker #dateUpdatedDp="ngbDatepicker" formControlName="dateUpdated"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateUpdatedDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.bonDeCommande.dateDeleted" for="field_dateDeleted">Date Deleted</label>
+                    <div class="input-group">
+                        <input id="field_dateDeleted" type="text" class="form-control" name="dateDeleted" ngbDatepicker #dateDeletedDp="ngbDatepicker" formControlName="dateDeleted"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateDeletedDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.bonDeCommande.userCreated" for="field_userCreated">User Created</label>
+                    <input type="number" class="form-control" name="userCreated" id="field_userCreated"
+                           formControlName="userCreated"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.bonDeCommande.userUpdated" for="field_userUpdated">User Updated</label>
+                    <input type="number" class="form-control" name="userUpdated" id="field_userUpdated"
+                           formControlName="userUpdated"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.bonDeCommande.userDeleted" for="field_userDeleted">User Deleted</label>
+                    <input type="number" class="form-control" name="userDeleted" id="field_userDeleted"
+                           formControlName="userDeleted"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.bonDeCommande.bonLivraison" for="field_bonLivraison">Bon Livraison</label>
+                    <select class="form-control" id="field_bonLivraison" name="bonLivraison" formControlName="bonLivraison">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="bonLivraisonOption.id === editForm.get('bonLivraison')!.value?.id ? editForm.get('bonLivraison')!.value : bonLivraisonOption" *ngFor="let bonLivraisonOption of bonlivraisons; trackBy: trackById">{{ bonLivraisonOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.bonDeCommande.serv" for="field_serv">Serv</label>
+                    <select class="form-control" id="field_serv" name="serv" formControlName="serv">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="servicesOption.id === editForm.get('serv')!.value?.id ? editForm.get('serv')!.value : servicesOption" *ngFor="let servicesOption of services; trackBy: trackById">{{ servicesOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.bonDeCommande.etatBonCommande" for="field_etatBonCommande">Etat Bon Commande</label>
+                    <select class="form-control" id="field_etatBonCommande" name="etatBonCommande" formControlName="etatBonCommande">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="etatBonComOption.id === editForm.get('etatBonCommande')!.value?.id ? editForm.get('etatBonCommande')!.value : etatBonComOption" *ngFor="let etatBonComOption of etatboncoms; trackBy: trackById">{{ etatBonComOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.bonDeCommande.typeBonDeCommande" for="field_typeBonDeCommande">Type Bon De Commande</label>
+                    <select class="form-control" id="field_typeBonDeCommande" name="typeBonDeCommande" formControlName="typeBonDeCommande">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="typeBonComOption.id === editForm.get('typeBonDeCommande')!.value?.id ? editForm.get('typeBonDeCommande')!.value : typeBonComOption" *ngFor="let typeBonComOption of typeboncoms; trackBy: trackById">{{ typeBonComOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

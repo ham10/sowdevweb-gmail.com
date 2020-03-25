@@ -1,0 +1,29 @@
+{
+  "hpdApp": {
+    "typeSortie": {
+      "home": {
+        "title": "Type Sorties",
+        "createLabel": "Create a new Type Sortie",
+        "createOrEditLabel": "Create or edit a Type Sortie",
+        "notFound": "No Type Sorties found"
+      },
+      "created": "A new Type Sortie is created with identifier {{ param }}",
+      "updated": "A Type Sortie is updated with identifier {{ param }}",
+      "deleted": "A Type Sortie is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Type Sortie {{ id }}?"
+      },
+      "detail": {
+        "title": "Type Sortie"
+      },
+      "codeTypeSortie": "Code Type Sortie",
+      "libelleTypeSortie": "Libelle Type Sortie",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted",
+      "typeMvtStock": "Type Mvt Stock"
+    }
+  }
+}

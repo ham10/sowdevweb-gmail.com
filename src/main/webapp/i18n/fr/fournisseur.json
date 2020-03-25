@@ -1,0 +1,37 @@
+{
+  "hpdApp": {
+    "fournisseur": {
+      "home": {
+        "title": "Fournisseurs",
+        "createLabel": "Créer un nouveau Fournisseur",
+        "createOrEditLabel": "Créer ou éditer un Fournisseur",
+        "notFound": "Aucun Fournisseur trouvé"
+      },
+      "created": "Un nouveau Fournisseur a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Fournisseur avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Fournisseur avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Fournisseur {{ id }} ?"
+      },
+      "detail": {
+        "title": "Fournisseur"
+      },
+      "nom": "Nom",
+      "statut": "Statut",
+      "raisonSociale": "Raison Sociale",
+      "adresse": "Adresse",
+      "telephone": "Telephone",
+      "ninea": "Ninea",
+      "rc": "Rc",
+      "ville": "Ville",
+      "email": "Email",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted",
+      "offre": "Offre",
+      "prodFournis": "Prod Fournis"
+    }
+  }
+}

@@ -1,0 +1,56 @@
+{
+    "name": "Monnaie",
+    "fields": [
+        {
+            "fieldName": "libelleMonnaie",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "montantMonnaie",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "natureMonnaie",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dateCreated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateUpdated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "userCreated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userUpdated",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userDeleted",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "devise",
+            "otherEntityRelationshipName": "monnaie",
+            "relationshipName": "devise",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200325181700",
+    "entityTableName": "monnaie",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

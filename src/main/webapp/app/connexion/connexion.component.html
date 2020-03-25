@@ -1,0 +1,24 @@
+
+<div class="img-row row">
+    <div class="col-md-6">
+        <div class="alert alert-danger" *ngIf="authenticationError" jhiTranslate="login.messages.error.authentication">
+            <strong>Failed to sign in!</strong> Please check your credentials and try again.
+        </div>
+    </div>
+    <div class="login-box">
+        <!--debut login-box-->
+
+        <img [src]="image" class="avatar">
+        <h1>Connectez-vous</h1>
+        <form (ngSubmit)="login()" [formGroup]="loginForm">
+            <p>Utilisateur</p>
+            <input type="text" formControlName="username" name="username" placeholder="Entrez utilisateur">
+            <p>Mot de Passe</p>
+            <input type="password" formControlName="password" name="password" placeholder="Entrez mot de passe">
+            <input type="submit" name="submit" value="Connexion">
+
+        </form>
+        <!--a href="#">Créer un compte</a-->
+    </div>
+</div>
+<!--fin login-box-->

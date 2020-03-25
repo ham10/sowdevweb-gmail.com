@@ -1,0 +1,29 @@
+{
+  "hpdApp": {
+    "typeServices": {
+      "home": {
+        "title": "Type Services",
+        "createLabel": "Create a new Type Services",
+        "createOrEditLabel": "Create or edit a Type Services",
+        "notFound": "No Type Services found"
+      },
+      "created": "A new Type Services is created with identifier {{ param }}",
+      "updated": "A Type Services is updated with identifier {{ param }}",
+      "deleted": "A Type Services is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Type Services {{ id }}?"
+      },
+      "detail": {
+        "title": "Type Services"
+      },
+      "codeTypeSrv": "Code Type Srv",
+      "libelleTypeSrv": "Libelle Type Srv",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted",
+      "services": "Services"
+    }
+  }
+}

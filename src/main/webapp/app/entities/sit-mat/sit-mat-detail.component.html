@@ -1,0 +1,34 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="sitMat">
+            <h2><span jhiTranslate="hpdApp.sitMat.detail.title">Sit Mat</span> {{ sitMat.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.sitMat.codeSitMat">Code Sit Mat</span></dt>
+                <dd>
+                    <span>{{ sitMat.codeSitMat }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.sitMat.libelleSitMat">Libelle Sit Mat</span></dt>
+                <dd>
+                    <span>{{ sitMat.libelleSitMat }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/sit-mat', sitMat.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

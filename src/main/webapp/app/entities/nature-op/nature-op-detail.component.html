@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="natureOp">
+            <h2><span jhiTranslate="hpdApp.natureOp.detail.title">Nature Op</span> {{ natureOp.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.natureOp.numero">Numero</span></dt>
+                <dd>
+                    <span>{{ natureOp.numero }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.natureOp.libelle">Libelle</span></dt>
+                <dd>
+                    <span>{{ natureOp.libelle }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.natureOp.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ natureOp.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.natureOp.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ natureOp.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.natureOp.dateDeleted">Date Deleted</span></dt>
+                <dd>
+                    <span>{{ natureOp.dateDeleted }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.natureOp.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ natureOp.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.natureOp.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ natureOp.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.natureOp.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ natureOp.userDeleted }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/nature-op', natureOp.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

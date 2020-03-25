@@ -1,0 +1,29 @@
+{
+  "hpdApp": {
+    "etatCaisse": {
+      "home": {
+        "title": "Etat Caisses",
+        "createLabel": "Create a new Etat Caisse",
+        "createOrEditLabel": "Create or edit a Etat Caisse",
+        "notFound": "No Etat Caisses found"
+      },
+      "created": "A new Etat Caisse is created with identifier {{ param }}",
+      "updated": "A Etat Caisse is updated with identifier {{ param }}",
+      "deleted": "A Etat Caisse is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Etat Caisse {{ id }}?"
+      },
+      "detail": {
+        "title": "Etat Caisse"
+      },
+      "code": "Code",
+      "libelle": "Libelle",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "dateDeleted": "Date Deleted",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted"
+    }
+  }
+}

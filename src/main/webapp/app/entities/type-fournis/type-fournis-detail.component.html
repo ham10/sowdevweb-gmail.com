@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="typeFournis">
+            <h2><span jhiTranslate="hpdApp.typeFournis.detail.title">Type Fournis</span> {{ typeFournis.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.typeFournis.codeTypeFournis">Code Type Fournis</span></dt>
+                <dd>
+                    <span>{{ typeFournis.codeTypeFournis }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeFournis.libelleTypeFournis">Libelle Type Fournis</span></dt>
+                <dd>
+                    <span>{{ typeFournis.libelleTypeFournis }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeFournis.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ typeFournis.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeFournis.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ typeFournis.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeFournis.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ typeFournis.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeFournis.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ typeFournis.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeFournis.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ typeFournis.userDeleted }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/type-fournis', typeFournis.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

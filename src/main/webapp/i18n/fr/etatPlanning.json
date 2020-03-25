@@ -1,0 +1,23 @@
+{
+  "hpdApp": {
+    "etatPlanning": {
+      "home": {
+        "title": "EtatPlannings",
+        "createLabel": "Créer un nouveau Etat Planning",
+        "createOrEditLabel": "Créer ou éditer un Etat Planning",
+        "notFound": "Aucun Etat Planning trouvé"
+      },
+      "created": "Un nouveau Etat Planning a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Etat Planning avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Etat Planning avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Etat Planning {{ id }} ?"
+      },
+      "detail": {
+        "title": "Etat Planning"
+      },
+      "code": "Code",
+      "libelle": "Libelle"
+    }
+  }
+}

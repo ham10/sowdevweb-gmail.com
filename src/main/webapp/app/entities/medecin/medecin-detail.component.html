@@ -1,0 +1,102 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="medecin">
+            <h2><span jhiTranslate="hpdApp.medecin.detail.title">Medecin</span> {{ medecin.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.medecin.nomMedecin">Nom Medecin</span></dt>
+                <dd>
+                    <span>{{ medecin.nomMedecin }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.medecin.prenom">Prenom</span></dt>
+                <dd>
+                    <span>{{ medecin.prenom }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.medecin.adresse">Adresse</span></dt>
+                <dd>
+                    <span>{{ medecin.adresse }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.medecin.email">Email</span></dt>
+                <dd>
+                    <span>{{ medecin.email }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.medecin.dateNaissance">Date Naissance</span></dt>
+                <dd>
+                    <span>{{ medecin.dateNaissance }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.medecin.genreMedecin">Genre Medecin</span></dt>
+                <dd>
+                    <span>{{ medecin.genreMedecin }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.medecin.nationalite">Nationalite</span></dt>
+                <dd>
+                    <span>{{ medecin.nationalite }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.medecin.telephone">Telephone</span></dt>
+                <dd>
+                    <span>{{ medecin.telephone }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.medecin.anciennete">Anciennete</span></dt>
+                <dd>
+                    <span>{{ medecin.anciennete }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.medecin.numeroPiece">Numero Piece</span></dt>
+                <dd>
+                    <span>{{ medecin.numeroPiece }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.medecin.gradeMedecin">Grade Medecin</span></dt>
+                <dd>
+                    <span>{{ medecin.gradeMedecin }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.medecin.specialite">Specialite</span></dt>
+                <dd>
+                    <span>{{ medecin.specialite }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.medecin.dateEmbauche">Date Embauche</span></dt>
+                <dd>
+                    <span>{{ medecin.dateEmbauche }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.medecin.dateValidite">Date Validite</span></dt>
+                <dd>
+                    <span>{{ medecin.dateValidite }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.medecin.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ medecin.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.medecin.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ medecin.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.medecin.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ medecin.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.medecin.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ medecin.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.medecin.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ medecin.userDeleted }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/medecin', medecin.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

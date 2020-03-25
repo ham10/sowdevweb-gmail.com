@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="jourFerie">
+            <h2><span jhiTranslate="hpdApp.jourFerie.detail.title">Jour Ferie</span> {{ jourFerie.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.jourFerie.libelleJourFerie">Libelle Jour Ferie</span></dt>
+                <dd>
+                    <span>{{ jourFerie.libelleJourFerie }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.jourFerie.dateJourFerie">Date Jour Ferie</span></dt>
+                <dd>
+                    <span>{{ jourFerie.dateJourFerie }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.jourFerie.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ jourFerie.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.jourFerie.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ jourFerie.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.jourFerie.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ jourFerie.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.jourFerie.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ jourFerie.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.jourFerie.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ jourFerie.userDeleted }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/jour-ferie', jourFerie.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

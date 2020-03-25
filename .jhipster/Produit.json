@@ -1,0 +1,87 @@
+{
+    "name": "Produit",
+    "fields": [
+        {
+            "fieldName": "code",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "libelle",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "quantiteStock",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "stockProvisoire",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "tva",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "prixVenteUnitaire",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "codeBarre",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "seuil",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "typeCond",
+            "otherEntityRelationshipName": "produit",
+            "relationshipName": "typeCond"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "mouvement",
+            "otherEntityRelationshipName": "produit",
+            "relationshipName": "mouvement"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "inventaire",
+            "otherEntityRelationshipName": "produit",
+            "relationshipName": "inventaire"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "prodFournis",
+            "otherEntityRelationshipName": "produit",
+            "relationshipName": "prodFournis"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "etagere",
+            "otherEntityRelationshipName": "produit",
+            "relationshipName": "etagere",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "typeProd",
+            "otherEntityRelationshipName": "produit",
+            "relationshipName": "typeproduit",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200325194800",
+    "entityTableName": "produit",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

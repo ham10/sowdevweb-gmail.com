@@ -1,0 +1,60 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="plateau">
+            <h2><span jhiTranslate="hpdApp.plateau.detail.title">Plateau</span> {{ plateau.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.plateau.libellePlateau">Libelle Plateau</span></dt>
+                <dd>
+                    <span>{{ plateau.libellePlateau }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.plateau.descriptionPlateau">Description Plateau</span></dt>
+                <dd>
+                    <span>{{ plateau.descriptionPlateau }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.plateau.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ plateau.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.plateau.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ plateau.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.plateau.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ plateau.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.plateau.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ plateau.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.plateau.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ plateau.userDeleted }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.plateau.typePlateau">Type Plateau</span></dt>
+                <dd>
+                    <div *ngIf="plateau.typePlateau">
+                        <a [routerLink]="['/type-plateau', plateau.typePlateau?.id, 'view']">{{ plateau.typePlateau?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/plateau', plateau.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

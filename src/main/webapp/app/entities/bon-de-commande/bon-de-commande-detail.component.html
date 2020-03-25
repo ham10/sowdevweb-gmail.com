@@ -1,0 +1,90 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="bonDeCommande">
+            <h2><span jhiTranslate="hpdApp.bonDeCommande.detail.title">Bon De Commande</span> {{ bonDeCommande.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.bonDeCommande.numero">Numero</span></dt>
+                <dd>
+                    <span>{{ bonDeCommande.numero }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.bonDeCommande.libelle">Libelle</span></dt>
+                <dd>
+                    <span>{{ bonDeCommande.libelle }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.bonDeCommande.prixTotal">Prix Total</span></dt>
+                <dd>
+                    <span>{{ bonDeCommande.prixTotal }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.bonDeCommande.dateComm">Date Comm</span></dt>
+                <dd>
+                    <span>{{ bonDeCommande.dateComm }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.bonDeCommande.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ bonDeCommande.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.bonDeCommande.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ bonDeCommande.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.bonDeCommande.dateDeleted">Date Deleted</span></dt>
+                <dd>
+                    <span>{{ bonDeCommande.dateDeleted }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.bonDeCommande.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ bonDeCommande.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.bonDeCommande.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ bonDeCommande.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.bonDeCommande.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ bonDeCommande.userDeleted }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.bonDeCommande.bonLivraison">Bon Livraison</span></dt>
+                <dd>
+                    <div *ngIf="bonDeCommande.bonLivraison">
+                        <a [routerLink]="['/bon-livraison', bonDeCommande.bonLivraison?.id, 'view']">{{ bonDeCommande.bonLivraison?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.bonDeCommande.serv">Serv</span></dt>
+                <dd>
+                    <div *ngIf="bonDeCommande.serv">
+                        <a [routerLink]="['/services', bonDeCommande.serv?.id, 'view']">{{ bonDeCommande.serv?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.bonDeCommande.etatBonCommande">Etat Bon Commande</span></dt>
+                <dd>
+                    <div *ngIf="bonDeCommande.etatBonCommande">
+                        <a [routerLink]="['/etat-bon-com', bonDeCommande.etatBonCommande?.id, 'view']">{{ bonDeCommande.etatBonCommande?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.bonDeCommande.typeBonDeCommande">Type Bon De Commande</span></dt>
+                <dd>
+                    <div *ngIf="bonDeCommande.typeBonDeCommande">
+                        <a [routerLink]="['/type-bon-com', bonDeCommande.typeBonDeCommande?.id, 'view']">{{ bonDeCommande.typeBonDeCommande?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/bon-de-commande', bonDeCommande.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

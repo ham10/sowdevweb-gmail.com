@@ -1,0 +1,28 @@
+{
+  "hpdApp": {
+    "catReport": {
+      "home": {
+        "title": "Cat Reports",
+        "createLabel": "Create a new Cat Report",
+        "createOrEditLabel": "Create or edit a Cat Report",
+        "notFound": "No Cat Reports found"
+      },
+      "created": "A new Cat Report is created with identifier {{ param }}",
+      "updated": "A Cat Report is updated with identifier {{ param }}",
+      "deleted": "A Cat Report is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Cat Report {{ id }}?"
+      },
+      "detail": {
+        "title": "Cat Report"
+      },
+      "codeCategReport": "Code Categ Report",
+      "libelleCategReport": "Libelle Categ Report",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted"
+    }
+  }
+}

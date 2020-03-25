@@ -1,0 +1,31 @@
+{
+  "hpdApp": {
+    "ordonnance": {
+      "home": {
+        "title": "Ordonnances",
+        "createLabel": "Créer un nouveau Ordonnance",
+        "createOrEditLabel": "Créer ou éditer un Ordonnance",
+        "notFound": "Aucun Ordonnance trouvé"
+      },
+      "created": "Un nouveau Ordonnance a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Ordonnance avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Ordonnance avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Ordonnance {{ id }} ?"
+      },
+      "detail": {
+        "title": "Ordonnance"
+      },
+      "numero": "Numero",
+      "date": "Date",
+      "description": "Description",
+      "prescription": "Prescription",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted",
+      "ficheMedical": "Fiche Medical"
+    }
+  }
+}

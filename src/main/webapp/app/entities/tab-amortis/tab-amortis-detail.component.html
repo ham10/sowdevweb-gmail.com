@@ -1,0 +1,66 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="tabAmortis">
+            <h2><span jhiTranslate="hpdApp.tabAmortis.detail.title">Tab Amortis</span> {{ tabAmortis.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.tabAmortis.libelle">Libelle</span></dt>
+                <dd>
+                    <span>{{ tabAmortis.libelle }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.tabAmortis.montant">Montant</span></dt>
+                <dd>
+                    <span>{{ tabAmortis.montant }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.tabAmortis.date">Date</span></dt>
+                <dd>
+                    <span>{{ tabAmortis.date }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.tabAmortis.etat">Etat</span></dt>
+                <dd>
+                    <span>{{ tabAmortis.etat }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.tabAmortis.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ tabAmortis.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.tabAmortis.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ tabAmortis.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.tabAmortis.dateDeleted">Date Deleted</span></dt>
+                <dd>
+                    <span>{{ tabAmortis.dateDeleted }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.tabAmortis.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ tabAmortis.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.tabAmortis.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ tabAmortis.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.tabAmortis.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ tabAmortis.userDeleted }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/tab-amortis', tabAmortis.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+{
+  "hpdApp": {
+    "typePrCharge": {
+      "home": {
+        "title": "Type Pr Charges",
+        "createLabel": "Create a new Type Pr Charge",
+        "createOrEditLabel": "Create or edit a Type Pr Charge",
+        "notFound": "No Type Pr Charges found"
+      },
+      "created": "A new Type Pr Charge is created with identifier {{ param }}",
+      "updated": "A Type Pr Charge is updated with identifier {{ param }}",
+      "deleted": "A Type Pr Charge is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Type Pr Charge {{ id }}?"
+      },
+      "detail": {
+        "title": "Type Pr Charge"
+      },
+      "codeTypePrCharge": "Code Type Pr Charge",
+      "libelleTypePrCharge": "Libelle Type Pr Charge",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted",
+      "ayantDroit": "Ayant Droit"
+    }
+  }
+}

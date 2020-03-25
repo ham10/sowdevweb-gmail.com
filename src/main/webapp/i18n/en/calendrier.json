@@ -1,0 +1,32 @@
+{
+  "hpdApp": {
+    "calendrier": {
+      "home": {
+        "title": "Calendriers",
+        "createLabel": "Create a new Calendrier",
+        "createOrEditLabel": "Create or edit a Calendrier",
+        "notFound": "No Calendriers found"
+      },
+      "created": "A new Calendrier is created with identifier {{ param }}",
+      "updated": "A Calendrier is updated with identifier {{ param }}",
+      "deleted": "A Calendrier is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Calendrier {{ id }}?"
+      },
+      "detail": {
+        "title": "Calendrier"
+      },
+      "libelleCalendrier": "Libelle Calendrier",
+      "heureDebut": "Heure Debut",
+      "heureFin": "Heure Fin",
+      "dateDebut": "Date Debut",
+      "dateFin": "Date Fin",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "dateDeleted": "Date Deleted",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted"
+    }
+  }
+}

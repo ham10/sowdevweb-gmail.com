@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="typeProd">
+            <h2><span jhiTranslate="hpdApp.typeProd.detail.title">Type Prod</span> {{ typeProd.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.typeProd.codeTypeProd">Code Type Prod</span></dt>
+                <dd>
+                    <span>{{ typeProd.codeTypeProd }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeProd.libelleTypeProd">Libelle Type Prod</span></dt>
+                <dd>
+                    <span>{{ typeProd.libelleTypeProd }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeProd.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ typeProd.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeProd.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ typeProd.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeProd.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ typeProd.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeProd.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ typeProd.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.typeProd.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ typeProd.userDeleted }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/type-prod', typeProd.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

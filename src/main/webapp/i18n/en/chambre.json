@@ -1,0 +1,30 @@
+{
+  "hpdApp": {
+    "chambre": {
+      "home": {
+        "title": "Chambres",
+        "createLabel": "Create a new Chambre",
+        "createOrEditLabel": "Create or edit a Chambre",
+        "notFound": "No Chambres found"
+      },
+      "created": "A new Chambre is created with identifier {{ param }}",
+      "updated": "A Chambre is updated with identifier {{ param }}",
+      "deleted": "A Chambre is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Chambre {{ id }}?"
+      },
+      "detail": {
+        "title": "Chambre"
+      },
+      "numeroChambre": "Numero Chambre",
+      "postTelChambre": "Post Tel Chambre",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted",
+      "boxe": "Boxe",
+      "categorieChambre": "Categorie Chambre"
+    }
+  }
+}

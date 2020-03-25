@@ -1,0 +1,29 @@
+{
+  "hpdApp": {
+    "etatCaisse": {
+      "home": {
+        "title": "EtatCaisses",
+        "createLabel": "Créer un nouveau Etat Caisse",
+        "createOrEditLabel": "Créer ou éditer un Etat Caisse",
+        "notFound": "Aucun Etat Caisse trouvé"
+      },
+      "created": "Un nouveau Etat Caisse a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Etat Caisse avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Etat Caisse avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Etat Caisse {{ id }} ?"
+      },
+      "detail": {
+        "title": "Etat Caisse"
+      },
+      "code": "Code",
+      "libelle": "Libelle",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "dateDeleted": "Date Deleted",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted"
+    }
+  }
+}

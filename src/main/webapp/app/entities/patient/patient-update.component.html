@@ -1,0 +1,385 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-patient-heading" jhiTranslate="hpdApp.patient.home.createOrEditLabel">Create or edit a Patient</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.patient.codePatient" for="field_codePatient">Code Patient</label>
+                    <input type="text" class="form-control" name="codePatient" id="field_codePatient"
+                           formControlName="codePatient"/>
+                    <div *ngIf="editForm.get('codePatient')!.invalid && (editForm.get('codePatient')!.dirty || editForm.get('codePatient')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('codePatient')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.patient.nomPatient" for="field_nomPatient">Nom Patient</label>
+                    <input type="text" class="form-control" name="nomPatient" id="field_nomPatient"
+                           formControlName="nomPatient"/>
+                    <div *ngIf="editForm.get('nomPatient')!.invalid && (editForm.get('nomPatient')!.dirty || editForm.get('nomPatient')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('nomPatient')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.patient.prenom" for="field_prenom">Prenom</label>
+                    <input type="text" class="form-control" name="prenom" id="field_prenom"
+                           formControlName="prenom"/>
+                    <div *ngIf="editForm.get('prenom')!.invalid && (editForm.get('prenom')!.dirty || editForm.get('prenom')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('prenom')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.patient.adresse" for="field_adresse">Adresse</label>
+                    <input type="text" class="form-control" name="adresse" id="field_adresse"
+                           formControlName="adresse"/>
+                    <div *ngIf="editForm.get('adresse')!.invalid && (editForm.get('adresse')!.dirty || editForm.get('adresse')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('adresse')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.patient.email" for="field_email">Email</label>
+                    <input type="text" class="form-control" name="email" id="field_email"
+                           formControlName="email"/>
+                    <div *ngIf="editForm.get('email')!.invalid && (editForm.get('email')!.dirty || editForm.get('email')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('email')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.patient.dateNaissance" for="field_dateNaissance">Date Naissance</label>
+                    <div class="input-group">
+                        <input id="field_dateNaissance" type="text" class="form-control" name="dateNaissance" ngbDatepicker #dateNaissanceDp="ngbDatepicker" formControlName="dateNaissance"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateNaissanceDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div *ngIf="editForm.get('dateNaissance')!.invalid && (editForm.get('dateNaissance')!.dirty || editForm.get('dateNaissance')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('dateNaissance')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.patient.genre" for="field_genre">Genre</label>
+                    <input type="text" class="form-control" name="genre" id="field_genre"
+                           formControlName="genre"/>
+                    <div *ngIf="editForm.get('genre')!.invalid && (editForm.get('genre')!.dirty || editForm.get('genre')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('genre')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.patient.photo" for="field_photo">Photo</label>
+                    <div>
+                        <div *ngIf="editForm.get('photo')!.value" class="form-text text-danger clearfix">
+                            <a class="pull-left" (click)="openFile(editForm.get('photoContentType')!.value, editForm.get('photo')!.value)" jhiTranslate="entity.action.open">open</a><br>
+                            <span class="pull-left">{{ editForm.get('photoContentType')!.value }}, {{ byteSize(editForm.get('photo')!.value) }}</span>
+                            <button type="button" (click)="editForm.patchValue({photo: null});editForm.patchValue({photoContentType: null});"
+                                    class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon icon="times"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_photo" (change)="setFileData($event, 'photo', false)" jhiTranslate="entity.action.addblob"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="photo" id="field_photo"
+                           formControlName="photo"/>
+                    <input type="hidden" class="form-control" name="photoContentType" id="field_photoContentType"
+                           formControlName="photoContentType" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.patient.password" for="field_password">Password</label>
+                    <input type="text" class="form-control" name="password" id="field_password"
+                           formControlName="password"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.patient.telephone" for="field_telephone">Telephone</label>
+                    <input type="text" class="form-control" name="telephone" id="field_telephone"
+                           formControlName="telephone"/>
+                    <div *ngIf="editForm.get('telephone')!.invalid && (editForm.get('telephone')!.dirty || editForm.get('telephone')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('telephone')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.patient.numeroPiece" for="field_numeroPiece">Numero Piece</label>
+                    <input type="text" class="form-control" name="numeroPiece" id="field_numeroPiece"
+                           formControlName="numeroPiece"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.patient.codeBarre" for="field_codeBarre">Code Barre</label>
+                    <input type="text" class="form-control" name="codeBarre" id="field_codeBarre"
+                           formControlName="codeBarre"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.patient.entreprise" for="field_entreprise">Entreprise</label>
+                    <input type="text" class="form-control" name="entreprise" id="field_entreprise"
+                           formControlName="entreprise"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.patient.ville" for="field_ville">Ville</label>
+                    <input type="text" class="form-control" name="ville" id="field_ville"
+                           formControlName="ville"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.patient.quartier" for="field_quartier">Quartier</label>
+                    <input type="text" class="form-control" name="quartier" id="field_quartier"
+                           formControlName="quartier"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.patient.longitude" for="field_longitude">Longitude</label>
+                    <input type="text" class="form-control" name="longitude" id="field_longitude"
+                           formControlName="longitude"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.patient.latitude" for="field_latitude">Latitude</label>
+                    <input type="text" class="form-control" name="latitude" id="field_latitude"
+                           formControlName="latitude"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.patient.lieuNaissance" for="field_lieuNaissance">Lieu Naissance</label>
+                    <input type="text" class="form-control" name="lieuNaissance" id="field_lieuNaissance"
+                           formControlName="lieuNaissance"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.patient.fonctionPatient" for="field_fonctionPatient">Fonction Patient</label>
+                    <input type="text" class="form-control" name="fonctionPatient" id="field_fonctionPatient"
+                           formControlName="fonctionPatient"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.patient.situationSociale" for="field_situationSociale">Situation Sociale</label>
+                    <input type="text" class="form-control" name="situationSociale" id="field_situationSociale"
+                           formControlName="situationSociale"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.patient.solde" for="field_solde">Solde</label>
+                    <input type="number" class="form-control" name="solde" id="field_solde"
+                           formControlName="solde"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.patient.cartePatient" for="field_cartePatient">Carte Patient</label>
+                    <input type="text" class="form-control" name="cartePatient" id="field_cartePatient"
+                           formControlName="cartePatient"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.patient.bloque" for="field_bloque">Bloque</label>
+                    <input type="checkbox" class="form-control" name="bloque" id="field_bloque"
+                           formControlName="bloque"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.patient.dateValidite" for="field_dateValidite">Date Validite</label>
+                    <div class="input-group">
+                        <input id="field_dateValidite" type="text" class="form-control" name="dateValidite" ngbDatepicker #dateValiditeDp="ngbDatepicker" formControlName="dateValidite"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateValiditeDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.patient.motifBlocage" for="field_motifBlocage">Motif Blocage</label>
+                    <input type="text" class="form-control" name="motifBlocage" id="field_motifBlocage"
+                           formControlName="motifBlocage"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.patient.prenomPerePatient" for="field_prenomPerePatient">Prenom Pere Patient</label>
+                    <input type="text" class="form-control" name="prenomPerePatient" id="field_prenomPerePatient"
+                           formControlName="prenomPerePatient"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.patient.nomMerePatient" for="field_nomMerePatient">Nom Mere Patient</label>
+                    <input type="text" class="form-control" name="nomMerePatient" id="field_nomMerePatient"
+                           formControlName="nomMerePatient"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.patient.prenomMerePatient" for="field_prenomMerePatient">Prenom Mere Patient</label>
+                    <input type="text" class="form-control" name="prenomMerePatient" id="field_prenomMerePatient"
+                           formControlName="prenomMerePatient"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.patient.motifAdmission" for="field_motifAdmission">Motif Admission</label>
+                    <input type="text" class="form-control" name="motifAdmission" id="field_motifAdmission"
+                           formControlName="motifAdmission"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.patient.personneAContacter" for="field_personneAContacter">Personne A Contacter</label>
+                    <input type="text" class="form-control" name="personneAContacter" id="field_personneAContacter"
+                           formControlName="personneAContacter"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.patient.adressePersAContacter" for="field_adressePersAContacter">Adresse Pers A Contacter</label>
+                    <input type="text" class="form-control" name="adressePersAContacter" id="field_adressePersAContacter"
+                           formControlName="adressePersAContacter"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.patient.telPersAContacter" for="field_telPersAContacter">Tel Pers A Contacter</label>
+                    <input type="text" class="form-control" name="telPersAContacter" id="field_telPersAContacter"
+                           formControlName="telPersAContacter"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.patient.lienParentePersAContacter" for="field_lienParentePersAContacter">Lien Parente Pers A Contacter</label>
+                    <input type="text" class="form-control" name="lienParentePersAContacter" id="field_lienParentePersAContacter"
+                           formControlName="lienParentePersAContacter"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.patient.nomAccompagnant" for="field_nomAccompagnant">Nom Accompagnant</label>
+                    <input type="text" class="form-control" name="nomAccompagnant" id="field_nomAccompagnant"
+                           formControlName="nomAccompagnant"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.patient.prenomAccompagnant" for="field_prenomAccompagnant">Prenom Accompagnant</label>
+                    <input type="text" class="form-control" name="prenomAccompagnant" id="field_prenomAccompagnant"
+                           formControlName="prenomAccompagnant"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.patient.telAccompagnant" for="field_telAccompagnant">Tel Accompagnant</label>
+                    <input type="text" class="form-control" name="telAccompagnant" id="field_telAccompagnant"
+                           formControlName="telAccompagnant"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.patient.habitudeDeVie" for="field_habitudeDeVie">Habitude De Vie</label>
+                    <input type="text" class="form-control" name="habitudeDeVie" id="field_habitudeDeVie"
+                           formControlName="habitudeDeVie"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.patient.physioPathologique" for="field_physioPathologique">Physio Pathologique</label>
+                    <input type="text" class="form-control" name="physioPathologique" id="field_physioPathologique"
+                           formControlName="physioPathologique"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.patient.dateCreated" for="field_dateCreated">Date Created</label>
+                    <div class="input-group">
+                        <input id="field_dateCreated" type="text" class="form-control" name="dateCreated" ngbDatepicker #dateCreatedDp="ngbDatepicker" formControlName="dateCreated"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateCreatedDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.patient.dateUpdated" for="field_dateUpdated">Date Updated</label>
+                    <div class="input-group">
+                        <input id="field_dateUpdated" type="text" class="form-control" name="dateUpdated" ngbDatepicker #dateUpdatedDp="ngbDatepicker" formControlName="dateUpdated"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateUpdatedDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.patient.userCreated" for="field_userCreated">User Created</label>
+                    <input type="number" class="form-control" name="userCreated" id="field_userCreated"
+                           formControlName="userCreated"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.patient.userUpdated" for="field_userUpdated">User Updated</label>
+                    <input type="number" class="form-control" name="userUpdated" id="field_userUpdated"
+                           formControlName="userUpdated"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.patient.userDeleted" for="field_userDeleted">User Deleted</label>
+                    <input type="number" class="form-control" name="userDeleted" id="field_userDeleted"
+                           formControlName="userDeleted"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.patient.groupeSanguin" for="field_groupeSanguin">Groupe Sanguin</label>
+                    <select class="form-control" id="field_groupeSanguin" name="groupeSanguin" formControlName="groupeSanguin">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="groupeSanOption.id === editForm.get('groupeSanguin')!.value?.id ? editForm.get('groupeSanguin')!.value : groupeSanOption" *ngFor="let groupeSanOption of groupesans; trackBy: trackById">{{ groupeSanOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.patient.typePatient" for="field_typePatient">Type Patient</label>
+                    <select class="form-control" id="field_typePatient" name="typePatient" formControlName="typePatient">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="typePatientOption.id === editForm.get('typePatient')!.value?.id ? editForm.get('typePatient')!.value : typePatientOption" *ngFor="let typePatientOption of typepatients; trackBy: trackById">{{ typePatientOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hpdApp.patient.departement" for="field_departement">Departement</label>
+                    <select class="form-control" id="field_departement" name="departement" formControlName="departement">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="departementOption.id === editForm.get('departement')!.value?.id ? editForm.get('departement')!.value : departementOption" *ngFor="let departementOption of departements; trackBy: trackById">{{ departementOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,97 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hpdApp.operation.home.title">Operations</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-operation" [routerLink]="['/operation/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hpdApp.operation.home.createLabel">
+            Create a new Operation
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="operations?.length === 0">
+        <span jhiTranslate="hpdApp.operation.home.notFound">No operations found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="operations?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="libelle"><span jhiTranslate="hpdApp.operation.libelle">Libelle</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="date"><span jhiTranslate="hpdApp.operation.date">Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="montant"><span jhiTranslate="hpdApp.operation.montant">Montant</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="taxe"><span jhiTranslate="hpdApp.operation.taxe">Taxe</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateCreated"><span jhiTranslate="hpdApp.operation.dateCreated">Date Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateUpdated"><span jhiTranslate="hpdApp.operation.dateUpdated">Date Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateDeleted"><span jhiTranslate="hpdApp.operation.dateDeleted">Date Deleted</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userCreated"><span jhiTranslate="hpdApp.operation.userCreated">User Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userUpdated"><span jhiTranslate="hpdApp.operation.userUpdated">User Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userDeleted"><span jhiTranslate="hpdApp.operation.userDeleted">User Deleted</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="etatOperation.id"><span jhiTranslate="hpdApp.operation.etatOperation">Etat Operation</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="caisse.id"><span jhiTranslate="hpdApp.operation.caisse">Caisse</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="operation.id"><span jhiTranslate="hpdApp.operation.operation">Operation</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let operation of operations ;trackBy: trackId">
+                    <td><a [routerLink]="['/operation', operation.id, 'view']">{{ operation.id }}</a></td>
+                    <td>{{ operation.libelle }}</td>
+                    <td>{{ operation.date | date:'mediumDate' }}</td>
+                    <td>{{ operation.montant }}</td>
+                    <td>{{ operation.taxe }}</td>
+                    <td>{{ operation.dateCreated | date:'mediumDate' }}</td>
+                    <td>{{ operation.dateUpdated | date:'mediumDate' }}</td>
+                    <td>{{ operation.dateDeleted | date:'mediumDate' }}</td>
+                    <td>{{ operation.userCreated }}</td>
+                    <td>{{ operation.userUpdated }}</td>
+                    <td>{{ operation.userDeleted }}</td>
+                    <td>
+                        <div *ngIf="operation.etatOperation">
+                            <a [routerLink]="['/etat-operation', operation.etatOperation?.id, 'view']" >{{ operation.etatOperation?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="operation.caisse">
+                            <a [routerLink]="['/caisse', operation.caisse?.id, 'view']" >{{ operation.caisse?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="operation.operation">
+                            <a [routerLink]="['/facture', operation.operation?.id, 'view']" >{{ operation.operation?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/operation', operation.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/operation', operation.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(operation)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

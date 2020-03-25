@@ -1,0 +1,29 @@
+{
+  "hpdApp": {
+    "typeProd": {
+      "home": {
+        "title": "Type Prods",
+        "createLabel": "Create a new Type Prod",
+        "createOrEditLabel": "Create or edit a Type Prod",
+        "notFound": "No Type Prods found"
+      },
+      "created": "A new Type Prod is created with identifier {{ param }}",
+      "updated": "A Type Prod is updated with identifier {{ param }}",
+      "deleted": "A Type Prod is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Type Prod {{ id }}?"
+      },
+      "detail": {
+        "title": "Type Prod"
+      },
+      "codeTypeProd": "Code Type Prod",
+      "libelleTypeProd": "Libelle Type Prod",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted",
+      "produit": "Produit"
+    }
+  }
+}

@@ -1,0 +1,75 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hpdApp.typePiece.home.title">Type Pieces</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-type-piece" [routerLink]="['/type-piece/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hpdApp.typePiece.home.createLabel">
+            Create a new Type Piece
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="typePieces?.length === 0">
+        <span jhiTranslate="hpdApp.typePiece.home.notFound">No typePieces found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="typePieces?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="codeTypePiece"><span jhiTranslate="hpdApp.typePiece.codeTypePiece">Code Type Piece</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="libelleTypePiece"><span jhiTranslate="hpdApp.typePiece.libelleTypePiece">Libelle Type Piece</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="descriptionTypePiece"><span jhiTranslate="hpdApp.typePiece.descriptionTypePiece">Description Type Piece</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateCreated"><span jhiTranslate="hpdApp.typePiece.dateCreated">Date Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateUpdated"><span jhiTranslate="hpdApp.typePiece.dateUpdated">Date Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userCreated"><span jhiTranslate="hpdApp.typePiece.userCreated">User Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userUpdated"><span jhiTranslate="hpdApp.typePiece.userUpdated">User Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userDeleted"><span jhiTranslate="hpdApp.typePiece.userDeleted">User Deleted</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let typePiece of typePieces ;trackBy: trackId">
+                    <td><a [routerLink]="['/type-piece', typePiece.id, 'view']">{{ typePiece.id }}</a></td>
+                    <td>{{ typePiece.codeTypePiece }}</td>
+                    <td>{{ typePiece.libelleTypePiece }}</td>
+                    <td>{{ typePiece.descriptionTypePiece }}</td>
+                    <td>{{ typePiece.dateCreated | date:'mediumDate' }}</td>
+                    <td>{{ typePiece.dateUpdated | date:'mediumDate' }}</td>
+                    <td>{{ typePiece.userCreated }}</td>
+                    <td>{{ typePiece.userUpdated }}</td>
+                    <td>{{ typePiece.userDeleted }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/type-piece', typePiece.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/type-piece', typePiece.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(typePiece)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

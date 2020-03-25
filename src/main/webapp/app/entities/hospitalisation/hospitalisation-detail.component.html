@@ -1,0 +1,106 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="hospitalisation">
+            <h2><span jhiTranslate="hpdApp.hospitalisation.detail.title">Hospitalisation</span> {{ hospitalisation.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.hospitalisation.dateEntre">Date Entre</span></dt>
+                <dd>
+                    <span>{{ hospitalisation.dateEntre }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.hospitalisation.dateSortie">Date Sortie</span></dt>
+                <dd>
+                    <span>{{ hospitalisation.dateSortie }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.hospitalisation.observation">Observation</span></dt>
+                <dd>
+                    <span>{{ hospitalisation.observation }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.hospitalisation.modeSortie">Mode Sortie</span></dt>
+                <dd>
+                    <span>{{ hospitalisation.modeSortie }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.hospitalisation.objetPatient">Objet Patient</span></dt>
+                <dd>
+                    <span>{{ hospitalisation.objetPatient }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.hospitalisation.dateAccouchement">Date Accouchement</span></dt>
+                <dd>
+                    <span>{{ hospitalisation.dateAccouchement }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.hospitalisation.dateOperation">Date Operation</span></dt>
+                <dd>
+                    <span>{{ hospitalisation.dateOperation }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.hospitalisation.dateReveil">Date Reveil</span></dt>
+                <dd>
+                    <span>{{ hospitalisation.dateReveil }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.hospitalisation.poidsBebe">Poids Bebe</span></dt>
+                <dd>
+                    <span>{{ hospitalisation.poidsBebe }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.hospitalisation.tailleBebe">Taille Bebe</span></dt>
+                <dd>
+                    <span>{{ hospitalisation.tailleBebe }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.hospitalisation.poidsPlacenta">Poids Placenta</span></dt>
+                <dd>
+                    <span>{{ hospitalisation.poidsPlacenta }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.hospitalisation.genreBebe">Genre Bebe</span></dt>
+                <dd>
+                    <span>{{ hospitalisation.genreBebe }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.hospitalisation.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ hospitalisation.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.hospitalisation.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ hospitalisation.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.hospitalisation.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ hospitalisation.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.hospitalisation.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ hospitalisation.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.hospitalisation.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ hospitalisation.userDeleted }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.hospitalisation.lit">Lit</span></dt>
+                <dd>
+                    <div *ngIf="hospitalisation.lit">
+                        <a [routerLink]="['/lit', hospitalisation.lit?.id, 'view']">{{ hospitalisation.lit?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.hospitalisation.patient">Patient</span></dt>
+                <dd>
+                    <div *ngIf="hospitalisation.patient">
+                        <a [routerLink]="['/patient', hospitalisation.patient?.id, 'view']">{{ hospitalisation.patient?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/hospitalisation', hospitalisation.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

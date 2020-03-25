@@ -1,0 +1,28 @@
+{
+  "hpdApp": {
+    "typeFact": {
+      "home": {
+        "title": "TypeFacts",
+        "createLabel": "Créer un nouveau Type Fact",
+        "createOrEditLabel": "Créer ou éditer un Type Fact",
+        "notFound": "Aucun Type Fact trouvé"
+      },
+      "created": "Un nouveau Type Fact a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Type Fact avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Type Fact avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Type Fact {{ id }} ?"
+      },
+      "detail": {
+        "title": "Type Fact"
+      },
+      "codeTypeFact": "Code Type Fact",
+      "libelleTypeFact": "Libelle Type Fact",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted"
+    }
+  }
+}

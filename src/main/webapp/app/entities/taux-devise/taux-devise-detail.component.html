@@ -1,0 +1,56 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="tauxDevise">
+            <h2><span jhiTranslate="hpdApp.tauxDevise.detail.title">Taux Devise</span> {{ tauxDevise.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.tauxDevise.sensTauxDevise">Sens Taux Devise</span></dt>
+                <dd>
+                    <span>{{ tauxDevise.sensTauxDevise }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.tauxDevise.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ tauxDevise.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.tauxDevise.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ tauxDevise.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.tauxDevise.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ tauxDevise.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.tauxDevise.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ tauxDevise.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.tauxDevise.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ tauxDevise.userDeleted }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.tauxDevise.devise">Devise</span></dt>
+                <dd>
+                    <div *ngIf="tauxDevise.devise">
+                        <a [routerLink]="['/devise', tauxDevise.devise?.id, 'view']">{{ tauxDevise.devise?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/taux-devise', tauxDevise.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

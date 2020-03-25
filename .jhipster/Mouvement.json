@@ -1,0 +1,47 @@
+{
+    "name": "Mouvement",
+    "fields": [
+        {
+            "fieldName": "codeMvt",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "libelleMvt",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "stockEntrant",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "stockSortant",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "produit",
+            "otherEntityRelationshipName": "mouvement",
+            "relationshipName": "produit",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "typeMvtStock",
+            "otherEntityRelationshipName": "mouvement",
+            "relationshipName": "typeMvtStock",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200325195400",
+    "entityTableName": "mouvement",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

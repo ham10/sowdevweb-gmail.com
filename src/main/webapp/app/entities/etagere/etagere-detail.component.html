@@ -1,0 +1,40 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="etagere">
+            <h2><span jhiTranslate="hpdApp.etagere.detail.title">Etagere</span> {{ etagere.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.etagere.code">Code</span></dt>
+                <dd>
+                    <span>{{ etagere.code }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.etagere.libelle">Libelle</span></dt>
+                <dd>
+                    <span>{{ etagere.libelle }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.etagere.rayon">Rayon</span></dt>
+                <dd>
+                    <div *ngIf="etagere.rayon">
+                        <a [routerLink]="['/rayon', etagere.rayon?.id, 'view']">{{ etagere.rayon?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/etagere', etagere.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

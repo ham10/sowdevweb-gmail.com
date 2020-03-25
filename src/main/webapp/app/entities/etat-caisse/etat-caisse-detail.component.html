@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="etatCaisse">
+            <h2><span jhiTranslate="hpdApp.etatCaisse.detail.title">Etat Caisse</span> {{ etatCaisse.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.etatCaisse.code">Code</span></dt>
+                <dd>
+                    <span>{{ etatCaisse.code }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.etatCaisse.libelle">Libelle</span></dt>
+                <dd>
+                    <span>{{ etatCaisse.libelle }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.etatCaisse.dateCreated">Date Created</span></dt>
+                <dd>
+                    <span>{{ etatCaisse.dateCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.etatCaisse.dateUpdated">Date Updated</span></dt>
+                <dd>
+                    <span>{{ etatCaisse.dateUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.etatCaisse.dateDeleted">Date Deleted</span></dt>
+                <dd>
+                    <span>{{ etatCaisse.dateDeleted }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.etatCaisse.userCreated">User Created</span></dt>
+                <dd>
+                    <span>{{ etatCaisse.userCreated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.etatCaisse.userUpdated">User Updated</span></dt>
+                <dd>
+                    <span>{{ etatCaisse.userUpdated }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.etatCaisse.userDeleted">User Deleted</span></dt>
+                <dd>
+                    <span>{{ etatCaisse.userDeleted }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/etat-caisse', etatCaisse.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

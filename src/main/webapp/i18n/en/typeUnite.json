@@ -1,0 +1,29 @@
+{
+  "hpdApp": {
+    "typeUnite": {
+      "home": {
+        "title": "Type Unites",
+        "createLabel": "Create a new Type Unite",
+        "createOrEditLabel": "Create or edit a Type Unite",
+        "notFound": "No Type Unites found"
+      },
+      "created": "A new Type Unite is created with identifier {{ param }}",
+      "updated": "A Type Unite is updated with identifier {{ param }}",
+      "deleted": "A Type Unite is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Type Unite {{ id }}?"
+      },
+      "detail": {
+        "title": "Type Unite"
+      },
+      "codeTypeUnite": "Code Type Unite",
+      "libelleTypeUnite": "Libelle Type Unite",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted",
+      "unite": "Unite"
+    }
+  }
+}

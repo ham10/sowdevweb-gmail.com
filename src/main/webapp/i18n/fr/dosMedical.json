@@ -1,0 +1,36 @@
+{
+  "hpdApp": {
+    "dosMedical": {
+      "home": {
+        "title": "DosMedicals",
+        "createLabel": "Créer un nouveau Dos Medical",
+        "createOrEditLabel": "Créer ou éditer un Dos Medical",
+        "notFound": "Aucun Dos Medical trouvé"
+      },
+      "created": "Un nouveau Dos Medical a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Dos Medical avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Dos Medical avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Dos Medical {{ id }} ?"
+      },
+      "detail": {
+        "title": "Dos Medical"
+      },
+      "dateCreation": "Date Creation",
+      "numeroDossierDosMedical": "Numero Dossier Dos Medical",
+      "niveauDependance": "Niveau Dependance",
+      "etatConscience": "Etat Conscience",
+      "etatCutane": "Etat Cutane",
+      "intoleranceMedic": "Intolerance Medic",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted",
+      "antecedent": "Antecedent",
+      "ficheMedical": "Fiche Medical",
+      "serv": "Serv",
+      "patient": "Patient"
+    }
+  }
+}

@@ -1,0 +1,34 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="etatBonCom">
+            <h2><span jhiTranslate="hpdApp.etatBonCom.detail.title">Etat Bon Com</span> {{ etatBonCom.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hpdApp.etatBonCom.libelle">Libelle</span></dt>
+                <dd>
+                    <span>{{ etatBonCom.libelle }}</span>
+                </dd>
+                <dt><span jhiTranslate="hpdApp.etatBonCom.code">Code</span></dt>
+                <dd>
+                    <span>{{ etatBonCom.code }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/etat-bon-com', etatBonCom.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

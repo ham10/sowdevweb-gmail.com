@@ -1,0 +1,30 @@
+{
+  "hpdApp": {
+    "inventaire": {
+      "home": {
+        "title": "Inventaires",
+        "createLabel": "Créer un nouveau Inventaire",
+        "createOrEditLabel": "Créer ou éditer un Inventaire",
+        "notFound": "Aucun Inventaire trouvé"
+      },
+      "created": "Un nouveau Inventaire a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Inventaire avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Inventaire avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Inventaire {{ id }} ?"
+      },
+      "detail": {
+        "title": "Inventaire"
+      },
+      "code": "Code",
+      "date": "Date",
+      "quantiteEntrant": "Quantite Entrant",
+      "quantiteInitiale": "Quantite Initiale",
+      "quantiteSortant": "Quantite Sortant",
+      "nombreSortant": "Nombre Sortant",
+      "nombreLivraison": "Nombre Livraison",
+      "nombreRetour": "Nombre Retour",
+      "produit": "Produit"
+    }
+  }
+}

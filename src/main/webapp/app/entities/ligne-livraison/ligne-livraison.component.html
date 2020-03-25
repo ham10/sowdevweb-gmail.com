@@ -1,0 +1,89 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hpdApp.ligneLivraison.home.title">Ligne Livraisons</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-ligne-livraison" [routerLink]="['/ligne-livraison/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hpdApp.ligneLivraison.home.createLabel">
+            Create a new Ligne Livraison
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="ligneLivraisons?.length === 0">
+        <span jhiTranslate="hpdApp.ligneLivraison.home.notFound">No ligneLivraisons found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="ligneLivraisons?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="designation"><span jhiTranslate="hpdApp.ligneLivraison.designation">Designation</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="quantite"><span jhiTranslate="hpdApp.ligneLivraison.quantite">Quantite</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="prixUnitaire"><span jhiTranslate="hpdApp.ligneLivraison.prixUnitaire">Prix Unitaire</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateCreated"><span jhiTranslate="hpdApp.ligneLivraison.dateCreated">Date Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateUpdated"><span jhiTranslate="hpdApp.ligneLivraison.dateUpdated">Date Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateDeleted"><span jhiTranslate="hpdApp.ligneLivraison.dateDeleted">Date Deleted</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userCreated"><span jhiTranslate="hpdApp.ligneLivraison.userCreated">User Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userUpdated"><span jhiTranslate="hpdApp.ligneLivraison.userUpdated">User Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userDeleted"><span jhiTranslate="hpdApp.ligneLivraison.userDeleted">User Deleted</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="produitFournisseur.id"><span jhiTranslate="hpdApp.ligneLivraison.produitFournisseur">Produit Fournisseur</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="bonDeLivraison.id"><span jhiTranslate="hpdApp.ligneLivraison.bonDeLivraison">Bon De Livraison</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let ligneLivraison of ligneLivraisons ;trackBy: trackId">
+                    <td><a [routerLink]="['/ligne-livraison', ligneLivraison.id, 'view']">{{ ligneLivraison.id }}</a></td>
+                    <td>{{ ligneLivraison.designation }}</td>
+                    <td>{{ ligneLivraison.quantite }}</td>
+                    <td>{{ ligneLivraison.prixUnitaire }}</td>
+                    <td>{{ ligneLivraison.dateCreated | date:'mediumDate' }}</td>
+                    <td>{{ ligneLivraison.dateUpdated | date:'mediumDate' }}</td>
+                    <td>{{ ligneLivraison.dateDeleted | date:'mediumDate' }}</td>
+                    <td>{{ ligneLivraison.userCreated }}</td>
+                    <td>{{ ligneLivraison.userUpdated }}</td>
+                    <td>{{ ligneLivraison.userDeleted }}</td>
+                    <td>
+                        <div *ngIf="ligneLivraison.produitFournisseur">
+                            <a [routerLink]="['/prod-fournis', ligneLivraison.produitFournisseur?.id, 'view']" >{{ ligneLivraison.produitFournisseur?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="ligneLivraison.bonDeLivraison">
+                            <a [routerLink]="['/bon-livraison', ligneLivraison.bonDeLivraison?.id, 'view']" >{{ ligneLivraison.bonDeLivraison?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/ligne-livraison', ligneLivraison.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/ligne-livraison', ligneLivraison.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(ligneLivraison)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+{
+  "hpdApp": {
+    "horaireCon": {
+      "home": {
+        "title": "Horaire Cons",
+        "createLabel": "Create a new Horaire Con",
+        "createOrEditLabel": "Create or edit a Horaire Con",
+        "notFound": "No Horaire Cons found"
+      },
+      "created": "A new Horaire Con is created with identifier {{ param }}",
+      "updated": "A Horaire Con is updated with identifier {{ param }}",
+      "deleted": "A Horaire Con is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Horaire Con {{ id }}?"
+      },
+      "detail": {
+        "title": "Horaire Con"
+      },
+      "heureDebutHC": "Heure Debut HC",
+      "heureFinHC": "Heure Fin HC",
+      "dateDebutHC": "Date Debut HC",
+      "dateFinHC": "Date Fin HC",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "dateDeleted": "Date Deleted",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted",
+      "jour": "Jour"
+    }
+  }
+}

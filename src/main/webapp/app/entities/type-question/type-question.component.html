@@ -1,0 +1,75 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hpdApp.typeQuestion.home.title">Type Questions</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-type-question" [routerLink]="['/type-question/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hpdApp.typeQuestion.home.createLabel">
+            Create a new Type Question
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="typeQuestions?.length === 0">
+        <span jhiTranslate="hpdApp.typeQuestion.home.notFound">No typeQuestions found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="typeQuestions?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="code"><span jhiTranslate="hpdApp.typeQuestion.code">Code</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="belleType"><span jhiTranslate="hpdApp.typeQuestion.belleType">Belle Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="multipliciteChoix"><span jhiTranslate="hpdApp.typeQuestion.multipliciteChoix">Multiplicite Choix</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateDeleted"><span jhiTranslate="hpdApp.typeQuestion.dateDeleted">Date Deleted</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateCreated"><span jhiTranslate="hpdApp.typeQuestion.dateCreated">Date Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateUpdated"><span jhiTranslate="hpdApp.typeQuestion.dateUpdated">Date Updated</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userUpdate"><span jhiTranslate="hpdApp.typeQuestion.userUpdate">User Update</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userDelete"><span jhiTranslate="hpdApp.typeQuestion.userDelete">User Delete</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let typeQuestion of typeQuestions ;trackBy: trackId">
+                    <td><a [routerLink]="['/type-question', typeQuestion.id, 'view']">{{ typeQuestion.id }}</a></td>
+                    <td>{{ typeQuestion.code }}</td>
+                    <td>{{ typeQuestion.belleType }}</td>
+                    <td>{{ typeQuestion.multipliciteChoix }}</td>
+                    <td>{{ typeQuestion.dateDeleted | date:'medium' }}</td>
+                    <td>{{ typeQuestion.dateCreated | date:'medium' }}</td>
+                    <td>{{ typeQuestion.dateUpdated | date:'medium' }}</td>
+                    <td>{{ typeQuestion.userUpdate }}</td>
+                    <td>{{ typeQuestion.userDelete }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/type-question', typeQuestion.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/type-question', typeQuestion.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(typeQuestion)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+{
+  "hpdApp": {
+    "ayantDroit": {
+      "home": {
+        "title": "AyantDroits",
+        "createLabel": "Créer un nouveau Ayant Droit",
+        "createOrEditLabel": "Créer ou éditer un Ayant Droit",
+        "notFound": "Aucun Ayant Droit trouvé"
+      },
+      "created": "Un nouveau Ayant Droit a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Ayant Droit avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Ayant Droit avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Ayant Droit {{ id }} ?"
+      },
+      "detail": {
+        "title": "Ayant Droit"
+      },
+      "code": "Code",
+      "prenom": "Prenom",
+      "nom": "Nom",
+      "lienParente": "Lien Parente",
+      "dateNais": "Date Nais",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "dateDeleted": "Date Deleted",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted",
+      "typePrCharge": "Type Pr Charge"
+    }
+  }
+}

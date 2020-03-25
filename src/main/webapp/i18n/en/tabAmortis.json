@@ -1,0 +1,32 @@
+{
+  "hpdApp": {
+    "tabAmortis": {
+      "home": {
+        "title": "Tab Amortis",
+        "createLabel": "Create a new Tab Amortis",
+        "createOrEditLabel": "Create or edit a Tab Amortis",
+        "notFound": "No Tab Amortis found"
+      },
+      "created": "A new Tab Amortis is created with identifier {{ param }}",
+      "updated": "A Tab Amortis is updated with identifier {{ param }}",
+      "deleted": "A Tab Amortis is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Tab Amortis {{ id }}?"
+      },
+      "detail": {
+        "title": "Tab Amortis"
+      },
+      "libelle": "Libelle",
+      "montant": "Montant",
+      "date": "Date",
+      "etat": "Etat",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "dateDeleted": "Date Deleted",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted",
+      "immo": "Immo"
+    }
+  }
+}

@@ -1,0 +1,73 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hpdApp.activite.home.title">Activites</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-activite" [routerLink]="['/activite/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hpdApp.activite.home.createLabel">
+            Create a new Activite
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="activites?.length === 0">
+        <span jhiTranslate="hpdApp.activite.home.notFound">No activites found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="activites?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateActivite"><span jhiTranslate="hpdApp.activite.dateActivite">Date Activite</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="heureConnexionActivite"><span jhiTranslate="hpdApp.activite.heureConnexionActivite">Heure Connexion Activite</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="heureDeConnexionActivite"><span jhiTranslate="hpdApp.activite.heureDeConnexionActivite">Heure De Connexion Activite</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="adresseIpActivite"><span jhiTranslate="hpdApp.activite.adresseIpActivite">Adresse Ip Activite</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateCreated"><span jhiTranslate="hpdApp.activite.dateCreated">Date Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userCreated"><span jhiTranslate="hpdApp.activite.userCreated">User Created</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="adresseMac"><span jhiTranslate="hpdApp.activite.adresseMac">Adresse Mac</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let activite of activites ;trackBy: trackId">
+                    <td><a [routerLink]="['/activite', activite.id, 'view']">{{ activite.id }}</a></td>
+                    <td>{{ activite.dateActivite | date:'mediumDate' }}</td>
+                    <td>{{ activite.heureConnexionActivite }}</td>
+                    <td>{{ activite.heureDeConnexionActivite }}</td>
+                    <td>{{ activite.adresseIpActivite }}</td>
+                    <td>{{ activite.dateCreated | date:'mediumDate' }}</td>
+                    <td>{{ activite.userCreated }}</td>
+                    <td>{{ activite.adresseMac }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/activite', activite.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/activite', activite.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(activite)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

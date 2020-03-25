@@ -1,0 +1,33 @@
+{
+  "hpdApp": {
+    "ecriture": {
+      "home": {
+        "title": "Ecritures",
+        "createLabel": "Créer un nouveau Ecriture",
+        "createOrEditLabel": "Créer ou éditer un Ecriture",
+        "notFound": "Aucun Ecriture trouvé"
+      },
+      "created": "Un nouveau Ecriture a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Ecriture avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Ecriture avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Ecriture {{ id }} ?"
+      },
+      "detail": {
+        "title": "Ecriture"
+      },
+      "libelle": "Libelle",
+      "date": "Date",
+      "montant": "Montant",
+      "sens": "Sens",
+      "dateCreated": "Date Created",
+      "dateUpdated": "Date Updated",
+      "dateDeleted": "Date Deleted",
+      "userCreated": "User Created",
+      "userUpdated": "User Updated",
+      "userDeleted": "User Deleted",
+      "compte": "Compte",
+      "operation": "Operation"
+    }
+  }
+}

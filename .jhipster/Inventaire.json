@@ -1,0 +1,56 @@
+{
+    "name": "Inventaire",
+    "fields": [
+        {
+            "fieldName": "code",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "date",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "quantiteEntrant",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "quantiteInitiale",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "quantiteSortant",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "nombreSortant",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "nombreLivraison",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "nombreRetour",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "produit",
+            "otherEntityRelationshipName": "inventaire",
+            "relationshipName": "produit",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200325195600",
+    "entityTableName": "inventaire",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

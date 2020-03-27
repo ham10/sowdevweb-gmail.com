@@ -111,6 +111,13 @@ public class PatientResource {
         return ResponseUtil.wrapOrNotFound(patient);
     }
 
+    @GetMapping("/patient/{code}")
+    public ResponseEntity<Patient> getPatientByCode(@PathVariable String code) {
+        log.debug("REST request to get Patient by code : {}", code);
+        Optional<Patient> patient = patientService.findByCode(code);
+        return ResponseUtil.wrapOrNotFound(patient);
+    }
+
     /**
      * {@code DELETE  /patients/:id} : delete the "id" patient.
      *

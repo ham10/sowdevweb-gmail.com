@@ -68,16 +68,16 @@ export class RDVUpdateComponent implements OnInit {
     });
   }
 
-  // rechercher un patient
-  // searchPatient(): void{
-  //   if(this.searchForm.invalid){
-  //     return ;
-  //   }else {
-  //     const codePatient = this.searchForm.value.nameSearch;
-  //     this.patientService.findByCode(codePatient).subscribe((res: HttpResponse<IPatient>) => this.patient = res.body);
-  //   }
-  //
-  // }
+
+  searchPatient(): void{
+    if(this.searchForm.invalid){
+      return ;
+    }else {
+      const codePatient = this.searchForm.value.nameSearch;
+      this.patientService.findByCode(codePatient).subscribe((res: HttpResponse<IPatient>) => this.patient = res.body);
+    }
+
+  }
   updateForm(rDV: IRDV): void {
     this.editForm.patchValue({
       id: rDV.id,

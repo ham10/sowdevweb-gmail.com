@@ -1,20 +1,14 @@
 <div class="row justify-content-center">
 
     <div class="col-8">
-<!--        <div class="row">-->
-<!--            <form (ngSubmit)="" [formGroup]="searchForm">-->
-<!--                <div class="row">-->
-<!--                    <div class="col-7">-->
-<!--                        <div class="form-group">-->
-<!--                            <input type="text" placeholder="Rechercher" class="form-control" formControlName="nameSearch">-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="col-5">-->
-<!--                        <button type="submit" [disabled]="searchForm.invalid" class="btn btn-primary"><fa-icon icon="search"></fa-icon> search</button>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </form>-->
-<!--        </div>-->
+        <div class="row">
+            <form  class="form-inline" (ngSubmit)="searchPatient()" [formGroup]="searchForm">
+                <div class="form-group">
+                    <input type="text" placeholder="Rechercher" class="form-control" formControlName="nameSearch">
+                </div>
+                <button type="submit" [disabled]="searchForm.invalid" class="btn btn-primary"><fa-icon icon="search"></fa-icon> search</button>
+            </form>
+        </div>
         <div class="row">
             <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
 <!--                <h2 id="jhi-rdv-heading" jhiTranslate="hpdApp.rDV.home.createOrEditLabel">Create or edit a RDV</h2>-->
@@ -157,36 +151,6 @@
                     <dt><span jhiTranslate="hpdApp.patient.fonctionPatient">Fonction Patient</span></dt>
                     <dd>
                         <span>{{ patient.fonctionPatient }}</span>
-                    </dd>
-                    <dt><span jhiTranslate="hpdApp.patient.situationSociale">Situation Sociale</span></dt>
-                    <dd>
-                        <span>{{ patient.situationSociale }}</span>
-                    </dd>
-                    <dt><span jhiTranslate="hpdApp.patient.solde">Solde</span></dt>
-                    <dd>
-                        <span>{{ patient.solde }}</span>
-                    </dd>
-                    <dt><span jhiTranslate="hpdApp.patient.cartePatient">Carte Patient</span></dt>
-                    <dd>
-                        <span>{{ patient.cartePatient }}</span>
-                    </dd>
-                    <dt><span jhiTranslate="hpdApp.patient.bloque">Bloque</span></dt>
-                    <dd>
-                        <span>{{ patient.bloque }}</span>
-                    </dd>
-                    <dt><span jhiTranslate="hpdApp.patient.dateValidite">Date Validite</span></dt>
-                    <dd>
-                        <span>{{ patient.dateValidite }}</span>
-                    </dd>
-
-
-                    <dt><span jhiTranslate="hpdApp.patient.nomMerePatient">Nom Mere Patient</span></dt>
-                    <dd>
-                        <span>{{ patient.nomMerePatient }}</span>
-                    </dd>
-                    <dt><span jhiTranslate="hpdApp.patient.prenomMerePatient">Prenom Mere Patient</span></dt>
-                    <dd>
-                        <span>{{ patient.prenomMerePatient }}</span>
                     </dd>
 
                 </dl>

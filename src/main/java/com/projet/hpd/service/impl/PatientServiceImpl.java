@@ -66,6 +66,12 @@ public class PatientServiceImpl implements PatientService {
         return patientRepository.findById(id);
     }
 
+    @Override
+    public Optional<Patient> findByCode(String code) {
+        log.debug("Request to get Patient : {}", code);
+        return patientRepository.findPatientByCodePatient(code);
+    }
+
     /**
      * Delete the patient by id.
      *

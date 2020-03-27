@@ -38,6 +38,13 @@ export class PatientService {
       .pipe(map((res: EntityResponseType) => this.convertDateFromServer(res)));
   }
 
+
+  findByCode(code: string): Observable<EntityResponseType> {
+    return this.http
+      .get<IPatient>(`${SERVER_API_URL}/api/patient/${code}`, { observe: 'response' })
+      .pipe(map((res: EntityResponseType) => this.convertDateFromServer(res)));
+  }
+
   query(req?: any): Observable<EntityArrayResponseType> {
     const options = createRequestOption(req);
     return this.http

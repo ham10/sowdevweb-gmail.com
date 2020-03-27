@@ -36,6 +36,8 @@ public interface PatientService {
      */
     Optional<Patient> findOne(Long id);
 
+    Optional<Patient> findByCode(String code);
+
     /**
      * Delete the "id" patient.
      *

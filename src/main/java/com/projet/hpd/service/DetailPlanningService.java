@@ -2,9 +2,12 @@ package com.projet.hpd.service;
 
 import com.projet.hpd.domain.DetailPlanning;
 
+import com.projet.hpd.domain.Medecin;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.time.Instant;
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -28,6 +31,8 @@ public interface DetailPlanningService {
      */
     Page<DetailPlanning> findAll(Pageable pageable);
 
+    List<DetailPlanning> findAllByPlanning(Instant dateDebut , Medecin medecin);
+    List<DetailPlanning> findAllByMedecin(Long id);
     /**
      * Get the "id" detailPlanning.
      *

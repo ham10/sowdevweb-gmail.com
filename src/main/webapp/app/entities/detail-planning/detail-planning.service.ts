@@ -7,6 +7,7 @@ import * as moment from 'moment';
 import { SERVER_API_URL } from 'app/app.constants';
 import { createRequestOption } from 'app/shared/util/request-util';
 import { IDetailPlanning } from 'app/shared/model/detail-planning.model';
+import {IMedecin} from "app/shared/model/medecin.model";
 
 type EntityResponseType = HttpResponse<IDetailPlanning>;
 type EntityArrayResponseType = HttpResponse<IDetailPlanning[]>;
@@ -41,6 +42,12 @@ export class DetailPlanningService {
     const options = createRequestOption(req);
     return this.http
       .get<IDetailPlanning[]>(this.resourceUrl, { params: options, observe: 'response' })
+      .pipe(map((res: EntityArrayResponseType) => this.convertDateArrayFromServer(res)));
+  }
+
+  findAllByMedecin(id: number): Observable<EntityArrayResponseType> {
+    return this.http
+      .get<IDetailPlanning[]>(`${this.resourceUrl}/${id}/medecin`, { observe: 'response' })
       .pipe(map((res: EntityArrayResponseType) => this.convertDateArrayFromServer(res)));
   }
 

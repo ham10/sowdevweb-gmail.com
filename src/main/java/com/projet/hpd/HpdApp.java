@@ -17,6 +17,7 @@ import org.springframework.core.env.Environment;
 import javax.annotation.PostConstruct;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.time.Instant;
 import java.util.Arrays;
 import java.util.Collection;
 
@@ -62,6 +63,7 @@ public class HpdApp {
         DefaultProfileUtil.addDefaultProfile(app);
         Environment env = app.run(args).getEnvironment();
         logApplicationStartup(env);
+
     }
 
     private static void logApplicationStartup(Environment env) {

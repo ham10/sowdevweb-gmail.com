@@ -19,6 +19,7 @@
       "num": "Num",
       "libelle": "Libelle",
       "dateCreated": "Date Created",
+      "detailPlanning": "Detail Planning",
       "medecin": "Medecin",
       "typePlanning": "Type Planning"
     }

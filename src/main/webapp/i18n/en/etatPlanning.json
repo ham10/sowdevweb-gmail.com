@@ -17,7 +17,8 @@
         "title": "Etat Planning"
       },
       "code": "Code",
-      "libelle": "Libelle"
+      "libelle": "Libelle",
+      "detailPlanning": "Detail Planning"
     }
   }
 }

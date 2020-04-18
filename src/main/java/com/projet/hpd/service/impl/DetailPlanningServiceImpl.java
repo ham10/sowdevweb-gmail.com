@@ -1,5 +1,6 @@
 package com.projet.hpd.service.impl;
 
+import com.projet.hpd.domain.Medecin;
 import com.projet.hpd.service.DetailPlanningService;
 import com.projet.hpd.domain.DetailPlanning;
 import com.projet.hpd.repository.DetailPlanningRepository;
@@ -11,6 +12,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.Instant;
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -75,5 +78,15 @@ public class DetailPlanningServiceImpl implements DetailPlanningService {
     public void delete(Long id) {
         log.debug("Request to delete DetailPlanning : {}", id);
         detailPlanningRepository.deleteById(id);
+    }
+
+    @Override
+    public List<DetailPlanning> findAllByPlanning(Instant dateDebut, Medecin medecin) {
+        return detailPlanningRepository.getDetailPlanningByDateDebutAndPlanning_Medecin(dateDebut, medecin);
+    }
+
+    @Override
+    public List<DetailPlanning> findAllByMedecin(Long id) {
+        return detailPlanningRepository.getAllByMedecin(id);
     }
 }

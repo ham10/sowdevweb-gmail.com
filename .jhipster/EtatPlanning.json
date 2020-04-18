@@ -10,7 +10,14 @@
             "fieldType": "String"
         }
     ],
-    "relationships": [],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "detailPlanning",
+            "otherEntityRelationshipName": "etatPlanning",
+            "relationshipName": "detailPlanning"
+        }
+    ],
     "changelogDate": "20200325200200",
     "entityTableName": "etat_planning",
     "dto": "no",

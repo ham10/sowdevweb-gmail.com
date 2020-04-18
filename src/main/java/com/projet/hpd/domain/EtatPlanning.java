@@ -6,6 +6,8 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 import javax.persistence.*;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * A EtatPlanning.
@@ -27,6 +29,10 @@ public class EtatPlanning implements Serializable {
 
     @Column(name = "libelle")
     private String libelle;
+
+    @OneToMany(mappedBy = "etatPlanning")
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<DetailPlanning> detailPlannings = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -61,6 +67,31 @@ public class EtatPlanning implements Serializable {
 
     public void setLibelle(String libelle) {
         this.libelle = libelle;
+    }
+
+    public Set<DetailPlanning> getDetailPlannings() {
+        return detailPlannings;
+    }
+
+    public EtatPlanning detailPlannings(Set<DetailPlanning> detailPlannings) {
+        this.detailPlannings = detailPlannings;
+        return this;
+    }
+
+    public EtatPlanning addDetailPlanning(DetailPlanning detailPlanning) {
+        this.detailPlannings.add(detailPlanning);
+        detailPlanning.setEtatPlanning(this);
+        return this;
+    }
+
+    public EtatPlanning removeDetailPlanning(DetailPlanning detailPlanning) {
+        this.detailPlannings.remove(detailPlanning);
+        detailPlanning.setEtatPlanning(null);
+        return this;
+    }
+
+    public void setDetailPlannings(Set<DetailPlanning> detailPlannings) {
+        this.detailPlannings = detailPlannings;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

@@ -1,6 +1,7 @@
 package com.projet.hpd.web.rest;
 
 import com.projet.hpd.domain.DetailPlanning;
+import com.projet.hpd.repository.MedecinRepository;
 import com.projet.hpd.service.DetailPlanningService;
 import com.projet.hpd.web.rest.errors.BadRequestAlertException;
 
@@ -9,6 +10,7 @@ import io.github.jhipster.web.util.PaginationUtil;
 import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -20,6 +22,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.time.Instant;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -38,6 +42,9 @@ public class DetailPlanningResource {
     private String applicationName;
 
     private final DetailPlanningService detailPlanningService;
+
+    @Autowired
+    private MedecinRepository medecinRepository;
 
     public DetailPlanningResource(DetailPlanningService detailPlanningService) {
         this.detailPlanningService = detailPlanningService;
@@ -121,5 +128,11 @@ public class DetailPlanningResource {
         log.debug("REST request to delete DetailPlanning : {}", id);
         detailPlanningService.delete(id);
         return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString())).build();
+    }
+
+    @GetMapping("/detail-plannings/{id}/medecin")
+    public List<DetailPlanning> findByDateAndMedecin(@PathVariable Long id){
+        return detailPlanningService.findAllByMedecin(id);
+
     }
 }

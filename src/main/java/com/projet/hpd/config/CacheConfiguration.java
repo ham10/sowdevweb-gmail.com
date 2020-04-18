@@ -246,6 +246,8 @@ public class CacheConfiguration {
             createCache(cm, com.projet.hpd.domain.Question.class.getName());
             createCache(cm, com.projet.hpd.domain.Reponse.class.getName());
             createCache(cm, com.projet.hpd.domain.TypeQuestion.class.getName());
+            createCache(cm, com.projet.hpd.domain.Planning.class.getName() + ".detailPlannings");
+            createCache(cm, com.projet.hpd.domain.EtatPlanning.class.getName() + ".detailPlannings");
             // jhipster-needle-ehcache-add-entry
         };
     }

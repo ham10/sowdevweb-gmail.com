@@ -16,6 +16,12 @@
     ],
     "relationships": [
         {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "detailPlanning",
+            "otherEntityRelationshipName": "planning",
+            "relationshipName": "detailPlanning"
+        },
+        {
             "relationshipType": "many-to-one",
             "otherEntityName": "medecin",
             "otherEntityRelationshipName": "planning",

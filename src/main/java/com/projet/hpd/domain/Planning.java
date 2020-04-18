@@ -8,6 +8,8 @@ import javax.persistence.*;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * A Planning.
@@ -32,6 +34,10 @@ public class Planning implements Serializable {
 
     @Column(name = "date_created")
     private LocalDate dateCreated;
+
+    @OneToMany(mappedBy = "planning")
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<DetailPlanning> detailPlannings = new HashSet<>();
 
     @ManyToOne
     @JsonIgnoreProperties("plannings")
@@ -87,6 +93,31 @@ public class Planning implements Serializable {
 
     public void setDateCreated(LocalDate dateCreated) {
         this.dateCreated = dateCreated;
+    }
+
+    public Set<DetailPlanning> getDetailPlannings() {
+        return detailPlannings;
+    }
+
+    public Planning detailPlannings(Set<DetailPlanning> detailPlannings) {
+        this.detailPlannings = detailPlannings;
+        return this;
+    }
+
+    public Planning addDetailPlanning(DetailPlanning detailPlanning) {
+        this.detailPlannings.add(detailPlanning);
+        detailPlanning.setPlanning(this);
+        return this;
+    }
+
+    public Planning removeDetailPlanning(DetailPlanning detailPlanning) {
+        this.detailPlannings.remove(detailPlanning);
+        detailPlanning.setPlanning(null);
+        return this;
+    }
+
+    public void setDetailPlannings(Set<DetailPlanning> detailPlannings) {
+        this.detailPlannings = detailPlannings;
     }
 
     public Medecin getMedecin() {

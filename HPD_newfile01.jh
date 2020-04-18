@@ -1808,7 +1808,11 @@ relationship OneToMany
     BonDeCommande to LigneCommande{bonDeCommande}
     TypeBonCom to BonDeCommande{typeBonDeCommande}
     Fournisseur to ProdFournis{fournisseur}
+    Planning{detailPlanning} to DetailPlanning{planning}
+    EtatPlanning to DetailPlanning{etatPlanning}
+
 }
+
 
 /**
  * One to one relationship.
@@ -1819,11 +1823,7 @@ relationship OneToOne
 }
 
 
-relationship ManyToOne
-{
-    DetailPlanning{planning} to Planning
-    DetailPlanning {etatPlanning} to EtatPlanning
-}
+
 
 relationship ManyToOne
 {

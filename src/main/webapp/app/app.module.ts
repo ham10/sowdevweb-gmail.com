@@ -15,9 +15,11 @@ import { ConnexionComponent } from './connexion/connexion.component';
 import { MenuModule } from 'app/menu/menu.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// import {HpdEntityModule} from "app/entities/entity.module";
 
 @NgModule({
-  imports: [BrowserModule, BrowserAnimationsModule, HpdSharedModule, HpdCoreModule, HpdAppRoutingModule, MenuModule, FontAwesomeModule],
+  imports: [BrowserModule, BrowserAnimationsModule, HpdSharedModule, HpdCoreModule, HpdAppRoutingModule, MenuModule, FontAwesomeModule
+  ],
   declarations: [
     MainComponent,
     NavbarComponent,

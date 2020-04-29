@@ -1,6 +1,7 @@
 package com.projet.hpd.web.rest;
 
 import com.projet.hpd.domain.Medecin;
+import com.projet.hpd.domain.Patient;
 import com.projet.hpd.service.MedecinService;
 import com.projet.hpd.web.rest.errors.BadRequestAlertException;
 
@@ -121,5 +122,12 @@ public class MedecinResource {
         log.debug("REST request to delete Medecin : {}", id);
         medecinService.delete(id);
         return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString())).build();
+    }
+
+    @GetMapping("/medecinss/{numpiece}")
+    public ResponseEntity<Medecin> getMedecinByNumpiece(@PathVariable Integer numpiece) {
+        log.debug("REST request to get Medecin by numpiece : {}", numpiece);
+        Optional<Medecin> medecin = medecinService.findbynumeropiece(numpiece);
+        return ResponseUtil.wrapOrNotFound(medecin);
     }
 }

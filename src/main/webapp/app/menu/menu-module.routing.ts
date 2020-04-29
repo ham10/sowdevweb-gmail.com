@@ -22,6 +22,14 @@ const routes: Routes = [
       {
         path: 'planning',
         loadChildren: () => import('../entities/planning/planning.module').then(m => m.HpdPlanningModule)
+      },
+      {
+        path: 'medecin',
+        loadChildren: () => import('../entities/medecin/medecin.module').then(m => m.HpdMedecinModule)
+      },
+      {
+        path: 'type-planning',
+        loadChildren: () => import('../entities/type-planning/type-planning.module').then(m => m.HpdTypePlanningModule)
       }
     ]
   }

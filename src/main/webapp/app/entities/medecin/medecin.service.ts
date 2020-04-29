@@ -8,6 +8,7 @@ import { DATE_FORMAT } from 'app/shared/constants/input.constants';
 import { SERVER_API_URL } from 'app/app.constants';
 import { createRequestOption } from 'app/shared/util/request-util';
 import { IMedecin } from 'app/shared/model/medecin.model';
+import { IPatient } from 'app/shared/model/patient.model';
 
 type EntityResponseType = HttpResponse<IMedecin>;
 type EntityArrayResponseType = HttpResponse<IMedecin[]>;
@@ -35,6 +36,12 @@ export class MedecinService {
   find(id: number): Observable<EntityResponseType> {
     return this.http
       .get<IMedecin>(`${this.resourceUrl}/${id}`, { observe: 'response' })
+      .pipe(map((res: EntityResponseType) => this.convertDateFromServer(res)));
+  }
+
+  findByNumPiece(numpiece: Number): Observable<EntityResponseType> {
+    return this.http
+      .get<IMedecin>(`${SERVER_API_URL}/api/medecinss/${numpiece}`, { observe: 'response' })
       .pipe(map((res: EntityResponseType) => this.convertDateFromServer(res)));
   }
 

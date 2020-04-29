@@ -14,4 +14,5 @@ import java.util.Optional;
 @Repository
 public interface PatientRepository extends JpaRepository<Patient, Long> {
     public Optional<Patient> findPatientByCodePatient(String code);
+
 }

@@ -23,6 +23,49 @@
                            formControlName="prenom"/>
                 </div>
 
+                <div class="row">
+                    <form  class="form-inline" (ngSubmit)="searchMedecin()" [formGroup]="searchForm">
+                        <input type="text" placeholder="Rechercher" class="form-control" formControlName="nameSearch">
+                        <button type="submit" [disabled]="searchForm.invalid" class="btn btn-primary"><fa-icon icon="search"></fa-icon></button>
+                    </form>
+                </div>
+
+
+                <div class="col-4 card">
+                    <div class="card-header">Info medecin</div>
+                    <div class="card-body">
+                        <div *ngIf="medecin == null" class="alert alert-warning">
+                            Veuillez rechercher un medecin
+                        </div>
+                        <div *ngIf="medecin != null">
+                            <dl class="row-md jh-entity-details">
+                                <dt><span jhiTranslate="hpdApp.patient.codePatient">Code Patient</span></dt>
+                                <dd>
+                                    <span>{{ medecin.numeroPiece }}</span>
+                                </dd>
+                                <dt><span jhiTranslate="hpdApp.patient.nomPatient">Nom Patient</span></dt>
+                                <dd>
+                                    <span>{{ medecin.nomMedecin }}</span>
+                                </dd>
+                                <dt><span jhiTranslate="hpdApp.patient.prenom">Prenom</span></dt>
+                                <dd>
+                                    <span>{{ medecin.prenom }}</span>
+                                </dd>
+                                <dt><span jhiTranslate="hpdApp.patient.adresse">Adresse</span></dt>
+                                <dd>
+                                    <span>{{ medecin.adresse }}</span>
+                                </dd>
+                                <dt><span jhiTranslate="hpdApp.patient.email">Email</span></dt>
+
+
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="hpdApp.medecin.adresse" for="field_adresse">Adresse</label>
                     <input type="text" class="form-control" name="adresse" id="field_adresse"

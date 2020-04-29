@@ -1,5 +1,6 @@
 package com.projet.hpd.service.impl;
 
+import com.projet.hpd.domain.Patient;
 import com.projet.hpd.service.MedecinService;
 import com.projet.hpd.domain.Medecin;
 import com.projet.hpd.repository.MedecinRepository;
@@ -65,6 +66,14 @@ public class MedecinServiceImpl implements MedecinService {
         log.debug("Request to get Medecin : {}", id);
         return medecinRepository.findById(id);
     }
+
+    @Override
+    public Optional<Medecin> findbynumeropiece(Integer numpiece) {
+        log.debug("Request to get Patient : {}", numpiece);
+        return medecinRepository.findMedecinByNumeroPiece(numpiece);
+    }
+
+
 
     /**
      * Delete the medecin by id.

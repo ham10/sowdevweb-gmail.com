@@ -2,6 +2,7 @@ package com.projet.hpd.service;
 
 import com.projet.hpd.domain.Medecin;
 
+import com.projet.hpd.domain.Patient;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -35,6 +36,9 @@ public interface MedecinService {
      * @return the entity.
      */
     Optional<Medecin> findOne(Long id);
+
+    Optional<Medecin> findbynumeropiece(Integer numpiece);
+
 
     /**
      * Delete the "id" medecin.

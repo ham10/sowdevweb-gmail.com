@@ -38,6 +38,7 @@ public interface PatientService {
 
     Optional<Patient> findByCode(String code);
 
+
     /**
      * Delete the "id" patient.
      *

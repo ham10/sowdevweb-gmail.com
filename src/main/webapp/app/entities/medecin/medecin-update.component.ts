@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 
 import { IMedecin, Medecin } from 'app/shared/model/medecin.model';
 import { MedecinService } from './medecin.service';
+import { IPatient } from 'app/shared/model/patient.model';
 
 @Component({
   selector: 'jhi-medecin-update',
@@ -19,7 +20,11 @@ export class MedecinUpdateComponent implements OnInit {
   dateValiditeDp: any;
   dateCreatedDp: any;
   dateUpdatedDp: any;
-
+  medecin: IMedecin | null = null;
+  dateRdvDp: any;
+  searchForm = this.fb.group({
+    nameSearch: ['', Validators.required]
+  });
   editForm = this.fb.group({
     id: [],
     nomMedecin: [],
@@ -50,7 +55,14 @@ export class MedecinUpdateComponent implements OnInit {
       this.updateForm(medecin);
     });
   }
-
+  searchMedecin(): void {
+    if (this.searchForm.invalid) {
+      return;
+    } else {
+      const numpieceMedecin = this.searchForm.value.nameSearch;
+      this.medecinService.findByNumPiece(numpieceMedecin).subscribe((res: HttpResponse<IMedecin>) => (this.medecin = res.body));
+    }
+  }
   updateForm(medecin: IMedecin): void {
     this.editForm.patchValue({
       id: medecin.id,

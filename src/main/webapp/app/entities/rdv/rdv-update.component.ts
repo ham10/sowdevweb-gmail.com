@@ -1,30 +1,29 @@
-import {Component, OnInit, TemplateRef, ViewChild} from '@angular/core';
-import {HttpResponse} from '@angular/common/http';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { HttpResponse } from '@angular/common/http';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import {FormBuilder, Validators} from '@angular/forms';
-import {ActivatedRoute} from '@angular/router';
-import {Observable, Subject} from 'rxjs';
+import { FormBuilder, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { Observable, Subject } from 'rxjs';
 import * as moment from 'moment';
-import {DATE_TIME_FORMAT} from 'app/shared/constants/input.constants';
+import { DATE_TIME_FORMAT } from 'app/shared/constants/input.constants';
 
-import {IRDV, RDV} from 'app/shared/model/rdv.model';
-import {RDVService} from './rdv.service';
-import {IPatient} from 'app/shared/model/patient.model';
-import {PatientService} from 'app/entities/patient/patient.service';
-import {IPlanning} from 'app/shared/model/planning.model';
-import {PlanningService} from 'app/entities/planning/planning.service';
-import {IEtatRdv} from 'app/shared/model/etat-rdv.model';
-import {EtatRdvService} from 'app/entities/etat-rdv/etat-rdv.service';
-import {  isSameDay, isSameMonth} from 'date-fns';
-import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {CalendarEvent, CalendarEventAction, CalendarEventTimesChangedEvent, CalendarView , DAYS_OF_WEEK} from 'angular-calendar';
+import { IRDV, RDV } from 'app/shared/model/rdv.model';
+import { RDVService } from './rdv.service';
+import { IPatient } from 'app/shared/model/patient.model';
+import { PatientService } from 'app/entities/patient/patient.service';
+import { IPlanning } from 'app/shared/model/planning.model';
+import { PlanningService } from 'app/entities/planning/planning.service';
+import { IEtatRdv } from 'app/shared/model/etat-rdv.model';
+import { EtatRdvService } from 'app/entities/etat-rdv/etat-rdv.service';
+import { isSameDay, isSameMonth } from 'date-fns';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { CalendarEvent, CalendarEventAction, CalendarEventTimesChangedEvent, CalendarView, DAYS_OF_WEEK } from 'angular-calendar';
 // import {Moment} from "moment";
-import {DetailPlanningService} from "app/entities/detail-planning/detail-planning.service";
-import {IDetailPlanning} from "app/shared/model/detail-planning.model";
-import {MedecinService} from "app/entities/medecin/medecin.service";
-import {Moment} from "moment";
+import { DetailPlanningService } from 'app/entities/detail-planning/detail-planning.service';
+import { IDetailPlanning } from 'app/shared/model/detail-planning.model';
+import { MedecinService } from 'app/entities/medecin/medecin.service';
+import { Moment } from 'moment';
 // import {IMedecin} from "app/shared/model/medecin.model";
-
 
 type SelectableEntity = IPatient | IPlanning | IEtatRdv;
 const colors: any = {
@@ -57,8 +56,6 @@ export class RDVUpdateComponent implements OnInit {
   weekStartsOn: number = DAYS_OF_WEEK.MONDAY;
 
   weekendDays: number[] = [DAYS_OF_WEEK.FRIDAY, DAYS_OF_WEEK.SATURDAY];
-
-
 
   viewDate: Date = new Date();
   modalData: {
@@ -146,7 +143,6 @@ export class RDVUpdateComponent implements OnInit {
     // }
   ];
 
-
   constructor(
     protected rDVService: RDVService,
     protected patientService: PatientService,
@@ -174,52 +170,43 @@ export class RDVUpdateComponent implements OnInit {
 
       this.etatRdvService.query().subscribe((res: HttpResponse<IEtatRdv[]>) => (this.etatrdvs = res.body || []));
     });
-
-
   }
 
   loadPlanning(): void {
-    this.detailPlanningService.findAllByMedecin(152).subscribe((res) => {
+    this.detailPlanningService.findAllByMedecin(452).subscribe(res => {
       this.details = res.body || [];
-      if(this.details.length > 0){
-
-        this.details.map((d) => {
-          const dateDebut : Moment = d.dateDebut as Moment;
-          const dateFin : Moment = d.dateFin as Moment;
-          const  titre: string = d.titre as string;
+      if (this.details.length > 0) {
+        this.details.map(d => {
+          const dateDebut: Moment = d.dateDebut as Moment;
+          const dateFin: Moment = d.dateFin as Moment;
+          const titre: string = d.titre as string;
           const t: CalendarEvent = {
-              id: 'ev'+d.id,
-              start: dateDebut,
-              end: dateFin,
-              title: titre,
-              color: colors.red,
-              actions: this.actions,
-              allDay: true,
-              resizable: {
-                beforeStart: true,
-                afterEnd: true
-              },
-              draggable: true
-            };
+            id: 'ev' + d.id,
+            start: dateDebut,
+            end: dateFin,
+            title: titre,
+            color: colors.red,
+            actions: this.actions,
+            allDay: true,
+            resizable: {
+              beforeStart: true,
+              afterEnd: true
+            },
+            draggable: true
+          };
           this.events.push(t);
           this.refresh.next();
         });
-
       }
     });
-
-
-
-
   }
-  searchPatient(): void{
-    if(this.searchForm.invalid){
-      return ;
-    }else {
+  searchPatient(): void {
+    if (this.searchForm.invalid) {
+      return;
+    } else {
       const codePatient = this.searchForm.value.nameSearch;
-      this.patientService.findByCode(codePatient).subscribe((res: HttpResponse<IPatient>) => this.patient = res.body);
+      this.patientService.findByCode(codePatient).subscribe((res: HttpResponse<IPatient>) => (this.patient = res.body));
     }
-
   }
   updateForm(rDV: IRDV): void {
     this.editForm.patchValue({
@@ -280,7 +267,6 @@ export class RDVUpdateComponent implements OnInit {
     return item.id;
   }
 
-
   dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
     if (isSameMonth(date, this.viewDate)) {
       if ((isSameDay(this.viewDate, date) && this.activeDayIsOpen === true) || events.length === 0) {
@@ -303,7 +289,7 @@ export class RDVUpdateComponent implements OnInit {
       }
       return iEvent;
     });
-     this.handleEvent('Dropped or resized', event);
+    this.handleEvent('Dropped or resized', event);
   }
 
   handleEvent(action: string, event: CalendarEvent): void {
@@ -328,7 +314,6 @@ export class RDVUpdateComponent implements OnInit {
   //     }
   //   ];
   // }
-
 
   deleteEvent(eventToDelete: CalendarEvent): void {
     this.events = this.events.filter(event => event !== eventToDelete);

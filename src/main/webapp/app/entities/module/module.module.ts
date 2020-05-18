@@ -11,6 +11,7 @@ import { moduleRoute } from './module.route';
 @NgModule({
   imports: [HpdSharedModule, RouterModule.forChild(moduleRoute)],
   declarations: [ModuleComponent, ModuleDetailComponent, ModuleUpdateComponent, ModuleDeleteDialogComponent],
+  exports: [ModuleComponent],
   entryComponents: [ModuleDeleteDialogComponent]
 })
 export class HpdModuleModule {}

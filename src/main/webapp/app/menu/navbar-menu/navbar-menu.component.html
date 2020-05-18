@@ -1,6 +1,7 @@
 
 
     <header id="dc-header" class="dc-header dc-haslayout dc-header-dashboard">
+        <div align="center ">
         <div class="dc-navigationarea">
             <div class="container-fluid">
                 <div class="row">
@@ -18,21 +19,53 @@
                                     </button>
                                     <div class="collapse navbar-collapse dc-navigation" id="navbarNav">
                                         <ul id="menu-header-menu" class="navbar-nav">
+                                          <div class="dc-userlogin dc-userlogedin sp-top-menu">
+
+                                                <li class="" align="left" >
+                                                    <a  routerLink="/menu/hospitalisation">Hospitalisation</a>
+                                                </li>
+
+                                                <nav class="dc-usernav">
+                                                    <ul class="dashboard-menu-top">
+                                                        <li class="">
+                                                            <a href="">
+                                                                <i class="ti-settings"></i>
+                                                                <span>Create</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="">
+                                                                <i class="ti-shift-right"></i>
+                                                                <span>Update</span>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </nav>
+                                          </div>
+                                            <div class="dc-userlogin dc-userlogedin sp-top-menu">
                                             <li id="menu-item-199" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown menu-item-199">
                                                 <a routerLink="/menu/planning">Planning médecin</a>
                                             </li>
+                                            </div>
+                                            <div class="dc-userlogin dc-userlogedin sp-top-menu">
                                             <li id="menu-item-1423" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown menu-item-1423">
                                                 <a routerLink="/menu/rdv">Rendez-vous</a>
                                             </li>
+                                            </div>
+                                            <div class="dc-userlogin dc-userlogedin sp-top-menu">
                                             <li id="menu-item-155" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown menu-item-155">
                                                 <a routerLink="/menu/patient">Gestion des patients</a>
                                             </li>
-                                            <li id="menu-item-156" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown menu-item-155">
-                                                <a  routerLink="/menu/hospitalisation">Hospitalisation</a>
-                                            </li>
+                                            </div>
+
+                                          
+                                            <div class="dc-userlogin dc-userlogedin sp-top-menu">
+
                                             <li id="menu-item-152" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown menu-item-155">
                                                 <a  routerLink="/menu/medecin">Medecin</a>
-                                            </li>
+                                           </li>
+                                            </div>
+
                                         </ul>
                                     </div>
                                 </nav>
@@ -66,5 +99,6 @@
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </header>
